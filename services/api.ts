@@ -30,20 +30,32 @@ export async function sendUserMessage(msg: string, sessionId: string, language: 
   return lessonModeResponse(`پیام شما دریافت شد: ${msg}`)
 }
 
-export async function saveConversation() {
+export async function saveConversation(_messages?: unknown) {
   return { ok: true }
 }
 
-export async function saveTrip() {
-  return { tripId: `lesson_${Date.now()}` }
+export async function saveTrip(_data?: unknown) {
+  const id = `lesson_${Date.now()}`
+  return { id, tripId: id }
 }
 
-export async function extractPassengerDataWithOpenAI() {
-  return { passengers: [] }
+export async function extractPassengerDataWithOpenAI(_messages?: unknown) {
+  return {
+    passengers: [] as Array<Record<string, unknown>>,
+    travelType: undefined as string | undefined,
+    airportName: '',
+    travelDate: '',
+    passengerCount: '',
+    flightNumber: '',
+    flightType: '',
+    additionalInfo: '',
+    buyer_phone: '',
+    buyer_email: '',
+  }
 }
 
-export async function createOrder() {
-  return { id: '' }
+export async function createOrder(_data?: unknown) {
+  return { id: '', success: true, message: '', data: null, error: undefined as string | undefined }
 }
 
 export async function createPassenger() {

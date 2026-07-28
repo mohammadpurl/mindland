@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useVAD } from "./useVAD";
 import { useChatContext } from "./useChat";
 import { Language } from "./useChat";
+import { MessageSender } from "@/types/type";
 
 
 // SpeechRecognition types
@@ -320,7 +321,7 @@ export function useAutoSTT(
         const userText = normalizeText(finalTranscript);
         const currentMessages = messagesRef.current;
         const lastAvatarMessage =
-          currentMessages.length > 0 && currentMessages[currentMessages.length - 1].sender === "AVATAR"
+          currentMessages.length > 0 && currentMessages[currentMessages.length - 1].sender === MessageSender.AVATAR
             ? currentMessages[currentMessages.length - 1]
             : null;
 

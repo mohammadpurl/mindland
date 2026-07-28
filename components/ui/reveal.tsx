@@ -17,9 +17,10 @@ interface RevealProps {
   children:   ReactNode;
   delay?:     number;
   className?: string;
+  style?:     CSSProperties;
 }
 
-export function Reveal({ children, delay = 0, className }: RevealProps) {
+export function Reveal({ children, delay = 0, className, style }: RevealProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,6 +28,7 @@ export function Reveal({ children, delay = 0, className }: RevealProps) {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>

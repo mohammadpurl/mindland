@@ -40,6 +40,9 @@
     "node_modules",
     "old",
     "old2",
-    "_archive"
+    "_archive",
+    "app/components/TravelForm.tsx",
+    "app/components/NotificationTest.tsx",
+    "app/components/ui/Science.tsx"
   ]
 }

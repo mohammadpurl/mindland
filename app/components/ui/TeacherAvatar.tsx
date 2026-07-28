@@ -23,7 +23,7 @@ export function TeacherAvatar({ teacher, size = 80 }: Props) {
   const svgRef  = useRef<SVGSVGElement>(null)
   const mouthRef = useRef<SVGPathElement>(null)
   const bodyRef  = useRef<SVGRectElement>(null)
-  const timerRef = useRef<ReturnType<typeof setInterval>>()
+  const timerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined)
 
   // idle float
   useEffect(() => {
