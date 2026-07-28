@@ -1,0 +1,95 @@
+---
+alwaysApply: true
+---
+Analyze the entire project and refactor it to be fully SEO-optimized and production-ready.
+
+This is an SEO-critical website. Prioritize:
+- Search engine visibility
+- Google indexing
+- Performance
+- Semantic HTML
+- Accessibility
+- Mobile-first optimization
+- Core Web Vitals
+
+Requirements:
+
+1. Technical SEO
+- Generate and configure sitemap.xml
+- Generate robots.txt
+- Add canonical URLs to all pages
+- Ensure all important pages are indexable
+- Remove duplicate metadata issues
+- Fix broken internal links
+- Use clean SEO-friendly URLs
+- Add proper redirects where necessary
+
+2. Metadata Optimization
+- Add dynamic metadata for every page
+- Optimize:
+  - title
+  - meta description
+  - Open Graph tags
+  - Twitter cards
+- Ensure unique metadata per page
+- Add proper favicon and social preview support
+
+3. Next.js Optimization
+- Use App Router best practices
+- Use SSR, SSG, or ISR where appropriate
+- Avoid unnecessary client-side rendering
+- Optimize hydration performance
+- Optimize bundle size
+- Enable caching strategies where useful
+
+4. Performance Optimization
+- Improve Lighthouse SEO and Performance scores
+- Optimize Largest Contentful Paint (LCP)
+- Optimize Cumulative Layout Shift (CLS)
+- Optimize First Input Delay (FID/INP)
+- Lazy load non-critical content
+- Optimize fonts and assets
+- Compress and optimize images
+- Use next/image correctly
+
+5. Semantic HTML & Accessibility
+- Replace non-semantic structures with semantic HTML
+- Ensure proper heading hierarchy (h1-h6)
+- Add alt text to all images
+- Improve accessibility and ARIA support
+- Ensure keyboard navigation support
+
+6. Structured Data
+- Add Schema.org structured data where appropriate:
+  - Product
+  - Article
+  - Organization
+  - Breadcrumb
+  - FAQ
+  - LocalBusiness
+- Validate structured data implementation
+
+7. Content Structure
+- Improve internal linking
+- Ensure proper heading structure
+- Optimize content readability
+- Remove thin or duplicate content
+- Improve crawlability
+
+8. Mobile Optimization
+- Ensure fully responsive mobile-first design
+- Optimize touch interactions
+- Optimize mobile performance
+
+9. Deliverables
+- Refactor the codebase directly
+- Explain all SEO improvements made
+- List remaining SEO weaknesses if any
+- Suggest additional advanced SEO improvements
+- Ensure the project follows modern SEO best practices
+
+Before making changes:
+- Analyze the entire architecture
+- Detect SEO weaknesses
+- Create a prioritized optimization plan
+- Then implement improvements step by step

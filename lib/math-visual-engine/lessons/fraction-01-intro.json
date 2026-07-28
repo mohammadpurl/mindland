@@ -1,0 +1,71 @@
+{
+  "id": "fraction-01-intro",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 1,
+  "level": 1,
+  "title": "درس ۱ — کسر یعنی چه؟",
+  "description": "با دایره رنگی یاد می‌گیریم کسر یعنی چند قسمت از یک کل",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! در این درس با دایره‌های رنگی یاد می‌گیریم کسر یعنی چه.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "divide",
+      "title": "تدریس — تقسیم مساوی",
+      "speak": "یک دایره را به چهار قسمت مساوی تقسیم می‌کنیم. هر برش اندازه یکسان است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "denominator": 4,
+          "numerator": 1,
+          "divideAnimation": true,
+          "title": "تقسیم به ۴ قسمت مساوی"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "numerator-denominator",
+      "title": "تدریس — صورت و مخرج",
+      "speak": "یک قسمت از چهار قسمت — یعنی یک چهارم یا ۱/۴. بالا صورت، پایین مخرج.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "denominator": 4,
+          "numerator": 1,
+          "title": "۱/۴"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-1-4",
+      "title": "تمرین — یک چهارم",
+      "speak": "حالا خودت یک برش از چهار برش را روی دایره بگذار!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 1, "denominator": 4 },
+          "showTarget": true,
+          "title": "تمرین: ۱/۴"
+        }
+      },
+      "successMessage": "آفرین! یک چهارم را درست ساختی!",
+      "wrongMessage": "یک برش کافی است — دوباره امتحان کن."
+    }
+  ]
+}

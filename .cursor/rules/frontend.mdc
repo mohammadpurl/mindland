@@ -1,0 +1,12 @@
+---
+alwaysApply: true
+---
+
+- Use Next.js App Router
+- Use TypeScript strictly
+- Use TailwindCSS
+- Use Framer Motion for animations
+- Components must be responsive
+- SEO optimized
+- Avoid unnecessary re-renders
+- Prefer Server Components

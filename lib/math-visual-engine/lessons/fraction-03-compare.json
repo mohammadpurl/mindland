@@ -1,0 +1,93 @@
+{
+  "id": "fraction-03-compare",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 3,
+  "level": 2,
+  "title": "درس ۳ — مقایسه کسرها",
+  "description": "کدام کسر بیشتر از دایره را پوشانده؟",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "وقتی مخرج یکی است، کسری بزرگ‌تر است که صورت بزرگ‌تری دارد.",
+      "animation": "Talking",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "compare-1-4-3-4",
+      "title": "تدریس — ۱/۴ و ۳/۴",
+      "speak": "هر دو مخرج ۴ دارند. ۳/۴ از ۱/۴ بزرگ‌تر است چون سه برش برداشته‌ایم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "compareFractions": [
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" },
+            { "numerator": 3, "denominator": 4, "label": "۳/۴" }
+          ],
+          "title": "۳/۴ بزرگ‌تر از ۱/۴"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "same-meaning",
+      "title": "تدریس — ۱/۲ و ۲/۴",
+      "speak": "گاهی دو کسر متفاوت، مقدار یکسان دارند! ۲/۴ همان ۱/۲ است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "compareFractions": [
+            { "numerator": 2, "denominator": 4, "label": "۲/۴" },
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" }
+          ],
+          "title": "۲/۴ = ۱/۲"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-3-4",
+      "title": "تمرین ۱ — ۳/۴",
+      "speak": "سه برش از چهار برش را بساز.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 3, "denominator": 4 },
+          "showTarget": true,
+          "lockDenominator": true,
+          "title": "تمرین: ۳/۴"
+        }
+      },
+      "successMessage": "درست است! ۳/۴ بیشتر از نصف است.",
+      "wrongMessage": "سه برش از چهار برش لازم است."
+    },
+    {
+      "type": "practice",
+      "id": "practice-1-2-as-2-4",
+      "title": "تمرین ۲ — ۲/۴",
+      "speak": "دو برش از چهار برش — همان نصف دایره!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 2, "denominator": 4 },
+          "showTarget": true,
+          "lockDenominator": true,
+          "title": "تمرین: ۲/۴"
+        }
+      },
+      "successMessage": "آفرین! تو استاد کسر شدی!",
+      "wrongMessage": "دو برش از چهار برش بگذار."
+    }
+  ]
+}

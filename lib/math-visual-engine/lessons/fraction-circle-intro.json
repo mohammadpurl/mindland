@@ -1,0 +1,67 @@
+{
+  "id": "fraction-circle-intro",
+  "title": "کسر با دایره — موتور بصری",
+  "description": "درس نمونه با LessonOrchestrator و FractionCircle",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز با دایره‌های رنگی یاد می‌گیریم کسر یعنی چه.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "divide-circle",
+      "title": "تقسیم مساوی",
+      "speak": "نگاه کن! دایره را به چهار قسمت مساوی تقسیم می‌کنیم. هر برش اندازه یکسان دارد.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "denominator": 4,
+          "numerator": 1,
+          "divideAnimation": true,
+          "title": "تقسیم دایره به ۴ قسمت"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "show-fraction",
+      "title": "صورت و مخرج",
+      "speak": "یک قسمت از چهار قسمت — یعنی کسر یک چهارم یا ۱/۴.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "denominator": 4,
+          "numerator": 1,
+          "title": "۱/۴"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-half",
+      "title": "تمرین: ۲/۴",
+      "speak": "حالا خودت دو برش از چهار برش را روی دایره بگذار!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 2, "denominator": 4 },
+          "showTarget": true,
+          "title": "تمرین تعاملی"
+        }
+      },
+      "successMessage": "آفرین! دقیقاً نصف دایره را درست کردی!",
+      "wrongMessage": "نزدیک بود! دوباره بشمار."
+    }
+  ]
+}

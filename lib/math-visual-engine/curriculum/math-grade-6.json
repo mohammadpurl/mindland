@@ -1,0 +1,69 @@
+{
+  "id": "mindland-grade-6",
+  "title": "برنامه درسی پایه ششم",
+  "description": "آموزش پله‌پله ریاضی با آواتار و وایت‌برد تعاملی",
+  "subjects": [
+    {
+      "id": "math",
+      "title": "ریاضی",
+      "description": "ریاضی پایه ششم — از کسر تا هندسه",
+      "grade": 6,
+      "order": 1,
+      "topics": [
+        {
+          "id": "fractions",
+          "title": "کسرها",
+          "description": "معرفی کسر، صورت و مخرج، مقایسه و تمرین تعاملی",
+          "order": 1,
+          "icon": "🍕",
+          "lessons": [
+            {
+              "id": "fraction-01-intro",
+              "title": "درس ۱ — کسر یعنی چه؟",
+              "description": "تقسیم مساوی دایره و مفهوم ۱/۴",
+              "order": 1,
+              "level": 1,
+              "teachSteps": 2,
+              "practiceSteps": 1
+            },
+            {
+              "id": "fraction-02-numerator",
+              "title": "درس ۲ — صورت کسر",
+              "description": "تغییر تعداد برش‌های برداشته‌شده",
+              "order": 2,
+              "level": 2,
+              "teachSteps": 2,
+              "practiceSteps": 2
+            },
+            {
+              "id": "fraction-03-compare",
+              "title": "درس ۳ — مقایسه کسرها",
+              "description": "کدام کسر بزرگ‌تر است؟",
+              "order": 3,
+              "level": 2,
+              "teachSteps": 2,
+              "practiceSteps": 2
+            },
+            {
+              "id": "fraction-04-compare-practice",
+              "title": "درس ۴ — تمرین مقایسه (تولید خودکار)",
+              "description": "تمرین‌های متنوع مقایسه با Practice Generator",
+              "order": 4,
+              "level": 2,
+              "teachSteps": 1,
+              "practiceSteps": 4
+            }
+          ]
+        },
+        {
+          "id": "decimals",
+          "title": "اعداد اعشاری",
+          "description": "به‌زودی — خط اعداد و اعشار",
+          "order": 2,
+          "icon": "📏",
+          "lessons": []
+        }
+      ]
+    }
+  ]
+}

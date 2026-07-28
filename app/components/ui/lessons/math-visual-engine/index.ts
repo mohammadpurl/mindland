@@ -1,0 +1,5 @@
+export { LessonOrchestrator } from './LessonOrchestrator'
+export { LessonOrchestratorClient } from './LessonOrchestratorClient'
+export { MathVisualRenderer } from './MathVisualRenderer'
+export { MATH_VISUAL_REGISTRY, isMathVisualType } from './registry'
+export { FractionCircle } from './visuals/FractionCircle'

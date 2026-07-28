@@ -1,0 +1,78 @@
+'use client'
+
+import type { ReactNode } from 'react'
+import { Layer, Line, Rect, Stage, Text } from 'react-konva'
+import { gridLines } from '@/lib/math-visual-engine/konva-utils'
+
+interface Props {
+  width: number
+  height: number
+  title?: string
+  children: ReactNode
+}
+
+/** قاب وایت‌برد مشترک برای همه ویژوال‌های ریاضی */
+export function KonvaWhiteboard({ width, height, title, children }: Props) {
+  const lines = gridLines(width, height)
+
+  return (
+    <div className="fraction-whiteboard-frame">
+      {title ? <p className="fraction-whiteboard-frame__title">{title}</p> : null}
+      <Stage width={width} height={height} className="rounded-xl overflow-hidden shadow-inner">
+        <Layer listening={false}>
+          <Rect width={width} height={height} fill="#FFFEF7" />
+          {lines.map((l) => (
+            <Line key={l.key} points={l.points} stroke="#E8E4D9" strokeWidth={1} />
+          ))}
+        </Layer>
+        {children}
+      </Stage>
+    </div>
+  )
+}
+
+/** برچسب کسر در Konva */
+export function KonvaFractionLabel({
+  x,
+  y,
+  numerator,
+  denominator,
+  fontSize = 28,
+}: {
+  x: number
+  y: number
+  numerator: number
+  denominator: number
+  fontSize?: number
+}) {
+  const lineW = fontSize + 8
+  return (
+    <>
+      <Text
+        x={x}
+        y={y}
+        text={String(numerator)}
+        fontSize={fontSize}
+        fill="#1e293b"
+        fontStyle="bold"
+        width={lineW}
+        align="center"
+      />
+      <Line
+        points={[x, y + fontSize + 4, x + lineW, y + fontSize + 4]}
+        stroke="#1e293b"
+        strokeWidth={2}
+      />
+      <Text
+        x={x}
+        y={y + fontSize + 10}
+        text={String(denominator)}
+        fontSize={fontSize}
+        fill="#1e293b"
+        fontStyle="bold"
+        width={lineW}
+        align="center"
+      />
+    </>
+  )
+}

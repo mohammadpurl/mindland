@@ -1,0 +1,56 @@
+{
+  "id": "fraction-04-compare-practice",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 4,
+  "level": 2,
+  "title": "درس ۴ — تمرین مقایسه (تولید خودکار)",
+  "description": "چند تمرین متنوع مقایسه کسر — هر بار با generator ساخته می‌شود",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "حالا چند تمرین مقایسه می‌آید. به قسمت رنگی هر دایره نگاه کن و بگو کدام بزرگ‌تر است — یا آیا برابرند.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "remind-compare",
+      "title": "یادآوری — مقایسه",
+      "speak": "اگر مخرج یکی باشد، صورت بزرگ‌تر یعنی کسر بزرگ‌تر. اگر مخرج فرق کند، به اندازهٔ قسمت رنگی نگاه کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "compareFractions": [
+            { "numerator": 1, "denominator": 3, "label": "۱/۳" },
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" }
+          ],
+          "title": "۱/۲ بزرگ‌تر از ۱/۳"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "gen-compare-batch",
+      "title": "تمرین مقایسه",
+      "speak": "کدام کسر بزرگ‌تر است؟",
+      "animation": "Pointing",
+      "generator": "fraction-comparison",
+      "params": {
+        "denominatorRange": [2, 8],
+        "count": 4,
+        "allowImproperFractions": false,
+        "seed": "ui-fraction-04"
+      },
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive"
+      }
+    }
+  ]
+}

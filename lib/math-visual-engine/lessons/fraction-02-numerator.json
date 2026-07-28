@@ -1,0 +1,91 @@
+{
+  "id": "fraction-02-numerator",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 2,
+  "level": 2,
+  "title": "درس ۲ — صورت کسر",
+  "description": "صورت می‌گوید چند برش برداشته‌ایم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "امروز یاد می‌گیریم وقتی دو برش یا سه برش برمی‌داریم، صورت کسر چطور عوض می‌شود.",
+      "animation": "Talking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "two-fourths",
+      "title": "تدریس — ۲/۴",
+      "speak": "دو برش از چهار برش — یعنی دو چهارم یا ۲/۴. این همان نصف دایره است!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "denominator": 4,
+          "numerator": 2,
+          "divideAnimation": true,
+          "title": "۲/۴ = نصف"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "three-sixths",
+      "title": "تدریس — ۳/۶",
+      "speak": "سه برش از شش برش — یعنی ۳/۶. مخرج بزرگ‌تر شد، ولی هنوز کسر داریم!",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "denominator": 6,
+          "numerator": 3,
+          "title": "۳/۶"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-2-4",
+      "title": "تمرین ۱ — ۲/۴",
+      "speak": "دو برش از چهار برش را روی دایره بگذار.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 2, "denominator": 4 },
+          "showTarget": true,
+          "lockDenominator": true,
+          "title": "تمرین: ۲/۴"
+        }
+      },
+      "successMessage": "عالی! نصف دایره درست شد!",
+      "wrongMessage": "به تعداد برش‌های هدف دقت کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-3-6",
+      "title": "تمرین ۲ — ۳/۶",
+      "speak": "حالا سه برش از شش برش را بساز!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 3, "denominator": 6 },
+          "showTarget": true,
+          "lockDenominator": true,
+          "title": "تمرین: ۳/۶"
+        }
+      },
+      "successMessage": "آفرین! ۳/۶ را کامل کردی!",
+      "wrongMessage": "مخرج را ۶ بگذار و سه برش انتخاب کن."
+    }
+  ]
+}
