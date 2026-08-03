@@ -3,7 +3,14 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Sparkles, House, LayoutTemplate, Route, BadgeCheck, WalletCards } from "lucide-react";
+import {
+  Sparkles,
+  House,
+  LayoutTemplate,
+  Route,
+  BookOpen,
+  WalletCards,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface NavbarProps {
@@ -11,19 +18,26 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { label: "ویژگی‌ها", href: "#features" },
-  { label: "نحوه کار", href: "#how-it-works" },
-  { label: "اعتماد کاربران", href: "#teacher-world" },
-  { label: "قیمت‌گذاری", href: "#pricing" },
+  { label: "دروس", href: "/curriculum" },
+  { label: "ویژگی‌ها", href: "/#features" },
+  { label: "نحوه کار", href: "/#how-it-works" },
+  { label: "قیمت‌گذاری", href: "/#pricing" },
 ] as const;
 
 const mobileDockLinks = [
   { label: "خانه", href: "/", Icon: House },
-  { label: "ویژگی‌ها", href: "#features", Icon: LayoutTemplate },
-  { label: "مسیر", href: "#how-it-works", Icon: Route },
-  { label: "اعتماد", href: "#teacher-world", Icon: BadgeCheck },
-  { label: "پلن‌ها", href: "#pricing", Icon: WalletCards },
+  { label: "دروس", href: "/curriculum", Icon: BookOpen },
+  { label: "ویژگی‌ها", href: "/#features", Icon: LayoutTemplate },
+  { label: "مسیر", href: "/#how-it-works", Icon: Route },
+  { label: "پلن‌ها", href: "/#pricing", Icon: WalletCards },
 ] as const;
+
+function resolveHref(lang: string, href: string) {
+  if (href.startsWith("/#")) return `/${lang}${href.slice(1)}`;
+  if (href === "/") return `/${lang}`;
+  if (href.startsWith("/")) return `/${lang}${href}`;
+  return href;
+}
 
 export function Navbar({ lang }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
@@ -44,36 +58,39 @@ export function Navbar({ lang }: NavbarProps) {
           "sticky top-0 z-50 transition-all duration-300",
           scrolled
             ? "bg-[#1E1B4B]/85 backdrop-blur-2xl border-b border-white/10"
-            : "bg-transparent"
+            : "bg-[#0B0F19]/90 backdrop-blur-md border-b border-white/5"
         )}
       >
-      <nav dir="ltr" className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <Link
-          href={`/${lang}/signup`}
-          className="nav-glass-cta inline-flex items-center h-10 px-4 rounded-xl text-xs sm:text-sm font-bold text-white"
+        <nav
+          dir="ltr"
+          className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"
         >
-          شروع رایگان
-        </Link>
+          <Link
+            href={`/${lang}/signup`}
+            className="nav-glass-cta inline-flex items-center h-10 px-4 rounded-xl text-xs sm:text-sm font-bold text-white"
+          >
+            شروع رایگان
+          </Link>
 
-        <div dir="rtl" className="hidden md:flex items-center gap-1">
+          <div dir="rtl" className="hidden md:flex items-center gap-1">
             {navLinks.map(({ label, href }) => (
-              <a
+              <Link
                 key={label}
-                href={href}
+                href={resolveHref(lang, href)}
                 className="px-4 py-2 text-sm text-slate-200 hover:text-white rounded-xl hover:bg-white/10 transition-all duration-150"
               >
                 {label}
-              </a>
+              </Link>
             ))}
           </div>
 
-        <Link href={`/${lang}`} className="flex items-center gap-2 shrink-0">
-          <div className="nav-logo-badge w-8 h-8 rounded-xl flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-white" />
-          </div>
-          <span className="font-extrabold text-xl text-white tracking-tight select-none">
-            مایلند
-          </span>
+          <Link href={`/${lang}`} className="flex items-center gap-2 shrink-0">
+            <div className="nav-logo-badge w-8 h-8 rounded-xl flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-white" />
+            </div>
+            <span className="font-extrabold text-xl text-white tracking-tight select-none">
+              مایلند
+            </span>
           </Link>
         </nav>
       </motion.header>
@@ -84,7 +101,7 @@ export function Navbar({ lang }: NavbarProps) {
             {mobileDockLinks.map(({ label, href, Icon }) => (
               <Link
                 key={label}
-                href={href === "/" ? `/${lang}` : href}
+                href={resolveHref(lang, href)}
                 className="flex flex-col items-center justify-center gap-1 rounded-2xl py-2 text-[11px] text-slate-200"
               >
                 <Icon className="w-4 h-4" />

@@ -26,16 +26,25 @@ export function sliceChipPosition(
   return { x: Math.cos(rad) * radius * factor, y: Math.sin(rad) * radius * factor }
 }
 
-export const PIE_COLORS = [
-  '#FB923C',
-  '#F97316',
-  '#FDBA74',
-  '#FDE68A',
-  '#86EFAC',
-  '#67E8F9',
-  '#C4B5FD',
-  '#F9A8D4',
-]
+/**
+ * رنگ‌های آموزشی کسر — عمداً محدود.
+ * داخل یک دایره همهٔ برش‌های گرفته‌شده یک رنگ‌اند تا کودک
+ * فکر نکند هر قطعه «نوع» متفاوتی است؛ تمایز فقط با تعداد است.
+ */
+export const FRACTION_COLORS = {
+  /** صورت کسر / قسمت انتخاب‌شده */
+  selected: '#F97316',
+  selectedStroke: '#C2410C',
+  /** مخرج خالی / قسمت انتخاب‌نشده */
+  empty: '#FFF7ED',
+  emptyStroke: '#D6D3D1',
+  /** مقایسهٔ دو کسر: هر دایره یک رنگ یکنواخت */
+  compareA: '#6366F1',
+  compareB: '#0EA5E9',
+} as const
+
+/** @deprecated از FRACTION_COLORS.selected استفاده کنید */
+export const PIE_COLORS = [FRACTION_COLORS.selected]
 
 export function gridLines(width: number, height: number, step = 28) {
   const lines: { points: number[]; key: string }[] = []

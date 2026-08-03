@@ -1,0 +1,138 @@
+{
+  "id": "fraction-08-subtract",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 9,
+  "level": 4,
+  "title": "درس ۹ — تفریق کسرها",
+  "description": "تفریق با مخرج یکسان و مخرج متفاوت",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "تفریق کسرها شبیه جمع است. اگر مخرج یکی باشد صورت‌ها را کم می‌کنیم. اگر فرق کند، اول مخرج مشترک می‌گیریم.",
+      "animation": "Talking",
+      "emotion": "explaining",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "sub-same",
+      "title": "تدریس — ۳/۴ − ۱/۴",
+      "speak": "مخرج هر دو ۴ است. از سه برش، یک برش برمی‌داریم؛ دو برش می‌ماند. ۳/۴ − ۱/۴ = ۲/۴.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "compareFractions": [
+            { "numerator": 3, "denominator": 4, "label": "۳/۴" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "title": "۳/۴ − ۱/۴"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "sub-same-result",
+      "title": "تدریس — حاصل ۲/۴",
+      "speak": "۲/۴ همان نصف دایره است. می‌توانیم بگوییم ۲/۴ = ۱/۲.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "denominator": 4,
+          "numerator": 2,
+          "title": "۳/۴ − ۱/۴ = ۲/۴"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-3-4-minus-1-4",
+      "title": "تمرین ۱ — ۳/۴ − ۱/۴",
+      "speak": "حاصل ۳/۴ منهای ۱/۴ را بساز.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 2, "denominator": 4 },
+          "showTarget": false,
+          "lockDenominator": true,
+          "operationSymbol": "−",
+          "compareFractions": [
+            { "numerator": 3, "denominator": 4, "label": "۳/۴" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "title": "۳/۴ − ۱/۴ = ؟"
+        }
+      },
+      "successMessage": "درست! ۳/۴ − ۱/۴ = ۲/۴",
+      "wrongMessage": "صورت‌ها: ۳ − ۱ = ۲، مخرج همان ۴."
+    },
+    {
+      "type": "teach",
+      "id": "sub-diff",
+      "title": "تدریس — فرآیند ۱/۲ − ۱/۴",
+      "speak": "مخرج‌ها فرق دارند. ببین چطور با ک.م.م به ۴ می‌رسیم، نصف می‌شود دو‌چهارم، بعد تفریق می‌کنیم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "−",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "title": "فرآیند ک.م.م — ۱/۲ − ۱/۴"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-half-minus-quarter",
+      "title": "تمرین ۲ — ۱/۲ − ۱/۴",
+      "speak": "قدم‌به‌قدم: ک.م.م، تبدیل، تفریق.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "−",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "title": "۱/۲ − ۱/۴ — فرآیند ک.م.م"
+        }
+      },
+      "successMessage": "عالی! ۱/۲ − ۱/۴ = ۱/۴",
+      "wrongMessage": "۱/۲ = ۲/۴، پس ۲/۴ − ۱/۴ = ۱/۴."
+    },
+    {
+      "type": "practice",
+      "id": "gen-sub-same",
+      "title": "تمرین خودکار — تفریق",
+      "speak": "حاصل تفریق را روی دایره بساز.",
+      "animation": "Pointing",
+      "generator": "fraction-subtraction-same-denom",
+      "params": {
+        "denominatorRange": [3, 6],
+        "count": 3,
+        "allowImproperFractions": false,
+        "seed": "ui-fraction-08-sub"
+      },
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive"
+      }
+    }
+  ]
+}

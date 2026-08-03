@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { Navbar } from '@/components/nav/navbar'
+import { SiteFooter } from '@/components/sections/site-footer'
 import { getSubject, getTopic, getTopicLessons } from '@/lib/math-visual-engine/curriculum'
 import { LessonListCard } from '@/app/components/ui/lessons/curriculum/LessonListCard'
 
@@ -26,11 +28,13 @@ export default async function TopicLessonsPage({ params }: Props) {
   const lessons = getTopicLessons(subjectId, topicId)
 
   return (
-    <main className="min-h-screen bg-slate-50 py-10 md:py-14">
-      <div className="max-w-2xl mx-auto px-4" dir="rtl">
-        <nav className="text-sm text-slate-500 mb-6">
+    <main className="min-h-screen bg-slate-50 pb-24 md:pb-0">
+      <Navbar lang={lang} />
+
+      <div className="max-w-2xl mx-auto px-4 py-10 md:py-14" dir="rtl">
+        <nav className="text-sm text-slate-500 mb-6" aria-label="مسیر">
           <Link href={`/${lang}/curriculum`} className="hover:text-indigo-600">
-            برنامه درسی
+            دروس
           </Link>
           <span className="mx-2">/</span>
           <Link href={`/${lang}/curriculum/${subjectId}`} className="hover:text-indigo-600">
@@ -41,14 +45,14 @@ export default async function TopicLessonsPage({ params }: Props) {
         </nav>
 
         <header className="mb-8">
-          <span className="text-4xl">{topic.icon ?? '📚'}</span>
+          <span className="text-4xl" aria-hidden>
+            {topic.icon ?? '📚'}
+          </span>
           <h1 className="text-2xl md:text-3xl font-extrabold text-slate-800 mt-2">{topic.title}</h1>
           {topic.description ? (
             <p className="text-slate-500 mt-2 leading-7">{topic.description}</p>
           ) : null}
-          <p className="text-xs text-slate-400 mt-3">
-            هر درس: مقدمه → تدریس → تمرین تعاملی (از JSON)
-          </p>
+          <p className="text-xs text-slate-400 mt-3">هر درس: مقدمه → تدریس → تمرین تعاملی</p>
         </header>
 
         {lessons.length === 0 ? (
@@ -73,6 +77,8 @@ export default async function TopicLessonsPage({ params }: Props) {
           </ol>
         )}
       </div>
+
+      <SiteFooter lang={lang} />
     </main>
   )
 }

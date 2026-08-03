@@ -85,10 +85,10 @@ export default async function LandingPage({ params }: Props) {
 
       {/* Hero pulled up under sticky nav */}
       <div className="-mt-16">
-        <Hero />
+        <Hero lang={locale} />
       </div>
 
-      <ProgramSchools />
+      <ProgramSchools lang={locale} />
       <ClassFormats />
       <FreeCourse />
       <StudentWorld />
@@ -96,7 +96,7 @@ export default async function LandingPage({ params }: Props) {
       <HowItWorks />
       <Testimonials />
       <Pricing />
-      <SiteFooter />
+      <SiteFooter lang={locale} />
     </main>
   );
 }

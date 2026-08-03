@@ -1,0 +1,228 @@
+{
+  "id": "geometry-01-area-friends",
+  "subjectId": "math",
+  "topicId": "geometry",
+  "order": 1,
+  "level": 2,
+  "title": "درس ۱ — مثلث و متوازی‌الاضلاع",
+  "description": "ماجراجویی با شکل‌ها: مساحت یعنی چه و فرمول قاعده × ارتفاع",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "hello",
+      "message": "سلام دانشمندای کوچولو! امروز با دو دوست شکلی آشنا می‌شویم: مثلث کوچولو و آقای متوازی‌الاضلاع.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "meet-friends",
+      "title": "آشنایی با شکل‌ها",
+      "speak": "این دو دوست را ببین: مثلث کوچولو به رنگ نارنجی و آقای متوازی‌الاضلاع به رنگ آبی. هر کدام چهره و حال مخصوص خودشان را دارند!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "static",
+        "params": {
+          "title": "دو دوست هندسی",
+          "shapes": [
+            { "kind": "triangle", "label": "مثلث کوچولو", "base": 5, "height": 4.5, "mood": "curious" },
+            { "kind": "parallelogram", "label": "آقای متوازی‌الاضلاع", "base": 5, "height": 4, "mood": "happy" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "para-knows-area",
+      "title": "مساحت متوازی‌الاضلاع",
+      "speak": "آقای متوازی‌الاضلاع می‌گوید: من مساحتم را بلدم! مساحت یعنی چقدر سطح داخل شکل را می‌پوشانیم.",
+      "animation": "Talking",
+      "visual": {
+        "type": "polygon",
+        "mode": "static",
+        "params": {
+          "title": "من مساحتم را بلدم",
+          "showDimensions": true,
+          "shapes": [
+            {
+              "kind": "parallelogram",
+              "label": "متوازی‌الاضلاع",
+              "base": 6,
+              "height": 4,
+              "mood": "happy",
+              "highlight": "area"
+            }
+          ],
+          "formula": "مساحت = قاعده × ارتفاع"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "triangle-confused",
+      "title": "مثلث گیج شده",
+      "speak": "مثلث کوچولو می‌گوید: من مساحتم را نمی‌دانم... یک راز خیلی جالب اینجاست!",
+      "animation": "Thinking",
+      "emotion": "encouraging",
+      "visual": {
+        "type": "polygon",
+        "mode": "static",
+        "params": {
+          "title": "من مساحتم را نمی‌دانم…",
+          "shapes": [
+            { "kind": "triangle", "label": "مثلث کوچولو", "base": 5.5, "height": 4.5, "mood": "sad" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "secret-formula",
+      "title": "راز: قاعده × ارتفاع",
+      "speak": "راز این است: برای متوازی‌الاضلاع، مساحت برابر است با قاعده ضربدر ارتفاع. قاعده ضلع پایین است و ارتفاع فاصلهٔ عمودی تا ضلع روبه‌رو.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "demo",
+        "params": {
+          "title": "قاعده ضربدر ارتفاع",
+          "showDimensions": true,
+          "shapes": [
+            {
+              "kind": "parallelogram",
+              "label": "قاعده و ارتفاع",
+              "base": 6,
+              "height": 4,
+              "mood": "happy",
+              "highlight": "area"
+            }
+          ],
+          "formula": "مساحت متوازی‌الاضلاع = قاعده × ارتفاع"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "triangle-half",
+      "title": "مثلث از دل متوازی‌الاضلاع",
+      "speak": "نگاه کن: اول یک متوازی‌الاضلاع داریم. بعد از قطر نصف می‌شود. بعد یک مثلث از دلش بیرون می‌آید. پس متوازی‌الاضلاع از دو مثلث هم‌اندازه ساخته شده و مساحت مثلث نصف آن است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "polygon",
+        "mode": "demo",
+        "params": {
+          "title": "یک مثلث بیرون می‌آید",
+          "showDimensions": false,
+          "showTriangleSplit": true,
+          "splitReveal": { "animate": true },
+          "shapes": [
+            {
+              "kind": "parallelogram",
+              "label": "متوازی‌الاضلاع",
+              "base": 6,
+              "height": 4,
+              "mood": "happy",
+              "highlight": "area"
+            }
+          ],
+          "formula": "مساحت مثلث = (قاعده × ارتفاع) ÷ ۲"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "quiz-para-formula",
+      "title": "تمرین ۱ — فرمول متوازی‌الاضلاع",
+      "speak": "مساحت متوازی‌الاضلاع کدام است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "interactive",
+        "params": {
+          "title": "کدام فرمول درست است؟",
+          "showDimensions": true,
+          "shapes": [
+            {
+              "kind": "parallelogram",
+              "label": "متوازی‌الاضلاع",
+              "base": 5.5,
+              "height": 3.8,
+              "mood": "curious",
+              "highlight": "area"
+            }
+          ],
+          "quiz": {
+            "kind": "formula",
+            "prompt": "مساحت متوازی‌الاضلاع؟",
+            "options": ["قاعده × ارتفاع", "قاعده + ارتفاع", "(قاعده × ارتفاع) ÷ ۲"],
+            "answerIndex": 0
+          }
+        }
+      },
+      "successMessage": "آره! مساحت = قاعده × ارتفاع",
+      "wrongMessage": "به خط قرمز قاعده و خط بنفش ارتفاع نگاه کن."
+    },
+    {
+      "type": "practice",
+      "id": "quiz-tri-formula",
+      "title": "تمرین ۲ — فرمول مثلث",
+      "speak": "حالا مساحت مثلث کدام است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "interactive",
+        "params": {
+          "title": "مساحت مثلث؟",
+          "showDimensions": true,
+          "shapes": [
+            {
+              "kind": "triangle",
+              "label": "مثلث کوچولو",
+              "base": 5.5,
+              "height": 4.5,
+              "mood": "curious",
+              "highlight": "area"
+            }
+          ],
+          "quiz": {
+            "kind": "formula",
+            "prompt": "مساحت مثلث؟",
+            "options": ["قاعده × ارتفاع", "(قاعده × ارتفاع) ÷ ۲", "قاعده + ارتفاع"],
+            "answerIndex": 1
+          }
+        }
+      },
+      "successMessage": "عالی! مثلث نصف متوازی‌الاضلاع است.",
+      "wrongMessage": "مثلث نصف شکل کامل است؛ پس بر ۲ تقسیم می‌کنیم."
+    },
+    {
+      "type": "practice",
+      "id": "quiz-identify",
+      "title": "تمرین ۳ — تشخیص شکل",
+      "speak": "کدام شکل سه ضلع دارد؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "interactive",
+        "params": {
+          "title": "کدام مثلث است؟",
+          "shapes": [
+            { "kind": "triangle", "label": "؟", "base": 5, "height": 4.2, "mood": "neutral" },
+            { "kind": "parallelogram", "label": "؟", "base": 5, "height": 3.8, "mood": "neutral" }
+          ],
+          "quiz": {
+            "kind": "identify",
+            "prompt": "کدام شکل مثلث است؟",
+            "options": ["شکل نارنجی", "شکل آبی", "هر دو"],
+            "answerIndex": 0
+          }
+        }
+      },
+      "successMessage": "درست! مثلث سه ضلع دارد.",
+      "wrongMessage": "مثلث سه ضلع دارد؛ متوازی‌الاضلاع چهار ضلع."
+    }
+  ]
+}

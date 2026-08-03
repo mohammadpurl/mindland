@@ -1,0 +1,102 @@
+{
+  "id": "fraction-07-add-diff-denom",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 8,
+  "level": 4,
+  "title": "درس ۸ — جمع با مخرج متفاوت",
+  "description": "با ک.م.م مخرج مشترک بگیر، کسرها را تبدیل کن، بعد صورت‌ها را جمع کن",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "حالا کسرهایی را جمع می‌کنیم که مخرج‌شان یکی نیست. از ک.م.م که یاد گرفتی استفاده می‌کنیم، بعد کسرها را تبدیل و جمع می‌کنیم.",
+      "animation": "Talking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "process-demo",
+      "title": "تدریس — فرآیند ۱/۲ + ۱/۴",
+      "speak": "ک.م.م مخرج‌های ۲ و ۴ برابر ۴ است. نصف می‌شود دو‌چهارم؛ یک‌چهارم همان می‌ماند. بعد صورت‌ها: ۲ + ۱ = ۳. جواب ۳/۴.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "title": "فرآیند جمع — ۱/۲ + ۱/۴"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-half-plus-quarter",
+      "title": "تمرین ۱ — ۱/۲ + ۱/۴",
+      "speak": "قدم‌به‌قدم: ک.م.م، تبدیل هر کسر، بعد جمع صورت‌ها.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "title": "۱/۲ + ۱/۴"
+        }
+      },
+      "successMessage": "درست! ۱/۲ + ۱/۴ = ۳/۴",
+      "wrongMessage": "۱/۲ را ۲/۴ کن، بعد ۲ + ۱ = ۳ با مخرج ۴."
+    },
+    {
+      "type": "practice",
+      "id": "practice-1-3-plus-1-6",
+      "title": "تمرین ۲ — ۱/۳ + ۱/۶",
+      "speak": "اول ک.م.م را پیدا کن، بعد هر کسر را تبدیل کن، بعد جمع کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 3, "label": "۱/۳" },
+            { "numerator": 1, "denominator": 6, "label": "۱/۶" }
+          ],
+          "title": "۱/۳ + ۱/۶"
+        }
+      },
+      "successMessage": "عالی! ۱/۳ + ۱/۶ = ۳/۶",
+      "wrongMessage": "ک.م.م = ۶؛ ۱/۳ = ۲/۶؛ پس ۲/۶ + ۱/۶ = ۳/۶."
+    },
+    {
+      "type": "practice",
+      "id": "gen-add-diff",
+      "title": "تمرین خودکار — جمع",
+      "speak": "برای هر مسئله از ک.م.م استفاده کن و حاصل را پیدا کن.",
+      "animation": "Pointing",
+      "generator": "fraction-addition-diff-denom",
+      "params": {
+        "denominatorRange": [2, 6],
+        "count": 3,
+        "allowImproperFractions": false,
+        "seed": "ui-fraction-07-add"
+      },
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive"
+      }
+    }
+  ]
+}

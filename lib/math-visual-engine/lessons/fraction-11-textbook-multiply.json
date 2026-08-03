@@ -1,0 +1,168 @@
+{
+  "id": "fraction-11-textbook-multiply",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 12,
+  "level": 5,
+  "title": "درس ۱۲ — ضرب کسرها (کتاب ششم)",
+  "description": "برگرفته از کتاب ریاضی ششم ۱۴۰۴، صفحات ۲۸ تا ۳۱ — ضرب صورت در صورت و مخرج در مخرج",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "در کتاب ششم برای ضرب دو کسر، صورت‌ها را در هم و مخرج‌ها را در هم ضرب می‌کنیم. بعد اگر شد، حاصل را ساده می‌کنیم.",
+      "animation": "Talking",
+      "emotion": "explaining",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "multiply-rule",
+      "title": "قانون ضرب",
+      "speak": "مثال: دو‌سوم ضربدر سه‌چهارم. صورت: ۲×۳=۶. مخرج: ۳×۴=۱۲. حاصل ۶/۱۲ که ساده می‌شود به ۱/۲.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "compareFractions": [
+            { "numerator": 2, "denominator": 3, "label": "۲/۳" },
+            { "numerator": 3, "denominator": 4, "label": "۳/۴" }
+          ],
+          "title": "۲/۳ × ۳/۴ = ۶/۱۲ = ۱/۲"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "show-half",
+      "title": "حاصل روی دایره",
+      "speak": "پس جواب نهایی یک‌دوم است — نصف دایره.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "denominator": 2,
+          "numerator": 1,
+          "title": "۱/۲"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "mul-2-3-times-3-4",
+      "title": "تمرین ۱ — ۲/۳ × ۳/۴",
+      "speak": "حاصل دو‌سوم ضربدر سه‌چهارم را بساز. یادت باشد ساده کنی.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 1, "denominator": 2 },
+          "showTarget": false,
+          "lockDenominator": true,
+          "operationSymbol": "×",
+          "compareFractions": [
+            { "numerator": 2, "denominator": 3, "label": "۲/۳" },
+            { "numerator": 3, "denominator": 4, "label": "۳/۴" }
+          ],
+          "title": "۲/۳ × ۳/۴ = ؟"
+        }
+      },
+      "successMessage": "درست! ۶/۱۲ = ۱/۲",
+      "wrongMessage": "۲×۳ روی ۶ و ۳×۴ روی ۱۲؛ بعد ساده کن به ۱/۲"
+    },
+    {
+      "type": "practice",
+      "id": "mul-1-2-times-2-5",
+      "title": "تمرین ۲ — ۱/۲ × ۲/۵",
+      "speak": "یک‌دوم ضربدر دو‌پنجم را حساب کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 1, "denominator": 5 },
+          "showTarget": false,
+          "lockDenominator": true,
+          "operationSymbol": "×",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" },
+            { "numerator": 2, "denominator": 5, "label": "۲/۵" }
+          ],
+          "title": "۱/۲ × ۲/۵ = ؟"
+        }
+      },
+      "successMessage": "عالی! ۲/۱۰ = ۱/۵",
+      "wrongMessage": "۱×۲=۲ و ۲×۵=۱۰؛ ساده می‌شود ۱/۵"
+    },
+    {
+      "type": "practice",
+      "id": "mul-2-5-times-5-2",
+      "title": "تمرین ۳ — ۲/۵ × ۵/۲",
+      "speak": "دو‌پنجم ضربدر پنج‌دوم — این دو کسر معکوس هم‌اند. حاصل چیست؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 1, "denominator": 1 },
+          "showTarget": false,
+          "lockDenominator": true,
+          "operationSymbol": "×",
+          "compareFractions": [
+            { "numerator": 2, "denominator": 5, "label": "۲/۵" },
+            { "numerator": 5, "denominator": 2, "label": "۵/۲" }
+          ],
+          "title": "۲/۵ × ۵/۲ = ؟"
+        }
+      },
+      "successMessage": "درست! حاصل ۱ است — کل دایره.",
+      "wrongMessage": "معکوس‌ها در هم ضرب می‌شوند و عدد ۱ می‌دهند."
+    },
+    {
+      "type": "practice",
+      "id": "mul-3-4-times-2-9",
+      "title": "تمرین ۴ — ۳/۴ × ۲/۹",
+      "speak": "سه‌چهارم ضربدر دو‌نهم را بساز.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 1, "denominator": 6 },
+          "showTarget": false,
+          "lockDenominator": true,
+          "operationSymbol": "×",
+          "compareFractions": [
+            { "numerator": 3, "denominator": 4, "label": "۳/۴" },
+            { "numerator": 2, "denominator": 9, "label": "۲/۹" }
+          ],
+          "title": "۳/۴ × ۲/۹ = ؟"
+        }
+      },
+      "successMessage": "آفرین! ۶/۳۶ = ۱/۶",
+      "wrongMessage": "۳×۲=۶ و ۴×۹=۳۶؛ ساده کن به ۱/۶"
+    },
+    {
+      "type": "practice",
+      "id": "gen-book-multiply",
+      "title": "تمرین کتاب — ضرب متنوع",
+      "speak": "حاصل ضرب را حساب کن و روی دایره بساز.",
+      "animation": "Pointing",
+      "generator": "fraction-multiplication",
+      "params": {
+        "denominatorRange": [2, 6],
+        "count": 3,
+        "allowImproperFractions": false,
+        "seed": "book-1404-p28"
+      },
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive"
+      }
+    }
+  ]
+}

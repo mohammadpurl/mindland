@@ -92,6 +92,9 @@ function OrchestratorInner({ lesson, nextLessonHref, nextLessonTitle, backToTopi
       }
 
       if (isTeachStep(s)) {
+        // همیشه حباب را با متن همین مرحله هم‌خوان کن (point به‌تنهایی state را عوض نمی‌کند)
+        setTeacherMessage(s.speak)
+        setTeacherSpeaking(true)
         if (s.animation === 'Pointing') point(s.speak)
         else avatarSpeak(s.speak, s.animation, s.emotion)
         return
@@ -99,6 +102,8 @@ function OrchestratorInner({ lesson, nextLessonHref, nextLessonTitle, backToTopi
 
       if (isPracticeStep(s)) {
         const msg = s.speak ?? 'حالا خودت امتحان کن!'
+        setTeacherMessage(msg)
+        setTeacherSpeaking(true)
         if (s.animation === 'Pointing') point(msg)
         else avatarSpeak(msg, s.animation, s.emotion)
       }

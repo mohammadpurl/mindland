@@ -70,13 +70,23 @@ function compareVisual(
   }
 }
 
-function targetVisual(answer: FractionLiteral, title: string, operands: FractionLiteral[]) {
+function targetVisual(
+  answer: FractionLiteral,
+  title: string,
+  operands: FractionLiteral[],
+  operationSymbol?: '+' | '−' | '×' | '÷',
+  opts?: { commonDenomProcess?: boolean }
+) {
   return {
     target: { numerator: answer.numerator, denominator: answer.denominator },
-    showTarget: true,
+    /** جواب را لو نده — فقط عملوندها را نشان بده؛ دانش‌آموز حاصل را بسازد */
+    showTarget: false,
     lockDenominator: true,
     title,
     compareFractions: operands.map((f) => ({ ...f, label: formatFraction(f) })),
+    ...(operationSymbol ? { operationSymbol } : {}),
+    /** مخرج متفاوت: فرآیند ک.م.م به‌جای drag جواب نهایی */
+    ...(opts?.commonDenomProcess ? { commonDenomProcess: true } : {}),
   }
 }
 
@@ -212,13 +222,23 @@ function generateBinaryOp(
 
       result = options.compute(a, b)
     } while (
-      options.ensurePositiveResult &&
-      result.numerator < 0 &&
-      attempts < 20
+      ((options.ensurePositiveResult && result.numerator < 0) ||
+        simplify(result).numerator > simplify(result).denominator) &&
+      attempts < 30
     )
 
     const simplified = simplify(result)
     const title = `${formatFraction(a)} ${options.opSymbol} ${formatFraction(b)}`
+    const opSym =
+      options.opSymbol === '+'
+        ? '+'
+        : options.opSymbol === '−' || options.opSymbol === '-'
+          ? '−'
+          : options.opSymbol === '×' || options.opSymbol === '*'
+            ? '×'
+            : options.opSymbol === '÷' || options.opSymbol === '/'
+              ? '÷'
+              : undefined
 
     problems.push({
       id: problemId(kind, i, params.seed),
@@ -229,7 +249,13 @@ function generateBinaryOp(
       answer: result,
       simplifiedAnswer: simplified,
       ...(commonDenominator !== undefined ? { commonDenominator } : {}),
-      visualParams: targetVisual(simplified, title, [a, b]),
+      visualParams: targetVisual(
+        simplified,
+        title,
+        [a, b],
+        opSym === '+' || opSym === '−' || opSym === '×' || opSym === '÷' ? opSym : undefined,
+        { commonDenomProcess: options.sameDenom === false }
+      ),
       successMessage: `درست! حاصل = ${formatFraction(simplified)}`,
       wrongMessage: `دوباره امتحان کن — ${options.opWord} کسرها.`,
     })

@@ -38,7 +38,7 @@ export default async function MathVisualLessonPage({ params }: Props) {
       <div className="w-full max-w-6xl mx-auto p-3 md:p-4" dir="rtl">
         <nav className="text-sm text-slate-500 mb-4">
           <Link href={`/${lang}/curriculum`} className="hover:text-indigo-600">
-            برنامه درسی
+            دروس
           </Link>
           <span className="mx-2">/</span>
           <Link href={`/${lang}/curriculum/${subjectId}`} className="hover:text-indigo-600">

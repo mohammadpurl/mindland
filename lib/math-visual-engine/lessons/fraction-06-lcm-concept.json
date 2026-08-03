@@ -1,0 +1,131 @@
+{
+  "id": "fraction-06-lcm-concept",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 6,
+  "level": 3,
+  "title": "درس ۶ — مفهوم ک.م.م",
+  "description": "کوچک‌ترین مضرب مشترک: مضرب‌ها، مضرب مشترک، و پیدا کردن ک.م.م",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "امروز فقط مفهوم ک.م.م را یاد می‌گیریم — کوچک‌ترین مضرب مشترک دو عدد. هنوز جمع کسر نمی‌کنیم؛ اول باید این مفهوم را خوب بفهمیم.",
+      "animation": "Talking",
+      "emotion": "explaining",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "what-is-multiple",
+      "title": "تدریس — مضرب چیست؟",
+      "speak": "مضرب‌های ۴ یعنی عددهایی که با شمردن ۴تا۴تا به آن‌ها می‌رسیم: ۴، ۸، ۱۲، ۱۶، ۲۰ و …",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "lcmConcept": true,
+          "lcmNumbers": { "a": 4, "b": 6 },
+          "title": "مضرب‌ها و ک.م.م — ۴ و ۶"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "find-lcm-4-6",
+      "title": "تدریس — پیدا کردن ک.م.م(۴ ، ۶)",
+      "speak": "مضرب‌های ۴ و مضرب‌های ۶ را کنار هم بگذار. عددهایی که در هر دو لیست هستند مضرب مشترک‌اند. کوچک‌ترین‌شان ۱۲ است؛ پس ک.م.م برابر ۱۲ است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "lcmConcept": { "animate": true, "a": 4, "b": 6 },
+          "title": "ک.م.م(۴ ، ۶) = ۱۲"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-lcm-4-6",
+      "title": "تمرین ۱ — مفهوم ک.م.م (۴ و ۶)",
+      "speak": "قدم‌به‌قدم بگو: ک.م.م یعنی چه؟ چرا مهم است؟ مضرب‌های مشترک کدام‌اند؟ و ک.م.م چند است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "lcmConcept": true,
+          "lcmNumbers": { "a": 4, "b": 6 },
+          "title": "تمرین مفهوم — ۴ و ۶"
+        }
+      },
+      "successMessage": "عالی! ک.م.م یعنی کوچک‌ترین مضرب مشترک؛ برای ۴ و ۶ برابر ۱۲ است.",
+      "wrongMessage": "مضرب‌های هر عدد را بنویس، مشترک‌ها را پیدا کن، کوچک‌ترین را بردار."
+    },
+    {
+      "type": "practice",
+      "id": "practice-lcm-3-5",
+      "title": "تمرین ۲ — ک.م.م(۳ ، ۵)",
+      "speak": "همین مفهوم را برای ۳ و ۵ انجام بده.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "lcmConcept": true,
+          "lcmNumbers": { "a": 3, "b": 5 },
+          "title": "تمرین مفهوم — ۳ و ۵"
+        }
+      },
+      "successMessage": "درست! ک.م.م(۳ ، ۵) = ۱۵",
+      "wrongMessage": "مضرب‌های ۳ و ۵ را بنویس؛ کوچک‌ترین مشترک ۱۵ است."
+    },
+    {
+      "type": "practice",
+      "id": "practice-lcm-2-4",
+      "title": "تمرین ۳ — ک.م.م(۲ ، ۴)",
+      "speak": "برای ۲ و ۴ هم ک.م.م را با همان روش پیدا کن. حواست باشد ک.م.م لزوماً حاصل‌ضرب دو عدد نیست.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "lcmConcept": true,
+          "lcmNumbers": { "a": 2, "b": 4 },
+          "title": "تمرین مفهوم — ۲ و ۴"
+        }
+      },
+      "successMessage": "آفرین! ک.م.م(۲ ، ۴) = ۴ — نه ۸.",
+      "wrongMessage": "مضرب‌های ۲: ۲،۴،۶،۸… مضرب‌های ۴: ۴،۸،۱۲… کوچک‌ترین مشترک ۴ است."
+    },
+    {
+      "type": "practice",
+      "id": "practice-lcm-6-8",
+      "title": "تمرین ۴ — ک.م.م(۶ ، ۸)",
+      "speak": "یک تمرین کمی سخت‌تر: ۶ و ۸.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "lcmConcept": true,
+          "lcmNumbers": { "a": 6, "b": 8 },
+          "title": "تمرین مفهوم — ۶ و ۸"
+        }
+      },
+      "successMessage": "درست! ک.م.م(۶ ، ۸) = ۲۴",
+      "wrongMessage": "مضرب‌های مشترک را پیدا کن؛ کوچک‌ترین‌شان ۲۴ است."
+    },
+    {
+      "type": "speak",
+      "id": "outro",
+      "message": "آفرین! حالا مفهوم ک.م.م را بلدی. در درس بعدی می‌بینیم چطور از ک.م.م برای یکی کردن مخرج کسرها استفاده می‌کنیم.",
+      "animation": "ThumbsUp",
+      "emotion": "happy",
+      "autoAdvance": true
+    }
+  ]
+}

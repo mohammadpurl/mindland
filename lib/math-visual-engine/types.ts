@@ -27,10 +27,63 @@ export interface FractionCircleParams {
    * به‌جای drag، دکمه‌های «کدام بزرگ‌تر؟» نشان داده می‌شود.
    */
   comparisonAnswer?: 'lt' | 'eq' | 'gt'
+  /** نماد عمل برای نمایش بین عملوندها */
+  operationSymbol?: '+' | '−' | '×' | '÷' | '='
+  /**
+   * نمایش فرآیند ک.م.م (مخرج مشترک):
+   * انیمیشن تبدیل دو کسر + در interactive پرسش مرحله‌به‌مرحله
+   */
+  commonDenomProcess?: boolean | { animate?: boolean }
+  /**
+   * فقط آموزش مفهوم ک.م.م (مضرب‌ها → مشترک → کوچک‌ترین)
+   * از compareFractions[0].denominator و [1].denominator استفاده می‌کند
+   * یا از lcmNumbers: { a, b }
+   */
+  lcmConcept?: boolean | { animate?: boolean; a?: number; b?: number }
+  lcmNumbers?: { a: number; b: number }
 }
 
-/** پارامترهای آینده NumberLine / Polygon */
-export type MathVisualParams = FractionCircleParams | Record<string, unknown>
+/** شکل هندسی برای ویژوال Polygon */
+export type PolygonShapeKind = 'triangle' | 'parallelogram' | 'square' | 'rectangle'
+
+export interface PolygonShapeSpec {
+  kind: PolygonShapeKind
+  label?: string
+  /** طول قاعده (واحد نمایشی) */
+  base?: number
+  /** ارتفاع (واحد نمایشی) */
+  height?: number
+  /** برجسته‌سازی بُعد */
+  highlight?: 'base' | 'height' | 'area' | 'none'
+  mood?: 'happy' | 'sad' | 'neutral' | 'curious'
+}
+
+export interface PolygonQuiz {
+  kind: 'identify' | 'formula' | 'relation'
+  prompt?: string
+  options: string[]
+  answerIndex: number
+}
+
+/** پارامترهای ویژوال هندسه (Polygon) */
+export interface PolygonParams {
+  title?: string
+  shapes?: PolygonShapeSpec[]
+  showDimensions?: boolean
+  /** متن فرمول — مثلاً «مساحت = قاعده × ارتفاع» */
+  formula?: string
+  /** متوازی‌الاضلاع را با قطر به دو مثلث تقسیم کن */
+  showTriangleSplit?: boolean
+  /**
+   * انیمیشن آموزشی: یک مثلث از دل متوازی‌الاضلاع بیرون می‌آید
+   * تا نشان دهد متوازی‌الاضلاع = دو مثلث هم‌اندازه
+   */
+  splitReveal?: boolean | { animate?: boolean }
+  quiz?: PolygonQuiz
+}
+
+/** پارامترهای آینده NumberLine */
+export type MathVisualParams = FractionCircleParams | PolygonParams | Record<string, unknown>
 
 export interface MathVisualConfig {
   type: MathVisualType

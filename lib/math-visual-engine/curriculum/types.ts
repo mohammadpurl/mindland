@@ -31,6 +31,8 @@ export interface CurriculumSubject {
   description?: string
   grade?: number
   order: number
+  /** کلید آیکون برای UI (مثلاً math | code | ai) */
+  icon?: string
   topics: CurriculumTopic[]
 }
 

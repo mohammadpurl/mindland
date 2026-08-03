@@ -1,7 +1,8 @@
 import type { ComponentType } from 'react'
 import type { MathVisualComponentProps, MathVisualType } from '@/lib/math-visual-engine/types'
 import { FractionCircle } from './visuals/FractionCircle'
-import { NumberLinePlaceholder, PolygonPlaceholder } from './visuals/PlaceholderVisuals'
+import { NumberLinePlaceholder } from './visuals/PlaceholderVisuals'
+import { PolygonVisual } from './visuals/PolygonVisual'
 
 /**
  * رجیستری کامپوننت‌های بصری ریاضی.
@@ -10,7 +11,7 @@ import { NumberLinePlaceholder, PolygonPlaceholder } from './visuals/Placeholder
 export const MATH_VISUAL_REGISTRY: Record<MathVisualType, ComponentType<MathVisualComponentProps>> = {
   'fraction-circle': FractionCircle,
   'number-line': NumberLinePlaceholder,
-  polygon: PolygonPlaceholder,
+  polygon: PolygonVisual,
 }
 
 export function isMathVisualType(value: string): value is MathVisualType {

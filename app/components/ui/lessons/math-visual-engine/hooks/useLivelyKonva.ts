@@ -2,10 +2,9 @@
 
 import { useEffect, useState } from 'react'
 
-/** انیمیشن‌های زنده مشترک Konva: نفس، پلک، برق */
+/** انیمیشن‌های زنده مشترک Konva: نفس، پلک، نگاه */
 export function useLivelyKonva() {
   const [breathPhase, setBreathPhase] = useState(0)
-  const [sparklePhase, setSparklePhase] = useState(0)
   const [blink, setBlink] = useState(false)
   const [eyeOffset, setEyeOffset] = useState({ x: 0, y: 0 })
 
@@ -17,7 +16,6 @@ export function useLivelyKonva() {
     const tick = (now: number) => {
       const t = (now - t0) / 1000
       setBreathPhase(t * 2.2)
-      setSparklePhase(t * 4)
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
@@ -42,5 +40,5 @@ export function useLivelyKonva() {
     return () => clearInterval(id)
   }, [])
 
-  return { breathScale, sparklePhase, blink, eyeOffset }
+  return { breathScale, blink, eyeOffset }
 }

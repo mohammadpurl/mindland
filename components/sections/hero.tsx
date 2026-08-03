@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, PlayCircle, Sparkles, Star } from "lucide-react";
+import { ArrowLeft, BookOpen, Sparkles, Star } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { AnimateIn } from "@/components/ui/animate-in";
 
-export function Hero() {
+interface HeroProps {
+  lang?: string;
+}
+
+export function Hero({ lang = "fa" }: HeroProps) {
   return (
     <section className="hero-section-bg relative min-h-screen flex flex-col overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
@@ -68,18 +72,18 @@ export function Hero() {
               <AnimateIn delay={0.3} className="flex flex-col sm:flex-row gap-3 sm:items-center">
                 <div dir="ltr" className="flex flex-col sm:flex-row gap-3 sm:items-center">
                   <Link
-                    href="/fa/signup"
+                    href={`/${lang}/curriculum`}
                     className="hero-primary-cta inline-flex items-center justify-center gap-2 h-14 px-8 rounded-xl font-bold text-base text-white"
                   >
-                    رایگان شروع کنید
+                    شروع یادگیری
                     <ArrowLeft className="w-4 h-4" />
                   </Link>
                   <Link
-                    href="#how-it-works"
+                    href={`/${lang}/curriculum/math`}
                     className="hero-secondary-cta inline-flex items-center justify-center gap-2 h-14 px-8 rounded-xl font-bold text-base text-indigo-50"
                   >
-                    مشاهده دمو کلاس
-                    <PlayCircle className="w-4 h-4" />
+                    دروس ریاضیات
+                    <BookOpen className="w-4 h-4" />
                   </Link>
                 </div>
               </AnimateIn>

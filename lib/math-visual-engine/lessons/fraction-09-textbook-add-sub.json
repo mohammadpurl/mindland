@@ -1,0 +1,146 @@
+{
+  "id": "fraction-09-textbook-add-sub",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 10,
+  "level": 4,
+  "title": "درس ۱۰ — جمع و تفریق (کتاب ششم)",
+  "description": "تمرین‌های برگرفته از کتاب ریاضی ششم ۱۴۰۴، صفحات ۲۴ تا ۲۷ — تبدیل با مخرج مشترک",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "امروز مثل کتاب ششم، جمع و تفریق با مخرج متفاوت کار می‌کنیم. از ک.م.م استفاده می‌کنیم، کسرها را تبدیل می‌کنیم، بعد جمع یا تفریق.",
+      "animation": "Talking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "lcm-process-demo",
+      "title": "تدریس — ۱/۴ + ۱/۶",
+      "speak": "ک.م.م مخرج‌های ۴ و ۶ برابر ۱۲ است. یک‌چهارم می‌شود سه‌دوازدهم و یک‌ششم می‌شود دو‌دوازدهم. بعد صورت‌ها را جمع می‌کنیم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" },
+            { "numerator": 1, "denominator": 6, "label": "۱/۶" }
+          ],
+          "title": "فرآیند جمع — ۱/۴ + ۱/۶"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "ex-1-4-plus-1-6",
+      "title": "تمرین ۱ — ۱/۴ + ۱/۶",
+      "speak": "قدم‌به‌قدم با من بیا: اول ک.م.م، بعد تبدیل هر کسر، بعد جمع صورت‌ها.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" },
+            { "numerator": 1, "denominator": 6, "label": "۱/۶" }
+          ],
+          "title": "۱/۴ + ۱/۶ — فرآیند ک.م.م"
+        }
+      },
+      "successMessage": "درست! ۱/۴ + ۱/۶ = ۵/۱۲",
+      "wrongMessage": "مخرج مشترک ۱۲: ۳/۱۲ + ۲/۱۲ = ۵/۱۲"
+    },
+    {
+      "type": "practice",
+      "id": "ex-5-6-minus-1-3",
+      "title": "تمرین ۲ — ۵/۶ − ۱/۳",
+      "speak": "اول ک.م.م مخرج‌ها را پیدا کن، کسرها را تبدیل کن، بعد تفریق کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "−",
+          "compareFractions": [
+            { "numerator": 5, "denominator": 6, "label": "۵/۶" },
+            { "numerator": 1, "denominator": 3, "label": "۱/۳" }
+          ],
+          "title": "۵/۶ − ۱/۳ — فرآیند ک.م.م"
+        }
+      },
+      "successMessage": "عالی! ۵/۶ − ۲/۶ = ۳/۶",
+      "wrongMessage": "ک.م.م = ۶؛ ۱/۳ = ۲/۶؛ پس ۵/۶ − ۲/۶ = ۳/۶"
+    },
+    {
+      "type": "practice",
+      "id": "ex-7-10-minus-2-5",
+      "title": "تمرین ۳ — ۷/۱۰ − ۲/۵",
+      "speak": "فرآیند را طی کن: ک.م.م، تبدیل، تفریق.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "−",
+          "compareFractions": [
+            { "numerator": 7, "denominator": 10, "label": "۷/۱۰" },
+            { "numerator": 2, "denominator": 5, "label": "۲/۵" }
+          ],
+          "title": "۷/۱۰ − ۲/۵ — فرآیند ک.م.م"
+        }
+      },
+      "successMessage": "درست! ۷/۱۰ − ۴/۱۰ = ۳/۱۰",
+      "wrongMessage": "۲/۵ = ۴/۱۰، پس ۷/۱۰ − ۴/۱۰ = ۳/۱۰"
+    },
+    {
+      "type": "practice",
+      "id": "ex-1-3-plus-1-6",
+      "title": "تمرین ۴ — ۱/۳ + ۱/۶",
+      "speak": "قدم‌به‌قدم ک.م.م و تبدیل را انجام بده.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 3, "label": "۱/۳" },
+            { "numerator": 1, "denominator": 6, "label": "۱/۶" }
+          ],
+          "title": "۱/۳ + ۱/۶ — فرآیند ک.م.م"
+        }
+      },
+      "successMessage": "آفرین! ۲/۶ + ۱/۶ = ۳/۶",
+      "wrongMessage": "۱/۳ = ۲/۶، جمع با ۱/۶ می‌شود ۳/۶"
+    },
+    {
+      "type": "practice",
+      "id": "gen-book-add-diff",
+      "title": "تمرین کتاب — جمع متنوع",
+      "speak": "برای هر مسئله، اول ک.م.م را پیدا کن بعد تبدیل و جمع.",
+      "animation": "Pointing",
+      "generator": "fraction-addition-diff-denom",
+      "params": {
+        "denominatorRange": [2, 8],
+        "count": 3,
+        "allowImproperFractions": false,
+        "seed": "book-1404-p26"
+      },
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive"
+      }
+    }
+  ]
+}

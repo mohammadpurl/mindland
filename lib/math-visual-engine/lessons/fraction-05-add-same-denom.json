@@ -1,0 +1,102 @@
+{
+  "id": "fraction-05-add-same-denom",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 5,
+  "level": 3,
+  "title": "درس ۵ — جمع کسرها (مخرج یکسان)",
+  "description": "وقتی مخرج یکی است، صورت‌ها را جمع می‌کنیم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "اگر دو کسر مخرج یکسان داشته باشند، جمع‌شان خیلی ساده است: فقط صورت‌ها را با هم جمع کن و مخرج را همان بگذار.",
+      "animation": "Talking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "show-addends",
+      "title": "تدریس — ۱/۴ و ۲/۴",
+      "speak": "این دو کسر هر دو مخرج ۴ دارند. یکی یک برش و دیگری دو برش از همان دایره است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "compareFractions": [
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" },
+            { "numerator": 2, "denominator": 4, "label": "۲/۴" }
+          ],
+          "title": "۱/۴ + ۲/۴"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "show-sum",
+      "title": "تدریس — حاصل ۳/۴",
+      "speak": "صورت‌ها: ۱ به اضافه ۲ می‌شود ۳. مخرج همان ۴ می‌ماند. پس ۱/۴ + ۲/۴ = ۳/۴.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "denominator": 4,
+          "numerator": 3,
+          "title": "۱/۴ + ۲/۴ = ۳/۴"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-1-4-plus-2-4",
+      "title": "تمرین ۱ — ۱/۴ + ۲/۴",
+      "speak": "حاصل ۱/۴ به اضافه ۲/۴ را روی دایره بساز.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 3, "denominator": 4 },
+          "showTarget": false,
+          "lockDenominator": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" },
+            { "numerator": 2, "denominator": 4, "label": "۲/۴" }
+          ],
+          "title": "۱/۴ + ۲/۴ = ؟"
+        }
+      },
+      "successMessage": "عالی! ۱/۴ + ۲/۴ = ۳/۴",
+      "wrongMessage": "صورت‌ها را جمع کن: ۱ + ۲ = ۳، مخرج همان ۴."
+    },
+    {
+      "type": "practice",
+      "id": "practice-1-5-plus-2-5",
+      "title": "تمرین ۲ — ۱/۵ + ۲/۵",
+      "speak": "حالا ۱/۵ به اضافه ۲/۵ را بساز.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 3, "denominator": 5 },
+          "showTarget": false,
+          "lockDenominator": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 5, "label": "۱/۵" },
+            { "numerator": 2, "denominator": 5, "label": "۲/۵" }
+          ],
+          "title": "۱/۵ + ۲/۵ = ؟"
+        }
+      },
+      "successMessage": "آفرین! ۱/۵ + ۲/۵ = ۳/۵",
+      "wrongMessage": "۱ + ۲ = ۳ و مخرج ۵ می‌ماند."
+    }
+  ]
+}

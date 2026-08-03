@@ -1,0 +1,112 @@
+{
+  "id": "fraction-06-common-denominator",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 7,
+  "level": 3,
+  "title": "درس ۷ — مخرج مشترک",
+  "description": "کسر معادل و تبدیل مخرج با کمک ک.م.م — آماده‌سازی برای جمع",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "در درس قبل ک.م.م را یاد گرفتی. امروز می‌بینیم چرا برای جمع کسرها مخرج‌ها را یکی می‌کنیم و چطور کسر معادل می‌سازیم.",
+      "animation": "Talking",
+      "emotion": "explaining",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "equivalent-half",
+      "title": "تدریس — کسر معادل",
+      "speak": "۱/۲ همان ۲/۴ است. هر دو نصف دایره را پوشانده‌اند؛ فقط برش‌ها ریزتر شده‌اند.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "compareFractions": [
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" },
+            { "numerator": 2, "denominator": 4, "label": "۲/۴" }
+          ],
+          "title": "۱/۲ = ۲/۴"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "how-to-convert",
+      "title": "تدریس — تبدیل به مخرج ۴",
+      "speak": "برای تبدیل ۱/۲ به مخرج ۴، صورت و مخرج را در ۲ ضرب می‌کنیم: ۱×۲=۲ و ۲×۲=۴. پس می‌شود ۲/۴.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "denominator": 4,
+          "numerator": 2,
+          "title": "۱/۲ → ۲/۴"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "why-common-denom",
+      "title": "تدریس — مخرج مشترک یعنی چه؟",
+      "speak": "می‌خواهیم ۱/۲ + ۱/۴ را جمع کنیم. ک.م.م مخرج‌ها ۴ است؛ پس هر دو کسر را با مخرج ۴ می‌نویسیم تا قطعه‌ها هم‌اندازه شوند.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "demo",
+        "params": {
+          "commonDenomProcess": true,
+          "operationSymbol": "+",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "title": "مخرج مشترک با ک.م.م — ۱/۲ + ۱/۴"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-build-2-4",
+      "title": "تمرین ۱ — ۱/۲ به‌صورت ۲/۴",
+      "speak": "۱/۲ را با مخرج ۴ نشان بده — یعنی دو برش از چهار برش.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 2, "denominator": 4 },
+          "showTarget": true,
+          "lockDenominator": true,
+          "title": "۱/۲ = ؟/۴"
+        }
+      },
+      "successMessage": "درست! ۱/۲ = ۲/۴",
+      "wrongMessage": "نصف دایره با مخرج ۴ یعنی ۲ برش."
+    },
+    {
+      "type": "practice",
+      "id": "practice-build-3-6",
+      "title": "تمرین ۲ — ۱/۲ به‌صورت ۳/۶",
+      "speak": "همین ۱/۲ را این بار با مخرج ۶ بساز.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "target": { "numerator": 3, "denominator": 6 },
+          "showTarget": true,
+          "lockDenominator": true,
+          "title": "۱/۲ = ؟/۶"
+        }
+      },
+      "successMessage": "عالی! ۱/۲ = ۳/۶",
+      "wrongMessage": "صورت و مخرج را در ۳ ضرب کن: ۱×۳ و ۲×۳."
+    }
+  ]
+}

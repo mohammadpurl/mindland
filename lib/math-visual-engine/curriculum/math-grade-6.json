@@ -1,19 +1,20 @@
 {
   "id": "mindland-grade-6",
-  "title": "برنامه درسی پایه ششم",
-  "description": "آموزش پله‌پله ریاضی با آواتار و وایت‌برد تعاملی",
+  "title": "دروس مایلند",
+  "description": "موضوعات یادگیری را انتخاب کن و قدم‌به‌قدم با معلم مجازی پیش برو",
   "subjects": [
     {
       "id": "math",
-      "title": "ریاضی",
-      "description": "ریاضی پایه ششم — از کسر تا هندسه",
+      "title": "ریاضیات",
+      "description": "کسر، هندسه و مفاهیم پایه با وایت‌برد تعاملی",
       "grade": 6,
       "order": 1,
+      "icon": "math",
       "topics": [
         {
           "id": "fractions",
           "title": "کسرها",
-          "description": "معرفی کسر، صورت و مخرج، مقایسه و تمرین تعاملی",
+          "description": "از معرفی تا جمع، تفریق، مقایسه و ضرب — هم‌راستا با کتاب ریاضی ششم ۱۴۰۴ (ص ۲۴–۴۲)",
           "order": 1,
           "icon": "🍕",
           "lessons": [
@@ -52,6 +53,78 @@
               "level": 2,
               "teachSteps": 1,
               "practiceSteps": 4
+            },
+            {
+              "id": "fraction-05-add-same-denom",
+              "title": "درس ۵ — جمع کسرها (مخرج یکسان)",
+              "description": "وقتی مخرج یکی است، صورت‌ها را جمع می‌کنیم",
+              "order": 5,
+              "level": 3,
+              "teachSteps": 2,
+              "practiceSteps": 2
+            },
+            {
+              "id": "fraction-06-lcm-concept",
+              "title": "درس ۶ — مفهوم ک.م.م",
+              "description": "کوچک‌ترین مضرب مشترک با نوشتن مضرب‌ها",
+              "order": 6,
+              "level": 3,
+              "teachSteps": 2,
+              "practiceSteps": 4
+            },
+            {
+              "id": "fraction-06-common-denominator",
+              "title": "درس ۷ — مخرج مشترک",
+              "description": "کسر معادل و تبدیل مخرج با کمک ک.م.م",
+              "order": 7,
+              "level": 3,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "fraction-07-add-diff-denom",
+              "title": "درس ۸ — جمع با مخرج متفاوت",
+              "description": "اول مخرج مشترک، بعد جمع صورت‌ها",
+              "order": 8,
+              "level": 4,
+              "teachSteps": 1,
+              "practiceSteps": 5
+            },
+            {
+              "id": "fraction-08-subtract",
+              "title": "درس ۹ — تفریق کسرها",
+              "description": "تفریق با مخرج یکسان و مخرج متفاوت",
+              "order": 9,
+              "level": 4,
+              "teachSteps": 3,
+              "practiceSteps": 5
+            },
+            {
+              "id": "fraction-09-textbook-add-sub",
+              "title": "درس ۱۰ — جمع و تفریق (کتاب ششم)",
+              "description": "تمرین کتاب ۱۴۰۴ ص ۲۴–۲۷",
+              "order": 10,
+              "level": 4,
+              "teachSteps": 1,
+              "practiceSteps": 7
+            },
+            {
+              "id": "fraction-10-textbook-compare",
+              "title": "درس ۱۱ — مقایسه (کتاب ششم)",
+              "description": "تمرین کتاب ۱۴۰۴ ص ۲۷ و ۳۹",
+              "order": 11,
+              "level": 4,
+              "teachSteps": 1,
+              "practiceSteps": 8
+            },
+            {
+              "id": "fraction-11-textbook-multiply",
+              "title": "درس ۱۲ — ضرب کسرها (کتاب ششم)",
+              "description": "تمرین کتاب ۱۴۰۴ ص ۲۸–۳۱",
+              "order": 12,
+              "level": 5,
+              "teachSteps": 2,
+              "practiceSteps": 7
             }
           ]
         },
@@ -62,8 +135,58 @@
           "order": 2,
           "icon": "📏",
           "lessons": []
+        },
+        {
+          "id": "geometry",
+          "title": "هندسه",
+          "description": "شکل‌ها، قاعده و ارتفاع، مساحت مثلث و متوازی‌الاضلاع",
+          "order": 3,
+          "icon": "📐",
+          "lessons": [
+            {
+              "id": "geometry-01-area-friends",
+              "title": "درس ۱ — مثلث و متوازی‌الاضلاع",
+              "description": "ماجراجویی شکل‌ها و فرمول مساحت",
+              "order": 1,
+              "level": 2,
+              "teachSteps": 5,
+              "practiceSteps": 3
+            }
+          ]
         }
       ]
+    },
+    {
+      "id": "programming",
+      "title": "برنامه‌نویسی",
+      "description": "تفکر الگوریتمی و ساخت پروژه‌های کوچک — به‌زودی",
+      "order": 2,
+      "icon": "code",
+      "topics": []
+    },
+    {
+      "id": "ai",
+      "title": "هوش مصنوعی",
+      "description": "آشنایی ساده با مفاهیم AI برای کودکان — به‌زودی",
+      "order": 3,
+      "icon": "ai",
+      "topics": []
+    },
+    {
+      "id": "robotics",
+      "title": "رباتیک",
+      "description": "ساخت و کنترل ربات‌های ساده — به‌زودی",
+      "order": 4,
+      "icon": "robot",
+      "topics": []
+    },
+    {
+      "id": "design",
+      "title": "طراحی",
+      "description": "طراحی سایت و خلاقیت بصری — به‌زودی",
+      "order": 5,
+      "icon": "design",
+      "topics": []
     }
   ]
 }

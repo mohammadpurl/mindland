@@ -3,10 +3,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type Konva from 'konva'
 import KonvaLib from 'konva'
-import { Circle, Group, Layer, Star, Text, Wedge } from 'react-konva'
+import { Circle, Group, Layer, Text, Wedge } from 'react-konva'
 import type { FractionCircleParams, MathVisualComponentProps } from '@/lib/math-visual-engine/types'
 import {
-  PIE_COLORS,
+  FRACTION_COLORS,
   polarToSliceIndex,
   sliceAngle,
   sliceChipPosition,
@@ -15,28 +15,18 @@ import {
 import { useLivelyKonva } from '../hooks/useLivelyKonva'
 import { KonvaFractionLabel, KonvaWhiteboard } from '../shared/KonvaWhiteboard'
 import { LivelyFace, type FaceMood } from '../shared/LivelyFace'
+import { CommonDenomProcessView } from './CommonDenomReveal'
+import { LcmConceptView } from './LcmConceptReveal'
 
 const DEFAULT_W = 600
-const DEFAULT_H = 400
+const DEFAULT_H = 440
 const TARGET_CX = 150
-const USER_CX = 450
-const CY = 195
+const USER_CX = 420
+const CY = 175
 const R = 85
-
-function SliceSparkle({ x, y, phase }: { x: number; y: number; phase: number }) {
-  const scale = 0.6 + Math.sin(phase) * 0.35
-  return (
-    <Star
-      x={x}
-      y={y}
-      numPoints={4}
-      innerRadius={3 * scale}
-      outerRadius={9 * scale}
-      fill="#FDE047"
-      opacity={0.45 + Math.sin(phase * 1.3) * 0.4}
-      rotation={phase * 40}
-    />
-  )
+/** تعداد برش قابل‌جابه‌جایی = صورت هدف (نه مخرج؛ تا از بوم بیرون نزنند) */
+function practiceChipCount(numerator: number): number {
+  return Math.max(1, numerator)
 }
 
 /** دایره کسر — حالت نمایشی (demo / static) */
@@ -46,47 +36,68 @@ function DisplayCircle({
   denominator,
   filledCount,
   breathScale,
-  sparklePhase,
   mood,
   blink,
   eyeOffset,
   label,
-  strokeColor = '#D97706',
+  radius = R,
+  showFace = true,
+  fillColor = FRACTION_COLORS.selected,
+  strokeColor = FRACTION_COLORS.selectedStroke,
 }: {
   cx: number
   cy: number
   denominator: number
   filledCount: number
   breathScale: number
-  sparklePhase: number
   mood: FaceMood
   blink: boolean
   eyeOffset: { x: number; y: number }
   label?: string
+  radius?: number
+  showFace?: boolean
+  fillColor?: string
   strokeColor?: string
 }) {
   return (
     <Group x={cx} y={cy} scaleX={breathScale} scaleY={breathScale}>
-      <Circle radius={R + 5} fill="#FEF3C7" stroke={strokeColor} strokeWidth={3} shadowBlur={8} shadowColor="rgba(0,0,0,0.1)" />
-      {Array.from({ length: denominator }).map((_, i) => (
-        <Wedge
-          key={i}
-          radius={R}
-          angle={sliceAngle(denominator)}
-          rotation={sliceRotation(i, denominator)}
-          fill={i < filledCount ? PIE_COLORS[i % PIE_COLORS.length] : 'rgba(255,255,255,0.12)'}
-          stroke={strokeColor}
-          strokeWidth={2}
-        />
-      ))}
-      {Array.from({ length: filledCount }).map((_, i) => {
-        const p = sliceChipPosition(i, denominator, R)
-        return <SliceSparkle key={`sp-${i}`} x={p.x} y={p.y} phase={sparklePhase + i} />
+      <Circle
+        radius={radius + 4}
+        fill="#FEF3C7"
+        stroke={strokeColor}
+        strokeWidth={radius < 60 ? 2 : 3}
+        shadowBlur={radius < 60 ? 4 : 8}
+        shadowColor="rgba(0,0,0,0.1)"
+      />
+      {Array.from({ length: denominator }).map((_, i) => {
+        const selected = i < filledCount
+        return (
+          <Wedge
+            key={i}
+            radius={radius}
+            angle={sliceAngle(denominator)}
+            rotation={sliceRotation(i, denominator)}
+            fill={selected ? fillColor : FRACTION_COLORS.empty}
+            stroke={selected ? strokeColor : FRACTION_COLORS.emptyStroke}
+            strokeWidth={radius < 60 ? 1.5 : 2}
+          />
+        )
       })}
-      <Circle radius={9} fill="#D97706" />
-      <LivelyFace mood={mood} blink={blink} eyeOffset={eyeOffset} />
+      <Circle radius={Math.max(5, radius * 0.1)} fill={strokeColor} />
+      {showFace && radius >= 55 ? (
+        <LivelyFace mood={mood} blink={blink} eyeOffset={eyeOffset} />
+      ) : null}
       {label ? (
-        <Text x={-R} y={R + 12} width={R * 2} text={label} fontSize={13} fill="#475569" fontStyle="bold" align="center" />
+        <Text
+          x={-radius}
+          y={radius + 8}
+          width={radius * 2}
+          text={label}
+          fontSize={radius < 60 ? 12 : 13}
+          fill="#475569"
+          fontStyle="bold"
+          align="center"
+        />
       ) : null}
     </Group>
   )
@@ -168,12 +179,12 @@ function DraggableChip({
         angle={sliceAngle(denominator)}
         rotation={wedgeRotation}
         fill={color}
-        stroke="#D97706"
+        stroke={FRACTION_COLORS.selectedStroke}
         strokeWidth={2}
         shadowBlur={assignedSlot !== null ? 5 : 2}
         shadowColor="rgba(0,0,0,0.18)"
       />
-      <Circle radius={4} fill="#D97706" />
+      <Circle radius={4} fill={FRACTION_COLORS.selectedStroke} />
     </Group>
   )
 }
@@ -184,9 +195,83 @@ function parseParams(params: MathVisualComponentProps['params']): FractionCircle
 
 /**
  * FractionCircle — دایره قابل تقسیم با Konva
- * حالت‌ها: demo (انیمیشن تقسیم) | static (نمایش) | interactive (drag + تشخیص جواب)
+ * حالت‌ها: demo | static | interactive
+ * با commonDenomProcess: انیمیشن + پرسش فرآیند ک.م.م (نه فقط drag جواب)
  */
-export function FractionCircle({
+export function FractionCircle(props: MathVisualComponentProps) {
+  const params = parseParams(props.params)
+  const compareFractions = params.compareFractions
+  const operationSymbol = params.operationSymbol
+  const commonDenomProcess = Boolean(params.commonDenomProcess)
+  const lcmConcept = Boolean(params.lcmConcept)
+  const processAnimate =
+    typeof params.commonDenomProcess === 'object'
+      ? params.commonDenomProcess.animate !== false
+      : typeof params.lcmConcept === 'object'
+        ? params.lcmConcept.animate !== false
+        : true
+  const processOp: '+' | '−' = operationSymbol === '−' ? '−' : '+'
+
+  const lcmA =
+    (typeof params.lcmConcept === 'object' ? params.lcmConcept.a : undefined) ??
+    params.lcmNumbers?.a ??
+    compareFractions?.[0]?.denominator
+  const lcmB =
+    (typeof params.lcmConcept === 'object' ? params.lcmConcept.b : undefined) ??
+    params.lcmNumbers?.b ??
+    compareFractions?.[1]?.denominator
+
+  /** اولویت: مفهوم ک.م.م قبل از فرآیند کامل جمع/تفریق */
+  if (lcmConcept && lcmA && lcmB) {
+    return (
+      <LcmConceptView
+        mode={
+          props.mode === 'interactive' ? 'interactive' : props.mode === 'demo' ? 'demo' : 'static'
+        }
+        a={lcmA}
+        b={lcmB}
+        width={props.width ?? DEFAULT_W}
+        height={props.height ?? DEFAULT_H}
+        title={params.title}
+        animate={processAnimate}
+        onSpeak={props.onSpeak}
+        setAnimation={props.setAnimation}
+        onSuccess={props.onSuccess}
+        onWrong={props.onWrong}
+      />
+    )
+  }
+
+  if (
+    commonDenomProcess &&
+    compareFractions &&
+    compareFractions.length >= 2 &&
+    (operationSymbol === '+' || operationSymbol === '−' || props.mode !== 'interactive')
+  ) {
+    return (
+      <CommonDenomProcessView
+        mode={
+          props.mode === 'interactive' ? 'interactive' : props.mode === 'demo' ? 'demo' : 'static'
+        }
+        width={props.width ?? DEFAULT_W}
+        height={props.height ?? DEFAULT_H}
+        title={params.title}
+        left={compareFractions[0]!}
+        right={compareFractions[1]!}
+        operation={processOp}
+        animate={processAnimate}
+        onSpeak={props.onSpeak}
+        setAnimation={props.setAnimation}
+        onSuccess={props.onSuccess}
+        onWrong={props.onWrong}
+      />
+    )
+  }
+
+  return <FractionCircleBoard {...props} />
+}
+
+function FractionCircleBoard({
   mode,
   params: rawParams,
   width = DEFAULT_W,
@@ -206,12 +291,18 @@ export function FractionCircle({
     params.lockDenominator ?? (mode === 'interactive' && Boolean(params.target))
   const compareFractions = params.compareFractions
   const comparisonAnswer = params.comparisonAnswer
+  const operationSymbol = params.operationSymbol
   const isComparePractice =
     mode === 'interactive' &&
     Boolean(comparisonAnswer) &&
     Boolean(compareFractions && compareFractions.length >= 2)
+  /** تمرین جمع/تفریق: دو عملوند + ساخت حاصل */
+  const isOperationPractice =
+    mode === 'interactive' &&
+    !comparisonAnswer &&
+    Boolean(compareFractions && compareFractions.length >= 2)
 
-  const { breathScale, sparklePhase, blink, eyeOffset } = useLivelyKonva()
+  const { breathScale, blink, eyeOffset } = useLivelyKonva()
   const [demoFilled, setDemoFilled] = useState(0)
   const [mood, setMood] = useState<FaceMood>('neutral')
   const [board, setBoard] = useState<{ slots: Record<number, number>; chips: Record<number, number> }>({
@@ -341,14 +432,16 @@ export function FractionCircle({
 
   const filledSlots = useMemo(() => new Set(Object.keys(board.slots).map(Number)), [board.slots])
   const placedCount = filledSlots.size
+  const chipCount = practiceChipCount(target.numerator)
 
-  const trayHome = (chipId: number, total: number) => {
-    const perCol = Math.ceil(total / 2)
-    const col = chipId >= perCol ? 1 : 0
-    const row = chipId % perCol
+  /** سینی برش‌ها زیر دایرهٔ کاربر — همیشه داخل بوم */
+  const trayHome = (chipId: number, total: number, centerX: number) => {
+    const gap = Math.min(52, Math.floor((width - 80) / Math.max(total, 1)))
+    const totalW = (total - 1) * gap
+    const startX = centerX - totalW / 2
     return {
-      x: USER_CX + R + 36 + col * 36,
-      y: CY - R + 8 + row * 30,
+      x: Math.max(36, Math.min(width - 36, startX + chipId * gap)),
+      y: CY + R + 38,
     }
   }
 
@@ -377,12 +470,12 @@ export function FractionCircle({
               denominator={left.denominator}
               filledCount={left.numerator}
               breathScale={breathScale}
-              sparklePhase={sparklePhase}
               mood={mood}
               blink={blink}
               eyeOffset={eyeOffset}
               label={leftLabel}
-              strokeColor="#6366f1"
+              fillColor={FRACTION_COLORS.compareA}
+              strokeColor={FRACTION_COLORS.compareA}
             />
             <DisplayCircle
               cx={USER_CX}
@@ -390,12 +483,12 @@ export function FractionCircle({
               denominator={right.denominator}
               filledCount={right.numerator}
               breathScale={breathScale}
-              sparklePhase={sparklePhase + 1}
               mood={mood}
               blink={blink}
               eyeOffset={eyeOffset}
               label={rightLabel}
-              strokeColor="#0ea5e9"
+              fillColor={FRACTION_COLORS.compareB}
+              strokeColor={FRACTION_COLORS.compareB}
             />
             <Text
               x={width / 2 - 16}
@@ -454,12 +547,12 @@ export function FractionCircle({
               denominator={left.denominator}
               filledCount={left.numerator}
               breathScale={breathScale}
-              sparklePhase={sparklePhase}
               mood="neutral"
               blink={blink}
               eyeOffset={eyeOffset}
               label={left.label ?? `${left.numerator}/${left.denominator}`}
-              strokeColor="#6366f1"
+              fillColor={FRACTION_COLORS.compareA}
+              strokeColor={FRACTION_COLORS.compareA}
             />
             <DisplayCircle
               cx={USER_CX}
@@ -467,12 +560,12 @@ export function FractionCircle({
               denominator={right.denominator}
               filledCount={right.numerator}
               breathScale={breathScale}
-              sparklePhase={sparklePhase + 1}
               mood="neutral"
               blink={blink}
               eyeOffset={eyeOffset}
               label={right.label ?? `${right.numerator}/${right.denominator}`}
-              strokeColor="#0ea5e9"
+              fillColor={FRACTION_COLORS.compareB}
+              strokeColor={FRACTION_COLORS.compareB}
             />
             <Text
               x={width / 2 - 16}
@@ -498,7 +591,6 @@ export function FractionCircle({
             denominator={denominator}
             filledCount={filled}
             breathScale={breathScale}
-            sparklePhase={sparklePhase}
             mood="neutral"
             blink={blink}
             eyeOffset={eyeOffset}
@@ -516,58 +608,115 @@ export function FractionCircle({
   }
 
   // interactive
+  const pizzaCx = isOperationPractice ? 430 : showTarget ? USER_CX : width / 2
+  const opA = isOperationPractice ? compareFractions![0] : null
+  const opB = isOperationPractice ? compareFractions![1] : null
+  const opSym = operationSymbol ?? '+'
+
   return (
     <div className="space-y-3">
       <KonvaWhiteboard width={width} height={height} title={title}>
         <Layer>
-          {showTarget && (
+          {isOperationPractice && opA && opB ? (
+            <>
+              <DisplayCircle
+                cx={95}
+                cy={130}
+                denominator={opA.denominator}
+                filledCount={opA.numerator}
+                breathScale={1}
+                mood="neutral"
+                blink={false}
+                eyeOffset={{ x: 0, y: 0 }}
+                label={opA.label ?? `${opA.numerator}/${opA.denominator}`}
+                radius={52}
+                showFace={false}
+                fillColor={FRACTION_COLORS.compareA}
+                strokeColor={FRACTION_COLORS.compareA}
+              />
+              <Text
+                x={70}
+                y={212}
+                width={50}
+                text={opSym}
+                fontSize={28}
+                fill="#64748b"
+                fontStyle="bold"
+                align="center"
+              />
+              <DisplayCircle
+                cx={95}
+                cy={290}
+                denominator={opB.denominator}
+                filledCount={opB.numerator}
+                breathScale={1}
+                mood="neutral"
+                blink={false}
+                eyeOffset={{ x: 0, y: 0 }}
+                label={opB.label ?? `${opB.numerator}/${opB.denominator}`}
+                radius={52}
+                showFace={false}
+                fillColor={FRACTION_COLORS.compareB}
+                strokeColor={FRACTION_COLORS.compareB}
+              />
+              <Text
+                x={160}
+                y={CY - 12}
+                text="="
+                fontSize={28}
+                fill="#94a3b8"
+                fontStyle="bold"
+              />
+            </>
+          ) : null}
+
+          {showTarget && !isOperationPractice && (
             <DisplayCircle
               cx={TARGET_CX}
               cy={CY}
               denominator={target.denominator}
               filledCount={target.numerator}
               breathScale={breathScale}
-              sparklePhase={sparklePhase}
               mood="neutral"
               blink={false}
               eyeOffset={{ x: 0, y: 0 }}
               label={`هدف: ${target.numerator}/${target.denominator}`}
-              strokeColor="#6366f1"
+              fillColor={FRACTION_COLORS.compareA}
+              strokeColor={FRACTION_COLORS.compareA}
             />
           )}
 
-          <Group x={USER_CX} y={CY} scaleX={breathScale} scaleY={breathScale} rotation={spin}>
-            <Circle radius={R + 5} fill="#FEF3C7" stroke="#0ea5e9" strokeWidth={3} />
-            {Array.from({ length: userDenominator }).map((_, i) => (
-              <Wedge
-                key={i}
-                radius={R}
-                angle={sliceAngle(userDenominator)}
-                rotation={sliceRotation(i, userDenominator)}
-                fill={filledSlots.has(i) ? PIE_COLORS[i % PIE_COLORS.length] : 'rgba(255,255,255,0.15)'}
-                stroke={filledSlots.has(i) ? '#D97706' : '#94a3b8'}
-                strokeWidth={2}
-                dash={filledSlots.has(i) ? undefined : [5, 4]}
-              />
-            ))}
-            {Array.from(filledSlots).map((i) => {
-              const p = sliceChipPosition(i, userDenominator, R)
-              return <SliceSparkle key={i} x={p.x} y={p.y} phase={sparklePhase + i} />
+          <Group x={pizzaCx} y={CY} scaleX={breathScale} scaleY={breathScale} rotation={spin}>
+            <Circle radius={R + 5} fill="#FEF3C7" stroke={FRACTION_COLORS.compareB} strokeWidth={3} />
+            {Array.from({ length: userDenominator }).map((_, i) => {
+              const selected = filledSlots.has(i)
+              return (
+                <Wedge
+                  key={i}
+                  radius={R}
+                  angle={sliceAngle(userDenominator)}
+                  rotation={sliceRotation(i, userDenominator)}
+                  fill={selected ? FRACTION_COLORS.selected : FRACTION_COLORS.empty}
+                  stroke={selected ? FRACTION_COLORS.selectedStroke : FRACTION_COLORS.emptyStroke}
+                  strokeWidth={2}
+                  dash={selected ? undefined : [5, 4]}
+                />
+              )
             })}
-            <Circle radius={9} fill="#D97706" />
+            <Circle radius={9} fill={FRACTION_COLORS.selectedStroke} />
             <LivelyFace mood={mood} blink={blink} eyeOffset={eyeOffset} />
           </Group>
 
-          {Array.from({ length: userDenominator }).map((_, chipId) => {
-            const home = trayHome(chipId, userDenominator)
+          {Array.from({ length: chipCount }).map((_, chipId) => {
+            const home = trayHome(chipId, chipCount, pizzaCx)
             return (
               <DraggableChip
                 key={`chip-${chipId}-d${userDenominator}-t${target.numerator}-${target.denominator}`}
                 chipId={chipId}
-                color={PIE_COLORS[chipId % PIE_COLORS.length]}
+                color={FRACTION_COLORS.selected}
                 homeX={home.x}
                 homeY={home.y}
-                pizzaCx={USER_CX}
+                pizzaCx={pizzaCx}
                 pizzaCy={CY}
                 denominator={userDenominator}
                 assignedSlot={board.chips[chipId] ?? null}
@@ -577,12 +726,24 @@ export function FractionCircle({
             )
           })}
 
-          <Text x={32} y={height - 36} width={width - 64} text="برش را بکش و روی دایره رها کن ✨" fontSize={12} fill="#64748b" align="center" />
+          <Text
+            x={32}
+            y={12}
+            width={width - 64}
+            text={
+              isOperationPractice
+                ? `حاصل را با ${chipCount} برش روی دایره بساز`
+                : `${chipCount} برش را بکش و روی دایره رها کن`
+            }
+            fontSize={12}
+            fill="#64748b"
+            align="center"
+          />
         </Layer>
       </KonvaWhiteboard>
 
       <div className="flex flex-col items-center gap-2" dir="rtl">
-        <div className="flex items-center gap-1 font-extrabold text-slate-800">
+        <div className="flex items-center gap-1 font-extrabold text-slate-800" dir="ltr">
           <span className="text-4xl text-indigo-600">{placedCount}</span>
           <span className="text-2xl text-slate-400">/</span>
           <span className="text-4xl text-sky-600">{userDenominator}</span>

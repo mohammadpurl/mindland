@@ -1,0 +1,139 @@
+{
+  "id": "fraction-10-textbook-compare",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 11,
+  "level": 4,
+  "title": "درس ۱۱ — مقایسه و مرتب‌سازی (کتاب ششم)",
+  "description": "برگرفته از کتاب ریاضی ششم ۱۴۰۴، صفحات ۲۷ و ۳۹ — مقایسه با مخرج مشترک و شکل",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "intro",
+      "message": "در کتاب ششم یاد می‌گیریم کسرها را با شکل، مخرج مشترک یا محور مقایسه کنیم. امروز با دایره و دکمه انتخاب تمرین می‌کنیم.",
+      "animation": "Talking",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "compare-methods",
+      "title": "سه روش مقایسه",
+      "speak": "برای مقایسه دو کسر می‌توانی شکل بکشی، مخرج مشترک بگیری، یا به قسمت رنگی نگاه کنی. امروز به اندازهٔ قسمت رنگی دقت کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": {
+          "compareFractions": [
+            { "numerator": 2, "denominator": 3, "label": "۲/۳" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "title": "۲/۳ و ۱/۴ — کدام بزرگ‌تر؟"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "cmp-2-3-vs-1-4",
+      "title": "تمرین ۱ — ۲/۳ و ۱/۴",
+      "speak": "کدام بزرگ‌تر است: دو‌سوم یا یک‌چهارم؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۲/۳ ؟ ۱/۴",
+          "compareFractions": [
+            { "numerator": 2, "denominator": 3, "label": "۲/۳" },
+            { "numerator": 1, "denominator": 4, "label": "۱/۴" }
+          ],
+          "comparisonAnswer": "gt"
+        }
+      },
+      "successMessage": "درست! ۲/۳ از ۱/۴ بزرگ‌تر است.",
+      "wrongMessage": "به قسمت رنگی نگاه کن — ۲/۳ بیشتر از دایره را گرفته."
+    },
+    {
+      "type": "practice",
+      "id": "cmp-3-10-vs-2-5",
+      "title": "تمرین ۲ — ۳/۱۰ و ۲/۵",
+      "speak": "سه‌دهم و دو‌پنجم را مقایسه کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۳/۱۰ ؟ ۲/۵",
+          "compareFractions": [
+            { "numerator": 3, "denominator": 10, "label": "۳/۱۰" },
+            { "numerator": 2, "denominator": 5, "label": "۲/۵" }
+          ],
+          "comparisonAnswer": "lt"
+        }
+      },
+      "successMessage": "آفرین! ۲/۵ = ۴/۱۰ از ۳/۱۰ بزرگ‌تر است.",
+      "wrongMessage": "۲/۵ را ۴/۱۰ کن و با ۳/۱۰ مقایسه کن."
+    },
+    {
+      "type": "practice",
+      "id": "cmp-equal-3-6-1-2",
+      "title": "تمرین ۳ — ۳/۶ و ۱/۲",
+      "speak": "آیا سه‌ششم و یک‌دوم برابرند؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۳/۶ ؟ ۱/۲",
+          "compareFractions": [
+            { "numerator": 3, "denominator": 6, "label": "۳/۶" },
+            { "numerator": 1, "denominator": 2, "label": "۱/۲" }
+          ],
+          "comparisonAnswer": "eq"
+        }
+      },
+      "successMessage": "درست! ۳/۶ = ۱/۲",
+      "wrongMessage": "هر دو نصف دایره را پوشانده‌اند."
+    },
+    {
+      "type": "practice",
+      "id": "cmp-5-12-vs-1-3",
+      "title": "تمرین ۴ — ۵/۱۲ و ۱/۳",
+      "speak": "پنج‌دوازدهم و یک‌سوم کدام بزرگ‌تر است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۵/۱۲ ؟ ۱/۳",
+          "compareFractions": [
+            { "numerator": 5, "denominator": 12, "label": "۵/۱۲" },
+            { "numerator": 1, "denominator": 3, "label": "۱/۳" }
+          ],
+          "comparisonAnswer": "gt"
+        }
+      },
+      "successMessage": "درست! ۱/۳ = ۴/۱۲ و ۵/۱۲ بزرگ‌تر است.",
+      "wrongMessage": "۱/۳ = ۴/۱۲؛ پس ۵/۱۲ کمی بزرگ‌تر است."
+    },
+    {
+      "type": "practice",
+      "id": "gen-book-compare",
+      "title": "تمرین کتاب — مقایسه متنوع",
+      "speak": "کدام کسر بزرگ‌تر است؟ یا آیا برابرند؟",
+      "animation": "Pointing",
+      "generator": "fraction-comparison",
+      "params": {
+        "denominatorRange": [2, 10],
+        "count": 4,
+        "allowImproperFractions": false,
+        "seed": "book-1404-p27-39"
+      },
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive"
+      }
+    }
+  ]
+}
