@@ -35,7 +35,7 @@ export function JourneyThemeCompare({
       className={`relative w-full ${className}`}
       data-journey-compare={theme}
     >
-      {/* <div className="sticky top-[4.5rem] z-50 mx-auto flex max-w-lg justify-center px-4 pt-3 md:top-20">
+      <div className="sticky top-[4.5rem] z-50 mx-auto flex max-w-lg justify-center px-4 pt-3 md:top-20">
         <div
           className={[
             'flex w-full items-center gap-1 rounded-2xl border p-1 shadow-lg backdrop-blur-md',
@@ -76,7 +76,7 @@ export function JourneyThemeCompare({
             تیره فضایی
           </button>
         </div>
-      </div> */}
+      </div>
 
       <p
         className={[
