@@ -1,10 +1,8 @@
 /**
  * Lazy-load + singleton Pyodide for the browser.
- * Artifacts are served from /public/pyodide (copied from node_modules on postinstall).
  *
- * IMPORTANT: never `import('pyodide')` from node_modules in client code —
- * that package pulls Node builtins (`node:child_process`) and breaks Webpack.
- * Load the browser build from `/pyodide/pyodide.mjs` instead.
+ * Never `import('pyodide')` from node_modules in client code (Node builtins break Webpack).
+ * Prefer `/public/pyodide` (filled by `postinstall` / `prebuild`), with jsDelivr CDN fallback.
  */
 
 import type { PyodideInterface } from 'pyodide'
@@ -12,8 +10,11 @@ import type { PyodideInterface } from 'pyodide'
 /** Must match installed `pyodide` package version (see package.json). */
 export const PYODIDE_PACKAGE_VERSION = '314.0.3'
 
-/** Where wasm / stdlib are served in Next (see scripts/copy-pyodide.mjs). */
+/** Same-origin path after `node scripts/copy-pyodide.mjs`. */
 export const PYODIDE_INDEX_URL = '/pyodide/'
+
+/** CDN fallback when public/pyodide was not deployed. */
+export const PYODIDE_CDN_INDEX_URL = `https://cdn.jsdelivr.net/npm/pyodide@${PYODIDE_PACKAGE_VERSION}/`
 
 export type PyodideLoadState = 'idle' | 'loading' | 'ready' | 'error'
 
@@ -33,18 +34,49 @@ export function isPyodideReady(): boolean {
   return instance !== null
 }
 
-async function importBrowserPyodide(): Promise<{
+function toAbsoluteIndex(indexURL: string): string {
+  if (indexURL.startsWith('http')) return indexURL.endsWith('/') ? indexURL : `${indexURL}/`
+  if (typeof window === 'undefined') return indexURL
+  return new URL(indexURL, window.location.origin).href
+}
+
+async function importFromIndex(indexURL: string): Promise<{
   loadPyodide: (config?: { indexURL?: string }) => Promise<PyodideInterface>
+  indexURL: string
 }> {
-  // Dynamic URL + webpackIgnore keeps node_modules/pyodide out of the client bundle.
-  const url = `${PYODIDE_INDEX_URL}pyodide.mjs`
+  const base = toAbsoluteIndex(indexURL)
+  const moduleUrl = `${base}pyodide.mjs`
   const mod: unknown = await import(
     /* webpackIgnore: true */
-    url
+    moduleUrl
   )
-  return mod as {
-    loadPyodide: (config?: { indexURL?: string }) => Promise<PyodideInterface>
+  return {
+    ...(mod as {
+      loadPyodide: (config?: { indexURL?: string }) => Promise<PyodideInterface>
+    }),
+    indexURL: base,
   }
+}
+
+async function importBrowserPyodide(): Promise<{
+  loadPyodide: (config?: { indexURL?: string }) => Promise<PyodideInterface>
+  indexURL: string
+}> {
+  const candidates = [PYODIDE_INDEX_URL, PYODIDE_CDN_INDEX_URL]
+  const errors: string[] = []
+
+  for (const index of candidates) {
+    try {
+      return await importFromIndex(index)
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err)
+      errors.push(`${index}: ${message}`)
+    }
+  }
+
+  throw new Error(
+    `لود Pyodide ناموفق بود. مطمئن شو prebuild فایل‌ها را به public/pyodide کپی کرده، یا CDN در دسترس است.\n${errors.join('\n')}`
+  )
 }
 
 /**
@@ -61,10 +93,8 @@ export async function loadPyodideSingleton(): Promise<PyodideInterface> {
 
   loadPromise = (async () => {
     try {
-      const { loadPyodide } = await importBrowserPyodide()
-      const pyodide = await loadPyodide({
-        indexURL: PYODIDE_INDEX_URL,
-      })
+      const { loadPyodide, indexURL } = await importBrowserPyodide()
+      const pyodide = await loadPyodide({ indexURL })
       instance = pyodide
       lastError = null
       return pyodide
