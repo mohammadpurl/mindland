@@ -1,0 +1,84 @@
+{
+  "id": "python-01-intro",
+  "title": "پایتون چیست و اولین دستور",
+  "version": 1,
+  "order": 1,
+  "optional": false,
+  "prerequisite": "python-00-blocks",
+  "durationMinutes": 45,
+  "note": "مأموریت‌محور؛ مینی=مجری دقیق‌تر؛ دانش‌آموز=کارگردان با تایپ.",
+  "goal": "محیط را باز کند، با print یک جمله را وادار کند مینی بگوید، و بفهمد چرا علامت جاافتاده مینی را قفل می‌کند.",
+  "metaphor": {
+    "title": "مینی الان باید دقیق‌تر باهاش حرف بزنی",
+    "fullDescription": "تو PY-00 با بلوک می‌گفتیم چیکار کنه. الان همون کار با تایپ. به این زبان دقیق پایتون می‌گویند. مینی فقط فرمت درست را می‌فهمد."
+  },
+  "systemMessages": [
+    {
+      "id": "quote",
+      "text": "مینی گیر کرد. یه گیومه جا افتاده — زبونش رو کامل ننوشتیم."
+    },
+    {
+      "id": "paren",
+      "text": "مینی گیر کرد. نگفتیم کجا باید جمله رو بذاره — پرانتز یادت رفت."
+    },
+    {
+      "id": "quote-mismatch",
+      "text": "مینی گیر کرد. دو تا علامت جفت‌نشدن — یکی از گیومه‌ها با اون یکی فرق داره."
+    }
+  ],
+  "demoPair": {
+    "good": "print(\"سلام! من مینی‌ام.\")",
+    "bad": "print(\"سلام! من مینی‌ام.)"
+  },
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "از بلوک تا تایپ",
+      "stageMission": "مینی مجریه — حالا باید دقیق‌تر باهاش حرف بزنی."
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: کنتراست درست و غلط",
+      "maxDurationMinutes": 5,
+      "stageMission": "دو اجرا: درست در برابر یک علامت کم."
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "یه جمله بنویس که مینی دقیقاً همونو بگه — بدون قفل کردن.",
+      "missionChecklist": [
+        { "id": "typed", "label": "کد رو تایپ کردم" },
+        { "id": "ran", "label": "اجرا کردم" },
+        { "id": "said", "label": "مینی درست گفتش (بدون خطا)" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "معرفی مینی",
+      "brief": "سه جمله درباره‌ی خودت بنویس که مینی بگه: اسمت، سنت، چیزی که دوست داری.",
+      "stageMission": "سه جمله درباره‌ی خودت بنویس که مینی بگه: اسمت، سنت، چیزی که دوست داری."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "معرفی + یادداشت مخفی",
+      "brief": "همون سه جمله رو بنویس، به‌علاوه یه خط که با # شروع می‌شه و توضیح می‌ده «برنامه یعنی چی» — مینی این خط رو نمی‌خونه.",
+      "stageMission": "سه جمله + یک خط # یادداشت مخفی."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی"
+    }
+  ],
+  "productImplementationNotes": {
+    "componentDependency": "PythonCodeRunner + Pyodide + BrokenShowOverlay",
+    "nextLessonId": "python-02-print-strings"
+  }
+}

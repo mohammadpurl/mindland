@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Pyodide runtime copied from node_modules (large WASM)
+/public/pyodide/
+
+# Pyodide runtime copied from node_modules (run npm run copy:pyodide)
+/public/pyodide/

@@ -37,6 +37,7 @@ export default function TeacherAvatarView() {
               onAvatarLockChange={setAvatarLocked}
               onAvatarLoaded={(loaded) => setShowLoadingVideo(!loaded)}
             />
+            {/* بدون این خط، useControls پنل پیش‌فرض Leva را نشان می‌دهد */}
             <Leva hidden />
             <UI
               hidden={false}

@@ -1,0 +1,74 @@
+{
+  "id": "python-00-blocks",
+  "title": "برنامه‌نویسی بلوکی: منطق بدون تایپ",
+  "version": 2,
+  "order": 0,
+  "optional": true,
+  "prerequisite": null,
+  "durationMinutes": 45,
+  "tracks": ["A", "B"],
+  "note": "نسخه ۲ مأموریت‌محور. مستقل از پایتون؛ بدون متغیر/نوع داده/تایپ کد.",
+  "goal": "با کارگردانی مینی، توالی، تکرار تمیز، و قانون لبه را از تجربه بفهمد.",
+  "metaphor": {
+    "title": "مینی مجریه، تو کارگردانی",
+    "description": "مینی فقط دستور را مو‌به‌مو اجرا می‌کند. ترتیب غلط = نمایش خراب. تکرار تمیز = یک‌بار تعریف، چندبار اجرا. قانون لبه جلوی خرابی را می‌گیرد."
+  },
+  "measurableOutcomes": [
+    "توالی‌ای بسازد که مینی بدون گیر کردن به لبه «آماده‌ام!» بگوید",
+    "توضیح دهد چرا ترتیب اشتباه نمایش را خراب می‌کند",
+    "به‌جای کپی‌های جدا، با یک بلوک تکرار همان کار را چندبار اجرا کند",
+    "با قانون «اگر به لبه رسید، برگرد» از خرابی جلوگیری کند"
+  ],
+  "sourceFile": "python-00-blocks-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "مینی مجریه، تو کارگردانی",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: کنتراست دو اجرا",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "جلو → بچرخ → آماده‌ام بدون خرابی؛ بعد دو بار بچرخ+سلام با یک تکرار."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "رقص سلام",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "با یک بلوک تکرار، مینی دو بار بچرخه و هر بار سلام بگه."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "نگهبان لبه",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "یه مسیر بساز که مینی چند بار به لبه نزدیک بشه، ولی هیچ‌وقت نمایش خراب نشه."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "صحنهٔ بلوکی داخلی با systemMessage و چک‌لیست مأموریت.",
+    "skipMechanism": "دکمه‌ی رد کردن برای کسانی که قبلاً با بلوک کار کرده‌اند.",
+    "nextLesson": "python-01-intro"
+  }
+}

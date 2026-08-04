@@ -1,0 +1,18 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    {
+      "speaker": "avatar",
+      "text": "مأموریت: یه جمله بنویس که مینی دقیقاً همونو بگه — بدون قفل کردن. خودت تایپ کن و اجرا کن."
+    }
+  ],
+  "missionChecklist": [
+    { "id": "typed", "label": "کد رو تایپ کردم" },
+    { "id": "ran", "label": "اجرا کردم" },
+    { "id": "said", "label": "مینی درست گفتش (بدون خطا)" }
+  ],
+  "productionNotes": [
+    "ادیتور خالی یا فقط placeholder — نه اسکلت تقریباً کامل."
+  ]
+}

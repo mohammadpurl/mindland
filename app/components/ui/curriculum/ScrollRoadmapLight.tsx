@@ -331,10 +331,25 @@ function PlanetCardLight({
           ))}
         </ul>
 
+        {station.prerequisites && station.prerequisites.length > 0 ? (
+          <div className="mt-2 space-y-1 border-t border-slate-100 pt-2">
+            <p className="text-[8px] font-bold text-slate-500 md:text-[9px]">پیش‌نیاز (ارجاع):</p>
+            <ul className="flex flex-wrap gap-1">
+              {station.prerequisites.map((p) => (
+                <li key={p.href}>
+                  <span className="inline-block rounded-md bg-sky-50 px-1.5 py-0.5 text-[8px] font-bold text-sky-800 md:text-[9px]">
+                    {p.label}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
         {!locked ? (
           <p className="mt-2 flex items-center gap-1 text-[9px] font-bold text-sky-700 md:text-[10px]">
             <Sparkles className="h-3 w-3" aria-hidden />
-            بزن بریم این ایستگاه!
+            {station.kind === 'prerequisite' ? 'برو به درس پیش‌نیاز' : 'بزن بریم این ایستگاه!'}
           </p>
         ) : (
           <p className="mt-2 text-[9px] font-bold text-slate-400 md:text-[10px]">به‌زودی باز می‌شود</p>

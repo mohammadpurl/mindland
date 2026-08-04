@@ -1,0 +1,99 @@
+{
+  "id": "python-00-blocks",
+  "title": "برنامه‌نویسی بلوکی: منطق بدون تایپ",
+  "version": 2,
+  "order": 0,
+  "optional": true,
+  "prerequisite": null,
+  "durationMinutes": 45,
+  "note": "نسخه ۲ مأموریت‌محور. دانش‌آموز حل می‌کند، نه تماشا. بدون نام پایتون/متغیر/تایپ.",
+
+  "goal": "با کارگردانی مینی، توالی، تکرار تمیز، و قانون لبه را از تجربه بفهمد.",
+
+  "metaphor": {
+    "title": "مینی مجریه، تو کارگردانی",
+    "fullDescription": "مینی فقط دستور را مو‌به‌مو، به همان ترتیب اجرا می‌کند — نه کمتر، نه بیشتر، نه هوشمندانه‌تر. ترتیب غلط = نمایش خراب. تکرار تمیز = یک‌بار تعریف کن، چندبار اجرا. قانون لبه فقط وقتی تعریف شده باشد جلوی خرابی را می‌گیرد."
+  },
+
+  "systemMessages": [
+    {
+      "id": "crash-edge",
+      "text": "نمایش خراب شد! مینی نمی‌دونست به لبه که رسید چیکار کنه."
+    },
+    {
+      "id": "crash-empty-repeat",
+      "text": "مینی منتظر موند... هیچ‌کاری براش تعریف نشده بود."
+    }
+  ],
+
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "مینی مجریه، تو کارگردانی",
+      "stageMission": "نقش‌ها را بشناس: مینی=مجری · تو=کارگردان",
+      "narratorScript": "مینی مجریه، تو کارگردانی. مینی فقط همون دستوری رو انجام می‌ده که براش می‌چینی — نه کمتر، نه بیشتر، نه هوشمندانه‌تر."
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: کنتراست دو اجرا",
+      "maxDurationMinutes": 5,
+      "stageMission": "ترتیب · قانون لبه · تکرار شلوغ در برابر تمیز",
+      "contrastRuns": {
+        "good": ["move", "turn", "say-ready"],
+        "bad": ["say-ready", "turn", "move"],
+        "edgeCrash": ["move", "move", "move", "move", "move", "move"],
+        "edgeSafe": ["move", "move", "move", "move", "move", "move", "if-edge"],
+        "repeatVerbose": ["turn", "say-hi", "turn", "say-hi"],
+        "repeatClean": ["repeat-2: turn+say-hi"]
+      }
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "جلو → بچرخ → آماده‌ام بدون خرابی؛ بعد دو بار بچرخ+سلام با یک تکرار.",
+      "missionChecklist": [
+        { "id": "moved", "label": "جلو رفت" },
+        { "id": "turned", "label": "چرخید" },
+        { "id": "said", "label": "آماده‌ام رو گفت" },
+        { "id": "safe", "label": "بدون خرابی تموم شد" },
+        { "id": "repeated", "label": "با تکرار ساخت (نه کپی جدا)" }
+      ],
+      "introNarratorScript": "مأموریت: جلو → بچرخ → آماده‌ام بدون خرابی؛ بعد دو بار بچرخ+سلام با یک تکرار."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "ageRange": "9-11",
+      "title": "رقص سلام",
+      "brief": "با یک بلوک تکرار، مینی دو بار بچرخه و هر بار سلام بگه.",
+      "taskDescription": "با یک بلوک تکرار، مینی دو بار بچرخه و هر بار سلام بگه.",
+      "stageMission": "با یک بلوک تکرار، مینی دو بار بچرخه و هر بار سلام بگه."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "ageRange": "12-14",
+      "title": "نگهبان لبه",
+      "brief": "یه مسیر بساز که مینی چند بار به لبه نزدیک بشه، ولی هیچ‌وقت نمایش خراب نشه.",
+      "taskDescription": "یه مسیر بساز که مینی چند بار به لبه نزدیک بشه، ولی هیچ‌وقت نمایش خراب نشه.",
+      "stageMission": "یه مسیر بساز که مینی چند بار به لبه نزدیک بشه، ولی هیچ‌وقت نمایش خراب نشه."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "fullNarratorScript": "من فقط همونی رو انجام می‌دم که بهم می‌گی — به همون ترتیب. اگه ترتیب عوض بشه، نمایش عوض می‌شه. اگه یه کار رو چندبار لازم داشته باشی، یک‌بار تعریفش کن و بگو چندبار تکرار بشه. و اگه یه قانون براش تعریف نکنی، نمایش می‌تونه خراب بشه."
+    }
+  ],
+
+  "productImplementationNotes": {
+    "componentDependency": "BlockStoryStage با mode، systemMessage، چک‌لیست، دمو کنتراست واقعی.",
+    "skipMechanism": "دکمه‌ی رد کردن.",
+    "nextLessonId": "python-01-intro"
+  }
+}

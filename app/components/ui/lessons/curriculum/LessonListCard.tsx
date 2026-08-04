@@ -9,7 +9,11 @@ interface Props {
 }
 
 export function LessonListCard({ lang, subjectId, topicId, lesson }: Props) {
-  const href = `/${lang}/lessons/math-visual/${lesson.id}`
+  const href =
+    subjectId === 'programming' &&
+    (lesson.id === 'python-00-blocks' || lesson.id === 'python-01-intro')
+      ? `/${lang}/lessons/programming/${lesson.id}`
+      : `/${lang}/lessons/math-visual/${lesson.id}`
 
   return (
     <Link

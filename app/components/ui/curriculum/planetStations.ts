@@ -1,6 +1,11 @@
 /** داده و مسیر مشترک ایستگاه‌های کهکشان یادگیری */
 
-export type PlanetCategory = 'math' | 'programming' | 'combined'
+export type PlanetCategory = 'math' | 'programming' | 'combined' | 'design' | 'robotics' | 'ai'
+
+export interface PlanetPrerequisite {
+  label: string
+  href: string
+}
 
 export interface PlanetStation {
   id: string
@@ -13,6 +18,10 @@ export interface PlanetStation {
   t: number
   href: string
   locked?: boolean
+  /** ارجاع به درس/مدرسه دیگر (بدون تکرار محتوا) */
+  prerequisites?: PlanetPrerequisite[]
+  /** هسته / پیش‌نیاز / اختصاصی / نقطه عطف */
+  kind?: 'core' | 'prerequisite' | 'specialty' | 'milestone'
   planetFrom: string
   planetTo: string
   accent: string
@@ -23,12 +32,18 @@ export const CATEGORY_COLORS: Record<PlanetCategory, string> = {
   math: '#0D9488',
   programming: '#EA580C',
   combined: '#0284C7',
+  design: '#DB2777',
+  robotics: '#7C3AED',
+  ai: '#0891B2',
 }
 
 export const CATEGORY_LABELS: Record<PlanetCategory, string> = {
   math: 'ریاضی',
   programming: 'برنامه‌نویسی',
   combined: 'ترکیبی',
+  design: 'طراحی',
+  robotics: 'رباتیک',
+  ai: 'هوش مصنوعی',
 }
 
 export const FLIGHT_PATH_D =

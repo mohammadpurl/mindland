@@ -1,0 +1,25 @@
+{
+  "$comment": "قالب اسکلت درس برای کپی هنگام ساخت سناریوی جدید — فیلدها را پر کنید و پوشهٔ dialogue را بسازید.",
+  "id": "",
+  "title": "",
+  "order": 0,
+  "optional": false,
+  "prerequisite": null,
+  "durationMinutes": 45,
+  "tracks": ["A", "B"],
+  "goal": "",
+  "metaphor": {
+    "title": "",
+    "description": ""
+  },
+  "concepts": [],
+  "excludedConcepts": [],
+  "measurableOutcomes": [],
+  "steps": [],
+  "productNotes": {
+    "componentDependency": "",
+    "skipMechanism": "",
+    "nextLesson": null
+  },
+  "dialogueDir": "dialogue"
+}

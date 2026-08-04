@@ -1,0 +1,72 @@
+{
+  "id": "python-01-intro",
+  "title": "پایتون چیست و اولین دستور",
+  "version": 1,
+  "order": 1,
+  "optional": false,
+  "prerequisite": "python-00-blocks",
+  "durationMinutes": 45,
+  "tracks": ["A", "B"],
+  "note": "اولین باری که اسم پایتون گفته می‌شود — دقیقاً وقتی تفاوت با بلوکی معنا دارد.",
+  "goal": "محیط را باز کند، با print یک جمله را وادار کند مینی بگوید، و بفهمد چرا علامت جاافتاده مینی را قفل می‌کند.",
+  "metaphor": {
+    "title": "مینی الان باید دقیق‌تر باهاش حرف بزنی",
+    "description": "تو PY-00 با بلوک می‌گفتیم. الان همان کار با تایپ — به این زبان دقیق پایتون می‌گویند. یک علامت جاافتاده کافی است که مینی نفهمد."
+  },
+  "measurableOutcomes": [
+    "یک خط کد را اجرا کند",
+    "با print یک جمله را وادار کند مینی بگوید",
+    "توضیح دهد چرا حذف گیومه/پرانتز مینی را قفل می‌کند"
+  ],
+  "sourceFile": "python-01-intro-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "از بلوک تا تایپ",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: کنتراست درست و غلط",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "یه جمله بنویس که مینی دقیقاً همونو بگه — بدون قفل کردن."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "معرفی مینی",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "سه جمله درباره‌ی خودت بنویس که مینی بگه: اسمت، سنت، چیزی که دوست داری."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "معرفی + یادداشت مخفی",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "همون سه جمله رو بنویس، به‌علاوه یه خط که با # شروع می‌شه و توضیح می‌ده «برنامه یعنی چی» — مینی این خط رو نمی‌خونه."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "PythonCodeRunner + Pyodide + pythonErrorMessages + BrokenShowOverlay",
+    "nextLesson": "python-02-print-strings"
+  }
+}

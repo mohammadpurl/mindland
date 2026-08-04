@@ -8,6 +8,7 @@ import * as THREE from 'three'
 import { Experience } from '@/app/components/Experience'
 import { LessonAvatarBridge } from '@/app/components/LessonAvatarBridge'
 import { ChatProvider } from '@/hooks/useChat'
+import { Leva } from 'leva'
 
 interface Props {
   className?: string
@@ -29,6 +30,7 @@ function CanvasScene({
 
   return (
     <div className={`relative overflow-hidden rounded-2xl ${className}`} style={{ height }}>
+      <Leva hidden />
       <Canvas
         shadows
         dpr={[1, 2]}

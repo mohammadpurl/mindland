@@ -1,0 +1,25 @@
+{
+  "stepId": "system-messages",
+  "title": "پیام‌های سیستم مینی",
+  "lines": [],
+  "systemMessages": [
+    {
+      "id": "quote",
+      "when": "گیومه جا افتاده",
+      "text": "مینی گیر کرد. یه گیومه جا افتاده — زبونش رو کامل ننوشتیم."
+    },
+    {
+      "id": "paren",
+      "when": "پرانتز جا افتاده",
+      "text": "مینی گیر کرد. نگفتیم کجا باید جمله رو بذاره — پرانتز یادت رفت."
+    },
+    {
+      "id": "quote-mismatch",
+      "when": "گیومه نامتقارن",
+      "text": "مینی گیر کرد. دو تا علامت جفت‌نشدن — یکی از گیومه‌ها با اون یکی فرق داره."
+    }
+  ],
+  "productionNotes": [
+    "systemMessage — نه teacherScript. هماهنگ با pythonErrorMessages.ts"
+  ]
+}

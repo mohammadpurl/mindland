@@ -9,12 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const curriculum = getCurriculum();
 
   const subjectPaths = curriculum.subjects.flatMap((subject) => {
-    const base = `curriculum/${subject.id}`;
-    const topics = subject.topics
-      .filter((t) => t.lessons.length > 0)
-      .map((t) => `${base}/${t.id}`);
-    return [base, ...topics];
-  });
+    const base = `curriculum/${subject.id}`
+    const topics = subject.topics.map((t) => `${base}/${t.id}`)
+    return [base, ...topics]
+  })
 
   const lessonPaths = curriculum.subjects.flatMap((subject) =>
     subject.topics.flatMap((topic) =>

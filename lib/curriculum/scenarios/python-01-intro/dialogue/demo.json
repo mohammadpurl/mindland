@@ -1,0 +1,25 @@
+{
+  "stepId": "demo",
+  "title": "دمو: کنتراست درست و غلط",
+  "maxDurationMinutes": 5,
+  "lines": [
+    {
+      "speaker": "avatar",
+      "beat": "setup",
+      "text": "دو اجرا می‌بینیم. جمله‌ تقریباً یکیه — فقط تو دومی یه علامت کم می‌ذاریم. خودت ببین."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-good",
+      "text": "این شد."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-bad",
+      "text": "جمله‌ی ما تقریباً همون بود. فقط یه علامت کم داشت. برای مینی، تقریباً یعنی نه."
+    }
+  ],
+  "productionNotes": [
+    "هر دو نسخه باید واقعاً در PythonCodeRunner اجرا شوند."
+  ]
+}

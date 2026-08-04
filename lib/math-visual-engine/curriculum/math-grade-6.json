@@ -1,12 +1,12 @@
 {
-  "id": "mindland-grade-6",
-  "title": "دروس مایلند",
-  "description": "موضوعات یادگیری را انتخاب کن و قدم‌به‌قدم با معلم مجازی پیش برو",
+  "id": "mindland-schools",
+  "title": "پنج مدرسه مایلند",
+  "description": "مدرسه ریاضیات ستون فقرات است؛ بقیه مدارس به درس‌های ریاضی ارجاع می‌دهند و محتوای تکراری نمی‌سازند.",
   "subjects": [
     {
       "id": "math",
-      "title": "ریاضیات",
-      "description": "کسر، هندسه و مفاهیم پایه با وایت‌برد تعاملی",
+      "title": "مدرسه ریاضیات",
+      "description": "ستون فقرات همه مدارس — از کسر تا جبر خطی و مثلثات",
       "grade": 6,
       "order": 1,
       "icon": "math",
@@ -14,7 +14,7 @@
         {
           "id": "fractions",
           "title": "کسرها",
-          "description": "از معرفی تا جمع، تفریق، مقایسه و ضرب — هم‌راستا با کتاب ریاضی ششم ۱۴۰۴ (ص ۲۴–۴۲)",
+          "description": "جمع، تفریق، ضرب، تقسیم و مقایسه کسرها — هم‌راستا با کتاب ششم ۱۴۰۴",
           "order": 1,
           "icon": "🍕",
           "lessons": [
@@ -130,17 +130,33 @@
         },
         {
           "id": "decimals",
-          "title": "اعداد اعشاری",
-          "description": "به‌زودی — خط اعداد و اعشار",
+          "title": "اعداد اعشاری و درصد",
+          "description": "اعشار، درصد و کاربرد روزمره — به‌زودی",
           "order": 2,
-          "icon": "📏",
+          "icon": "💯",
+          "lessons": []
+        },
+        {
+          "id": "ratios",
+          "title": "نسبت و تناسب",
+          "description": "نسبت، تناسب و مسئله‌های کاربردی — به‌زودی",
+          "order": 3,
+          "icon": "⚖️",
+          "lessons": []
+        },
+        {
+          "id": "integers",
+          "title": "اعداد صحیح و منفی",
+          "description": "اعداد صحیح، منفی و خط اعداد — به‌زودی",
+          "order": 4,
+          "icon": "➖",
           "lessons": []
         },
         {
           "id": "geometry",
-          "title": "هندسه",
-          "description": "شکل‌ها، قاعده و ارتفاع، مساحت مثلث و متوازی‌الاضلاع",
-          "order": 3,
+          "title": "هندسه پایه",
+          "description": "محیط، مساحت، زاویه و اشکال دوبعدی",
+          "order": 5,
           "icon": "📐",
           "lessons": [
             {
@@ -153,40 +169,520 @@
               "practiceSteps": 3
             }
           ]
+        },
+        {
+          "id": "algebra",
+          "title": "جبر پایه",
+          "description": "معادلات یک‌مجهولی و عبارت‌های جبری — به‌زودی",
+          "order": 6,
+          "icon": "𝑥",
+          "lessons": []
+        },
+        {
+          "id": "powers",
+          "title": "توان و رادیکال",
+          "description": "توان، ریشه و قوانین پایه — به‌زودی",
+          "order": 7,
+          "icon": "²",
+          "lessons": []
+        },
+        {
+          "id": "coordinates",
+          "title": "مختصات و دستگاه محورها",
+          "description": "صفحه مختصات و نقاط — به‌زودی",
+          "order": 8,
+          "icon": "🗺️",
+          "lessons": []
+        },
+        {
+          "id": "stats",
+          "title": "آمار توصیفی",
+          "description": "میانگین، میانه و نمودار — به‌زودی",
+          "order": 9,
+          "icon": "📊",
+          "lessons": []
+        },
+        {
+          "id": "probability",
+          "title": "احتمال پایه",
+          "description": "احتمال ساده و ترکیبیات مقدماتی — به‌زودی",
+          "order": 10,
+          "icon": "🎲",
+          "lessons": []
+        },
+        {
+          "id": "algebra-advanced",
+          "title": "جبر پیشرفته",
+          "description": "معادلات دومجهولی، نامعادلات و توابع خطی — به‌زودی",
+          "order": 11,
+          "icon": "∑",
+          "lessons": []
+        },
+        {
+          "id": "functions",
+          "title": "توابع و نمودار",
+          "description": "توابع و رسم نمودار — به‌زودی",
+          "order": 12,
+          "icon": "📈",
+          "lessons": []
+        },
+        {
+          "id": "analytic-geometry",
+          "title": "هندسه تحلیلی مقدماتی",
+          "description": "خط، فاصله و شکل در مختصات — به‌زودی",
+          "order": 13,
+          "icon": "📏",
+          "lessons": []
+        },
+        {
+          "id": "stats-advanced",
+          "title": "آمار و احتمال پیشرفته",
+          "description": "توزیع احتمال و احتمال شرطی — پیش‌نیاز هوش مصنوعی — به‌زودی",
+          "order": 14,
+          "icon": "📉",
+          "lessons": []
+        },
+        {
+          "id": "trigonometry",
+          "title": "مثلثات پایه",
+          "description": "سینوس، کسینوس — پیش‌نیاز رباتیک و گرافیک — به‌زودی",
+          "order": 15,
+          "icon": "△",
+          "lessons": []
+        },
+        {
+          "id": "linear-algebra",
+          "title": "مبانی جبر خطی",
+          "description": "بردار و ماتریس — پیش‌نیاز هوش مصنوعی — به‌زودی",
+          "order": 16,
+          "icon": "▦",
+          "lessons": []
+        },
+        {
+          "id": "calculus-intro",
+          "title": "مبانی مشتق و حد",
+          "description": "درک شهودی حد و مشتق — اختیاری برای AI پیشرفته — به‌زودی",
+          "order": 17,
+          "icon": "∂",
+          "lessons": []
         }
       ]
     },
     {
       "id": "programming",
-      "title": "برنامه‌نویسی",
-      "description": "تفکر الگوریتمی و ساخت پروژه‌های کوچک — به‌زودی",
+      "title": "مدرسه برنامه‌نویسی",
+      "description": "از برنامه‌نویسی بلوکی تا پایتون، داده و پروژه — وب پایه اختیاری",
       "order": 2,
       "icon": "code",
-      "topics": []
+      "topics": [
+        {
+          "id": "block-coding",
+          "title": "برنامه‌نویسی بلوکی",
+          "description": "منطق بدون تایپ: توالی، شرط و حلقه روی صحنه — اختیاری قبل از پایتون",
+          "order": 1,
+          "icon": "🧩",
+          "lessons": [
+            {
+              "id": "python-00-blocks",
+              "title": "کارگردان مینی — منطق با بلوک",
+              "description": "مینی دستور پخت را مو به مو اجرا می‌کند؛ ترتیب، قانون لبه، تکرار",
+              "order": 1,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            }
+          ]
+        },
+        {
+          "id": "python",
+          "title": "پایتون کودکان",
+          "description": "فهرست کامل دوره دو‌ردیفه (۹–۱۱ و ۱۲–۱۴) از print تا پروژه نهایی",
+          "order": 2,
+          "icon": "🐍",
+          "lessons": [
+            {
+              "id": "python-01-intro",
+              "title": "پایتون چیست و اولین دستور",
+              "description": "مینی دقیق‌تر حرف می‌زند — print و علامت‌های جاافتاده",
+              "order": 1,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            }
+          ]
+        },
+        {
+          "id": "data-structures",
+          "title": "ساختمان داده‌های پایه",
+          "description": "لیست، دیکشنری، تاپل و مجموعه — به‌زودی",
+          "order": 3,
+          "icon": "📦",
+          "lessons": []
+        },
+        {
+          "id": "oop-intro",
+          "title": "شیءگرایی مقدماتی",
+          "description": "کلاس و شیء — به‌زودی",
+          "order": 4,
+          "icon": "🏗️",
+          "lessons": []
+        },
+        {
+          "id": "files-errors",
+          "title": "فایل و خطایابی",
+          "description": "کار با فایل و exception — به‌زودی",
+          "order": 5,
+          "icon": "📁",
+          "lessons": []
+        },
+        {
+          "id": "mini-projects",
+          "title": "پروژه‌محور",
+          "description": "بازی یا ابزار کوچک — به‌زودی",
+          "order": 6,
+          "icon": "🎮",
+          "lessons": []
+        },
+        {
+          "id": "algorithms",
+          "title": "الگوریتم و پیچیدگی",
+          "description": "درک شهودی پیچیدگی زمانی — به‌زودی",
+          "order": 7,
+          "icon": "⏱️",
+          "lessons": []
+        },
+        {
+          "id": "advanced-structures",
+          "title": "ساختار داده پیشرفته",
+          "description": "پشته، صف و درخت مقدماتی — به‌زودی",
+          "order": 8,
+          "icon": "🌳",
+          "lessons": []
+        },
+        {
+          "id": "git",
+          "title": "Git و GitHub",
+          "description": "نسخه‌کنترل برای کار تیمی — به‌زودی",
+          "order": 9,
+          "icon": "🔀",
+          "lessons": []
+        },
+        {
+          "id": "web-basics",
+          "title": "مقدمه توسعه وب",
+          "description": "HTML/CSS/JS پایه — مسیر جانبی اختیاری — به‌زودی",
+          "order": 10,
+          "icon": "🌐",
+          "lessons": []
+        }
+      ]
     },
     {
       "id": "ai",
-      "title": "هوش مصنوعی",
-      "description": "آشنایی ساده با مفاهیم AI برای کودکان — به‌زودی",
+      "title": "مدرسه هوش مصنوعی",
+      "description": "پیش‌نیاز از ریاضی و برنامه‌نویسی — سپس داده، ML و پروژه نهایی",
       "order": 3,
       "icon": "ai",
-      "topics": []
+      "topics": [
+        {
+          "id": "data-concept",
+          "title": "داده چیست؟",
+          "description": "مفهوم، انواع و جمع‌آوری داده — به‌زودی",
+          "order": 1,
+          "icon": "💾",
+          "lessons": []
+        },
+        {
+          "id": "numpy",
+          "title": "NumPy مقدماتی",
+          "description": "کار با آرایه و عدد در پایتون — به‌زودی",
+          "order": 2,
+          "icon": "🔢",
+          "lessons": []
+        },
+        {
+          "id": "pandas",
+          "title": "Pandas مقدماتی",
+          "description": "جدول داده — به‌زودی",
+          "order": 3,
+          "icon": "📋",
+          "lessons": []
+        },
+        {
+          "id": "matplotlib",
+          "title": "مصورسازی داده",
+          "description": "Matplotlib مقدماتی — به‌زودی",
+          "order": 4,
+          "icon": "📊",
+          "lessons": []
+        },
+        {
+          "id": "ml-intro",
+          "title": "مقدمه یادگیری ماشین",
+          "description": "نظارت‌شده در برابر بدون‌نظارت — به‌زودی",
+          "order": 5,
+          "icon": "🤖",
+          "lessons": []
+        },
+        {
+          "id": "linear-regression",
+          "title": "رگرسیون خطی",
+          "description": "اولین مدل با مثال ملموس — به‌زودی",
+          "order": 6,
+          "icon": "📈",
+          "lessons": []
+        },
+        {
+          "id": "classification",
+          "title": "طبقه‌بندی مقدماتی",
+          "description": "درخت تصمیم و نزدیک‌ترین همسایه — به‌زودی",
+          "order": 7,
+          "icon": "🌲",
+          "lessons": []
+        },
+        {
+          "id": "train-test",
+          "title": "آموزش و آزمایش مدل",
+          "description": "train/test و دقت — به‌زودی",
+          "order": 8,
+          "icon": "✅",
+          "lessons": []
+        },
+        {
+          "id": "neural-intro",
+          "title": "مقدمه شبکه عصبی",
+          "description": "درک شهودی بدون ریاضی سنگین — به‌زودی",
+          "order": 9,
+          "icon": "🧠",
+          "lessons": []
+        },
+        {
+          "id": "vision",
+          "title": "بینایی ماشین",
+          "description": "تشخیص تصویر ساده — پروژه‌محور — به‌زودی",
+          "order": 10,
+          "icon": "👁️",
+          "lessons": []
+        },
+        {
+          "id": "nlp",
+          "title": "پردازش زبان",
+          "description": "چت‌بات ساده — پروژه‌محور — به‌زودی",
+          "order": 11,
+          "icon": "💬",
+          "lessons": []
+        },
+        {
+          "id": "ai-ethics",
+          "title": "اخلاق در AI",
+          "description": "سوگیری، حریم خصوصی و استفاده درست — به‌زودی",
+          "order": 12,
+          "icon": "⚖️",
+          "lessons": []
+        },
+        {
+          "id": "ai-capstone",
+          "title": "پروژه نهایی AI",
+          "description": "یک مدل کوچک end-to-end — به‌زودی",
+          "order": 13,
+          "icon": "🛰️",
+          "lessons": []
+        }
+      ]
     },
     {
       "id": "robotics",
-      "title": "رباتیک",
-      "description": "ساخت و کنترل ربات‌های ساده — به‌زودی",
+      "title": "مدرسه رباتیک",
+      "description": "پیش‌نیاز هندسه و مثلثات + برنامه‌نویسی پایه — سپس مدار، حسگر و پروژه",
       "order": 4,
       "icon": "robot",
-      "topics": []
+      "topics": [
+        {
+          "id": "circuits",
+          "title": "مدار الکتریکی پایه",
+          "description": "جریان، ولتاژ و مقاومت شهودی — به‌زودی",
+          "order": 1,
+          "icon": "⚡",
+          "lessons": []
+        },
+        {
+          "id": "microcontroller",
+          "title": "میکروکنترلر",
+          "description": "Arduino یا مشابه — به‌زودی",
+          "order": 2,
+          "icon": "🔌",
+          "lessons": []
+        },
+        {
+          "id": "sensors",
+          "title": "حسگرها",
+          "description": "نور، فاصله، دما — به‌زودی",
+          "order": 3,
+          "icon": "📡",
+          "lessons": []
+        },
+        {
+          "id": "actuators",
+          "title": "محرک‌ها",
+          "description": "موتور و سروو — به‌زودی",
+          "order": 4,
+          "icon": "⚙️",
+          "lessons": []
+        },
+        {
+          "id": "robot-logic",
+          "title": "برنامه‌نویسی رباتیک",
+          "description": "منطق حسگر-محرک — به‌زودی",
+          "order": 5,
+          "icon": "🤖",
+          "lessons": []
+        },
+        {
+          "id": "mech-design",
+          "title": "ساخت مکانیکی ساده",
+          "description": "شاسی و اتصالات — به‌زودی",
+          "order": 6,
+          "icon": "🔧",
+          "lessons": []
+        },
+        {
+          "id": "line-follower",
+          "title": "پروژه: دنبال‌کننده خط",
+          "description": "رباتیک پروژه‌محور ۱ — به‌زودی",
+          "order": 7,
+          "icon": "🛤️",
+          "lessons": []
+        },
+        {
+          "id": "obstacle",
+          "title": "پروژه: اجتناب از مانع",
+          "description": "رباتیک پروژه‌محور ۲ — به‌زودی",
+          "order": 8,
+          "icon": "🚧",
+          "lessons": []
+        },
+        {
+          "id": "navigation",
+          "title": "مسیریابی مقدماتی",
+          "description": "الگوریتم‌های ساده ناوبری — به‌زودی",
+          "order": 9,
+          "icon": "🧭",
+          "lessons": []
+        },
+        {
+          "id": "ai-robotics",
+          "title": "AI در رباتیک",
+          "description": "بینایی برای تشخیص شیء — نیازمند AI — به‌زودی",
+          "order": 10,
+          "icon": "👁️",
+          "lessons": []
+        },
+        {
+          "id": "robot-capstone",
+          "title": "پروژه نهایی ربات",
+          "description": "ربات خودمختار ساده — به‌زودی",
+          "order": 11,
+          "icon": "🚀",
+          "lessons": []
+        }
+      ]
     },
     {
       "id": "design",
-      "title": "طراحی",
-      "description": "طراحی سایت و خلاقیت بصری — به‌زودی",
+      "title": "مدرسه طراحی",
+      "description": "طراحی بصری، UX/UI و پروتوتایپ — پیش‌نیاز هندسه پایه؛ کدنویسی اختیاری",
       "order": 5,
       "icon": "design",
-      "topics": []
+      "topics": [
+        {
+          "id": "visual-basics",
+          "title": "مبانی طراحی بصری",
+          "description": "نقطه، خط، شکل و فضای منفی — به‌زودی",
+          "order": 1,
+          "icon": "✏️",
+          "lessons": []
+        },
+        {
+          "id": "color-theory",
+          "title": "تئوری رنگ",
+          "description": "رنگ و کاربرد آن — به‌زودی",
+          "order": 2,
+          "icon": "🎨",
+          "lessons": []
+        },
+        {
+          "id": "typography",
+          "title": "تایپوگرافی پایه",
+          "description": "خوانایی و سلسله‌مراتب — به‌زودی",
+          "order": 3,
+          "icon": "🔤",
+          "lessons": []
+        },
+        {
+          "id": "composition",
+          "title": "ترکیب‌بندی",
+          "description": "گرید، تراز و ترکیب — به‌زودی",
+          "order": 4,
+          "icon": "▦",
+          "lessons": []
+        },
+        {
+          "id": "figma",
+          "title": "ابزار طراحی دیجیتال",
+          "description": "آشنایی با Figma یا مشابه — به‌زودی",
+          "order": 5,
+          "icon": "🖌️",
+          "lessons": []
+        },
+        {
+          "id": "character-icon",
+          "title": "کاراکتر و آیکون",
+          "description": "طراحی کاراکتر و آیکون ساده — به‌زودی",
+          "order": 6,
+          "icon": "🦄",
+          "lessons": []
+        },
+        {
+          "id": "ux-basics",
+          "title": "مبانی UX",
+          "description": "کاربر کیست و چه می‌خواهد — به‌زودی",
+          "order": 7,
+          "icon": "👤",
+          "lessons": []
+        },
+        {
+          "id": "ui-simple",
+          "title": "UI ساده",
+          "description": "طراحی رابط یک اپ فرضی — به‌زودی",
+          "order": 8,
+          "icon": "📱",
+          "lessons": []
+        },
+        {
+          "id": "prototype",
+          "title": "پروتوتایپ تعاملی",
+          "description": "بدون کد، در Figma — به‌زودی",
+          "order": 9,
+          "icon": "🔗",
+          "lessons": []
+        },
+        {
+          "id": "kids-a11y",
+          "title": "طراحی برای کودک و a11y",
+          "description": "دسترس‌پذیری پایه — به‌زودی",
+          "order": 10,
+          "icon": "♿",
+          "lessons": []
+        },
+        {
+          "id": "design-capstone",
+          "title": "پروژه نهایی طراحی",
+          "description": "از ایده تا پروتوتایپ کامل — به‌زودی",
+          "order": 11,
+          "icon": "🎯",
+          "lessons": []
+        }
+      ]
     }
   ]
 }
