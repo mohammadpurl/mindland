@@ -17,14 +17,19 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema> & { remember?: boolean };
 
 type LoginFormProps = {
-  onSuccess?: (token: string) => void;
+  /** Called after successful HttpOnly cookie session (never receives a JWT). */
+  onSuccess?: (notice: string) => void;
 };
 
+/**
+ * Login via FastAPI — session cookies only (HttpOnly). Never store JWT in localStorage.
+ */
 const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    setError,
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: { email: "", password: "", remember: true },
@@ -32,20 +37,18 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
 
   const onSubmit = async (values: LoginFormValues) => {
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+      const { apiLogin } = await import("@/lib/api/auth");
+      const data = await apiLogin({
+        email: values.email,
+        password: values.password,
       });
-      const data = await res.json();
-      if (!res.ok || !data?.success) {
-        throw new Error(data?.error || "ورود ناموفق بود");
-      }
-      if (onSuccess) onSuccess(data.token as string);
-    } catch (e) {
-      // No-op UI error surface for brevity; integrate Notification if needed
-      console.error(e);
-      alert((e as Error).message);
+      const notice = `خوش آمدی ${data.user.full_name} — نشست با کوکی HttpOnly برقرار شد.`;
+      if (onSuccess) onSuccess(notice);
+      else alert(notice);
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "ورود ناموفق بود. دوباره تلاش کن.";
+      setError("root", { message });
     }
   };
 
@@ -114,6 +117,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSuccess }) => {
                     <p className="text-red-400 text-sm">{errors.password.message}</p>
                   )}
                 </div>
+
+                {errors.root?.message && (
+                  <p className="text-red-400 text-sm">{errors.root.message}</p>
+                )}
 
                 <div className="flex justify-end">
                   <Button

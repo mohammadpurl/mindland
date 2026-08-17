@@ -1,0 +1,55 @@
+{
+  "id": "python-10-dicts",
+  "title": "دیکشنری‌ها (Dictionaries)",
+  "version": 1,
+  "order": 10,
+  "prerequisite": "python-09-lists",
+  "durationMinutes": 50,
+  "metaphor": {
+    "title": "دفترچه تلفن / کارت بازیکن — هر برچسب یه اطلاعات",
+    "fullDescription": "به‌جای این‌که برای هر چیز یه جعبهٔ جدا داشته باشی، همه رو تو یه کارت می‌ذاری — اسم، سن، امتیاز — و با برچسب (کلید) هر کدوم رو پیدا می‌کنی."
+  },
+  "systemMessages": [
+    { "id": "key-error", "text": "مینی دنبال یه برچسب (کلید) تو دیکشنری گشت که وجود نداره — اسم کلید رو چک کن." },
+    { "id": "dict-syntax", "text": "مینی نفهمید این دیکشنری چطور ساخته شده — یادت باشه کلیدها با : از مقدار جدا می‌شن." }
+  ],
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "برچسب و مقدار", "stageMission": "جفت کلید–مقدار در یک dict." },
+    { "id": "demo", "type": "teach", "title": "دمو: جدا در برابر دیکشنری", "maxDurationMinutes": 5 },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "کارت بازیکن بساز، با کلید بخون، چاپ کن.",
+      "missionChecklist": [
+        { "id": "has-dict", "label": "یه دیکشنری ساختم" },
+        { "id": "used-key-access", "label": "با کلید مقدار خوندم" },
+        { "id": "dict-three-keys", "label": "حداقل ۳ کلید دارم" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "brief": "کارت شخصیت با ۳ فیلد بساز و هر کدوم رو چاپ کن.",
+      "missionChecklist": [
+        { "id": "has-dict", "label": "دیکشنری ساختم" },
+        { "id": "dict-three-keys", "label": "۳ فیلد دارم" },
+        { "id": "used-key-access", "label": "با کلید چاپ کردم" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "brief": "دیکشنری بساز و یک فیلد رو عوض کن.",
+      "missionChecklist": [
+        { "id": "has-dict", "label": "دیکشنری" },
+        { "id": "dict-three-keys", "label": "۳ کلید" },
+        { "id": "dict-updated", "label": "یه فیلد رو آپدیت کردم" }
+      ]
+    },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی" }
+  ],
+  "productImplementationNotes": { "nextLessonId": "python-11-functions" }
+}

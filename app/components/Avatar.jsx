@@ -7,6 +7,21 @@ import { button as buttonControl, useControls } from "leva";
 import React, { useEffect, useRef, useState } from "react";
 
 import * as THREE from "three";
+import { avatarGltfLoaderExtension } from '@/lib/avatarGltfLoader';
+
+const AVATAR_MESH_URL = '/TeacherAvatar_NoLogo.glb';
+const AVATAR_ANIM_URL = '/Personel_Animation-5.glb';
+const AVATAR_GLTF_OPTS = [true, true, avatarGltfLoaderExtension];
+
+[
+  '/TeacherAvatar_NoLogo.glb',
+  'TeacherAvatar_NoLogo.glb',
+  '/models/TeacherAvatar_NoLogo.glb',
+  '/Personel_Animation-5.glb',
+  '/models/Personel_Animation-5.glb',
+].forEach((url) => useGLTF.clear(url));
+useGLTF.preload(AVATAR_MESH_URL, ...AVATAR_GLTF_OPTS);
+useGLTF.preload(AVATAR_ANIM_URL, ...AVATAR_GLTF_OPTS);
 
 
 // Available animations in Personel_Animation-5.glb
@@ -239,9 +254,7 @@ export const Avatar = React.forwardRef((props, ref) => {
   const { scale: scaleProp = 1, ...restProps } = props;
   // Convert scale to array format [x, y, z]
   const scale = Array.isArray(scaleProp) ? scaleProp : [scaleProp, scaleProp, scaleProp];
-  const { nodes, materials, scene } = useGLTF(
-    "/Airplane_Personel-2.glb"
-  );
+  const { nodes, materials, scene } = useGLTF(AVATAR_MESH_URL, ...AVATAR_GLTF_OPTS);
 
   // Chat context for audio and lipsync
   const { lastAvatarMessage, setIsAvatarTalking, onMessagePlayed, chat, isProcessing, isAvatarTalking, showQRCode } = useChatContext();
@@ -261,7 +274,8 @@ export const Avatar = React.forwardRef((props, ref) => {
   const [blink, setBlink] = useState(false); // Added missing blink state
 
   // Animations (now after ref)
-  const animations = useAnimations(useGLTF("/Personel_Animation-5.glb").animations, group);
+  const { animations: animClips } = useGLTF(AVATAR_ANIM_URL, ...AVATAR_GLTF_OPTS);
+  const animations = useAnimations(animClips, group);
 
   // تابع برای اعمال حالت‌های صورت
   const applyFacialExpression = React.useCallback((expressionName) => {
@@ -1292,5 +1306,3 @@ export const Avatar = React.forwardRef((props, ref) => {
   );
 });
 
-useGLTF.preload("/models/Airplane_Personel-2.glb");
-useGLTF.preload("/models/Personel_Animation-5.glb");

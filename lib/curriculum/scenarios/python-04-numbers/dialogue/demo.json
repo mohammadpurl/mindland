@@ -1,0 +1,37 @@
+{
+  "stepId": "demo",
+  "title": "دمو: راز گیومه و عدد",
+  "maxDurationMinutes": 5,
+  "lines": [
+    {
+      "speaker": "avatar",
+      "beat": "setup",
+      "text": "یادت هست تو درس کارت تبریک، یه print با گیومه و یکی بدون گیومه دیدیم؟ امروز همون راز رو باز می‌کنیم."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-text-add",
+      "text": "این که جمعشون نکرد! فقط چسبوندشون به هم!"
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-number-add",
+      "text": "وقتی با گیومه نوشتیم، مینی فکر کرد دو تا کلمه‌ن. وقتی بدون گیومه نوشتیم، فهمید عددن و واقعاً جمع زد. شکلشون شبیه بود، ولی برای مینی کاملاً فرق داشتن."
+    }
+  ],
+  "demoBlocks": [
+    {
+      "id": "text-add",
+      "code": "print(\"۵\" + \"۳\")",
+      "expectedOutput": "۵۳"
+    },
+    {
+      "id": "number-add",
+      "code": "print(5 + 3)",
+      "expectedOutput": "8"
+    }
+  ],
+  "productionNotes": [
+    "دو دکمهٔ دمو در PythonCodeRunner."
+  ]
+}

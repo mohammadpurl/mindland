@@ -1,0 +1,33 @@
+{
+  "id": "python-12-mini-project",
+  "title": "پروژه ترکیبی کوچک",
+  "version": 1,
+  "order": 12,
+  "optional": false,
+  "prerequisite": "python-11-functions",
+  "durationMinutes": 55,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ جمع‌بندی مفاهیم ۱ تا ۱۱؛ ماشین‌حساب یا سنگ‌کاغذقیچی.",
+  "goal": "منو، تابع، حلقه و input را در یک برنامهٔ کوچک ترکیب کند.",
+  "metaphor": {
+    "title": "کارگاه ساخت ابزار — همهٔ بلوک‌ها کنار هم",
+    "description": "مثل ساختن یه ماشین‌حساب یا بازی سنگ‌کاغذقیچی — از همهٔ چیزهایی که یاد گرفتی استفاده می‌کنی."
+  },
+  "measurableOutcomes": [
+    "منوی انتخاب داشته باشد",
+    "حداقل یک تابع استفاده کند",
+    "حلقه و input داشته باشد"
+  ],
+  "sourceFile": "python-12-mini-project-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "کارگاه ساخت", "dialogueFile": "dialogue/intro.json" },
+    { "id": "demo", "type": "teach", "title": "دمو: اسکلت ماشین‌حساب", "dialogueFile": "dialogue/demo.json", "maxDurationMinutes": 5 },
+    { "id": "guided-practice", "type": "practice", "title": "تمرین مأموریت", "dialogueFile": "dialogue/guided-practice.json", "stageMission": "برنامهٔ کوچک با منو، تابع، حلقه و input بساز." },
+    { "id": "challenge-a", "type": "practice", "track": "A", "title": "نسخهٔ ساده", "dialogueFile": "dialogue/challenge-a.json", "brief": "ماشین‌حساب ساده با منوی کوتاه." },
+    { "id": "challenge-b", "type": "practice", "track": "B", "title": "نسخهٔ کامل‌تر", "dialogueFile": "dialogue/challenge-b.json", "brief": "بازی با حلقهٔ بازی مجدد." },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی", "dialogueFile": "dialogue/wrap-up.json" }
+  ],
+  "productNotes": { "componentDependency": "PythonCodeRunner + mini-project mission checks", "nextLesson": "python-13-turtle" }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "python-13-turtle",
+  "title": "رسم با turtle",
+  "version": 1,
+  "order": 13,
+  "prerequisite": "python-12-mini-project",
+  "durationMinutes": 55,
+  "metaphor": {
+    "title": "لاک‌پشت نقاش — دستور حرکت به شکل",
+    "fullDescription": "یه لاک‌پشت کوچیک روی صفحه حرکت می‌کنه — هر دستور forward یا left یه خط یا زاویه می‌سازه."
+  },
+  "systemMessages": [
+    { "id": "turtle-import", "text": "مینی لاک‌پشت رو پیدا نکرد — اول import turtle و بعد Turtle() رو صدا بزن." },
+    { "id": "turtle-done", "text": "مینی منتظره شکل کامل بشه — turtle.done() رو فراموش نکن." }
+  ],
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "لاک‌پشت نقاش", "stageMission": "حرکت و چرخش با turtle." },
+    { "id": "demo", "type": "teach", "title": "دمو: مربع و دایره", "maxDurationMinutes": 5 },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "لاک‌پشت بساز، حرکت کن، بچرخ، شکل بکش.",
+      "missionChecklist": [
+        { "id": "has-turtle", "label": "لاک‌پشت ساختم" },
+        { "id": "turtle-forward", "label": "forward استفاده کردم" },
+        { "id": "turtle-turn", "label": "چرخش (left/right) دارم" },
+        { "id": "turtle-drew", "label": "شکل کشیدم" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "brief": "خانه یا ستاره ساده بکش.",
+      "missionChecklist": [
+        { "id": "has-turtle", "label": "لاک‌پشت" },
+        { "id": "turtle-forward", "label": "forward" },
+        { "id": "turtle-drew", "label": "شکل" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "brief": "الگوی پیچیده‌تر یا تابع رسم شکل.",
+      "missionChecklist": [
+        { "id": "has-turtle", "label": "لاک‌پشت" },
+        { "id": "turtle-turn", "label": "چرخش" },
+        { "id": "turtle-drew", "label": "الگو" }
+      ]
+    },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی" }
+  ],
+  "productImplementationNotes": { "nextLessonId": "python-14-capstone" }
+}

@@ -1,0 +1,7 @@
+{
+  "stepId": "system-messages",
+  "lines": [],
+  "systemMessages": [
+    { "id": "capstone-incomplete", "when": "incomplete", "text": "مینی هنوز پروژه رو کامل نمی‌بینه — تابع، داده و اجرا رو چک کن." }
+  ]
+}

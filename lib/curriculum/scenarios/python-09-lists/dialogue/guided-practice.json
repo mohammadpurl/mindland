@@ -1,0 +1,12 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    { "speaker": "avatar", "text": "مأموریت: لیست دوستان بساز، با append یه اسم اضافه کن، بعد با for همه رو چاپ کن." }
+  ],
+  "missionChecklist": [
+    { "id": "has-list", "label": "یه لیست ساختم" },
+    { "id": "used-append", "label": "با append عضو اضافه کردم" },
+    { "id": "list-loop-print", "label": "با for روی لیست چاپ کردم" }
+  ]
+}

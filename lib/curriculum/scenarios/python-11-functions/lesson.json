@@ -1,0 +1,33 @@
+{
+  "id": "python-11-functions",
+  "title": "توابع (Functions)",
+  "version": 1,
+  "order": 11,
+  "optional": false,
+  "prerequisite": "python-10-dicts",
+  "durationMinutes": 50,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ def و return؛ تابع با آرگومان و فراخوانی.",
+  "goal": "تابع با def بسازد، return کند و با آرگومان صدا بزند.",
+  "metaphor": {
+    "title": "دکمهٔ جادویی — یک‌بار می‌نویسی، هر بار اجرا می‌شه",
+    "description": "به‌جای این‌که هر بار همون کد رو تکرار کنی، یه دستور سفارشی می‌سازی و هر وقت خواستی دکمه رو می‌زنی."
+  },
+  "measurableOutcomes": [
+    "تابع با def بسازد و صدا بزند",
+    "return استفاده کند",
+    "تابع با آرگومان بنویسد (رده B)"
+  ],
+  "sourceFile": "python-11-functions-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "دستور سفارشی", "dialogueFile": "dialogue/intro.json" },
+    { "id": "demo", "type": "teach", "title": "دمو: تکرار در برابر تابع", "dialogueFile": "dialogue/demo.json", "maxDurationMinutes": 5 },
+    { "id": "guided-practice", "type": "practice", "title": "تمرین مأموریت", "dialogueFile": "dialogue/guided-practice.json", "stageMission": "تابع بساز، return کن، صدا بزن." },
+    { "id": "challenge-a", "type": "practice", "track": "A", "title": "تابع سلام با اسم", "dialogueFile": "dialogue/challenge-a.json", "brief": "تابع سلام با آرگومان اسم بساز و صدا بزن." },
+    { "id": "challenge-b", "type": "practice", "track": "B", "title": "دو تابع کمکی", "dialogueFile": "dialogue/challenge-b.json", "brief": "دو تابع با return بساز و هر دو رو صدا بزن." },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی", "dialogueFile": "dialogue/wrap-up.json" }
+  ],
+  "productNotes": { "componentDependency": "PythonCodeRunner + function mission checks", "nextLesson": "python-12-mini-project" }
+}

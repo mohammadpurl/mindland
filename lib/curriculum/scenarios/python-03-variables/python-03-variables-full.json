@@ -1,0 +1,91 @@
+{
+  "id": "python-03-variables",
+  "title": "متغیرها",
+  "version": 1,
+  "order": 3,
+  "optional": false,
+  "prerequisite": "python-02-print-strings",
+  "durationMinutes": 45,
+  "note": "مأموریت‌محور؛ جعبهٔ اسم‌دار؛ تغییر مقدار وسط برنامه.",
+  "goal": "مقدار را در متغیر بگذارد، چندبار استفاده کند، عوض کند، و جعبهٔ گم‌شده را بفهمد.",
+  "metaphor": {
+    "title": "به‌جای این‌که هربار دوباره بگی، یه بار بذارش تو جعبه",
+    "fullDescription": "اگه بخوای اسمت رو ۳ بار توی برنامه بیاری، باید هر بار دوباره تایپش کنی. یا این‌که یه‌بار اسمت رو تو یه جعبه‌ی اسم‌دار می‌ذاری و هرجا لازم شد فقط اسم جعبه رو صدا می‌زنی."
+  },
+  "systemMessages": [
+    {
+      "id": "name-missing",
+      "text": "مینی دنبال یه جعبه به این اسم گشت ولی پیداش نکرد. مطمئنی قبلش ساختیش؟"
+    },
+    {
+      "id": "name-typo",
+      "text": "مینی یه جعبه با این اسم دقیق پیدا نکرد — شاید حروفش یه‌کم فرق داره؟"
+    },
+    {
+      "id": "bare-word",
+      "text": "مینی فکر کرد آرش هم اسم یه جعبه‌ی دیگه‌ست، نه یه کلمه — دور کلمه گیومه لازم داره."
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "جعبهٔ اسم‌دار",
+      "stageMission": "به‌جای تکرار دستی، یه بار بذار تو جعبه."
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: کار دستی در برابر جعبه",
+      "maxDurationMinutes": 5,
+      "stageMission": "سه اجرا: بدون جعبه، با جعبه، عوض کردن اسم."
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "جعبهٔ name و age بساز، با هر دو جمله چاپ کن، بعد age را عوض کن و دوباره چاپ کن.",
+      "missionChecklist": [
+        { "id": "has-name", "label": "متغیر name ساختم" },
+        { "id": "has-age", "label": "متغیر age ساختم" },
+        { "id": "used-both", "label": "با هر دو یه جمله چاپ کردم" },
+        { "id": "age-changed", "label": "مقدار age رو عوض کردم و دوباره چاپ کردم" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "معرفی با دو جعبه",
+      "brief": "با دو متغیر (اسم و یه چیزی که دوست داری) یه معرفی کوتاه بساز.",
+      "stageMission": "با دو متغیر یه معرفی کوتاه بساز.",
+      "missionChecklist": [
+        { "id": "has-name", "label": "جعبهٔ اسم" },
+        { "id": "has-like", "label": "جعبهٔ علاقه" },
+        { "id": "said", "label": "معرفی بدون قفل" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "سه جعبه و جابه‌جایی",
+      "brief": "سه متغیر (اسم، سن، شهر). معرفی چاپ کن. شهر را عوض کن و دوباره چاپ کن.",
+      "stageMission": "سه جعبه + عوض کردن شهر وسط داستان.",
+      "missionChecklist": [
+        { "id": "three-vars", "label": "سه متغیر name / age / city" },
+        { "id": "said", "label": "معرفی چاپ شد" },
+        { "id": "city-changed", "label": "شهر عوض شد و دوباره چاپ شد" }
+      ]
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی"
+    }
+  ],
+  "productImplementationNotes": {
+    "componentDependency": "PythonCodeRunner + NameError mapping",
+    "nextLessonId": "python-04-numbers"
+  }
+}

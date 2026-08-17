@@ -1,0 +1,93 @@
+{
+  "id": "python-02-print-strings",
+  "title": "دستور print و رشته‌ها",
+  "version": 1,
+  "order": 2,
+  "optional": false,
+  "prerequisite": "python-01-intro",
+  "durationMinutes": 45,
+  "note": "مأموریت‌محور؛ مینی کارت را خط‌به‌خط می‌خواند؛ نگهبان‌های جفت.",
+  "goal": "چند خط print بنویسد تا مینی کارت کامل بخواند، و بفهمد نگهبان ناجور وسط خط قفل می‌کند.",
+  "metaphor": {
+    "title": "مینی داره کارت تبریک رو می‌خونه — ولی هر خط، دو تا نگهبان باید جفت باشن",
+    "fullDescription": "هر رشته بین دو علامت گیومه محصور می‌شود؛ این دو مثل نگهبان همتا هستند — باید هر دو از یک نوع باشند. اگر یکی فرق کند، مینی وسط خواندن همان خط گیر می‌کند."
+  },
+  "systemMessages": [
+    {
+      "id": "quote-mismatch",
+      "text": "مینی همین‌جا قفل کرد. دو تا نگهبان این خط با هم جفت نیستن."
+    },
+    {
+      "id": "quote-waiting",
+      "text": "مینی منتظر موند نگهبان دوم بیاد، ولی نیومد."
+    },
+    {
+      "id": "bare-word",
+      "text": "مینی فکر کرد این اسم یه جعبه‌ست، نه یه جمله — نگهبان‌ها رو دورش یادت رفت."
+    }
+  ],
+  "demoPair": {
+    "good": "print(\"تولدت مبارک، آرش!\")\nprint(\"امیدوارم امسال پر از خنده باشه.\")\nprint(\"دوستت دارم!\")",
+    "bad": "print(\"تولدت مبارک، آرش!\")\nprint('امیدوارم امسال پر از خنده باشه.\")\nprint(\"دوستت دارم!\")"
+  },
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "کارت تبریک خط‌به‌خط",
+      "stageMission": "مینی چند جمله پشت سر هم می‌خونه — مثل کارت تبریک."
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: کارت کامل در برابر نگهبان ناجور",
+      "maxDurationMinutes": 5,
+      "stageMission": "دو اجرا: کارت کامل در برابر یک نگهبان ناجور وسط راه."
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "یه کارت تبریک ۳ تا ۵ خطی بنویس که مینی کامل بخونتش.",
+      "missionChecklist": [
+        { "id": "prints3", "label": "حداقل ۳ خط print نوشتم" },
+        { "id": "said", "label": "همه‌ی خط‌ها بدون قفل اجرا شدن" },
+        { "id": "card-complete", "label": "مینی کل کارت رو خوند" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "کارت برای شخصیت خیالی",
+      "brief": "یه کارت تبریک ۳ خطی برای یه شخصیت خیالی بنویس.",
+      "stageMission": "یه کارت تبریک ۳ خطی برای یه شخصیت خیالی بنویس.",
+      "missionChecklist": [
+        { "id": "prints3", "label": "حداقل ۳ خط print" },
+        { "id": "card-complete", "label": "مینی هر سه خط رو خوند" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "کارت + راز عدد و متن",
+      "brief": "کارت ۳ خطی + print(\"۵\") و print(5) — ببین چه فرقی دارن.",
+      "stageMission": "کارت + دو خط راز عدد و متن.",
+      "missionChecklist": [
+        { "id": "prints3", "label": "کارت حداقل ۳ خطی" },
+        { "id": "string-vs-number", "label": "هر دو print عدد و متن" },
+        { "id": "said", "label": "بدون قفل مینی" }
+      ]
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی"
+    }
+  ],
+  "productImplementationNotes": {
+    "componentDependency": "PythonCodeRunner sequential + line highlight",
+    "nextLessonId": "python-03-variables"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    { "speaker": "avatar", "text": "مأموریت: یه تابع با def بساز، با return یه جواب برگردون، و تابع رو صدا بزن و نتیجه رو چاپ کن." }
+  ],
+  "missionChecklist": [
+    { "id": "has-def", "label": "تابع با def ساختم" },
+    { "id": "has-return", "label": "return دارم" },
+    { "id": "function-called", "label": "تابع رو صدا زدم" }
+  ]
+}

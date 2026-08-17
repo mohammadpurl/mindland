@@ -1,0 +1,33 @@
+{
+  "id": "python-10-dicts",
+  "title": "دیکشنری‌ها (Dictionaries)",
+  "version": 1,
+  "order": 10,
+  "optional": false,
+  "prerequisite": "python-09-lists",
+  "durationMinutes": 50,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ جفت کلید–مقدار؛ دسترسی با کلید و به‌روزرسانی فیلد.",
+  "goal": "دیکشنری بسازد، با کلید مقدار بخواند و فیلد را آپدیت کند.",
+  "metaphor": {
+    "title": "دفترچه تلفن / کارت بازیکن — هر برچسب یه اطلاعات",
+    "description": "به‌جای این‌که برای هر چیز یه جعبهٔ جدا داشته باشی، همه رو تو یه کارت می‌ذاری — اسم، سن، امتیاز — و با برچسب (کلید) هر کدوم رو پیدا می‌کنی."
+  },
+  "measurableOutcomes": [
+    "دیکشنری با حداقل ۳ کلید بسازد",
+    "با کلید مقدار بخواند و چاپ کند",
+    "یک فیلد را آپدیت کند (رده B)"
+  ],
+  "sourceFile": "python-10-dicts-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "برچسب و مقدار", "dialogueFile": "dialogue/intro.json" },
+    { "id": "demo", "type": "teach", "title": "دمو: جدا در برابر دیکشنری", "dialogueFile": "dialogue/demo.json", "maxDurationMinutes": 5 },
+    { "id": "guided-practice", "type": "practice", "title": "تمرین مأموریت", "dialogueFile": "dialogue/guided-practice.json", "stageMission": "کارت بازیکن بساز، با کلید بخون، چاپ کن." },
+    { "id": "challenge-a", "type": "practice", "track": "A", "title": "کارت شخصیت ۳ فیلد", "dialogueFile": "dialogue/challenge-a.json", "brief": "کارت شخصیت با ۳ فیلد بساز و هر کدوم رو چاپ کن." },
+    { "id": "challenge-b", "type": "practice", "track": "B", "title": "آپدیت فیلد", "dialogueFile": "dialogue/challenge-b.json", "brief": "دیکشنری بساز و یک فیلد رو عوض کن." },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی", "dialogueFile": "dialogue/wrap-up.json" }
+  ],
+  "productNotes": { "componentDependency": "PythonCodeRunner + dict mission checks", "nextLesson": "python-11-functions" }
+}

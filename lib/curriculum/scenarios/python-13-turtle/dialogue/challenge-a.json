@@ -1,0 +1,7 @@
+{
+  "stepId": "challenge-a",
+  "track": "A",
+  "title": "خانه یا ستاره",
+  "brief": "خانه یا ستاره ساده با turtle بکش.",
+  "lines": [{ "speaker": "avatar", "text": "یه خانه یا ستاره ساده با forward و turn بکش." }]
+}

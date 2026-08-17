@@ -1,0 +1,72 @@
+{
+  "id": "python-05-input",
+  "title": "input و تعامل",
+  "version": 1,
+  "order": 5,
+  "optional": false,
+  "prerequisite": "python-04-numbers",
+  "durationMinutes": 45,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ مینی سؤال می‌پرسد و صبر می‌کند؛ پایان بخش اول آشنایی و پایه‌ها.",
+  "goal": "با input مقدار بگیرد، در متغیر ذخیره کند، در پیام استفاده کند، و (رده B) با int به عدد تبدیل کند.",
+  "metaphor": {
+    "title": "این‌بار مینی از تو سؤال می‌پرسه و صبر می‌کنه",
+    "description": "تا الان تو به مینی می‌گفتی چیکار کنه. حالا مینی وسط کار می‌ایسته و منتظر جواب تو می‌مونه — مثل یه گفتگوی واقعی."
+  },
+  "measurableOutcomes": [
+    "با input() مقدار بگیرد و در جملهٔ بعدی استفاده کند",
+    "توضیح دهد چرا برنامه وسط اجرا منتظر می‌ماند",
+    "مقدار عددی input را با int() به عدد تبدیل کند (رده B)"
+  ],
+  "sourceFile": "python-05-input-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "مینی سؤال می‌پرسه",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: بدون سؤال / با سؤال",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "از کاربر اسمش رو بپرس و یه پیام خوش‌آمد شخصی‌سازی‌شده بده."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "دو تا سؤال",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "از کاربر اسم و رنگ موردعلاقه‌ش رو بپرس، و یه جمله‌ی شخصی‌سازی‌شده با هر دو بساز."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "سه سؤال + محاسبه",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "اسم، سن و شهر بپرس؛ با int سن سال بعد رو حساب کن و تو جملهٔ نهایی نشون بده."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "PythonCodeRunner input fallback modal + ValueError mapping",
+    "nextLesson": "python-06-conditions"
+  }
+}

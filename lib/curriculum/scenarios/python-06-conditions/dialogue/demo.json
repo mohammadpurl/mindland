@@ -1,0 +1,35 @@
+{
+  "stepId": "demo",
+  "title": "دمو: واکنش ثابت / با شرط",
+  "maxDurationMinutes": 5,
+  "lines": [
+    {
+      "speaker": "avatar",
+      "beat": "setup",
+      "text": "اول بدون شرط امتحان می‌کنیم — سن هر چی باشه، پیام یکی‌ست. بعد با شرط واقعی."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-fixed",
+      "text": "مینی اصلاً اهمیتی نداد چند سالمون گفتیم. همیشه همون جمله رو گفت."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-if",
+      "text": "دیدی؟ این‌بار مینی واقعاً به جوابت گوش داد و بر اساسش یه تصمیم گرفت."
+    }
+  ],
+  "demoBlocks": [
+    {
+      "id": "fixed",
+      "code": "age = input(\"چند سالته؟ \")\nprint(\"باشه، خوش اومدی.\")"
+    },
+    {
+      "id": "with-if",
+      "code": "age = int(input(\"چند سالته؟ \"))\nif age < 13:\n    print(\"خوش اومدی رفیق کوچولو!\")\nelse:\n    print(\"خوش اومدی!\")"
+    }
+  ],
+  "productionNotes": [
+    "هر دو دمو نیاز به مودال input دارند؛ سن‌های مختلف را امتحان کنید."
+  ]
+}

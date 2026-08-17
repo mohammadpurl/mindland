@@ -1,0 +1,13 @@
+{
+  "stepId": "demo",
+  "title": "دمو: اسکلت ماشین‌حساب",
+  "maxDurationMinutes": 5,
+  "lines": [
+    { "speaker": "avatar", "beat": "setup", "text": "یه ماشین‌حساب کوچک — منو، دو تابع، حلقه و input." },
+    { "speaker": "avatar", "beat": "after-menu", "text": "کاربر انتخاب می‌کنه — جمع یا تفریق." },
+    { "speaker": "avatar", "beat": "after-loop", "text": "تا وقتی خروج نزنه، برنامه ادامه داره." }
+  ],
+  "demoBlocks": [
+    { "id": "calculator-skeleton", "code": "def add(a, b):\n    return a + b\n\nwhile True:\n    print(\"1. جمع\")\n    print(\"2. خروج\")\n    choice = input(\"انتخاب: \")\n    if choice == \"2\":\n        break\n    if choice == \"1\":\n        x = int(input(\"عدد اول: \"))\n        y = int(input(\"عدد دوم: \"))\n        print(add(x, y))" }
+  ]
+}

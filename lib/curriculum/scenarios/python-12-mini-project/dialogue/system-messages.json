@@ -1,0 +1,7 @@
+{
+  "stepId": "system-messages",
+  "lines": [],
+  "systemMessages": [
+    { "id": "menu-loop", "when": "infinite-loop", "text": "مینی گیر کرده — شاید حلقهٔ منو شرط خروج نداره؟ یه گزینه برای «خروج» اضافه کن." }
+  ]
+}

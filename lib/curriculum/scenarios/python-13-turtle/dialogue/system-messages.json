@@ -1,0 +1,7 @@
+{
+  "stepId": "system-messages",
+  "lines": [],
+  "systemMessages": [
+    { "id": "turtle-import", "when": "NameError", "text": "مینی لاک‌پشت رو پیدا نکرد — اول import turtle و بعد Turtle() رو صدا بزن." }
+  ]
+}

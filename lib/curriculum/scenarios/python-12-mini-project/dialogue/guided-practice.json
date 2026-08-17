@@ -1,0 +1,13 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    { "speaker": "avatar", "text": "مأموریت: اسکلت ماشین‌حساب رو کامل کن — منو، تابع، حلقه و input. یا اگه دوست داری سنگ‌کاغذقیچی بساز." }
+  ],
+  "missionChecklist": [
+    { "id": "has-menu", "label": "منوی انتخاب دارم" },
+    { "id": "uses-function", "label": "از تابع استفاده کردم" },
+    { "id": "uses-loop", "label": "حلقه دارم" },
+    { "id": "uses-input", "label": "از input استفاده کردم" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "stepId": "system-messages",
+  "lines": [],
+  "systemMessages": [
+    { "id": "key-error", "when": "KeyError", "text": "مینی دنبال یه برچسب (کلید) تو دیکشنری گشت که وجود نداره — اسم کلید رو چک کن." }
+  ]
+}

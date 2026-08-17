@@ -1,0 +1,9 @@
+{
+  "stepId": "wrap-up",
+  "title": "از زبان مینی",
+  "lines": [
+    { "speaker": "avatar", "as": "mini", "text": "لیست یعنی چند تا چیز تو یه جا — مثل جعبهٔ مدادرنگی." },
+    { "speaker": "avatar", "as": "mini", "text": "با append می‌تونی عضو اضافه کنی، با for یکی‌یکی همه رو می‌بینم." },
+    { "speaker": "avatar", "as": "mini", "text": "جای هر عضو از صفر شماره داره — اولی شمارهٔ ۰." }
+  ]
+}

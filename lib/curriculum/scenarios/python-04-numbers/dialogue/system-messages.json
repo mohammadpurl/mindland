@@ -1,0 +1,25 @@
+{
+  "stepId": "system-messages",
+  "title": "پیام‌های سیستم مینی",
+  "lines": [],
+  "systemMessages": [
+    {
+      "id": "type-mismatch",
+      "when": "TypeError — ناهمگونی عدد و متن",
+      "text": "مینی گیر کرد. یکیشون عدده، یکیشون متن — نمی‌دونه چطور با هم جمعشون کنه."
+    },
+    {
+      "id": "div-zero",
+      "when": "ZeroDivisionError",
+      "text": "مینی گیر کرد. تقسیم بر صفر یعنی جواب نداره!"
+    },
+    {
+      "id": "order-hint",
+      "when": "نکتهٔ ترتیب عملیات (رده B)",
+      "text": "مینی طبق ترتیب همیشگی حساب کرد — شاید نتیجه‌ای که می‌خواستی نیست؛ پرانتز می‌تونه ترتیب رو عوض کنه."
+    }
+  ],
+  "productionNotes": [
+    "هماهنگ با pythonErrorMessages.ts — TypeError و ZeroDivisionError"
+  ]
+}

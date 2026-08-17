@@ -1,0 +1,92 @@
+{
+  "id": "python-06-conditions",
+  "title": "شرط‌ها (if / else)",
+  "version": 1,
+  "order": 6,
+  "optional": false,
+  "prerequisite": "python-05-input",
+  "durationMinutes": 45,
+  "note": "مأموریت‌محور؛ تصمیم دوتایی؛ تورفتگی؛ ادامهٔ PY-05.",
+  "goal": "با if/else تصمیم بگیرد، تورفتگی را بفهمد، و (رده B) از elif استفاده کند.",
+  "metaphor": {
+    "title": "مینی حالا می‌تونه بگه: اگه این شد، اونو بکن — وگرنه، اون یکی رو بکن",
+    "fullDescription": "تا الان مینی همیشه یه واکنش ثابت داشت. حالا می‌تونه بر اساس جواب تو، مسیرهای مختلف رو انتخاب کنه — درست مثل «اگه بارون اومد، چتر ببر؛ وگرنه، نبر.»"
+  },
+  "systemMessages": [
+    {
+      "id": "missing-colon",
+      "text": "مینی منتظر یه دونقطه بود که نیومد."
+    },
+    {
+      "id": "indent-error",
+      "text": "مینی نفهمید این خط جزو کدوم تصمیمه — فاصله‌ی اول خط رو یه‌کم تنظیم کن."
+    },
+    {
+      "id": "type-mismatch",
+      "text": "مینی این دوتا رو یه‌جنس ندید — یکی عدده، یکی متن، حتی اگه شکلشون یکی باشه."
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "تصمیم بر اساس جواب",
+      "stageMission": "مینی بر اساس جوابت مسیر انتخاب می‌کنه."
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: واکنش ثابت / با شرط",
+      "maxDurationMinutes": 5,
+      "stageMission": "کنتراست: همیشه یه پیام در برابر پیام وابسته به سن."
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "یه آزمون تک‌سؤالی بساز که بر اساس جواب درست/غلط، «آفرین!» یا «دوباره تلاش کن!» بده.",
+      "missionChecklist": [
+        { "id": "has-input", "label": "یه سؤال با input پرسیدم" },
+        { "id": "has-if", "label": "با if جواب درست رو بررسی کردم" },
+        { "id": "has-else", "label": "با else پیام دوم رو هم نوشتم" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "آزمون بله/خیر خنده‌دار",
+      "brief": "یه سؤال بامزه بپرس و بر اساس جواب بله/خیر یه واکنش خنده‌دار بنویس.",
+      "stageMission": "سؤال بامزه + واکنش if/else.",
+      "missionChecklist": [
+        { "id": "has-input", "label": "سؤال با input" },
+        { "id": "has-if", "label": "شاخهٔ if" },
+        { "id": "has-else", "label": "شاخهٔ else" },
+        { "id": "said", "label": "بدون قفل اجرا شد" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "سه راه، نه دو راه",
+      "brief": "با if / elif / else یه تصمیم سه‌شاخه بساز. یه‌جا عدد رو با رشته مقایسه کن و ببین چی می‌شه.",
+      "stageMission": "سه شاخه با if/elif/else.",
+      "missionChecklist": [
+        { "id": "has-if", "label": "شاخهٔ if" },
+        { "id": "has-elif", "label": "شاخهٔ elif" },
+        { "id": "has-else", "label": "شاخهٔ else" },
+        { "id": "said", "label": "بدون قفل اجرا شد" }
+      ]
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی"
+    }
+  ],
+  "productImplementationNotes": {
+    "componentDependency": "PythonCodeRunner + IndentationError mapping",
+    "nextLessonId": "python-07-for-loop"
+  }
+}

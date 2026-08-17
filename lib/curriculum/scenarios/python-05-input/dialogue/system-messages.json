@@ -1,0 +1,25 @@
+{
+  "stepId": "system-messages",
+  "title": "پیام‌های سیستم مینی",
+  "lines": [],
+  "systemMessages": [
+    {
+      "id": "input-discarded",
+      "when": "input بدون ذخیره در متغیر",
+      "text": "مینی جوابتو شنید، ولی جایی نذاشتمش که بعداً بتونم پیداش کنم."
+    },
+    {
+      "id": "input-as-text",
+      "when": "جمع input متنی با عدد بدون int",
+      "text": "مینی جوابتو به‌عنوان متن گرفت، نه عدد — برای حساب‌کردن باید بهش بگیم این یه عدده."
+    },
+    {
+      "id": "value-error",
+      "when": "ValueError هنگام int",
+      "text": "مینی سعی کرد این جواب رو عدد کنه، ولی این یه عدد واقعی نبود."
+    }
+  ],
+  "productionNotes": [
+    "هماهنگ با pythonErrorMessages.ts و مودال input"
+  ]
+}

@@ -308,6 +308,123 @@
               "level": 1,
               "teachSteps": 3,
               "practiceSteps": 2
+            },
+            {
+              "id": "python-02-print-strings",
+              "title": "دستور print و رشته‌ها",
+              "description": "کارت تبریک چندخطی — نگهبان‌های جفت گیومه",
+              "order": 2,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-03-variables",
+              "title": "متغیرها",
+              "description": "جعبهٔ اسم‌دار — یک‌بار تعریف، چندبار استفاده",
+              "order": 3,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-04-numbers",
+              "title": "اعداد و عملیات",
+              "description": "عدد واقعی در برابر متن عددی — چهار عمل اصلی",
+              "order": 4,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-05-input",
+              "title": "input و تعامل",
+              "description": "مینی سؤال می‌پرسد و صبر می‌کند — خوش‌آمد شخصی",
+              "order": 5,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-06-conditions",
+              "title": "شرط‌ها (if / else)",
+              "description": "تصمیم دوتایی — آفرین یا دوباره تلاش کن",
+              "order": 6,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-07-for-loop",
+              "title": "حلقه for",
+              "description": "تکرار با range — الگوی ستاره بدون نوشتن دوباره",
+              "order": 7,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-08-while-loop",
+              "title": "حلقه while",
+              "description": "تکرار تا برقرار بودن شرط — بازی حدس عدد",
+              "order": 8,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-09-lists",
+              "title": "لیست‌ها",
+              "description": "چند مقدار در یک مجموعه — append و حلقه",
+              "order": 9,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-10-dicts",
+              "title": "دیکشنری‌ها",
+              "description": "کلید–مقدار — کارت بازیکن",
+              "order": 10,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-11-functions",
+              "title": "توابع",
+              "description": "def و return — دستور قابل استفاده مجدد",
+              "order": 11,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-12-mini-project",
+              "title": "پروژه ترکیبی",
+              "description": "ماشین‌حساب یا بازی متنی",
+              "order": 12,
+              "level": 2,
+              "teachSteps": 2,
+              "practiceSteps": 3
+            },
+            {
+              "id": "python-13-turtle",
+              "title": "رسم با turtle",
+              "description": "لاک‌پشت نقاش — forward و turn",
+              "order": 13,
+              "level": 2,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "python-14-capstone",
+              "title": "پروژه پایانی",
+              "description": "پروژه آزاد با چک‌لیست ساخت",
+              "order": 14,
+              "level": 2,
+              "teachSteps": 2,
+              "practiceSteps": 3
             }
           ]
         },

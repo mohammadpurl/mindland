@@ -1,0 +1,9 @@
+{
+  "stepId": "wrap-up",
+  "title": "از زبان مینی",
+  "lines": [
+    { "speaker": "avatar", "as": "mini", "text": "turtle یعنی لاک‌پشت نقاش — دستور حرکت رو به شکل تبدیل می‌کنه." },
+    { "speaker": "avatar", "as": "mini", "text": "forward جلو، left و right چرخش — با تکرار می‌تونی هر شکلی بکشی." },
+    { "speaker": "avatar", "as": "mini", "text": "یادت باشه turtle.done() رو آخر بذاری تا پنجره باز بمونه." }
+  ]
+}

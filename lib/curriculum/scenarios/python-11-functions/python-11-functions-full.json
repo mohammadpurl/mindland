@@ -1,0 +1,55 @@
+{
+  "id": "python-11-functions",
+  "title": "توابع (Functions)",
+  "version": 1,
+  "order": 11,
+  "prerequisite": "python-10-dicts",
+  "durationMinutes": 50,
+  "metaphor": {
+    "title": "دکمهٔ جادویی — یک‌بار می‌نویسی، هر بار اجرا می‌شه",
+    "fullDescription": "به‌جای این‌که هر بار همون کد رو تکرار کنی، یه دستور سفارشی می‌سازی و هر وقت خواستی دکمه رو می‌زنی."
+  },
+  "systemMessages": [
+    { "id": "indent-error", "text": "مینی نفهمید این خط جزو تابع هست یا نه — فاصلهٔ اول خط رو چک کن." },
+    { "id": "missing-return", "text": "مینی تابع رو صدا زد ولی چیزی برنگشت — شاید return فراموش شده؟" }
+  ],
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "دستور سفارشی", "stageMission": "یک بلوک کد قابل‌استفادهٔ مجدد." },
+    { "id": "demo", "type": "teach", "title": "دمو: تکرار در برابر تابع", "maxDurationMinutes": 5 },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "تابع بساز، return کن، صدا بزن.",
+      "missionChecklist": [
+        { "id": "has-def", "label": "تابع با def ساختم" },
+        { "id": "has-return", "label": "return دارم" },
+        { "id": "function-called", "label": "تابع رو صدا زدم" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "brief": "تابع سلام با آرگومان اسم بساز و صدا بزن.",
+      "missionChecklist": [
+        { "id": "has-def", "label": "تابع ساختم" },
+        { "id": "function-with-arg", "label": "آرگومان دارم" },
+        { "id": "function-called", "label": "صدا زدم" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "brief": "دو تابع با return بساز و هر دو رو صدا بزن.",
+      "missionChecklist": [
+        { "id": "has-def", "label": "تابع" },
+        { "id": "has-return", "label": "return" },
+        { "id": "function-with-arg", "label": "آرگومان" }
+      ]
+    },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی" }
+  ],
+  "productImplementationNotes": { "nextLessonId": "python-12-mini-project" }
+}

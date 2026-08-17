@@ -1,0 +1,19 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    {
+      "speaker": "avatar",
+      "text": "مأموریت: یه جعبه‌ی name بساز، یه جعبه‌ی age بساز، بعد با print و ویرگول هر دو رو تو یه جمله بیار. بعد فقط age رو عوض کن و دوباره اجرا کن."
+    }
+  ],
+  "missionChecklist": [
+    { "id": "has-name", "label": "متغیر name ساختم" },
+    { "id": "has-age", "label": "متغیر age ساختم" },
+    { "id": "used-both", "label": "با هر دو یه جمله چاپ کردم" },
+    { "id": "age-changed", "label": "مقدار age رو عوض کردم و دوباره چاپ کردم" }
+  ],
+  "productionNotes": [
+    "آیتم age-changed نکتهٔ آموزشی اصلی است."
+  ]
+}

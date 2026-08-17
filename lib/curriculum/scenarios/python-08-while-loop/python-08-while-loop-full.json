@@ -1,0 +1,94 @@
+{
+  "id": "python-08-while-loop",
+  "title": "حلقه while",
+  "version": 1,
+  "order": 8,
+  "optional": false,
+  "prerequisite": "python-07-for-loop",
+  "durationMinutes": 50,
+  "note": "مأموریت‌محور؛ تفاوت با for؛ بازی حدس عدد؛ محافظ حلقهٔ بی‌پایان.",
+  "goal": "با while تا برقرار بودن شرط تکرار کند و خطر حلقهٔ بی‌پایان را بفهمد.",
+  "metaphor": {
+    "title": "این‌بار مینی نمی‌دونه دقیقاً چندبار — فقط می‌دونه کِی باید دست بکشه",
+    "fullDescription": "تو for از قبل می‌دونستیم چندبار تکرار می‌کنیم. تو while نمی‌دونیم از قبل — فقط می‌دونیم کِی باید تمومش کنیم. مثل بازی حدس عدد: نمی‌دونیم چندبار حدس می‌زنی، فقط می‌دونیم وقتی درست حدس زدی، تمومه."
+  },
+  "systemMessages": [
+    {
+      "id": "infinite-loop",
+      "text": "مینی داره یه کارو بی‌نهایت تکرار می‌کنه و نمی‌دونه کِی باید وایسه. نمایش رو متوقف کردم — یه‌جای شرط رو چک کن."
+    },
+    {
+      "id": "stale-condition",
+      "text": "مینی هر بار همون سؤال قبلی رو چک می‌کنه — چیزی که بررسی می‌کنه هیچ‌وقت عوض نمی‌شه."
+    },
+    {
+      "id": "missing-colon",
+      "text": "مینی منتظر یه دونقطه بود که نیومد."
+    },
+    {
+      "id": "indent-error",
+      "text": "مینی نفهمید این خط جزو تکرار هست یا نه — فاصله‌ی اول خط رو چک کن."
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "تا وقتی شرط برقراره",
+      "stageMission": "مینی تا وقتی شرط برقراره تکرار می‌کنه."
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: یک شانس / تا درست بگی",
+      "maxDurationMinutes": 5,
+      "stageMission": "کنتراست: یک حدس در برابر while تا حدس درست."
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "یه بازی حدس عدد بساز که تا حدس درست ادامه پیدا کنه.",
+      "missionChecklist": [
+        { "id": "has-target", "label": "یه عدد هدف مشخص کردم" },
+        { "id": "has-while", "label": "با while حلقه‌ی حدس‌زدن رو ساختم" },
+        { "id": "while-win", "label": "وقتی حدس درست بود، پیام برد نشون داده شد" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "حدس با راهنمایی",
+      "brief": "یه بازی حدس عدد بین ۱ تا ۵ بساز (محدودهٔ کوچک‌تر).",
+      "stageMission": "حدس عدد ۱ تا ۵ با while.",
+      "missionChecklist": [
+        { "id": "has-while", "label": "حلقهٔ while" },
+        { "id": "has-input", "label": "سؤال با input" },
+        { "id": "while-win", "label": "پیام برد" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "حدس با شمارش تلاش",
+      "brief": "همون بازی رو بساز، ولی با یه متغیر شمارنده تعداد تلاش‌ها رو هم دنبال کن و در پیام برد نشون بده.",
+      "stageMission": "while + شمارندهٔ تلاش + پیام برد.",
+      "missionChecklist": [
+        { "id": "has-while", "label": "حلقهٔ while" },
+        { "id": "has-attempts", "label": "شمارندهٔ تلاش" },
+        { "id": "while-win", "label": "پیام برد با تعداد تلاش" }
+      ]
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی"
+    }
+  ],
+  "productImplementationNotes": {
+    "componentDependency": "pythonSafeRunner loop guard + dynamic input re-run",
+    "nextLessonId": "python-09-lists"
+  }
+}

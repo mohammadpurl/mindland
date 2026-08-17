@@ -1,4 +1,5 @@
 'use client'
+import { debugLog } from '@/lib/debugLog'
 
 import { useControls, button as buttonControl } from "leva";
 import { useEffect, useState } from "react";
@@ -123,7 +124,7 @@ export const AvatarPositionControls: React.FC<AvatarPositionControlsProps> = ({
           }
         };
         localStorage.setItem('avatarPositionSettings', JSON.stringify(settings));
-        console.log('Avatar position saved!', settings);
+        debugLog('Avatar position saved!', settings);
       }
     }),
     loadPosition: buttonControl(() => {
@@ -146,7 +147,7 @@ export const AvatarPositionControls: React.FC<AvatarPositionControlsProps> = ({
               avatarRef.current.scale.set(settings.scale.x, settings.scale.y, settings.scale.z);
             }
             
-            console.log('Avatar position loaded!', settings);
+            debugLog('Avatar position loaded!', settings);
           } catch (error) {
             console.error('Error loading avatar position:', error);
           }
@@ -241,7 +242,7 @@ export const AvatarPositionControls: React.FC<AvatarPositionControlsProps> = ({
           avatarRef.current.scale.set(settings.scale.x, settings.scale.y, settings.scale.z);
         }
         
-        console.log('Avatar position auto-loaded on startup!', settings);
+        debugLog('Avatar position auto-loaded on startup!', settings);
       } catch (error) {
         console.error('Error auto-loading avatar position:', error);
       }

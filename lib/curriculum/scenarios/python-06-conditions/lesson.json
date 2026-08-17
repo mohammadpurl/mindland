@@ -1,0 +1,72 @@
+{
+  "id": "python-06-conditions",
+  "title": "شرط‌ها (if / else)",
+  "version": 1,
+  "order": 6,
+  "optional": false,
+  "prerequisite": "python-05-input",
+  "durationMinutes": 45,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ تصمیم دوتایی؛ تورفتگی؛ ادامهٔ طبیعی PY-05؛ رده B با elif.",
+  "goal": "با if/else یک تصمیم دوتایی بنویسد، تورفتگی را بفهمد، و (رده B) از elif استفاده کند.",
+  "metaphor": {
+    "title": "مینی حالا می‌تونه بگه: اگه این شد، اونو بکن — وگرنه، اون یکی رو بکن",
+    "description": "تا الان مینی همیشه یه واکنش ثابت داشت. حالا می‌تونه بر اساس جواب تو مسیرهای مختلف رو انتخاب کنه — مثل اگه بارون اومد چتر ببر."
+  },
+  "measurableOutcomes": [
+    "با if/else یک تصمیم دوتایی بنویسد که دو نتیجهٔ متفاوت بدهد",
+    "توضیح دهد چرا خطوط زیر if/else باید تورفتگی داشته باشند",
+    "از elif برای بیش از دو حالت استفاده کند (رده B)"
+  ],
+  "sourceFile": "python-06-conditions-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "تصمیم بر اساس جواب",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: واکنش ثابت / با شرط",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "یه آزمون تک‌سؤالی بساز که بر اساس جواب درست/غلط، «آفرین!» یا «دوباره تلاش کن!» بده."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "آزمون بله/خیر خنده‌دار",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "یه سؤال بامزه بپرس و بر اساس جواب بله/خیر یه واکنش خنده‌دار بنویس."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "سه راه، نه دو راه",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "با if / elif / else یه تصمیم سه‌شاخه بساز (مثلاً بر اساس نمره). یه‌جا عدد رو با رشته مقایسه کن و ببین چی می‌شه."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "PythonCodeRunner + IndentationError/colon mapping + if/elif checks",
+    "nextLesson": "python-07-for-loop"
+  }
+}

@@ -1,3 +1,4 @@
+import { debugLog } from '@/lib/debugLog'
 import React, { createContext, useContext, useState, useCallback, useEffect, ReactNode, useRef } from "react";
 import { extractPassengerDataWithOpenAI, introduction, saveConversation, saveTrip, sendUserMessage } from "@/services/api"; 
 import { Message, MessageSender, Passenger, TicketInfo } from "@/types/type";
@@ -97,7 +98,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
   const [tripId, setTripId] = useState<string | null>(null);
   // Debug: observe QR state changes and expose for manual inspection
   useEffect(() => {
-    console.log('[QR-STATE] showQRCode:', showQRCode, 'qrCodeImage:', qrCodeImage);
+    debugLog('[QR-STATE] showQRCode:', showQRCode, 'qrCodeImage:', qrCodeImage);
     if (typeof window !== 'undefined') {
       (window as unknown as { __qrDebug?: unknown }).__qrDebug = {
         get state() {
@@ -177,7 +178,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
       startQrTimer();
     }
     else if (containsQRCode && !containsLocation) {
-      console.log("QR Code triggered by avatar message:", messageText);
+      debugLog("QR Code triggered by avatar message:", messageText);
       
       debugger;
       extractPassengerDataWithOpenAI(messages)
@@ -216,10 +217,10 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
           };
           debugger;
           const saved = await saveTrip(tripData);
-          console.log("Saved trip data:", saved);
+          debugLog("Saved trip data:", saved);
 
           if (saved && saved.id) {
-            console.log("Setting tripId to:", saved.id);
+            debugLog("Setting tripId to:", saved.id);
             setTripId(saved.id);
             setShowQRCode(true);
             startQrTimer();
@@ -228,7 +229,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
             console.error("Saved trip data is missing id:", saved);
             // Generate a temporary ID for testing
             const tempId = `temp_${Date.now()}`;
-            console.log("Using temporary tripId:", tempId);
+            debugLog("Using temporary tripId:", tempId);
             setTripId(tempId);
             setShowQRCode(true);
             startQrTimer();
@@ -251,19 +252,19 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
           try {
             const saved = await saveTrip(emptyTripData);
             if (saved && saved.id) {
-              console.log("Saved empty trip data with id:", saved.id);
+              debugLog("Saved empty trip data with id:", saved.id);
               setTripId(saved.id);
             } else {
               // Generate a temporary ID for testing
               const tempId = `temp_${Date.now()}`;
-              console.log("Using temporary tripId for empty data:", tempId);
+              debugLog("Using temporary tripId for empty data:", tempId);
               setTripId(tempId);
             }
           } catch (saveError) {
             console.error("Failed to save empty trip data:", saveError);
             // Generate a temporary ID as last resort
             const tempId = `temp_${Date.now()}`;
-            console.log("Using temporary tripId as fallback:", tempId);
+            debugLog("Using temporary tripId as fallback:", tempId);
             setTripId(tempId);
           }
           
@@ -314,12 +315,12 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     
     // اگر در حال پردازش هستیم، پیام جدید را نادیده بگیر
     if (isProcessing) {
-      console.log("Chat: Ignoring message - already processing:", msg);
+      debugLog("Chat: Ignoring message - already processing:", msg);
       return;
     }
     // بررسی قفل درخواست
     if (requestLockRef.current) {
-      console.log("Chat: Ignoring message - request lock active:", msg);
+      debugLog("Chat: Ignoring message - request lock active:", msg);
       return;
     }
 
@@ -383,7 +384,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     setIsAvatarTalking(false);
     setIsProcessing(false);
     requestLockRef.current = false; // اطمینان از آزاد شدن قفل
-    console.log("Chat: Message played, ready for next message");
+    debugLog("Chat: Message played, ready for next message");
   };
     const handleEndMessage = useCallback(() => {
       // setIsAvatarTalking(false);
@@ -458,7 +459,7 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     setShowQRCode(false); // Reset QR code state
     setQrCodeImage(""); // Reset QR code image
     setTripId(null); // Reset trip ID
-    console.log("Chat: Started new session:", newSessionId);
+    debugLog("Chat: Started new session:", newSessionId);
     // Start inactivity timer waiting for first user message
     startUserInactivityTimer();
   };
@@ -486,15 +487,15 @@ export const ChatProvider = ({ children }: { children: ReactNode }) => {
     setQrCodeImage(""); // Reset QR code image
     setTripId(null); // Reset trip ID
     requestLockRef.current = false;
-    console.log("Chat: Ended session");
+    debugLog("Chat: Ended session");
   };
 
   // Update lastAvatarMessage when messages change
   useEffect(() => {
-    console.log("ChatContext: messages changed", messages);
+    debugLog("ChatContext: messages changed", messages);
     if (messages?.length > 0) {
       if(messages[messages?.length - 1].sender === MessageSender.AVATAR) {
-        console.log("ChatContext: Setting last avatar message", messages[messages?.length - 1]);
+        debugLog("ChatContext: Setting last avatar message", messages[messages?.length - 1]);
         setLastAvatarMessage(messages[messages?.length - 1]);
       }
     } else {

@@ -24,14 +24,19 @@ const registerSchema = z
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
 type RegisterFormProps = {
-  onSuccess?: (userId: string) => void;
+  /** Called after successful HttpOnly cookie session (never receives a JWT). */
+  onSuccess?: (notice: string) => void;
 };
 
+/**
+ * Register via FastAPI — session cookies only (HttpOnly). Never store JWT in localStorage.
+ */
 const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    setError,
   } = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
     defaultValues: { name: "", email: "", password: "", confirmPassword: "" },
@@ -39,19 +44,19 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
 
   const onSubmit = async (values: RegisterFormValues) => {
     try {
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+      const { apiRegister } = await import("@/lib/api/auth");
+      const data = await apiRegister({
+        email: values.email,
+        password: values.password,
+        full_name: values.name,
       });
-      const data = await res.json();
-      if (!res.ok || !data?.success) {
-        throw new Error(data?.error || "ثبت‌نام ناموفق بود");
-      }
-      if (onSuccess) onSuccess(data.userId as string);
-    } catch (e) {
-      console.error(e);
-      alert((e as Error).message);
+      const notice = `ثبت‌نام موفق — خوش آمدی ${data.user.full_name}.`;
+      if (onSuccess) onSuccess(notice);
+      else alert(notice);
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "ثبت‌نام ناموفق بود. دوباره تلاش کن.";
+      setError("root", { message });
     }
   };
 
@@ -161,6 +166,10 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess }) => {
                     <p className="text-red-400 text-sm">{errors.confirmPassword.message}</p>
                   )}
                 </div>
+
+                {errors.root?.message && (
+                  <p className="text-red-400 text-sm">{errors.root.message}</p>
+                )}
 
                 <div className="flex justify-end">
                   <Button

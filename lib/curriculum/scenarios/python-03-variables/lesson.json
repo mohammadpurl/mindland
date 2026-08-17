@@ -1,0 +1,72 @@
+{
+  "id": "python-03-variables",
+  "title": "متغیرها",
+  "version": 1,
+  "order": 3,
+  "optional": false,
+  "prerequisite": "python-02-print-strings",
+  "durationMinutes": 45,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ جعبهٔ اسم‌دار؛ کنتراست کار دستی در مقابل متغیر؛ تغییر مقدار وسط برنامه.",
+  "goal": "مقدار را در متغیر ذخیره کند، چندبار استفاده کند، وسط برنامه عوض کند، و بفهمد جعبهٔ تعریف‌نشده مینی را گیج می‌کند.",
+  "metaphor": {
+    "title": "به‌جای این‌که هربار دوباره بگی، یه بار بذارش تو جعبه",
+    "description": "اگه بخوای اسمت رو چند بار بیاری، یا هربار دوباره تایپ می‌کنی، یا یه‌بار تو جعبه‌ی اسم‌دار می‌ذاری و هرجا لازم شد فقط اسم جعبه رو صدا می‌زنی."
+  },
+  "measurableOutcomes": [
+    "یک مقدار را در متغیر ذخیره و چندجا استفاده کند",
+    "مقدار را وسط برنامه تغییر دهد و چاپ بعدی را ببیند",
+    "توضیح دهد چرا جعبهٔ تعریف‌نشده مینی را گیج می‌کند"
+  ],
+  "sourceFile": "python-03-variables-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "جعبهٔ اسم‌دار",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: کار دستی در برابر جعبه",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "جعبهٔ name و age بساز، با هر دو جمله چاپ کن، بعد age را عوض کن و دوباره چاپ کن."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "معرفی با دو جعبه",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "با دو متغیر (اسم و یه چیزی که دوست داری) یه معرفی کوتاه بساز."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "سه جعبه و جابه‌جایی",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "سه متغیر بساز (اسم، سن، شهر). معرفی چاپ کن. بعد شهر را عوض کن و دوباره چاپ کن."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "PythonCodeRunner + NameError mapping + mission age-changed",
+    "nextLesson": "python-04-numbers"
+  }
+}

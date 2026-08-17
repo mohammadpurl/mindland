@@ -1,0 +1,25 @@
+{
+  "stepId": "system-messages",
+  "title": "پیام‌های سیستم مینی",
+  "lines": [],
+  "systemMessages": [
+    {
+      "id": "missing-colon",
+      "when": "SyntaxError — فراموشی دونقطه بعد از if/else/elif",
+      "text": "مینی منتظر یه دونقطه بود که نیومد."
+    },
+    {
+      "id": "indent-error",
+      "when": "IndentationError",
+      "text": "مینی نفهمید این خط جزو کدوم تصمیمه — فاصله‌ی اول خط رو یه‌کم تنظیم کن."
+    },
+    {
+      "id": "type-mismatch",
+      "when": "TypeError — مقایسه عدد و رشته",
+      "text": "مینی این دوتا رو یه‌جنس ندید — یکی عدده، یکی متن، حتی اگه شکلشون یکی باشه."
+    }
+  ],
+  "productionNotes": [
+    "هماهنگ با pythonErrorMessages.ts — IndentationError و colon"
+  ]
+}

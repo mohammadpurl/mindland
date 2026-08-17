@@ -1,3 +1,6 @@
+'use client'
+
+import { debugLog } from '@/lib/debugLog'
 import { useAutoSTT } from "@/hooks/useAutoSTT";
 import { useChatContext } from "@/hooks/useChat";
 import { Language } from "@/hooks/useChat";
@@ -20,7 +23,7 @@ interface VoiceInputProps {
 export const VoiceInput = ({ language }: VoiceInputProps) => {
     const { chat, isProcessing, isAvatarTalking, isSessionActive } = useChatContext();
 
-    // console.log("VoiceInput: isProcessing:", isProcessing, "isAvatarTalking:", isAvatarTalking, "isSessionActive:", isSessionActive);
+    // debugLog("VoiceInput: isProcessing:", isProcessing, "isAvatarTalking:", isAvatarTalking, "isSessionActive:", isSessionActive);
 
     const {
       resetPermissionDenial,
@@ -30,16 +33,16 @@ export const VoiceInput = ({ language }: VoiceInputProps) => {
       isSessionActive && !isProcessing && !isAvatarTalking, // فقط وقتی session فعال است و نه در حال پردازش هستیم و نه آواتار صحبت می‌کند
       (text) => {
         if (!isSessionActive || isProcessing || isAvatarTalking) {
-          // console.log("VoiceInput: Ignored transcript - session not active, processing, or avatar talking");
+          // debugLog("VoiceInput: Ignored transcript - session not active, processing, or avatar talking");
           return;
         }
         const normalizedText = normalizeText(text);
         if (normalizedText.length < 1) {
-          console.log("[STT] Ignored short message:", normalizedText);
+          debugLog("[STT] Ignored short message:", normalizedText);
           return;
         }
 
-        // console.log("VoiceInput: Processing user input:", text);
+        // debugLog("VoiceInput: Processing user input:", text);
         chat(text);
       },
       isProcessing,

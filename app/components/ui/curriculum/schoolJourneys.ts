@@ -202,10 +202,10 @@ export function buildProgrammingSchoolStations(lang: string): SchoolPlanetStatio
     planet({
       id: 'python-path',
       label: 'مسیر پایتون',
-      learn: 'اولین دستور print — مینی فقط زبان دقیق را می‌فهمد.',
-      highlights: ['PY-01', 'print', 'آماده'],
+      learn: 'از print تا while — تصمیم، تکرار، و بازی حدس عدد.',
+      highlights: ['PY-01…08', 'آماده'],
       category: 'programming',
-      href: `/${lang}/lessons/programming/python-01-intro`,
+      href: `/${lang}/curriculum/programming/python`,
       kind: 'specialty',
       t: 0.35,
       emoji: '🐍',

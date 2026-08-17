@@ -1,0 +1,7 @@
+{
+  "stepId": "system-messages",
+  "lines": [],
+  "systemMessages": [
+    { "id": "index-error", "when": "IndexError", "text": "مینی دنبال جایگاهی تو لیست گشت که وجود نداره — شاید شماره‌اش اشتباهه؟ یادته از صفر می‌شماریم." }
+  ]
+}

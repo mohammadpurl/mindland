@@ -1,0 +1,20 @@
+{
+  "stepId": "system-messages",
+  "title": "پیام‌های سیستم مینی",
+  "lines": [],
+  "systemMessages": [
+    {
+      "id": "missing-colon",
+      "when": "SyntaxError — فراموشی دونقطه بعد از for",
+      "text": "مینی منتظر یه دونقطه بود که نیومد."
+    },
+    {
+      "id": "indent-error",
+      "when": "IndentationError داخل حلقه",
+      "text": "مینی نفهمید این خط جزو تکرار هست یا نه — فاصله‌ی اول خط رو چک کن."
+    }
+  ],
+  "productionNotes": [
+    "نکتهٔ range از صفر به‌صورت concept tip آبی است، نه پیام خطای قرمز."
+  ]
+}

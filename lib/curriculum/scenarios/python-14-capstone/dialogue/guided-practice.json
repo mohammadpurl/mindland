@@ -1,0 +1,13 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    { "speaker": "avatar", "text": "مأموریت: پروژهٔ خودت رو بساز — حداقل یه تابع، لیست یا دیکشنری، اجرا و یه توضیح کوتاه." }
+  ],
+  "missionChecklist": [
+    { "id": "capstone-function", "label": "حداقل یه تابع دارم" },
+    { "id": "capstone-data", "label": "لیست یا دیکشنری دارم" },
+    { "id": "capstone-ran", "label": "برنامه اجرا شد" },
+    { "id": "capstone-explained", "label": "توضیح دادم چطور کار می‌کنه" }
+  ]
+}

@@ -13,6 +13,7 @@ import {
   type PythonLessonItem,
   type PythonSection,
 } from '@/lib/curriculum/python-kids-syllabus'
+import { PythonLessonCompletedBadge } from '@/app/components/ui/curriculum/PythonLessonCompletedBadge'
 
 const STATUS_FA: Record<PythonLessonItem['status'], string> = {
   planned: 'به‌زودی',
@@ -21,9 +22,25 @@ const STATUS_FA: Record<PythonLessonItem['status'], string> = {
 }
 
 function LessonCard({ lesson, lang }: { lesson: PythonLessonItem; lang: string }) {
+  const readyPythonIds = new Set([
+    'python-00-blocks',
+    'python-01-intro',
+    'python-02-print-strings',
+    'python-03-variables',
+    'python-04-numbers',
+    'python-05-input',
+    'python-06-conditions',
+    'python-07-for-loop',
+    'python-08-while-loop',
+    'python-09-lists',
+    'python-10-dicts',
+    'python-11-functions',
+    'python-12-mini-project',
+    'python-13-turtle',
+    'python-14-capstone',
+  ])
   const lessonHref =
-    lesson.status === 'ready' &&
-    (lesson.id === 'python-00-blocks' || lesson.id === 'python-01-intro')
+    lesson.status === 'ready' && readyPythonIds.has(lesson.id)
       ? `/${lang}/lessons/programming/${lesson.id}`
       : null
 
@@ -49,6 +66,7 @@ function LessonCard({ lesson, lang }: { lesson: PythonLessonItem; lang: string }
           >
             {STATUS_FA[lesson.status]}
           </span>
+          <PythonLessonCompletedBadge lessonId={lesson.id} />
         </div>
       </div>
 
@@ -294,7 +312,7 @@ export function PythonKidsSyllabusView({ lang }: { lang: string }) {
           <div>
             <p className="font-extrabold text-slate-800">قدم بعدی</p>
             <p className="mt-1 text-sm text-slate-600">
-              نوشتن سناریوی کامل PY-01 برای هر دو رده — بعد از تأیید این صفحه.
+              PY-00 تا PY-08 آماده‌اند — پایان بخش تصمیم‌گیری و تکرار؛ قدم بعدی لیست‌ها.
             </p>
           </div>
           <Link

@@ -1,0 +1,91 @@
+{
+  "id": "python-05-input",
+  "title": "input و تعامل",
+  "version": 1,
+  "order": 5,
+  "optional": false,
+  "prerequisite": "python-04-numbers",
+  "durationMinutes": 45,
+  "note": "مأموریت‌محور؛ مینی سؤال می‌پرسد و صبر می‌کند؛ پایان بخش اول.",
+  "goal": "با input بگیرد، ذخیره کند، استفاده کند، و (رده B) با int حساب کند.",
+  "metaphor": {
+    "title": "این‌بار مینی از تو سؤال می‌پرسه و صبر می‌کنه",
+    "fullDescription": "تا الان همیشه دانش‌آموز به مینی می‌گفت چیکار کنه. حالا برای اولین بار، مینی وسط کار می‌ایسته و منتظر می‌مونه که دانش‌آموز جواب بده — درست مثل یه گفتگوی واقعی."
+  },
+  "systemMessages": [
+    {
+      "id": "input-discarded",
+      "text": "مینی جوابتو شنید، ولی جایی نذاشتمش که بعداً بتونم پیداش کنم."
+    },
+    {
+      "id": "input-as-text",
+      "text": "مینی جوابتو به‌عنوان متن گرفت، نه عدد — برای حساب‌کردن باید بهش بگیم این یه عدده."
+    },
+    {
+      "id": "value-error",
+      "text": "مینی سعی کرد این جواب رو عدد کنه، ولی این یه عدد واقعی نبود."
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "مینی سؤال می‌پرسه",
+      "stageMission": "مینی می‌پرسه و صبر می‌کنه."
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: بدون سؤال / با سؤال",
+      "maxDurationMinutes": 5,
+      "stageMission": "کنتراست اسم ثابت در برابر input واقعی."
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "از کاربر اسمش رو بپرس و یه پیام خوش‌آمد شخصی‌سازی‌شده بده.",
+      "missionChecklist": [
+        { "id": "has-input", "label": "با input سؤال پرسیدم" },
+        { "id": "input-assigned", "label": "جواب رو تو یه متغیر ذخیره کردم" },
+        { "id": "used-input-var", "label": "با اون متغیر یه پیام خوش‌آمد چاپ کردم" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "دو تا سؤال",
+      "brief": "از کاربر اسم و رنگ موردعلاقه‌ش رو بپرس، و یه جمله‌ی شخصی‌سازی‌شده با هر دو بساز.",
+      "stageMission": "دو سؤال + جملهٔ شخصی.",
+      "missionChecklist": [
+        { "id": "two-inputs", "label": "دو بار input" },
+        { "id": "input-assigned", "label": "جواب‌ها تو متغیر" },
+        { "id": "said", "label": "جملهٔ شخصی چاپ شد" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "سه سؤال + محاسبه",
+      "brief": "اسم، سن و شهر بپرس؛ با int سن سال بعد رو حساب کن و تو جملهٔ نهایی نشون بده.",
+      "stageMission": "سه سؤال + int + سن سال بعد.",
+      "missionChecklist": [
+        { "id": "three-inputs", "label": "سه بار input" },
+        { "id": "used-int", "label": "تبدیل با int" },
+        { "id": "said", "label": "جملهٔ نهایی با محاسبه" }
+      ]
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی"
+    }
+  ],
+  "productImplementationNotes": {
+    "componentDependency": "PythonCodeRunner input fallback (pre-scan + modal)",
+    "nextLessonId": "python-06-conditions",
+    "sectionEnd": true
+  }
+}

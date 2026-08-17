@@ -1,0 +1,18 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    {
+      "speaker": "avatar",
+      "text": "مأموریت: با input اسم کاربر رو بپرس، جواب رو تو یه متغیر بذار، بعد با print یه پیام خوش‌آمد شخصی بساز."
+    }
+  ],
+  "missionChecklist": [
+    { "id": "has-input", "label": "با input سؤال پرسیدم" },
+    { "id": "input-assigned", "label": "جواب رو تو یه متغیر ذخیره کردم" },
+    { "id": "used-input-var", "label": "با اون متغیر یه پیام خوش‌آمد چاپ کردم" }
+  ],
+  "productionNotes": [
+    "مودال فارسی هماهنگ با استعارهٔ مینی."
+  ]
+}

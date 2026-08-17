@@ -1,0 +1,56 @@
+{
+  "id": "python-14-capstone",
+  "title": "پروژه پایانی",
+  "version": 1,
+  "order": 14,
+  "prerequisite": "python-13-turtle",
+  "durationMinutes": 60,
+  "metaphor": {
+    "title": "نمایشگاه پروژه‌ها — ایدهٔ خودت",
+    "fullDescription": "هر چیزی که دوست داری — بازی، ابزار، نقاشی — با همهٔ چیزهایی که یاد گرفتی."
+  },
+  "systemMessages": [
+    { "id": "capstone-incomplete", "text": "مینی هنوز پروژه رو کامل نمی‌بینه — تابع، داده و اجرا رو چک کن." },
+    { "id": "capstone-explain", "text": "مینی منتظره توضیح بدی چطور کار می‌کنه — یه کامنت یا print توضیحی اضافه کن." }
+  ],
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "نمایشگاه پروژه", "stageMission": "طراحی و ساخت پروژهٔ شخصی." },
+    { "id": "demo", "type": "teach", "title": "دمو: چک‌لیست ساخت", "maxDurationMinutes": 5 },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "پروژهٔ خودت رو بساز و توضیح بده.",
+      "missionChecklist": [
+        { "id": "capstone-function", "label": "حداقل یه تابع دارم" },
+        { "id": "capstone-data", "label": "لیست یا دیکشنری دارم" },
+        { "id": "capstone-ran", "label": "برنامه اجرا شد" },
+        { "id": "capstone-explained", "label": "توضیح دادم چطور کار می‌کنه" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "brief": "پروژه از روی قالب (ماشین‌حساب، بازی، نقاشی).",
+      "missionChecklist": [
+        { "id": "capstone-function", "label": "تابع" },
+        { "id": "capstone-ran", "label": "اجرا" },
+        { "id": "capstone-explained", "label": "توضیح" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "brief": "پروژه آزادتر با تابع و ساختار داده.",
+      "missionChecklist": [
+        { "id": "capstone-function", "label": "تابع" },
+        { "id": "capstone-data", "label": "داده" },
+        { "id": "capstone-explained", "label": "توضیح" }
+      ]
+    },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی" }
+  ],
+  "productImplementationNotes": { "nextLessonId": null }
+}

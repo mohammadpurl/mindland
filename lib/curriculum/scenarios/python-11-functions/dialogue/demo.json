@@ -1,0 +1,14 @@
+{
+  "stepId": "demo",
+  "title": "دمو: تکرار در برابر تابع",
+  "maxDurationMinutes": 5,
+  "lines": [
+    { "speaker": "avatar", "beat": "setup", "text": "اول سه بار همون کد رو تکرار می‌کنیم — بعد با یه تابع." },
+    { "speaker": "avatar", "beat": "after-repeat", "text": "هر بار باید همون خطوط رو بنویسی — خسته‌کننده و پر از اشتباه." },
+    { "speaker": "avatar", "beat": "after-function", "text": "حالا یه تابع داریم — هر بار فقط اسمش رو صدا می‌زنیم." }
+  ],
+  "demoBlocks": [
+    { "id": "repeat", "code": "print(\"سلام آرش!\")\nprint(\"سلام سارا!\")\nprint(\"سلام مهراد!\")" },
+    { "id": "with-function", "code": "def greet(name):\n    return \"سلام \" + name + \"!\"\n\nprint(greet(\"آرش\"))\nprint(greet(\"سارا\"))\nprint(greet(\"مهراد\"))" }
+  ]
+}

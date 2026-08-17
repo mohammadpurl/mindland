@@ -1,0 +1,13 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    { "speaker": "avatar", "text": "مأموریت: لاک‌پشت بساز، با forward حرکت کن، با left یا right بچرخ، و یه شکل ساده (مثلاً مربع) بکش." }
+  ],
+  "missionChecklist": [
+    { "id": "has-turtle", "label": "لاک‌پشت ساختم" },
+    { "id": "turtle-forward", "label": "forward استفاده کردم" },
+    { "id": "turtle-turn", "label": "چرخش (left/right) دارم" },
+    { "id": "turtle-drew", "label": "شکل کشیدم" }
+  ]
+}

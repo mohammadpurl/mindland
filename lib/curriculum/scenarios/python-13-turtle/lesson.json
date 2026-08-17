@@ -1,0 +1,33 @@
+{
+  "id": "python-13-turtle",
+  "title": "رسم با turtle",
+  "version": 1,
+  "order": 13,
+  "optional": false,
+  "prerequisite": "python-12-mini-project",
+  "durationMinutes": 55,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ لاک‌پشت نقاش؛ forward، turn و شکل.",
+  "goal": "با turtle حرکت کند، بچرخد و شکل بکشد.",
+  "metaphor": {
+    "title": "لاک‌پشت نقاش — دستور حرکت به شکل",
+    "description": "یه لاک‌پشت کوچیک روی صفحه حرکت می‌کنه — هر دستور forward یا left یه خط یا زاویه می‌سازه."
+  },
+  "measurableOutcomes": [
+    "turtle را import و استفاده کند",
+    "forward و turn (left/right) استفاده کند",
+    "شکل ساده بکشد (رده B: پیچیده‌تر)"
+  ],
+  "sourceFile": "python-13-turtle-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "لاک‌پشت نقاش", "dialogueFile": "dialogue/intro.json" },
+    { "id": "demo", "type": "teach", "title": "دمو: مربع و دایره", "dialogueFile": "dialogue/demo.json", "maxDurationMinutes": 5 },
+    { "id": "guided-practice", "type": "practice", "title": "تمرین مأموریت", "dialogueFile": "dialogue/guided-practice.json", "stageMission": "لاک‌پشت بساز، حرکت کن، بچرخ، شکل بکش." },
+    { "id": "challenge-a", "type": "practice", "track": "A", "title": "خانه یا ستاره", "dialogueFile": "dialogue/challenge-a.json", "brief": "خانه یا ستاره ساده بکش." },
+    { "id": "challenge-b", "type": "practice", "track": "B", "title": "الگوی پیچیده", "dialogueFile": "dialogue/challenge-b.json", "brief": "الگوی پیچیده‌تر یا تابع رسم شکل." },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی", "dialogueFile": "dialogue/wrap-up.json" }
+  ],
+  "productNotes": { "componentDependency": "PythonCodeRunner + turtle mission checks", "nextLesson": "python-14-capstone" }
+}

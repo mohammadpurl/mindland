@@ -22,7 +22,7 @@ const TeacherCanvas3D = dynamic(() => import('./TeacherCanvas3D'), {
 })
 
 export default function TeacherAvatarView() {
-  const [cameraDetectionEnabled, setCameraDetectionEnabled] = useState(true)
+  const [cameraDetectionEnabled, setCameraDetectionEnabled] = useState(false)
   const [showLoadingVideo, setShowLoadingVideo] = useState(true)
   const [avatarLocked, setAvatarLocked] = useState(false)
 

@@ -1,0 +1,12 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    { "speaker": "avatar", "text": "مأموریت: یه کارت بازیکن با حداقل ۳ فیلد بساز، با کلید هر کدوم رو بخون و چاپ کن." }
+  ],
+  "missionChecklist": [
+    { "id": "has-dict", "label": "یه دیکشنری ساختم" },
+    { "id": "used-key-access", "label": "با کلید مقدار خوندم" },
+    { "id": "dict-three-keys", "label": "حداقل ۳ کلید دارم" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "stepId": "demo",
+  "title": "دمو: جدا در برابر لیست",
+  "maxDurationMinutes": 5,
+  "lines": [
+    { "speaker": "avatar", "beat": "setup", "text": "اول سه دوست با سه جعبهٔ جدا — بعد همون‌ها تو یک لیست." },
+    { "speaker": "avatar", "beat": "after-separate", "text": "کار می‌کرد، ولی هر بار باید اسم هر جعبه رو جدا می‌نوشتی." },
+    { "speaker": "avatar", "beat": "after-list", "text": "حالا همه تو یه لیستن — با for یکی‌یکی صدا می‌زنیم." }
+  ],
+  "demoBlocks": [
+    { "id": "separate", "code": "f1 = \"آرش\"\nf2 = \"سارا\"\nf3 = \"مهراد\"\nprint(f1)\nprint(f2)\nprint(f3)" },
+    { "id": "with-list", "code": "friends = [\"آرش\", \"سارا\", \"مهراد\"]\nfor name in friends:\n    print(name)" }
+  ]
+}

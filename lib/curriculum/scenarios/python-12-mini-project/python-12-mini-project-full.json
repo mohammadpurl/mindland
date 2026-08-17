@@ -1,0 +1,57 @@
+{
+  "id": "python-12-mini-project",
+  "title": "پروژه ترکیبی کوچک",
+  "version": 1,
+  "order": 12,
+  "prerequisite": "python-11-functions",
+  "durationMinutes": 55,
+  "metaphor": {
+    "title": "کارگاه ساخت ابزار — همهٔ بلوک‌ها کنار هم",
+    "fullDescription": "مثل ساختن یه ماشین‌حساب یا بازی سنگ‌کاغذقیچی — از همهٔ چیزهایی که یاد گرفتی استفاده می‌کنی."
+  },
+  "systemMessages": [
+    { "id": "menu-loop", "text": "مینی گیر کرده — شاید حلقهٔ منو شرط خروج نداره؟ یه گزینه برای «خروج» اضافه کن." },
+    { "id": "input-type", "text": "مینی نمی‌دونه این ورودی رو چطور بخونه — input رو به عدد تبدیل کن اگه لازمه." }
+  ],
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "کارگاه ساخت", "stageMission": "ترکیب منو، تابع، حلقه و input." },
+    { "id": "demo", "type": "teach", "title": "دمو: اسکلت ماشین‌حساب", "maxDurationMinutes": 5 },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "برنامهٔ کوچک با منو، تابع، حلقه و input بساز.",
+      "starterCode": "# اسکلت ماشین‌حساب ساده\n# منو، تابع جمع/تفریق، حلقه و input رو کامل کن\n\ndef add(a, b):\n    return a + b\n\ndef subtract(a, b):\n    return a - b\n\nwhile True:\n    print(\"1. جمع\")\n    print(\"2. تفریق\")\n    print(\"3. خروج\")\n    choice = input(\"انتخاب کن: \")\n    # ادامه بده...\n",
+      "missionChecklist": [
+        { "id": "has-menu", "label": "منوی انتخاب دارم" },
+        { "id": "uses-function", "label": "از تابع استفاده کردم" },
+        { "id": "uses-loop", "label": "حلقه دارم" },
+        { "id": "uses-input", "label": "از input استفاده کردم" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "brief": "ماشین‌حساب ساده با منوی کوتاه (جمع و تفریق).",
+      "missionChecklist": [
+        { "id": "has-menu", "label": "منو" },
+        { "id": "uses-function", "label": "تابع" },
+        { "id": "uses-input", "label": "input" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "brief": "بازی سنگ‌کاغذقیچی با حلقهٔ بازی مجدد.",
+      "missionChecklist": [
+        { "id": "has-menu", "label": "منو" },
+        { "id": "uses-loop", "label": "حلقه" },
+        { "id": "uses-input", "label": "input" }
+      ]
+    },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی" }
+  ],
+  "productImplementationNotes": { "nextLessonId": "python-13-turtle" }
+}

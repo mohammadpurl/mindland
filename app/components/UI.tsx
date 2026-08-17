@@ -1,4 +1,5 @@
 'use client'
+import { debugLog } from '@/lib/debugLog'
 import { useChatContext } from "@/hooks/useChat";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { VoiceInput } from "./VoiceInput";
@@ -14,7 +15,7 @@ interface UIProps {
   setCameraDetectionEnabled?: (enabled: boolean) => void;
 }
 
-export const UI = ({ hidden, cameraDetectionEnabled = true, setCameraDetectionEnabled }: UIProps) => {
+export const UI = ({ hidden, cameraDetectionEnabled = false, setCameraDetectionEnabled }: UIProps) => {
   const router = useRouter();
   const input = useRef<HTMLInputElement>(null);
   const { 
@@ -40,23 +41,13 @@ export const UI = ({ hidden, cameraDetectionEnabled = true, setCameraDetectionEn
   const isLocationQr = !!qrCodeImage && qrCodeImage.startsWith('/locations/');
   const encodedQrSrc = qrCodeImage ? qrCodeImage.replace(/ /g, '%20') : '';
 
-  // Surface context values globally for manual debugging in DevTools
-  useEffect(() => {    
-    if (typeof window !== 'undefined') {
-      (window as unknown as { __qrUi?: unknown }).__qrUi = {
-        get ctx() {
-          return { showQRCode, qrCodeImage, tripId, isLocationQr, encodedQrSrc };
-        }
-      };
-    }
-  }, [showQRCode, qrCodeImage, tripId, isLocationQr, encodedQrSrc]);
 
   // فعال کردن صدا در اولین کلیک کاربر
   useEffect(() => {
     const enableAudioOnFirstClick = () => {
       if (!audioEnabled) {
         setAudioEnabled(true);
-        console.log("Audio enabled on first click");
+        debugLog("Audio enabled on first click");
         // حذف event listener بعد از فعال شدن
         document.removeEventListener('click', enableAudioOnFirstClick);
       }
@@ -70,81 +61,77 @@ export const UI = ({ hidden, cameraDetectionEnabled = true, setCameraDetectionEn
 
   // Debug: Log tripId changes
   useEffect(() => {
-    console.log("tripId changed:", tripId, "Type:", typeof tripId, "Length:", tripId ? String(tripId).length : 0);
+    debugLog("tripId changed:", tripId, "Type:", typeof tripId, "Length:", tripId ? String(tripId).length : 0);
   }, [tripId]);
 
   // Debug: Log showQRCode changes
   useEffect(() => {
-    console.log("showQRCode changed:", showQRCode, "tripId:", tripId);
+    debugLog("showQRCode changed:", showQRCode, "tripId:", tripId);
   }, [showQRCode, tripId]);
 
   // Debug: Log QR image path decision
   useEffect(() => {
-    console.log("[QR-DEBUG] qrCodeImage:", qrCodeImage);
-    console.log("[QR-DEBUG] isLocationQr:", isLocationQr);
-    console.log("[QR-DEBUG] encodedQrSrc:", encodedQrSrc);
+    debugLog("[QR-DEBUG] qrCodeImage:", qrCodeImage);
+    debugLog("[QR-DEBUG] isLocationQr:", isLocationQr);
+    debugLog("[QR-DEBUG] encodedQrSrc:", encodedQrSrc);
   }, [qrCodeImage, isLocationQr, encodedQrSrc]);
 
   // Set origin when component mounts
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const currentOrigin = window.location.origin;
-      console.log("Current origin:", currentOrigin);
+      debugLog("Current origin:", currentOrigin);
       setOrigin(currentOrigin);
     } else {
-      console.log("Window is not defined, setting default origin");
+      debugLog("Window is not defined, setting default origin");
       setOrigin('http://localhost:3000'); // Default for development
     }
   }, []);
 
   // Debug: Log origin changes
   useEffect(() => {
-    console.log("=== DEBUG INFO ===");
-    console.log("Origin changed:", origin, "Type:", typeof origin, "Length:", origin ? origin.length : 0);
-    console.log("Full QR Code value would be:", `${origin}/ticket/${tripId || '0'}`);
-    console.log("Current window.location:", typeof window !== 'undefined' ? window.location.href : 'N/A');
-    console.log("Current window.origin:", typeof window !== 'undefined' ? window.location.origin : 'N/A');
-    console.log("Current window.protocol:", typeof window !== 'undefined' ? window.location.protocol : 'N/A');
-    console.log("Current window.host:", typeof window !== 'undefined' ? window.location.host : 'N/A');
-    console.log("Environment check:", {
+    debugLog("=== DEBUG INFO ===");
+    debugLog("Origin changed:", origin, "Type:", typeof origin, "Length:", origin ? origin.length : 0);
+    debugLog("Full QR Code value would be:", `${origin}/ticket/${tripId || '0'}`);
+    debugLog("Current window.location:", typeof window !== 'undefined' ? window.location.href : 'N/A');
+    debugLog("Current window.origin:", typeof window !== 'undefined' ? window.location.origin : 'N/A');
+    debugLog("Current window.protocol:", typeof window !== 'undefined' ? window.location.protocol : 'N/A');
+    debugLog("Current window.host:", typeof window !== 'undefined' ? window.location.host : 'N/A');
+    debugLog("Environment check:", {
       isClient: typeof window !== 'undefined',
       isDevelopment: process.env.NODE_ENV === 'development',
       isProduction: process.env.NODE_ENV === 'production'
     });
-    console.log("Process env:", {
-      NODE_ENV: process.env.NODE_ENV,
-      NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL
-    });
-    console.log("Component state:", {
+    debugLog("Component state:", {
       showQRCode,
       isSessionActive,
       tripId,
       origin
     });
-    console.log("==================");
+    debugLog("==================");
   }, [origin, tripId, showQRCode, isSessionActive]);
 
   // Debug: Log when QR code should be shown
   useEffect(() => {
     if (showQRCode) {
-      console.log("=== QR CODE SHOULD BE SHOWN ===");
-      console.log("tripId:", tripId);
-      console.log("origin:", origin);
-      console.log("Full URL:", `${origin}/ticket/${tripId || '0'}`);
-      console.log("==================");
+      debugLog("=== QR CODE SHOULD BE SHOWN ===");
+      debugLog("tripId:", tripId);
+      debugLog("origin:", origin);
+      debugLog("Full URL:", `${origin}/ticket/${tripId || '0'}`);
+      debugLog("==================");
     }
   }, [showQRCode, tripId, origin]);
 
   // Debug: Log when button is clicked
   const handleTicketClick = useCallback(() => {
     const tripIdStr = String(tripId);
-    console.log("=== TICKET BUTTON CLICKED ===");
-    console.log("tripId:", tripIdStr);
-    console.log("origin:", origin);
-    console.log("Full URL:", `/ticket/${tripIdStr}`);
-    console.log("Router available:", !!router);
-    console.log("window.location.origin:", window.location.origin);
-    console.log("==================");
+    debugLog("=== TICKET BUTTON CLICKED ===");
+    debugLog("tripId:", tripIdStr);
+    debugLog("origin:", origin);
+    debugLog("Full URL:", `/ticket/${tripIdStr}`);
+    debugLog("Router available:", !!router);
+    debugLog("window.location.origin:", window.location.origin);
+    debugLog("==================");
     
     if (!tripIdStr || tripIdStr.trim() === '' || tripIdStr === '0' || tripIdStr === 'null') {
       console.error("tripId is empty or invalid:", tripIdStr);
@@ -154,12 +141,12 @@ export const UI = ({ hidden, cameraDetectionEnabled = true, setCameraDetectionEn
     
     // Check if it's a temporary ID
     if (tripIdStr.startsWith('temp_')) {
-      console.log("Temporary ID detected, redirecting to form with temp data");
+      debugLog("Temporary ID detected, redirecting to form with temp data");
       // For temporary IDs, redirect to ticket page with "0" to show empty form
       const targetUrl = `/ticket/0`;
       try {
         router.push(targetUrl);
-        console.log("Redirected to empty form");
+        debugLog("Redirected to empty form");
         return;
       } catch (error) {
         console.error("Router push failed:", error);
@@ -169,16 +156,16 @@ export const UI = ({ hidden, cameraDetectionEnabled = true, setCameraDetectionEn
     }
     
     try {
-      console.log("Attempting router.push...");
+      debugLog("Attempting router.push...");
       const targetUrl = `/ticket/${tripIdStr}`;
-      console.log("Target URL:", targetUrl);
+      debugLog("Target URL:", targetUrl);
       
       // Try router.push first
       router.push(targetUrl);
-      console.log("Router.push successful");
+      debugLog("Router.push successful");
     } catch (error) {
       console.error("Router push failed:", error);
-      console.log("Falling back to window.location...");
+      debugLog("Falling back to window.location...");
       
       // Fallback to window.location
       try {
@@ -193,87 +180,87 @@ export const UI = ({ hidden, cameraDetectionEnabled = true, setCameraDetectionEn
 
   // Debug: Log component mount
   useEffect(() => {
-    console.log("=== COMPONENT MOUNTED ===");
-    console.log("Initial tripId:", tripId);
-    console.log("Initial showQRCode:", showQRCode);
-    console.log("Initial origin:", origin);
-    console.log("==================");
+    debugLog("=== COMPONENT MOUNTED ===");
+    debugLog("Initial tripId:", tripId);
+    debugLog("Initial showQRCode:", showQRCode);
+    debugLog("Initial origin:", origin);
+    debugLog("==================");
   }, [tripId, showQRCode, origin]);
 
   // Debug: Log when tripId changes
   useEffect(() => {
     if (tripId) {
-      console.log("=== TRIP ID SET ===");
-      console.log("New tripId:", tripId);
-      console.log("Type:", typeof tripId);
-      console.log("Length:", String(tripId).length);
-      console.log("==================");
+      debugLog("=== TRIP ID SET ===");
+      debugLog("New tripId:", tripId);
+      debugLog("Type:", typeof tripId);
+      debugLog("Length:", String(tripId).length);
+      debugLog("==================");
     }
   }, [tripId]);
 
   // Debug: Log when showQRCode changes
   useEffect(() => {
     if (showQRCode) {
-      console.log("=== SHOW QR CODE SET ===");
-      console.log("showQRCode:", showQRCode);
-      console.log("tripId at this time:", tripId);
-      console.log("origin at this time:", origin);
-      console.log("==================");
+      debugLog("=== SHOW QR CODE SET ===");
+      debugLog("showQRCode:", showQRCode);
+      debugLog("tripId at this time:", tripId);
+      debugLog("origin at this time:", origin);
+      debugLog("==================");
     }
   }, [showQRCode, tripId, origin]);
 
   // Debug: Log when origin changes
   useEffect(() => {
     if (origin) {
-      console.log("=== ORIGIN SET ===");
-      console.log("New origin:", origin);
-      console.log("Type:", typeof origin);
-      console.log("Length:", origin.length);
-      console.log("==================");
+      debugLog("=== ORIGIN SET ===");
+      debugLog("New origin:", origin);
+      debugLog("Type:", typeof origin);
+      debugLog("Length:", origin.length);
+      debugLog("==================");
     }
   }, [origin]);
 
   // Debug: Log when component updates
   useEffect(() => {
-    console.log("=== COMPONENT UPDATED ===");
-    console.log("Current state:", {
+    debugLog("=== COMPONENT UPDATED ===");
+    debugLog("Current state:", {
       tripId,
       showQRCode,
       origin,
       isSessionActive
     });
-    console.log("==================");
+    debugLog("==================");
   });
 
   // Debug: Log when button is rendered
   useEffect(() => {
     if (showQRCode && tripId) {
-      console.log("=== BUTTON SHOULD BE RENDERED ===");
-      console.log("Button will have tripId:", tripId);
-      console.log("Button will have origin:", origin);
-      console.log("Button will navigate to:", `/ticket/${tripId}`);
-      console.log("==================");
+      debugLog("=== BUTTON SHOULD BE RENDERED ===");
+      debugLog("Button will have tripId:", tripId);
+      debugLog("Button will have origin:", origin);
+      debugLog("Button will navigate to:", `/ticket/${tripId}`);
+      debugLog("==================");
     }
   }, [showQRCode, tripId, origin]);
 
   // Debug: Log when button is clicked
   useEffect(() => {
-    console.log("=== BUTTON CLICK HANDLER READY ===");
-    console.log("handleTicketClick function:", typeof handleTicketClick);
-    console.log("==================");
+    debugLog("=== BUTTON CLICK HANDLER READY ===");
+    debugLog("handleTicketClick function:", typeof handleTicketClick);
+    debugLog("==================");
   }, [handleTicketClick]);
 
   // Debug: Log when component unmounts
   useEffect(() => {
     return () => {
-      console.log("=== COMPONENT UNMOUNTING ===");
-      console.log("Final state:", {
+      debugLog("=== COMPONENT UNMOUNTING ===");
+      debugLog("Final state:", {
         tripId,
         showQRCode,
         origin,
         isSessionActive
       });
-      console.log("==================");
+      debugLog("==================");
     };
   });
 
@@ -348,7 +335,7 @@ export const UI = ({ hidden, cameraDetectionEnabled = true, setCameraDetectionEn
               style={{ borderRadius: 4 }}
               unoptimized
               onLoad={() => {
-                console.log('[QR-DEBUG] Image loaded successfully:', encodedQrSrc);
+                debugLog('[QR-DEBUG] Image loaded successfully:', encodedQrSrc);
                 setLastImageError(null);
               }}
               onError={(e) => {
@@ -453,7 +440,7 @@ export const UI = ({ hidden, cameraDetectionEnabled = true, setCameraDetectionEn
                   // فعال کردن صدا هنگام کلیک روی دکمه start session
                   if (!audioEnabled) {
                     setAudioEnabled(true);
-                    console.log("Audio enabled on session start");
+                    debugLog("Audio enabled on session start");
                   }
                   await startSession();
                   await getIntroduction(); // دوباره اجرا می‌شود

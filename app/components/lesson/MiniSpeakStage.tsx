@@ -6,17 +6,28 @@ import { motion } from 'framer-motion'
 const ACTOR_SRC = '/charackter/char.png'
 
 /**
- * صحنهٔ کوچک مینی برای درس‌های پایتون — حباب گفتار + حالت قفل.
+ * صحنهٔ کوچک مینی برای درس‌های پایتون — حباب گفتار چندخطی + حالت قفل.
  */
 export function MiniSpeakStage({
   line,
+  lines,
   locked,
   shaking,
 }: {
-  line: string | null
+  /** سازگاری با PY-01: یک خط */
+  line?: string | null
+  /** خروجی کارت چندخطی */
+  lines?: string[] | null
   locked?: boolean
   shaking?: boolean
 }) {
+  const spoken =
+    lines && lines.length > 0
+      ? lines
+      : line
+        ? [line]
+        : []
+
   return (
     <motion.div
       className="relative mx-auto overflow-hidden rounded-xl border border-sky-200"
@@ -24,8 +35,9 @@ export function MiniSpeakStage({
       transition={{ duration: 0.45 }}
       style={{
         width: '100%',
-        maxWidth: 280,
-        aspectRatio: '320 / 160',
+        maxWidth: 320,
+        minHeight: 160,
+        aspectRatio: spoken.length > 2 ? undefined : '320 / 160',
         background: 'linear-gradient(180deg, #E0F2FE 0%, #F0FDF4 55%, #FEF9C3 100%)',
       }}
       role="img"
@@ -51,9 +63,16 @@ export function MiniSpeakStage({
           </span>
         ) : null}
       </div>
-      {line && !locked ? (
-        <div className="absolute top-3 left-1/2 max-w-[85%] -translate-x-1/2 rounded-xl bg-white px-3 py-2 text-center text-xs font-bold text-slate-800 shadow">
-          {line}
+      {spoken.length > 0 ? (
+        <div
+          className={[
+            'absolute top-3 left-1/2 max-h-[58%] max-w-[88%] -translate-x-1/2 overflow-y-auto rounded-xl bg-white px-3 py-2 text-center text-xs font-bold leading-5 text-slate-800 shadow',
+            locked ? 'opacity-80' : '',
+          ].join(' ')}
+        >
+          {spoken.map((l, i) => (
+            <p key={`${i}-${l.slice(0, 12)}`}>{l}</p>
+          ))}
         </div>
       ) : null}
     </motion.div>

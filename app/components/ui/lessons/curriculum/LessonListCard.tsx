@@ -9,9 +9,25 @@ interface Props {
 }
 
 export function LessonListCard({ lang, subjectId, topicId, lesson }: Props) {
+  const pythonLessonIds = new Set([
+    'python-00-blocks',
+    'python-01-intro',
+    'python-02-print-strings',
+    'python-03-variables',
+    'python-04-numbers',
+    'python-05-input',
+    'python-06-conditions',
+    'python-07-for-loop',
+    'python-08-while-loop',
+    'python-09-lists',
+    'python-10-dicts',
+    'python-11-functions',
+    'python-12-mini-project',
+    'python-13-turtle',
+    'python-14-capstone',
+  ])
   const href =
-    subjectId === 'programming' &&
-    (lesson.id === 'python-00-blocks' || lesson.id === 'python-01-intro')
+    subjectId === 'programming' && pythonLessonIds.has(lesson.id)
       ? `/${lang}/lessons/programming/${lesson.id}`
       : `/${lang}/lessons/math-visual/${lesson.id}`
 

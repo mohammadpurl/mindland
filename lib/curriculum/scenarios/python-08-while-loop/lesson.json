@@ -1,0 +1,72 @@
+{
+  "id": "python-08-while-loop",
+  "title": "حلقه while",
+  "version": 1,
+  "order": 8,
+  "optional": false,
+  "prerequisite": "python-07-for-loop",
+  "durationMinutes": 50,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ تفاوت با for؛ بازی حدس عدد؛ محافظ حلقهٔ بی‌پایان.",
+  "goal": "با while تا برقرار بودن شرط تکرار کند، خطر حلقهٔ بی‌پایان را بفهمد، و (رده B) تلاش‌ها را بشمارد.",
+  "metaphor": {
+    "title": "این‌بار مینی نمی‌دونه دقیقاً چندبار — فقط می‌دونه کِی باید دست بکشه",
+    "description": "تو for از قبل می‌دونستیم چندبار. تو while فقط می‌دونیم کِی باید تمومش کنیم — مثل بازی حدس عدد."
+  },
+  "measurableOutcomes": [
+    "با while یک کار را تا برقرار بودن شرط تکرار کند",
+    "توضیح دهد چرا شرطِ همیشه درست برنامه را متوقف نمی‌کند",
+    "تعداد تلاش‌ها را با شمارنده دنبال کند (رده B)"
+  ],
+  "sourceFile": "python-08-while-loop-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "تا وقتی شرط برقراره",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: یک شانس / تا درست بگی",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "یه بازی حدس عدد بساز که تا حدس درست ادامه پیدا کنه."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "حدس با راهنمایی",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "یه بازی حدس عدد بین ۱ تا ۵ بساز (محدودهٔ کوچک‌تر)."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "حدس با شمارش تلاش",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "همون بازی رو بساز، ولی تعداد تلاش‌ها رو بشمار و در پیام برد نشون بده."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "PythonCodeRunner + pythonSafeRunner loop guard + dynamic input",
+    "nextLesson": "python-09-lists"
+  }
+}

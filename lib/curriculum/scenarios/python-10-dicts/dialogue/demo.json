@@ -1,0 +1,14 @@
+{
+  "stepId": "demo",
+  "title": "دمو: جدا در برابر دیکشنری",
+  "maxDurationMinutes": 5,
+  "lines": [
+    { "speaker": "avatar", "beat": "setup", "text": "اول سه متغیر جدا برای کارت بازیکن — بعد همون‌ها تو یک دیکشنری." },
+    { "speaker": "avatar", "beat": "after-separate", "text": "کار می‌کرد، ولی هر بار باید اسم هر متغیر رو جدا یادت باشه." },
+    { "speaker": "avatar", "beat": "after-dict", "text": "حالا همه تو یه کارتن — با کلید هر فیلد رو صدا می‌زنیم." }
+  ],
+  "demoBlocks": [
+    { "id": "separate", "code": "name = \"آرش\"\nage = 12\nscore = 85\nprint(name)\nprint(age)\nprint(score)" },
+    { "id": "with-dict", "code": "player = {\"name\": \"آرش\", \"age\": 12, \"score\": 85}\nprint(player[\"name\"])\nprint(player[\"age\"])\nprint(player[\"score\"])" }
+  ]
+}

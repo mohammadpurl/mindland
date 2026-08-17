@@ -1,0 +1,93 @@
+{
+  "id": "python-07-for-loop",
+  "title": "حلقه for",
+  "version": 1,
+  "order": 7,
+  "optional": false,
+  "prerequisite": "python-06-conditions",
+  "durationMinutes": 50,
+  "note": "مأموریت‌محور؛ کنتراست کار دستی در مقابل حلقه؛ شمارش از صفر.",
+  "goal": "با for و range تکرار کند و شمارش از صفر را بفهمد.",
+  "metaphor": {
+    "title": "به‌جای این‌که N بار دوباره بگی، یه‌بار بگو چندبار انجام بده",
+    "fullDescription": "دقیقاً همون اصلی که برای متغیر (PY-03) یاد گرفتیم — کار دستی تکراری در مقابل ابزاری که کارو کوتاه می‌کنه — این‌بار برای خود تکرار کار به‌کار می‌رود."
+  },
+  "systemMessages": [
+    {
+      "id": "missing-colon",
+      "text": "مینی منتظر یه دونقطه بود که نیومد."
+    },
+    {
+      "id": "indent-error",
+      "text": "مینی نفهمید این خط جزو تکرار هست یا نه — فاصله‌ی اول خط رو چک کن."
+    }
+  ],
+  "conceptTips": [
+    {
+      "id": "range-from-zero",
+      "text": "مینی از صفر شمارش می‌کنه، نه از یک — برای همین range(5) دقیقاً ۵ بار تکرار می‌شه، ولی از ۰ تا ۴."
+    }
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "تکرار بدون نوشتن دوباره",
+      "stageMission": "به‌جای N بار نوشتن، یه‌بار بگو چندبار."
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: دستی در برابر حلقه",
+      "maxDurationMinutes": 5,
+      "stageMission": "۵ خط دستی در برابر for + range — بعد ۵۰ تا با یک عدد."
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "با for یه الگوی مثلثی از ستاره بساز.",
+      "missionChecklist": [
+        { "id": "has-for", "label": "یه حلقه‌ی for با range نوشتم" },
+        { "id": "loop-printed", "label": "حلقه اجرا شد و چند خط ستاره چاپ کرد" },
+        { "id": "triangle-pattern", "label": "الگوی مثلثی کامل شد" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "الگوی ستاره‌ی ساده",
+      "brief": "با for یه ردیف از ۵ ستاره پشت سر هم چاپ کن.",
+      "stageMission": "۵ ستاره پشت سر هم با for.",
+      "missionChecklist": [
+        { "id": "has-for", "label": "حلقهٔ for" },
+        { "id": "has-range", "label": "استفاده از range" },
+        { "id": "said", "label": "ستاره چاپ شد" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "مثلث با شماره",
+      "brief": "مثلث ستاره‌ای بساز و توی هر خط شمارهٔ همون خط رو قبل از ستاره‌ها چاپ کن (مثلاً «خط ۱: *»).",
+      "stageMission": "مثلث + شمارهٔ خط با شمارنده.",
+      "missionChecklist": [
+        { "id": "has-for", "label": "حلقهٔ for" },
+        { "id": "used-loop-var", "label": "استفاده از شمارنده در پیام" },
+        { "id": "triangle-pattern", "label": "مثلث ستاره‌ای" },
+        { "id": "said", "label": "بدون قفل چاپ شد" }
+      ]
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی"
+    }
+  ],
+  "productImplementationNotes": {
+    "componentDependency": "PythonCodeRunner + range-from-zero tip (blue, not crash)",
+    "nextLessonId": "python-08-while-loop"
+  }
+}

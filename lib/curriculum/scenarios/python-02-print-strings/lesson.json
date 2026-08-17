@@ -1,0 +1,72 @@
+{
+  "id": "python-02-print-strings",
+  "title": "دستور print و رشته‌ها",
+  "version": 1,
+  "order": 2,
+  "optional": false,
+  "prerequisite": "python-01-intro",
+  "durationMinutes": 45,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ کارت تبریک چندخطی؛ نگهبان‌های جفت گیومه؛ اجرای خط‌به‌خط.",
+  "goal": "چند خط print پشت سر هم بنویسد تا مینی یک کارت کامل بخواند، و بفهمد چرا نگهبان‌های ناجور وسط خط قفل می‌کنند.",
+  "metaphor": {
+    "title": "مینی داره کارت تبریک رو می‌خونه — ولی هر خط، دو تا نگهبان باید جفت باشن",
+    "description": "هر رشته بین دو علامت گیومه محصور می‌شود؛ این دو مثل نگهبان همتا هستند. اگر یکی با دیگری فرق کند، مینی وسط همان خط گیر می‌کند."
+  },
+  "measurableOutcomes": [
+    "چند خط print پشت سر هم بنویسد تا مینی متن چندخطی بخواند",
+    "گیومه تک و جفت را در هر خط جفت به‌کار ببرد",
+    "توضیح دهد چرا نگهبان‌های ناجور مینی را وسط خط قفل می‌کند"
+  ],
+  "sourceFile": "python-02-print-strings-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "کارت تبریک خط‌به‌خط",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: کارت کامل در برابر نگهبان ناجور",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "یه کارت تبریک ۳ تا ۵ خطی بنویس که مینی کامل بخونتش."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "کارت برای شخصیت خیالی",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "یه کارت تبریک ۳ خطی برای یه شخصیت خیالی (کارتونی، بازی، هرچی دوست داری) بنویس."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "کارت + راز عدد و متن",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "همون کارت رو بنویس، بعد print(\"۵\") و print(5) رو هم اضافه کن و ببین چه فرقی دارن."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "PythonCodeRunner sequential + line highlight + pythonErrorMessages",
+    "nextLesson": "python-03-variables"
+  }
+}

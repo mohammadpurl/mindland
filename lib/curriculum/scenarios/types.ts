@@ -38,7 +38,7 @@ export interface ScenarioDialogueFile {
   successCriteria?: string[]
   pedagogicalGoal?: string
   ageRange?: string
-  demoBlocks?: Record<string, unknown>
+  demoBlocks?: Record<string, unknown> | Array<Record<string, unknown>>
 }
 
 export interface ScenarioConcept {

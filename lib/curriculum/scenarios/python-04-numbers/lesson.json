@@ -1,0 +1,72 @@
+{
+  "id": "python-04-numbers",
+  "title": "اعداد و عملیات",
+  "version": 1,
+  "order": 4,
+  "optional": false,
+  "prerequisite": "python-03-variables",
+  "durationMinutes": 45,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ کنتراست متن عددی در برابر عدد واقعی؛ چهار عمل اصلی؛ باز کردن راز PY-02.",
+  "goal": "چهار عمل اصلی را با اعداد واقعی بنویسد، فرق «۵» و ۵ را بفهمد، و (رده B) پرانتز و باقی‌مانده را به‌کار ببرد.",
+  "metaphor": {
+    "title": "مینی حالا حساب بلده — ولی باید بهش بگی این عدده، نه اسم یه چیز",
+    "description": "اگه با گیومه بنویسی، برای مینی متنه — حتی اگه شکلش عدد باشه. بدون گیومه، مینی می‌فهمه واقعاً عدده و می‌تونه حساب کنه."
+  },
+  "measurableOutcomes": [
+    "چهار عمل اصلی (+ - * /) را با اعداد واقعی بنویسد و چاپ کند",
+    "توضیح دهد چرا \"5\" + \"3\" می‌شود \"53\" ولی 5 + 3 می‌شود 8",
+    "از پرانتز برای ترتیب محاسبه و از % برای باقی‌مانده استفاده کند (رده B)"
+  ],
+  "sourceFile": "python-04-numbers-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "عدد واقعی در برابر متن",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: راز گیومه و عدد",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "با اعداد واقعی، پول توجیبی این هفته رو حساب کن و چاپش کن."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "ماشین‌حساب دو عددی",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "با دو عدد ثابت، هر چهار عمل (جمع، تفریق، ضرب، تقسیم) رو با print نشون بده."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "پرانتز و باقی‌مانده",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "چهار عمل + مقایسه با/بدون پرانتز + باقی‌مانده با %."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "PythonCodeRunner + TypeError/ZeroDivision mapping + bare-numbers checks",
+    "nextLesson": "python-05-input"
+  }
+}

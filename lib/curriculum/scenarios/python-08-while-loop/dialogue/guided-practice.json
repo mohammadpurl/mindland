@@ -1,0 +1,18 @@
+{
+  "stepId": "guided-practice",
+  "title": "تمرین مأموریت",
+  "lines": [
+    {
+      "speaker": "avatar",
+      "text": "مأموریت: یه عدد هدف بذار (مثلاً ۷)، با input حدس بگیر، و با while تا وقتی اشتباهه دوباره بپرس. وقتی درست بود، بگو بردی!"
+    }
+  ],
+  "missionChecklist": [
+    { "id": "has-target", "label": "یه عدد هدف مشخص کردم" },
+    { "id": "has-while", "label": "با while حلقه‌ی حدس‌زدن رو ساختم" },
+    { "id": "while-win", "label": "وقتی حدس درست بود، پیام برد نشون داده شد" }
+  ],
+  "productionNotes": [
+    "چند حدس اشتباه سپس درست."
+  ]
+}

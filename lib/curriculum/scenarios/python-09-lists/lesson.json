@@ -1,0 +1,33 @@
+{
+  "id": "python-09-lists",
+  "title": "لیست‌ها (Lists)",
+  "version": 1,
+  "order": 9,
+  "optional": false,
+  "prerequisite": "python-08-while-loop",
+  "durationMinutes": 50,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ چند مقدار در یک مجموعه؛ append و حلقه روی لیست.",
+  "goal": "چند مقدار را در یک list نگه دارد، append کند، و با for چاپ کند.",
+  "metaphor": {
+    "title": "جعبهٔ مدادرنگی — همهٔ رنگ‌ها تو یه جا",
+    "description": "به‌جای این‌که برای هر دوست یه جعبهٔ جدا داشته باشی، همه رو تو یه لیست می‌ذاری و یکی‌یکی صدا می‌زنی."
+  },
+  "measurableOutcomes": [
+    "لیست بسازد و با append عضو اضافه کند",
+    "با for روی لیست چاپ کند",
+    "با in جست‌وجو کند و یک عضو را عوض کند (رده B)"
+  ],
+  "sourceFile": "python-09-lists-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "چند تا تو یه جا", "dialogueFile": "dialogue/intro.json" },
+    { "id": "demo", "type": "teach", "title": "دمو: جدا در برابر لیست", "dialogueFile": "dialogue/demo.json", "maxDurationMinutes": 5 },
+    { "id": "guided-practice", "type": "practice", "title": "تمرین مأموریت", "dialogueFile": "dialogue/guided-practice.json", "stageMission": "لیست دوستان بساز، append کن، با for چاپ کن." },
+    { "id": "challenge-a", "type": "practice", "track": "A", "title": "لیست ۳–۵ آیتم", "dialogueFile": "dialogue/challenge-a.json", "brief": "لیست ۳–۵ آیتم بساز و با for چاپشون کن." },
+    { "id": "challenge-b", "type": "practice", "track": "B", "title": "جست‌وجو و تغییر", "dialogueFile": "dialogue/challenge-b.json", "brief": "با in بگرد و یک عضو لیست رو عوض کن." },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی", "dialogueFile": "dialogue/wrap-up.json" }
+  ],
+  "productNotes": { "componentDependency": "PythonCodeRunner + list mission checks", "nextLesson": "python-10-dicts" }
+}

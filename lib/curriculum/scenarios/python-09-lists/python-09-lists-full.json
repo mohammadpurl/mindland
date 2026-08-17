@@ -1,0 +1,55 @@
+{
+  "id": "python-09-lists",
+  "title": "لیست‌ها (Lists)",
+  "version": 1,
+  "order": 9,
+  "prerequisite": "python-08-while-loop",
+  "durationMinutes": 50,
+  "metaphor": {
+    "title": "جعبهٔ مدادرنگی — همهٔ رنگ‌ها تو یه جا",
+    "fullDescription": "به‌جای این‌که برای هر دوست یه جعبهٔ جدا داشته باشی، همه رو تو یه لیست می‌ذاری و یکی‌یکی صدا می‌زنی."
+  },
+  "systemMessages": [
+    { "id": "index-error", "text": "مینی دنبال جایگاهی تو لیست گشت که وجود نداره — شاید شماره‌اش اشتباهه؟ یادته از صفر می‌شماریم." },
+    { "id": "list-append-type", "text": "مینی نمی‌دونه این رو چطور به لیست اضافه کنه — فقط یک چیز درست به append بده." }
+  ],
+  "steps": [
+    { "id": "intro", "type": "teach", "title": "چند تا تو یه جا", "stageMission": "چند مقدار تو یک list." },
+    { "id": "demo", "type": "teach", "title": "دمو: جدا در برابر لیست", "maxDurationMinutes": 5 },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "stageMission": "لیست دوستان بساز، append کن، با for چاپ کن.",
+      "missionChecklist": [
+        { "id": "has-list", "label": "یه لیست ساختم" },
+        { "id": "used-append", "label": "با append عضو اضافه کردم" },
+        { "id": "list-loop-print", "label": "با for روی لیست چاپ کردم" }
+      ]
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "brief": "لیست ۳–۵ آیتم بساز و با for چاپشون کن.",
+      "missionChecklist": [
+        { "id": "has-list", "label": "لیست ساختم" },
+        { "id": "list-loop-print", "label": "با for چاپ کردم" },
+        { "id": "said", "label": "بدون قفل" }
+      ]
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "brief": "با in بگرد و یک عضو لیست رو عوض کن.",
+      "missionChecklist": [
+        { "id": "has-list", "label": "لیست" },
+        { "id": "used-in", "label": "از in استفاده کردم" },
+        { "id": "list-index-change", "label": "یه عضو رو عوض کردم" }
+      ]
+    },
+    { "id": "wrap-up", "type": "teach", "title": "از زبان مینی" }
+  ],
+  "productImplementationNotes": { "nextLessonId": "python-10-dicts" }
+}

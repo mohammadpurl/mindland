@@ -1,0 +1,35 @@
+{
+  "stepId": "demo",
+  "title": "دمو: یک شانس / تا درست بگی",
+  "maxDurationMinutes": 5,
+  "lines": [
+    {
+      "speaker": "avatar",
+      "beat": "setup",
+      "text": "اول بدون while — فقط یه شانس. بعد با while تا وقتی درست حدس نزدی ادامه می‌ده."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-once",
+      "text": "این که خیلی سخت‌گیرانه‌ست! فقط یه شانس داشتیم."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-while",
+      "text": "دیدی؟ این‌بار مینی تا وقتی شرط (درست‌نبودن حدس) برقرار بود، ادامه داد. وقتی شرط دیگه برقرار نبود، خودش تموم شد."
+    }
+  ],
+  "demoBlocks": [
+    {
+      "id": "once",
+      "code": "guess = int(input(\"عدد بین ۱ تا ۱۰ رو حدس بزن: \"))\nif guess == 7:\n    print(\"درست حدس زدی!\")\nelse:\n    print(\"اشتباه بود. باختی!\")"
+    },
+    {
+      "id": "with-while",
+      "code": "guess = int(input(\"عدد بین ۱ تا ۱۰ رو حدس بزن: \"))\nwhile guess != 7:\n    print(\"اشتباه بود، دوباره امتحان کن.\")\n    guess = int(input(\"حدس بعدی: \"))\nprint(\"درست حدس زدی!\")"
+    }
+  ],
+  "productionNotes": [
+    "ورودی پویا داخل while؛ محافظ حلقه فعال."
+  ]
+}

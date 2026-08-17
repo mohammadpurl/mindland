@@ -1,0 +1,72 @@
+{
+  "id": "python-07-for-loop",
+  "title": "حلقه for",
+  "version": 1,
+  "order": 7,
+  "optional": false,
+  "prerequisite": "python-06-conditions",
+  "durationMinutes": 50,
+  "tracks": ["A", "B"],
+  "note": "مأموریت‌محور؛ کنتراست کار دستی در مقابل حلقه؛ range از صفر؛ الگوی ستاره.",
+  "goal": "با for و range یک کار را N بار تکرار کند، شمارش از صفر را بفهمد، و (رده B) از شمارنده در پیام استفاده کند.",
+  "metaphor": {
+    "title": "به‌جای این‌که N بار دوباره بگی، یه‌بار بگو چندبار انجام بده",
+    "description": "همون اصل کار دستی در مقابل ابزار — این‌بار برای خود تکرار کار."
+  },
+  "measurableOutcomes": [
+    "با for و range یک کار را N بار تکرار کند",
+    "توضیح دهد چرا range(5) از ۰ شروع می‌شود",
+    "از متغیر شمارنده در متن پیام استفاده کند (رده B)"
+  ],
+  "sourceFile": "python-07-for-loop-full.json",
+  "dialogueDir": "dialogue",
+  "systemMessagesFile": "dialogue/system-messages.json",
+  "steps": [
+    {
+      "id": "intro",
+      "type": "teach",
+      "title": "تکرار بدون نوشتن دوباره",
+      "dialogueFile": "dialogue/intro.json"
+    },
+    {
+      "id": "demo",
+      "type": "teach",
+      "title": "دمو: دستی در برابر حلقه",
+      "dialogueFile": "dialogue/demo.json",
+      "maxDurationMinutes": 5
+    },
+    {
+      "id": "guided-practice",
+      "type": "practice",
+      "title": "تمرین مأموریت",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "stageMission": "با for یه الگوی مثلثی از ستاره بساز."
+    },
+    {
+      "id": "challenge-a",
+      "type": "practice",
+      "track": "A",
+      "title": "الگوی ستاره‌ی ساده",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "brief": "با for یه ردیف از ۵ ستاره پشت سر هم چاپ کن."
+    },
+    {
+      "id": "challenge-b",
+      "type": "practice",
+      "track": "B",
+      "title": "مثلث با شماره",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "brief": "مثلث ستاره‌ای بساز و توی هر خط شمارهٔ همون خط رو قبل از ستاره‌ها چاپ کن."
+    },
+    {
+      "id": "wrap-up",
+      "type": "teach",
+      "title": "از زبان مینی",
+      "dialogueFile": "dialogue/wrap-up.json"
+    }
+  ],
+  "productNotes": {
+    "componentDependency": "PythonCodeRunner + for/range checks + range-zero tip (non-error)",
+    "nextLesson": "python-08-while-loop"
+  }
+}

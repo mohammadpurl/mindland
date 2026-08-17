@@ -1,0 +1,13 @@
+{
+  "stepId": "demo",
+  "title": "دمو: چک‌لیست ساخت",
+  "maxDurationMinutes": 5,
+  "lines": [
+    { "speaker": "avatar", "beat": "setup", "text": "قبل از شروع، چک‌لیست: ایده، تابع، داده، اجرا، توضیح." },
+    { "speaker": "avatar", "beat": "after-checklist", "text": "مثلاً یه بازی حدس عدد — تابع، لیست امتیازها، حلقه، input." },
+    { "speaker": "avatar", "beat": "after-example", "text": "یا ماشین‌حساب، یا نقاشی turtle — هر چیزی که دوست داری." }
+  ],
+  "demoBlocks": [
+    { "id": "checklist", "code": "# چک‌لیست پروژه پایانی:\n# 1. ایده (بازی / ابزار / نقاشی)\n# 2. حداقل یک تابع (def)\n# 3. لیست یا دیکشنری\n# 4. اجرا بدون خطا\n# 5. توضیح (کامنت یا print)" }
+  ]
+}

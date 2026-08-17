@@ -1,0 +1,7 @@
+{
+  "stepId": "system-messages",
+  "lines": [],
+  "systemMessages": [
+    { "id": "indent-error", "when": "IndentationError", "text": "مینی نفهمید این خط جزو تابع هست یا نه — فاصلهٔ اول خط رو چک کن." }
+  ]
+}

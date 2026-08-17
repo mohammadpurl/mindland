@@ -1,0 +1,44 @@
+{
+  "stepId": "demo",
+  "title": "دمو: دستی در برابر حلقه",
+  "maxDurationMinutes": 5,
+  "lines": [
+    {
+      "speaker": "avatar",
+      "beat": "setup",
+      "text": "اول بدون حلقه — عمداً خسته‌کننده. بعد با حلقه. بعد فقط یه عدد رو عوض می‌کنیم."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-manual",
+      "text": "بازم بنویسم... بازم... حالا اگه بخوام این‌کارو ۵۰ بار بکنم چی؟ باید ۵۰ خط بنویسم؟"
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-loop",
+      "text": "همون ۵ ستاره، ولی با دو خط کد."
+    },
+    {
+      "speaker": "avatar",
+      "beat": "after-fifty",
+      "text": "دیدی؟ با تغییر یه عدد، از ۵ تا رسیدیم به ۵۰ تا، بدون این‌که ۵۰ خط بنویسیم. این قدرت حلقه‌ست."
+    }
+  ],
+  "demoBlocks": [
+    {
+      "id": "manual",
+      "code": "print(\"*\")\nprint(\"*\")\nprint(\"*\")\nprint(\"*\")\nprint(\"*\")"
+    },
+    {
+      "id": "loop-five",
+      "code": "for i in range(5):\n    print(\"*\")"
+    },
+    {
+      "id": "loop-fifty",
+      "code": "for i in range(50):\n    print(\"*\")"
+    }
+  ],
+  "productionNotes": [
+    "سه دکمهٔ دمو؛ نکتهٔ range از صفر به‌صورت tip آبی."
+  ]
+}

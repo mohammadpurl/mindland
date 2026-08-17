@@ -1,0 +1,14 @@
+{
+  "stepId": "demo",
+  "title": "دمو: مربع و دایره",
+  "maxDurationMinutes": 5,
+  "lines": [
+    { "speaker": "avatar", "beat": "setup", "text": "اول یه مربع — چهار بار forward و left." },
+    { "speaker": "avatar", "beat": "after-square", "text": "هر ضلع ۱۰۰ پیکسل، هر زاویه ۹۰ درجه." },
+    { "speaker": "avatar", "beat": "after-circle", "text": "با circle می‌تونی دایره هم بکشی — یا با تکرار forward و turn." }
+  ],
+  "demoBlocks": [
+    { "id": "square", "code": "import turtle\nt = turtle.Turtle()\nfor i in range(4):\n    t.forward(100)\n    t.left(90)\nturtle.done()" },
+    { "id": "circle", "code": "import turtle\nt = turtle.Turtle()\nt.circle(50)\nturtle.done()" }
+  ]
+}
