@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-04-numbers",
+  "stepId": "challenge-a",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "دو تا عدد انتخاب کن و با print نشون بده جمع، تفریق، ضرب و تقسیمشون چی می‌شه.",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "audio": "/audio/scenarios/python-04-numbers/challenge-a/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/challenge-a/line-00.lipsync.json"
+    }
+  ]
+}

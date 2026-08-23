@@ -1,0 +1,22 @@
+{
+  "lessonId": "python-01-intro",
+  "stepId": "intro",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تو درس قبل با بلوک به مینی می‌گفتیم چیکار کنه. الان می‌خوایم دقیقاً همون کارو با تایپ کردن انجام بدیم.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-01-intro/intro/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-01-intro/intro/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "به این زبون دقیق، پایتون می‌گن. مینی فقط چیزی رو می‌گه که دقیقاً به زبان پایتون براش بنویسی — نه کمتر، نه مبهم‌تر.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-01-intro/intro/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-01-intro/intro/line-01.lipsync.json"
+    }
+  ]
+}

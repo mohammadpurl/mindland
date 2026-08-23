@@ -1,0 +1,149 @@
+{
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.03,
+      "value": "X"
+    },
+    {
+      "start": 0.03,
+      "end": 0.08,
+      "value": "D"
+    },
+    {
+      "start": 0.08,
+      "end": 0.16,
+      "value": "A"
+    },
+    {
+      "start": 0.16,
+      "end": 0.31,
+      "value": "C"
+    },
+    {
+      "start": 0.31,
+      "end": 0.35,
+      "value": "E"
+    },
+    {
+      "start": 0.35,
+      "end": 0.75,
+      "value": "F"
+    },
+    {
+      "start": 0.75,
+      "end": 1.1,
+      "value": "B"
+    },
+    {
+      "start": 1.1,
+      "end": 1.17,
+      "value": "C"
+    },
+    {
+      "start": 1.17,
+      "end": 1.28,
+      "value": "A"
+    },
+    {
+      "start": 1.28,
+      "end": 1.42,
+      "value": "B"
+    },
+    {
+      "start": 1.42,
+      "end": 1.49,
+      "value": "G"
+    },
+    {
+      "start": 1.49,
+      "end": 1.63,
+      "value": "B"
+    },
+    {
+      "start": 1.63,
+      "end": 1.78,
+      "value": "X"
+    },
+    {
+      "start": 1.78,
+      "end": 1.86,
+      "value": "B"
+    },
+    {
+      "start": 1.86,
+      "end": 2.07,
+      "value": "C"
+    },
+    {
+      "start": 2.07,
+      "end": 2.21,
+      "value": "B"
+    },
+    {
+      "start": 2.21,
+      "end": 2.35,
+      "value": "C"
+    },
+    {
+      "start": 2.35,
+      "end": 2.42,
+      "value": "B"
+    },
+    {
+      "start": 2.42,
+      "end": 2.49,
+      "value": "C"
+    },
+    {
+      "start": 2.49,
+      "end": 2.63,
+      "value": "B"
+    },
+    {
+      "start": 2.63,
+      "end": 2.7,
+      "value": "C"
+    },
+    {
+      "start": 2.7,
+      "end": 2.77,
+      "value": "B"
+    },
+    {
+      "start": 2.77,
+      "end": 2.84,
+      "value": "C"
+    },
+    {
+      "start": 2.84,
+      "end": 2.98,
+      "value": "B"
+    },
+    {
+      "start": 2.98,
+      "end": 3.17,
+      "value": "D"
+    },
+    {
+      "start": 3.17,
+      "end": 3.22,
+      "value": "E"
+    },
+    {
+      "start": 3.22,
+      "end": 3.4,
+      "value": "F"
+    },
+    {
+      "start": 3.4,
+      "end": 3.75,
+      "value": "B"
+    },
+    {
+      "start": 3.75,
+      "end": 3.79,
+      "value": "X"
+    }
+  ]
+}

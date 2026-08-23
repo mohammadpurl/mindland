@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-01-intro",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "کارت مأموریت آماده‌ست. سه print + یک خط # — خودت بنویس.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-01-intro/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-01-intro/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "lessonId": "python-12-mini-project",
+  "stepId": "intro",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تا حالا هر مفهوم رو جدا یاد گرفتی — حالا وقتشه همه رو کنار هم بذاری و یه ابزار یا بازی واقعی بسازی.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-12-mini-project/intro/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-12-mini-project/intro/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "ماشین‌حساب یا سنگ‌کاغذقیچی — منو، تابع، حلقه و input همه با هم.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-12-mini-project/intro/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-12-mini-project/intro/line-01.lipsync.json"
+    }
+  ]
+}

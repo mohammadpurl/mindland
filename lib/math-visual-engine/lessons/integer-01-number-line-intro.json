@@ -1,0 +1,115 @@
+{
+  "id": "integer-01-number-line-intro",
+  "subjectId": "math",
+  "topicId": "integers",
+  "order": 1,
+  "level": 2,
+  "title": "درس ۱ — خط اعداد و اعداد منفی",
+  "description": "آشنایی با خط اعداد، صفر، و جای اعداد مثبت و منفی",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام دانشمند کوچولو! امروز با یک خط جادویی آشنا می‌شویم که همه‌ی اعداد — حتی اعداد منفی — رویش جا دارند.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "meet-line",
+      "title": "خط اعداد",
+      "speak": "این خط اعداد است. وسط آن صفر است. هر چه به راست برویم عدد بزرگ‌تر می‌شود، هر چه به چپ برویم عدد کوچک‌تر — حتی از صفر هم کوچک‌تر می‌شود! به این اعداد سمت چپ، اعداد منفی می‌گوییم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "صفر، مثبت و منفی",
+          "min": -5,
+          "max": 5,
+          "points": [
+            { "value": -3, "label": "منفی سه" },
+            { "value": 0, "label": "صفر" },
+            { "value": 3, "label": "سه" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "jump-right",
+      "title": "حرکت به راست",
+      "speak": "وقتی به راست می‌پریم، عدد بزرگ‌تر می‌شود. نگاه کن: از صفر سه تا پریدیم به راست، رسیدیم به سه مثبت.",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "پرش به راست = +۳",
+          "min": -5,
+          "max": 5,
+          "jump": { "from": 0, "to": 3, "label": "+۳" }
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "jump-left",
+      "title": "حرکت به چپ",
+      "speak": "و وقتی به چپ می‌پریم، عدد کوچک‌تر می‌شود — می‌توانیم حتی از صفر رد شویم و به منفی برسیم! از صفر چهار تا پریدیم به چپ، رسیدیم به منفی چهار.",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "پرش به چپ = −۴",
+          "min": -5,
+          "max": 5,
+          "jump": { "from": 0, "to": -4, "label": "−۴" }
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-negative",
+      "title": "تمرین ۱ — پیدا کردن منفی چهار",
+      "speak": "حالا خودت امتحان کن! نشانگر بنفش را بکش و روی منفی چهار رهایش کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "منفی چهار کجاست؟",
+          "min": -5,
+          "max": 5,
+          "startValue": 0,
+          "target": -4
+        }
+      },
+      "successMessage": "آفرین! درست منفی چهار را پیدا کردی!",
+      "wrongMessage": "منفی یعنی سمت چپ صفر — کمی بیشتر به چپ بکش."
+    },
+    {
+      "type": "practice",
+      "id": "practice-positive",
+      "title": "تمرین ۲ — پیدا کردن دو",
+      "speak": "این‌بار عدد ۲ را پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "عدد دو کجاست؟",
+          "min": -5,
+          "max": 5,
+          "startValue": -3,
+          "target": 2
+        }
+      },
+      "successMessage": "عالی! دو را درست پیدا کردی!",
+      "wrongMessage": "دو، سمت راست صفر است — کمی بیشتر بکش."
+    }
+  ]
+}

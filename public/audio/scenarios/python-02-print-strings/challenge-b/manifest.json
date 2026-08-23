@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-02-print-strings",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "کارت سه‌خطی‌ات رو بنویس، بعد print با گیومه دور پنج و بدون گیومه رو هم امتحان کن. به نظرت فرق دارن؟",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-02-print-strings/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-02-print-strings/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

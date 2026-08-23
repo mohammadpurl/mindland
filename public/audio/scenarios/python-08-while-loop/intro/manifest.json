@@ -1,0 +1,22 @@
+{
+  "lessonId": "python-08-while-loop",
+  "stepId": "intro",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تو درس قبل با for از قبل می‌دونستیم چندبار تکرار کنیم. امروز while رو یاد می‌گیریم — مینی نمی‌دونه دقیقاً چندبار، فقط می‌دونه کِی باید دست بکشه.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-08-while-loop/intro/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/intro/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "مثل بازی حدس عدد: نمی‌دونیم چندبار حدس می‌زنی، فقط می‌دونیم وقتی درست گفتی، تمومه.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-08-while-loop/intro/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/intro/line-01.lipsync.json"
+    }
+  ]
+}

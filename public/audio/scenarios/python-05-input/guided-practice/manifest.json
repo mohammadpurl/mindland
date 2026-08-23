@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-05-input",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: با input اسم کاربر رو بپرس، جواب رو تو یه متغیر بذار، بعد با print یه پیام خوش‌آمد شخصی بساز.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-05-input/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-05-input/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

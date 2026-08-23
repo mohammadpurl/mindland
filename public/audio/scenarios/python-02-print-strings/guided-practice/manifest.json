@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-02-print-strings",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: یه کارت تبریک ۳ تا ۵ خطی بنویس که مینی کامل بخونتش. می‌تونی از گیومه تک هم استفاده کنی — فقط تو هر خط نگهبان‌ها جفت باشن.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-02-print-strings/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-02-print-strings/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

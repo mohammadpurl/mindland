@@ -18,7 +18,9 @@ export interface Message {
   text: string
   sender: MessageSender
   audio?: string
+  audioUrl?: string
   lipsync?: Lipsync
+  lipsyncUrl?: string
   facialExpression?: string
   animation?: string
   /** وقتی API صدا ندارد — Avatar از speechSynthesis مرورگر استفاده می‌کند */

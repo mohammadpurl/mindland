@@ -11,6 +11,8 @@
     "build": "next build --no-lint",
     "postinstall": "node scripts/copy-pyodide.mjs",
     "copy:pyodide": "node scripts/copy-pyodide.mjs",
+    "generate:lesson-media": "python ../backEnd/scripts/generate_lesson_media.py --lesson python-01-intro --dialogue-root lib/curriculum/scenarios/python-01-intro/dialogue --output public/lesson-media --also-cache ../backEnd/storage/lesson-media --mock",
+    "generate:lesson-media:avasho": "python ../backEnd/scripts/generate_lesson_media.py --lesson python-01-intro --dialogue-root lib/curriculum/scenarios/python-01-intro/dialogue --output public/lesson-media --also-cache ../backEnd/storage/lesson-media",
     "start": "next start",
     "lint": "eslint",
     "test:generators": "tsx --test lib/math-visual-engine/generators/__tests__/fraction-generators.test.ts",

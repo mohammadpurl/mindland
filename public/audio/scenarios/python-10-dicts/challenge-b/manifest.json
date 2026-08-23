@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-10-dicts",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "یه دیکشنری بساز، بعد یه فیلد رو آپدیت کن — مثلاً player[\"score\"] = ۹۰",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-10-dicts/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-10-dicts/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

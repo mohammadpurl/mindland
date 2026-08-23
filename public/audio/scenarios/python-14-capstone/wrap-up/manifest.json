@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-14-capstone",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تبریک! پروژهٔ پایانی رو ساختی — از ایده تا اجرا.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-14-capstone/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "تابع، داده، حلقه، input — همه با هم.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-14-capstone/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "حالا می‌تونی به همه نشون بدی و بگی چطور کار می‌کنه — تو یه برنامه‌نویس واقعی‌ای!",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-14-capstone/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "mouthCues": [
+    {
+      "start": 0.0,
+      "end": 0.02,
+      "value": "X"
+    },
+    {
+      "start": 0.02,
+      "end": 0.06,
+      "value": "B"
+    },
+    {
+      "start": 0.06,
+      "end": 0.17,
+      "value": "F"
+    },
+    {
+      "start": 0.17,
+      "end": 0.25,
+      "value": "A"
+    },
+    {
+      "start": 0.25,
+      "end": 0.78,
+      "value": "B"
+    },
+    {
+      "start": 0.78,
+      "end": 0.97,
+      "value": "X"
+    },
+    {
+      "start": 0.97,
+      "end": 1.08,
+      "value": "B"
+    },
+    {
+      "start": 1.08,
+      "end": 1.18,
+      "value": "D"
+    },
+    {
+      "start": 1.18,
+      "end": 1.22,
+      "value": "C"
+    },
+    {
+      "start": 1.22,
+      "end": 1.3,
+      "value": "A"
+    },
+    {
+      "start": 1.3,
+      "end": 1.38,
+      "value": "C"
+    },
+    {
+      "start": 1.38,
+      "end": 1.46,
+      "value": "A"
+    },
+    {
+      "start": 1.46,
+      "end": 1.57,
+      "value": "E"
+    },
+    {
+      "start": 1.57,
+      "end": 1.65,
+      "value": "A"
+    },
+    {
+      "start": 1.65,
+      "end": 1.88,
+      "value": "B"
+    },
+    {
+      "start": 1.88,
+      "end": 1.96,
+      "value": "A"
+    },
+    {
+      "start": 1.96,
+      "end": 2.08,
+      "value": "C"
+    },
+    {
+      "start": 2.08,
+      "end": 2.22,
+      "value": "B"
+    },
+    {
+      "start": 2.22,
+      "end": 2.29,
+      "value": "C"
+    },
+    {
+      "start": 2.29,
+      "end": 2.62,
+      "value": "B"
+    },
+    {
+      "start": 2.62,
+      "end": 2.7,
+      "value": "A"
+    },
+    {
+      "start": 2.7,
+      "end": 2.9,
+      "value": "C"
+    },
+    {
+      "start": 2.9,
+      "end": 2.97,
+      "value": "B"
+    },
+    {
+      "start": 2.97,
+      "end": 3.39,
+      "value": "C"
+    },
+    {
+      "start": 3.39,
+      "end": 3.53,
+      "value": "B"
+    },
+    {
+      "start": 3.53,
+      "end": 3.61,
+      "value": "A"
+    },
+    {
+      "start": 3.61,
+      "end": 3.66,
+      "value": "H"
+    },
+    {
+      "start": 3.66,
+      "end": 3.71,
+      "value": "C"
+    },
+    {
+      "start": 3.71,
+      "end": 3.79,
+      "value": "A"
+    },
+    {
+      "start": 3.79,
+      "end": 4.14,
+      "value": "C"
+    },
+    {
+      "start": 4.14,
+      "end": 4.21,
+      "value": "E"
+    },
+    {
+      "start": 4.21,
+      "end": 4.45,
+      "value": "F"
+    },
+    {
+      "start": 4.45,
+      "end": 4.73,
+      "value": "B"
+    },
+    {
+      "start": 4.73,
+      "end": 4.8,
+      "value": "C"
+    },
+    {
+      "start": 4.8,
+      "end": 5.01,
+      "value": "F"
+    },
+    {
+      "start": 5.01,
+      "end": 5.15,
+      "value": "B"
+    },
+    {
+      "start": 5.15,
+      "end": 5.29,
+      "value": "E"
+    },
+    {
+      "start": 5.29,
+      "end": 5.43,
+      "value": "B"
+    },
+    {
+      "start": 5.43,
+      "end": 5.5,
+      "value": "E"
+    },
+    {
+      "start": 5.5,
+      "end": 5.58,
+      "value": "A"
+    },
+    {
+      "start": 5.58,
+      "end": 5.68,
+      "value": "C"
+    },
+    {
+      "start": 5.68,
+      "end": 5.75,
+      "value": "B"
+    },
+    {
+      "start": 5.75,
+      "end": 5.82,
+      "value": "C"
+    },
+    {
+      "start": 5.82,
+      "end": 5.89,
+      "value": "B"
+    },
+    {
+      "start": 5.89,
+      "end": 5.97,
+      "value": "A"
+    },
+    {
+      "start": 5.97,
+      "end": 6.17,
+      "value": "C"
+    },
+    {
+      "start": 6.17,
+      "end": 6.52,
+      "value": "B"
+    },
+    {
+      "start": 6.52,
+      "end": 6.59,
+      "value": "E"
+    },
+    {
+      "start": 6.59,
+      "end": 6.73,
+      "value": "B"
+    },
+    {
+      "start": 6.73,
+      "end": 6.8,
+      "value": "D"
+    },
+    {
+      "start": 6.8,
+      "end": 6.88,
+      "value": "A"
+    },
+    {
+      "start": 6.88,
+      "end": 7.2,
+      "value": "B"
+    },
+    {
+      "start": 7.2,
+      "end": 7.26,
+      "value": "X"
+    }
+  ]
+}

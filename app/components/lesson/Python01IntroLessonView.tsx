@@ -5,33 +5,49 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { ChatProvider } from '@/hooks/useChat'
+import { ClassroomBoardProvider, useClassroomBoard } from '@/hooks/useClassroomBoard'
+import { ClassroomScene } from '@/app/components/classroom/ClassroomScene'
 import { LessonAvatarBridge } from '@/app/components/LessonAvatarBridge'
-import { TeacherScene } from '@/app/components/TeacherScene'
 import { LessonTeacherBubble } from '@/app/components/ui/lessons/LessonTeacherBubble'
 import { useAvatarLessonSpeak } from '@/hooks/useAvatarLessonSpeak'
 import {
   getPython01IntroLesson,
+  type Py01DialogueLine,
   type Py01StepId,
 } from '@/lib/curriculum/lessons/python-01-intro'
+import { findPy01LineByText } from '@/lib/curriculum/lessons/python-01-system-messages'
 import { PythonCodeRunner } from '@/app/components/lesson/PythonCodeRunner'
+import { markLessonCompleted } from '@/lib/lessonProgress'
 
-function avatarLinesOf(step: {
-  dialogueLines?: { speaker: string; text: string }[]
+function dialogueLinesOf(step: {
+  dialogueLines?: Py01DialogueLine[]
   narrator?: string
-}): string[] {
+}): Py01DialogueLine[] {
   const fromDialogue =
-    step.dialogueLines
-      ?.filter((l) => l.speaker === 'avatar' || l.speaker === 'narrator')
-      .map((l) => l.text)
-      .filter((t) => t.trim().length > 0) ?? []
+    step.dialogueLines?.filter((l) => l.text.trim().length > 0) ?? []
   if (fromDialogue.length > 0) return fromDialogue
-  if (step.narrator?.trim()) return [step.narrator]
+  if (step.narrator?.trim()) {
+    return [{ speaker: 'avatar', text: step.narrator, animation: 'Talking' }]
+  }
   return []
 }
 
-function Python01Classroom({ lang }: { lang: string }) {
-  const lesson = getPython01IntroLesson()
-  const { speak } = useAvatarLessonSpeak()
+function resolveNarrateLine(
+  text: string,
+  lessonLines: Py01DialogueLine[]
+): Py01DialogueLine {
+  const trimmed = text.trim()
+  const fromLesson = lessonLines.find((l) => l.text === trimmed)
+  if (fromLesson) return fromLesson
+  const fromSystem = findPy01LineByText(trimmed)
+  if (fromSystem) return fromSystem
+  return { speaker: 'avatar', text: trimmed, animation: 'Thinking' }
+}
+
+function Python01ClassroomInner({ lang }: { lang: string }) {
+  const lesson = useMemo(() => getPython01IntroLesson(), [])
+  const { setBoard } = useClassroomBoard()
+  const { speakStepLine } = useAvatarLessonSpeak()
   const [stepId, setStepId] = useState<Py01StepId>('intro')
   const [bandFocus, setBandFocus] = useState<'A' | 'B'>('A')
   const [lineIndex, setLineIndex] = useState(0)
@@ -45,28 +61,75 @@ function Python01Classroom({ lang }: { lang: string }) {
 
   const step = visibleSteps.find((s) => s.id === stepId) ?? visibleSteps[0]!
   const stepIndex = visibleSteps.findIndex((s) => s.id === stepId)
-  const lines = useMemo(() => avatarLinesOf(step), [step])
+  const lines = useMemo(() => dialogueLinesOf(step), [step])
+  const allLessonLines = useMemo(
+    () => lesson.steps.flatMap((s) => s.dialogueLines ?? []),
+    [lesson.steps]
+  )
+
   const showRunner =
     stepId === 'demo' ||
     stepId === 'guided-practice' ||
     stepId === 'challenge-a' ||
     stepId === 'challenge-b'
-  const isWrapAsMini = stepId === 'wrap-up'
+  const isWrapUp = stepId === 'wrap-up'
+  const lessonFinished = isWrapUp && lineIndex + 1 >= lines.length
 
-  const speakLine = useCallback(
-    (text: string) => {
-      setBubble(text)
-      setSpeaking(true)
-      speak(text, { animation: 'Talking', emotion: 'explaining' })
-      window.setTimeout(() => setSpeaking(false), Math.min(8000, 1200 + text.length * 45))
+  useEffect(() => {
+    if (lessonFinished) markLessonCompleted(lesson.id)
+  }, [lessonFinished, lesson.id])
+
+  const showLine = useCallback(
+    (line: Py01DialogueLine) => {
+      setBubble(line.text)
+      setBoard({
+        title: line.board?.title ?? step.title,
+        lines: line.board?.lines ?? [line.text],
+        code: line.board?.code,
+        checklist: line.board?.checklist,
+        speaking: false,
+      })
     },
-    [speak]
+    [setBoard, step.title]
+  )
+
+  const speakDialogueLine = useCallback(
+    (line: Py01DialogueLine, index: number) => {
+      showLine(line)
+      setSpeaking(true)
+      speakStepLine(lesson.id, stepId, index, line.text, {
+        animation: 'Talking',
+        emotion: 'explaining',
+      })
+      window.setTimeout(() => setSpeaking(false), Math.min(8000, 1200 + line.text.length * 45))
+    },
+    [showLine, speakStepLine, lesson.id, stepId]
+  )
+
+  const narrateFromText = useCallback(
+    (text: string) => {
+      const line = resolveNarrateLine(text, allLessonLines)
+      showLine(line)
+      setSpeaking(true)
+      speakStepLine(lesson.id, stepId, -1, line.text, {
+        animation: 'Talking',
+        emotion: 'explaining',
+      })
+      window.setTimeout(() => setSpeaking(false), Math.min(8000, 1200 + line.text.length * 45))
+    },
+    [allLessonLines, showLine, speakStepLine, lesson.id, stepId]
   )
 
   useEffect(() => {
     setLineIndex(0)
-    if (lines[0]) speakLine(lines[0])
-    else setBubble('')
+    const first = lines[0]
+    if (first) {
+      speakDialogueLine(first, 0)
+    } else {
+      setBubble('')
+      setBoard({ title: step.title, speaking: false })
+    }
+    // فقط با عوض شدن step/band — نه lines/speakDialogueLine (مرجع ناپایدار نباشد)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stepId, bandFocus])
 
@@ -81,7 +144,7 @@ function Python01Classroom({ lang }: { lang: string }) {
     if (lineIndex + 1 < lines.length) {
       const next = lineIndex + 1
       setLineIndex(next)
-      speakLine(lines[next]!)
+      speakDialogueLine(lines[next]!, next)
       return
     }
     go(1)
@@ -123,7 +186,7 @@ function Python01Classroom({ lang }: { lang: string }) {
 
       <div className="lesson-classroom__grid">
         <aside className="lesson-classroom__avatar-col">
-          {isWrapAsMini ? (
+          {isWrapUp ? (
             <div className="flex flex-col items-center gap-3 rounded-2xl border border-white/15 bg-white/5 p-4">
               <Image
                 src="/charackter/char.png"
@@ -136,7 +199,7 @@ function Python01Classroom({ lang }: { lang: string }) {
               <p className="text-xs font-bold text-teal-200">از زبان مینی</p>
             </div>
           ) : (
-            <TeacherScene
+            <ClassroomScene
               height="min(38vh, 320px)"
               className="lesson-classroom__avatar w-full border border-white/15"
               withChatProvider={false}
@@ -163,6 +226,12 @@ function Python01Classroom({ lang }: { lang: string }) {
               </p>
             ) : null}
 
+            {!showRunner && lines[lineIndex] ? (
+              <div className="flex min-h-[180px] flex-col items-center justify-center px-4 text-center">
+                <p className="text-base leading-8 text-white/90 md:text-lg">{lines[lineIndex]?.text}</p>
+              </div>
+            ) : null}
+
             {showRunner ? (
               <PythonCodeRunner
                 key={stepId}
@@ -183,7 +252,7 @@ function Python01Classroom({ lang }: { lang: string }) {
                     : undefined)
                 }
                 initialCode=""
-                onNarrate={speakLine}
+                onNarrate={narrateFromText}
               />
             ) : null}
 
@@ -212,7 +281,7 @@ function Python01Classroom({ lang }: { lang: string }) {
               </button>
             </div>
 
-            {stepId === 'wrap-up' && lineIndex + 1 >= lines.length ? (
+            {lessonFinished ? (
               <div className="mt-4 flex justify-center gap-3">
                 <Link
                   href={`/${lang}/curriculum/programming/python`}
@@ -237,6 +306,14 @@ function Python01Classroom({ lang }: { lang: string }) {
         {lesson.title} — {step.title}
       </p>
     </div>
+  )
+}
+
+function Python01Classroom({ lang }: { lang: string }) {
+  return (
+    <ClassroomBoardProvider>
+      <Python01ClassroomInner lang={lang} />
+    </ClassroomBoardProvider>
   )
 }
 

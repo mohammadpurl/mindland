@@ -7,7 +7,13 @@
   "lines": [
     {
       "speaker": "avatar",
-      "text": "کارت مأموریت آماده‌ست. سه تا print — خودت بنویس."
+      "text": "کارت مأموریت آماده‌ست. سه تا print — خودت بنویس.",
+      "mediaKey": "python-01-intro/challenge-a/line-0",
+      "animation": "Pointing",
+      "board": {
+        "title": "چالش A",
+        "lines": ["۳ print", "اسم · سن · علاقه"]
+      }
     }
   ],
   "successCriteria": [

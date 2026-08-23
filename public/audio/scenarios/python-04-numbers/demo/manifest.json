@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-04-numbers",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "یادت هست تو درس کارت تبریک، یه print با گیومه و یکی بدون گیومه دیدیم؟ امروز همون راز رو باز می‌کنیم.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-04-numbers/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-text-add",
+      "source": "avatar",
+      "text": "این که جمعشون نکرد! فقط چسبوندشون به هم!",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-04-numbers/demo/line-01-after-text-add.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/demo/line-01-after-text-add.lipsync.json"
+    },
+    {
+      "id": "line-02-after-number-add",
+      "source": "avatar",
+      "text": "وقتی با گیومه نوشتیم، مینی فکر کرد دو تا کلمه‌ن. وقتی بدون گیومه نوشتیم، فهمید عددن و واقعاً جمع زد. شکلشون شبیه بود، ولی برای مینی کاملاً فرق داشتن.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-04-numbers/demo/line-02-after-number-add.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/demo/line-02-after-number-add.lipsync.json"
+    }
+  ]
+}

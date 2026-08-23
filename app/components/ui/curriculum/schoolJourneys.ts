@@ -1,4 +1,5 @@
 import type { PlanetStation, PlanetCategory, PlanetPrerequisite } from './planetStations'
+import { getSubject } from '@/lib/math-visual-engine/curriculum'
 
 export type StationKind = NonNullable<PlanetStation['kind']>
 export type StationPrereq = PlanetPrerequisite
@@ -56,6 +57,69 @@ function planet(
 function evenly(count: number, start = 0.04, end = 0.96): number[] {
   if (count <= 1) return [start]
   return Array.from({ length: count }, (_, i) => start + (i / (count - 1)) * (end - start))
+}
+
+/** پالت رنگی سیاره‌ها برای نمای کهکشانی — چرخشی روی موضوعات یک مدرسه */
+const PLANET_PALETTE: Array<{ from: string; to: string; glow: string; ring: string; accent: string }> = [
+  { from: '#fbbf24', to: '#f97316', glow: 'rgba(251,191,36,.35)', ring: 'rgba(251,191,36,.5)', accent: '#FFEDD5' },
+  { from: '#4ade80', to: '#0d9488', glow: 'rgba(74,222,128,.32)', ring: 'rgba(74,222,128,.45)', accent: '#DCFCE7' },
+  { from: '#67e8f9', to: '#2563eb', glow: 'rgba(103,232,249,.32)', ring: 'rgba(103,232,249,.45)', accent: '#E0F2FE' },
+  { from: '#f0abfc', to: '#a21caf', glow: 'rgba(240,171,252,.32)', ring: 'rgba(240,171,252,.45)', accent: '#FCE7F3' },
+  { from: '#fda4af', to: '#e11d48', glow: 'rgba(253,164,175,.3)', ring: 'rgba(253,164,175,.45)', accent: '#FFE4E6' },
+  { from: '#a5b4fc', to: '#4338ca', glow: 'rgba(165,180,252,.32)', ring: 'rgba(165,180,252,.5)', accent: '#E0E7FF' },
+  { from: '#5eead4', to: '#0f766e', glow: 'rgba(94,234,212,.3)', ring: 'rgba(94,234,212,.45)', accent: '#CCFBF1' },
+  { from: '#fcd34d', to: '#b45309', glow: 'rgba(252,211,77,.3)', ring: 'rgba(252,211,77,.45)', accent: '#FEF3C7' },
+  { from: '#93c5fd', to: '#1d4ed8', glow: 'rgba(147,197,253,.3)', ring: 'rgba(147,197,253,.45)', accent: '#DBEAFE' },
+  { from: '#c4b5fd', to: '#6d28d9', glow: 'rgba(196,181,253,.32)', ring: 'rgba(196,181,253,.5)', accent: '#EDE9FE' },
+]
+
+function levelLabelFromLessons(levels: Array<number | undefined>): string | undefined {
+  const known = levels.filter((l): l is number => typeof l === 'number')
+  if (known.length === 0) return undefined
+  const max = Math.max(...known)
+  if (max <= 1) return 'مقدماتی'
+  if (max <= 3) return 'پایه'
+  if (max === 4) return 'میانی'
+  return 'پیشرفته'
+}
+
+/**
+ * سیاره‌های یک مدرسه را از «دوره‌ها»ی واقعی همان مدرسه می‌سازد — نه از درس‌های
+ * تک‌تکِ داخل یک دوره. هر سیاره = یک دوره (topic)، نه یک درس؛ کلیک روی سیاره
+ * به فهرست درس‌های همان دوره می‌رود (که ترتیب و پیشرفت را خودش مدیریت می‌کند).
+ */
+function buildStationsFromTopics(
+  subjectId: string,
+  lang: string,
+  category: PlanetCategory
+): SchoolPlanetStation[] {
+  const subject = getSubject(subjectId)
+  const topics = subject ? [...subject.topics].sort((a, b) => a.order - b.order) : []
+  const ts = evenly(topics.length || 1)
+  return topics.map((topic, i) => {
+    const palette = PLANET_PALETTE[i % PLANET_PALETTE.length]!
+    const locked = topic.lessons.length === 0
+    return {
+      id: topic.id,
+      label: topic.title,
+      learn: topic.description ?? '',
+      highlights: [],
+      category,
+      href: `/${lang}/curriculum/${subjectId}/${topic.id}`,
+      locked,
+      kind: 'core',
+      t: ts[i]!,
+      emoji: topic.icon ?? '📚',
+      level: levelLabelFromLessons(topic.lessons.map((l) => l.level)),
+      lessonsCount: topic.lessons.length,
+      xp: topic.lessons.length * 25,
+      planetFrom: palette.from,
+      planetTo: palette.to,
+      glow: palette.glow,
+      ring: palette.ring,
+      accent: palette.accent,
+    }
+  })
 }
 
 /** ۱) مدرسه ریاضیات — ستون فقرات */
@@ -174,80 +238,14 @@ export function buildMathSchoolStations(lang: string): SchoolPlanetStation[] {
   return specs.map((s, i) => planet({ ...s, t: ts[i]! }))
 }
 
-/** ۲) مدرسه برنامه‌نویسی */
+/**
+ * ۲) مدرسه برنامه‌نویسی — کهکشان کدنویسی
+ * هر سیاره یک «دوره» (topic) این مدرسه است — مثلاً کل دوره‌ی پایتون یک سیاره
+ * است، نه هر درس آن یک سیاره جدا. کلیک روی سیاره به فهرست درس‌های همان دوره
+ * می‌رود.
+ */
 export function buildProgrammingSchoolStations(lang: string): SchoolPlanetStation[] {
-  const specs = [
-    planet({
-      id: 'prog-launch',
-      label: 'پایگاه کدنویسی',
-      learn: 'اینجا منطق و ساخت پروژه یاد می‌گیری. ریاضی پایه کمک می‌کند، ولی تکرار نمی‌شود.',
-      highlights: ['بدون تکرار ریاضی', 'ارجاع به مدرسه ریاضی'],
-      category: 'programming',
-      href: schoolHref(lang, 'programming'),
-      kind: 'milestone',
-      t: 0.05,
-      emoji: '🚀',
-    }),
-    planet({
-      id: 'block-coding',
-      label: 'برنامه‌نویسی بلوکی',
-      learn: 'منطق بدون تایپ: توالی، شرط و حلقه روی صحنه — اختیاری قبل از پایتون.',
-      highlights: ['PY-00', 'اختیاری', 'بدون تایپ'],
-      category: 'programming',
-      href: `/${lang}/lessons/programming/python-00-blocks`,
-      kind: 'specialty',
-      t: 0.18,
-      emoji: '🧩',
-    }),
-    planet({
-      id: 'python-path',
-      label: 'مسیر پایتون',
-      learn: 'از print تا while — تصمیم، تکرار، و بازی حدس عدد.',
-      highlights: ['PY-01…08', 'آماده'],
-      category: 'programming',
-      href: `/${lang}/curriculum/programming/python`,
-      kind: 'specialty',
-      t: 0.35,
-      emoji: '🐍',
-    }),
-    planet({
-      id: 'data-oop',
-      label: 'داده و شیءگرایی',
-      learn: 'لیست و دیکشنری + کلاس و شیء برای پروژه‌های واقعی‌تر.',
-      highlights: ['متوسط', 'به‌زودی'],
-      category: 'programming',
-      href: schoolHref(lang, 'programming', 'data-structures'),
-      locked: true,
-      kind: 'specialty',
-      t: 0.52,
-      emoji: '📦',
-    }),
-    planet({
-      id: 'prog-projects',
-      label: 'پروژه و ابزارها',
-      learn: 'بازی/ابزار کوچک، Git و در صورت علاقه مقدمه وب.',
-      highlights: ['متوسط→پیشرفته', 'به‌زودی'],
-      category: 'programming',
-      href: schoolHref(lang, 'programming', 'mini-projects'),
-      locked: true,
-      kind: 'specialty',
-      t: 0.72,
-      emoji: '🎮',
-    }),
-    planet({
-      id: 'prog-capstone',
-      label: 'آمادگی برای AI/رباتیک',
-      learn: 'بعد از این مسیر می‌توانی وارد مدرسه هوش مصنوعی یا رباتیک شوی.',
-      highlights: ['خروجی مسیر', 'به‌زودی'],
-      category: 'combined',
-      href: schoolHref(lang, 'programming'),
-      locked: true,
-      kind: 'milestone',
-      t: 0.9,
-      emoji: '🛰️',
-    }),
-  ]
-  return specs
+  return buildStationsFromTopics('programming', lang, 'programming')
 }
 
 /** ۳) مدرسه هوش مصنوعی — پیش‌نیازها لینک به ریاضی/برنامه */

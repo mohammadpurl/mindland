@@ -6,17 +6,35 @@
     {
       "speaker": "avatar",
       "beat": "setup",
-      "text": "دو اجرا می‌بینیم. جمله‌ تقریباً یکیه — فقط تو دومی یه علامت کم می‌ذاریم. خودت ببین."
+      "text": "دو اجرا می‌بینیم. جمله‌ تقریباً یکیه — فقط تو دومی یه علامت کم می‌ذاریم. خودت ببین.",
+      "mediaKey": "python-01-intro/demo/line-0",
+      "animation": "Talking",
+      "board": {
+        "title": "دمو: درست و غلط",
+        "lines": ["دو اجرا — یک علامت فرق"]
+      }
     },
     {
       "speaker": "avatar",
       "beat": "after-good",
-      "text": "این شد."
+      "text": "این شد.",
+      "mediaKey": "python-01-intro/demo/line-1",
+      "animation": "ThumbsUp",
+      "board": {
+        "title": "دمو",
+        "lines": ["✓ درست"]
+      }
     },
     {
       "speaker": "avatar",
       "beat": "after-bad",
-      "text": "جمله‌ی ما تقریباً همون بود. فقط یه علامت کم داشت. برای مینی، تقریباً یعنی نه."
+      "text": "جمله‌ی ما تقریباً همون بود. فقط یه علامت کم داشت. برای مینی، تقریباً یعنی نه.",
+      "mediaKey": "python-01-intro/demo/line-2",
+      "animation": "Thinking",
+      "board": {
+        "title": "دمو",
+        "lines": ["✗ یک علامت کم = قفل"]
+      }
     }
   ],
   "productionNotes": [

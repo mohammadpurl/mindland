@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-08-while-loop",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تو while، نمی‌دونم از قبل چندبار تکرار می‌کنم — فقط می‌دونم کِی باید دست بکشم.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-08-while-loop/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "اگه شرطم هیچ‌وقت عوض نشه، تا ابد تکرار می‌کنم — برای همین باید مطمئن بشی یه‌جای کد، چیزی که چک می‌کنم واقعاً عوض می‌شه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-08-while-loop/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "وقتی شرط دیگه برقرار نباشه، خودم متوقف می‌شم.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-08-while-loop/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

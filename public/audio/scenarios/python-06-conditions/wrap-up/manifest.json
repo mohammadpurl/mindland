@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-06-conditions",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "حالا می‌تونم بر اساس جوابت، مسیرهای مختلف رو انتخاب کنم.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-06-conditions/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "ولی باید دقیق بگی تحت چه شرطی چیکار کنم — و هر تصمیم باید تورفتگی درست داشته باشه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-06-conditions/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "و یادت باشه، برام عدد و متن حتی اگه شکلشون یکی باشه، یکی نیستن.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-06-conditions/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

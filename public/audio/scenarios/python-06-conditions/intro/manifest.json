@@ -1,0 +1,22 @@
+{
+  "lessonId": "python-06-conditions",
+  "stepId": "intro",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تا الان مینی جوابتو می‌شنید و همیشه یه واکنش ثابت می‌داد. امروز یاد می‌گیری بگی: اگه این شد، اونو بکن — وگرنه، اون یکی رو بکن.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-06-conditions/intro/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/intro/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "مثل «اگه بارون اومد، چتر ببر؛ وگرنه، نبر.» تو دقیقاً می‌گی تحت چه شرطی مینی کدوم مسیر رو بره.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-06-conditions/intro/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/intro/line-01.lipsync.json"
+    }
+  ]
+}

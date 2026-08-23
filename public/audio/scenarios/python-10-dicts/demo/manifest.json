@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-10-dicts",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول سه متغیر جدا برای کارت بازیکن — بعد همون‌ها تو یک دیکشنری.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-10-dicts/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-10-dicts/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-separate",
+      "source": "avatar",
+      "text": "کار می‌کرد، ولی هر بار باید اسم هر متغیر رو جدا یادت باشه.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-10-dicts/demo/line-01-after-separate.mp3",
+      "lipsync": "/audio/scenarios/python-10-dicts/demo/line-01-after-separate.lipsync.json"
+    },
+    {
+      "id": "line-02-after-dict",
+      "source": "avatar",
+      "text": "حالا همه تو یه کارتن — با کلید هر فیلد رو صدا می‌زنیم.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-10-dicts/demo/line-02-after-dict.mp3",
+      "lipsync": "/audio/scenarios/python-10-dicts/demo/line-02-after-dict.lipsync.json"
+    }
+  ]
+}

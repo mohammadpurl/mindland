@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-14-capstone",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: پروژهٔ خودت رو بساز — حداقل یه تابع، لیست یا دیکشنری، اجرا و یه توضیح کوتاه.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-14-capstone/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

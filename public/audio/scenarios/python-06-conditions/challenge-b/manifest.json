@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-06-conditions",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "سه شاخه بساز: if و elif و else. یادت باشه از PY-04 — عدد و متن حتی اگه شکلشون یکی باشه، برای مینی یکی نیستن.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-06-conditions/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

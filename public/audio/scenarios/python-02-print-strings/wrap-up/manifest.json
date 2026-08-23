@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-02-print-strings",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "هر جمله‌ای که می‌خوای بخونم، باید بین دو نگهبان جفت باشه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-02-print-strings/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-02-print-strings/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "اگه یه خط قفل کنم، بقیه‌ی خط‌هایی که قبلش بودن رو قبلاً خوندم — فقط همون یکی گیر کرد.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-02-print-strings/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-02-print-strings/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "هرچی نگهبان‌هات دقیق‌تر جفت باشن، کارت تو بهتر خونده می‌شه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-02-print-strings/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-02-print-strings/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-00-blocks",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: جلو → بچرخ → آماده‌ام! بدون خرابی. بعد، دو بار بچرخ+سلام را با یک بلوک تکرار بساز — نه چهار کپی جدا.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-00-blocks/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

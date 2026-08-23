@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-14-capstone",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "قبل از شروع، چک‌لیست: ایده، تابع، داده، اجرا، توضیح.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-14-capstone/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-checklist",
+      "source": "avatar",
+      "text": "مثلاً یه بازی حدس عدد — تابع، لیست امتیازها، حلقه، input.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-14-capstone/demo/line-01-after-checklist.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/demo/line-01-after-checklist.lipsync.json"
+    },
+    {
+      "id": "line-02-after-example",
+      "source": "avatar",
+      "text": "یا ماشین‌حساب، یا نقاشی turtle — هر چیزی که دوست داری.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-14-capstone/demo/line-02-after-example.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/demo/line-02-after-example.lipsync.json"
+    }
+  ]
+}

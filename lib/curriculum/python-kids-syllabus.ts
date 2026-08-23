@@ -323,3 +323,17 @@ export function getPythonKidsSyllabus(): PythonSyllabus {
 export function countPythonLessons(syllabus: PythonSyllabus = PYTHON_KIDS_SYLLABUS): number {
   return syllabus.sections.reduce((n, s) => n + s.lessons.length, 0)
 }
+
+/**
+ * ترتیب الزامیِ درس‌ها برای باز شدن پله‌پله — بخش‌های «اختیاری» (مثل پیش‌نیاز
+ * بلوکی) از این زنجیره کنار گذاشته می‌شوند و همیشه باز می‌مانند؛ فقط بخش‌های
+ * اصلی باید به ترتیب گذرانده شوند.
+ */
+export function getPythonLessonSequence(
+  syllabus: PythonSyllabus = PYTHON_KIDS_SYLLABUS
+): string[] {
+  return syllabus.sections
+    .filter((s) => !s.optional)
+    .sort((a, b) => a.order - b.order)
+    .flatMap((s) => s.lessons.map((l) => l.id))
+}

@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-11-functions",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "دو تابع کمکی با return و آرگومان بساز و هر دو رو صدا بزن.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-11-functions/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-11-functions/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

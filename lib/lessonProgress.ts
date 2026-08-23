@@ -31,3 +31,21 @@ export function markLessonCompleted(lessonId: string, stepId = 'wrap-up'): void 
 export function isLessonCompleted(lessonId: string): boolean {
   return Boolean(loadLessonProgress()[lessonId])
 }
+
+export type LessonUnlockState = 'completed' | 'current' | 'locked' | 'free'
+
+/**
+ * وضعیت باز/بسته‌بودن یک درس در یک زنجیرهٔ ترتیبی.
+ * - «free»: درس اصلاً بخشی از این زنجیره نیست (مثلاً بخش اختیاری) — همیشه باز است.
+ * - «completed»: قبلاً تمام شده.
+ * - «current»: اولین درس ناتمام زنجیره — همین الان قابل شروع است.
+ * - «locked»: درس قبلیِ زنجیره هنوز تمام نشده.
+ */
+export function getLessonUnlockState(lessonId: string, sequence: string[]): LessonUnlockState {
+  const idx = sequence.indexOf(lessonId)
+  if (idx === -1) return 'free'
+  if (isLessonCompleted(lessonId)) return 'completed'
+  const prevId = sequence[idx - 1]
+  if (idx === 0 || (prevId && isLessonCompleted(prevId))) return 'current'
+  return 'locked'
+}

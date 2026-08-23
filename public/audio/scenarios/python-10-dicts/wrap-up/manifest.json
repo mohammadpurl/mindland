@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-10-dicts",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "دیکشنری یعنی هر چیز یه برچسب (کلید) داره — مثل کارت بازیکن.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-10-dicts/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-10-dicts/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "با player[\"name\"] می‌تونی هر فیلد رو پیدا کنی، بدون شمارهٔ جایگاه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-10-dicts/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-10-dicts/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "می‌تونی فیلدها رو هم عوض کنی — فقط دوباره با همون کلید مقدار جدید بذار.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-10-dicts/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-10-dicts/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

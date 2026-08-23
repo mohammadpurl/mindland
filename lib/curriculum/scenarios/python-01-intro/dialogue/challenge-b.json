@@ -7,7 +7,13 @@
   "lines": [
     {
       "speaker": "avatar",
-      "text": "کارت مأموریت آماده‌ست. سه print + یک خط # — خودت بنویس."
+      "text": "کارت مأموریت آماده‌ست. سه print + یک خط # — خودت بنویس.",
+      "mediaKey": "python-01-intro/challenge-b/line-0",
+      "animation": "Pointing",
+      "board": {
+        "title": "چالش B",
+        "lines": ["۳ print + ۱ خط #", "مینی # را نمی‌خواند"]
+      }
     }
   ],
   "successCriteria": [

@@ -46,6 +46,19 @@ export const FRACTION_COLORS = {
 /** @deprecated از FRACTION_COLORS.selected استفاده کنید */
 export const PIE_COLORS = [FRACTION_COLORS.selected]
 
+/** رنگ‌های خط اعداد */
+export const NUMBER_LINE_COLORS = {
+  axis: '#334155',
+  tick: '#94A3B8',
+  zeroTick: '#0F172A',
+  negative: '#F97316',
+  positive: '#0EA5E9',
+  token: '#6366F1',
+  tokenStroke: '#4338CA',
+  target: '#10B981',
+  targetStroke: '#047857',
+} as const
+
 export function gridLines(width: number, height: number, step = 28) {
   const lines: { points: number[]; key: string }[] = []
   for (let x = 0; x <= width; x += step) {

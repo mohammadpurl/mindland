@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-09-lists",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: لیست دوستان بساز، با append یه اسم اضافه کن، بعد با for همه رو چاپ کن.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-09-lists/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-09-lists/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

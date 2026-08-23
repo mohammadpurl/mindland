@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-07-for-loop",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مثلث بساز و از شمارندهٔ حلقه برای شمارهٔ خط و تعداد ستاره استفاده کن. اگه وقت داشتی، یه نکتهٔ کوچک: می‌تونی روی حروف یه کلمه هم حلقه بزنی — مثلاً for letter in \"پایتون\".",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-07-for-loop/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

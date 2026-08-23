@@ -1,0 +1,134 @@
+{
+  "lesson": "python-01-intro",
+  "generatedAt": "2026-08-18T11:09:05.492339+00:00",
+  "mock": true,
+  "count": 14,
+  "items": [
+    {
+      "mediaKey": "python-01-intro/challenge-a/line-0",
+      "text": "کارت مأموریت آماده‌ست. سه تا print — خودت بنویس.",
+      "source": "challenge-a.json",
+      "audio": "python-01-intro/challenge-a/line-0.mp3",
+      "lipsync": "python-01-intro/challenge-a/line-0.lipsync.json",
+      "sha256": "3049f44df4fa497c978cb55a321983d463f83ccd5f08c8f038568c3ad21791c1",
+      "durationSec": 3.44
+    },
+    {
+      "mediaKey": "python-01-intro/challenge-b/line-0",
+      "text": "کارت مأموریت آماده‌ست. سه print + یک خط # — خودت بنویس.",
+      "source": "challenge-b.json",
+      "audio": "python-01-intro/challenge-b/line-0.mp3",
+      "lipsync": "python-01-intro/challenge-b/line-0.lipsync.json",
+      "sha256": "077c97af44c6170cc3bc19e0e37b6d55e5fdf77fdb0002171b030fe12b07d465",
+      "durationSec": 3.825
+    },
+    {
+      "mediaKey": "python-01-intro/demo/line-0",
+      "text": "دو اجرا می‌بینیم. جمله‌ تقریباً یکیه — فقط تو دومی یه علامت کم می‌ذاریم. خودت ببین.",
+      "source": "demo.json",
+      "audio": "python-01-intro/demo/line-0.mp3",
+      "lipsync": "python-01-intro/demo/line-0.lipsync.json",
+      "sha256": "079d0ea60631422b3a03f420650957f52e05e44d79a38d4cfa4d936310e5fb71",
+      "durationSec": 5.365
+    },
+    {
+      "mediaKey": "python-01-intro/demo/line-1",
+      "text": "این شد.",
+      "source": "demo.json",
+      "audio": "python-01-intro/demo/line-1.mp3",
+      "lipsync": "python-01-intro/demo/line-1.lipsync.json",
+      "sha256": "036560c5ce1448cd97974dcc2f8c684e259f7e346ac03991ee248082bd5c27a2",
+      "durationSec": 1.185
+    },
+    {
+      "mediaKey": "python-01-intro/demo/line-2",
+      "text": "جمله‌ی ما تقریباً همون بود. فقط یه علامت کم داشت. برای مینی، تقریباً یعنی نه.",
+      "source": "demo.json",
+      "audio": "python-01-intro/demo/line-2.mp3",
+      "lipsync": "python-01-intro/demo/line-2.lipsync.json",
+      "sha256": "2f70ab1a4994d6d956bdad3acaaecce9595717fcb5b549e929e11ae4da944c73",
+      "durationSec": 5.035
+    },
+    {
+      "mediaKey": "python-01-intro/guided-practice/line-0",
+      "text": "مأموریت: یه جمله بنویس که مینی دقیقاً همونو بگه — بدون قفل کردن. خودت تایپ کن و اجرا کن.",
+      "source": "guided-practice.json",
+      "audio": "python-01-intro/guided-practice/line-0.mp3",
+      "lipsync": "python-01-intro/guided-practice/line-0.lipsync.json",
+      "sha256": "feee182f2a8f79734170cbe080936a81b8b6e8a37dbff4f4ce698684617b2122",
+      "durationSec": 5.64
+    },
+    {
+      "mediaKey": "python-01-intro/intro/line-0",
+      "text": "تو درس قبل با بلوک به مینی می‌گفتیم چیکار کنه. الان می‌خوایم دقیقاً همون کارو با تایپ کردن انجام بدیم.",
+      "source": "intro.json",
+      "audio": "python-01-intro/intro/line-0.mp3",
+      "lipsync": "python-01-intro/intro/line-0.lipsync.json",
+      "sha256": "815a5f93fb775260594cc4da47e14d87e2c89c5e2566f5942698025e05a21e00",
+      "durationSec": 6.41
+    },
+    {
+      "mediaKey": "python-01-intro/intro/line-1",
+      "text": "به این زبون دقیق، پایتون می‌گن. مینی فقط چیزی رو می‌گه که دقیقاً به زبان پایتون براش بنویسی — نه کمتر، نه مبهم‌تر.",
+      "source": "intro.json",
+      "audio": "python-01-intro/intro/line-1.mp3",
+      "lipsync": "python-01-intro/intro/line-1.lipsync.json",
+      "sha256": "9cb30ff7775209ccdf10e368ce93e84c84e8ee149adb24599095b84569e47214",
+      "durationSec": 7.07
+    },
+    {
+      "mediaKey": "python-01-intro/system-messages/quote",
+      "text": "مینی گیر کرد. یه گیومه جا افتاده — زبونش رو کامل ننوشتیم.",
+      "source": "system-messages.json",
+      "audio": "python-01-intro/system-messages/quote.mp3",
+      "lipsync": "python-01-intro/system-messages/quote.lipsync.json",
+      "sha256": "94349660092ad32bfa8f4a18ccf44d85ee52d0f41259bcf142cd9a523f18522e",
+      "durationSec": 3.935
+    },
+    {
+      "mediaKey": "python-01-intro/system-messages/paren",
+      "text": "مینی گیر کرد. نگفتیم کجا باید جمله رو بذاره — پرانتز یادت رفت.",
+      "source": "system-messages.json",
+      "audio": "python-01-intro/system-messages/paren.mp3",
+      "lipsync": "python-01-intro/system-messages/paren.lipsync.json",
+      "sha256": "c232bbb3a737a389997ce59c0b26de591bdc66f52abd583976aec7797e08222f",
+      "durationSec": 4.21
+    },
+    {
+      "mediaKey": "python-01-intro/system-messages/quote-mismatch",
+      "text": "مینی گیر کرد. دو تا علامت جفت‌نشدن — یکی از گیومه‌ها با اون یکی فرق داره.",
+      "source": "system-messages.json",
+      "audio": "python-01-intro/system-messages/quote-mismatch.mp3",
+      "lipsync": "python-01-intro/system-messages/quote-mismatch.lipsync.json",
+      "sha256": "ad34b6dd31c91210ec1b43def9bbbc9affc0123c650fe07486ba734de17b7fac",
+      "durationSec": 4.815
+    },
+    {
+      "mediaKey": "python-01-intro/wrap-up/line-0",
+      "text": "وقتی دقیق باهام حرف بزنی، دقیقاً همونو می‌گم.",
+      "source": "wrap-up.json",
+      "audio": "python-01-intro/wrap-up/line-0.mp3",
+      "lipsync": "python-01-intro/wrap-up/line-0.lipsync.json",
+      "sha256": "e778a1555b7d4c8d897edaf3d25b7d3e5e6888a179fbef7d334eb4f71eb49fab",
+      "durationSec": 3.275
+    },
+    {
+      "mediaKey": "python-01-intro/wrap-up/line-1",
+      "text": "اگه یه علامت کم باشه، گیر می‌کنم — نه چون بداخلاقم، چون زبونم همینه.",
+      "source": "wrap-up.json",
+      "audio": "python-01-intro/wrap-up/line-1.mp3",
+      "lipsync": "python-01-intro/wrap-up/line-1.lipsync.json",
+      "sha256": "b905b5e2ab17e79d1e55cb2d567f33108863d58e261fd82eb9a2b0342bae488e",
+      "durationSec": 4.54
+    },
+    {
+      "mediaKey": "python-01-intro/wrap-up/line-2",
+      "text": "هرچی دقیق‌تر بنویسی، من راحت‌تر می‌فهمم.",
+      "source": "wrap-up.json",
+      "audio": "python-01-intro/wrap-up/line-2.mp3",
+      "lipsync": "python-01-intro/wrap-up/line-2.lipsync.json",
+      "sha256": "8a274a81f6321eda07a7dc0188f575c17923b31b087907aa671075dacacf62c2",
+      "durationSec": 3.0
+    }
+  ]
+}

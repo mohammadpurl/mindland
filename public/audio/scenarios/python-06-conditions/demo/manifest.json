@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-06-conditions",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول بدون شرط امتحان می‌کنیم — سن هر چی باشه، پیام یکی‌ست. بعد با شرط واقعی.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-06-conditions/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-fixed",
+      "source": "avatar",
+      "text": "مینی اصلاً اهمیتی نداد چند سالمون گفتیم. همیشه همون جمله رو گفت.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-06-conditions/demo/line-01-after-fixed.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/demo/line-01-after-fixed.lipsync.json"
+    },
+    {
+      "id": "line-02-after-if",
+      "source": "avatar",
+      "text": "دیدی؟ این‌بار مینی واقعاً به جوابت گوش داد و بر اساسش یه تصمیم گرفت.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-06-conditions/demo/line-02-after-if.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/demo/line-02-after-if.lipsync.json"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-05-input",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "سه سؤال: اسم، سن، شهر. سن رو با int عدد کن، سن سال بعد رو حساب کن، و همه رو تو یه جمله بگو.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-05-input/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-05-input/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

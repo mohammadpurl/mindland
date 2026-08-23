@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-05-input",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "وقتی ازت سؤال می‌پرسم، صبر می‌کنم تا جواب بدی — عجله نمی‌کنم.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-05-input/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-05-input/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "جوابتو باید یه‌جا (تو یه جعبه) نگه دارم تا بعداً بتونم استفادش کنم.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-05-input/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-05-input/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "و اگه بخوام با جوابت حساب کنم، باید اول بهم بگی که اون جواب واقعاً یه عدده.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-05-input/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-05-input/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

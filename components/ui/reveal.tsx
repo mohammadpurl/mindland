@@ -7,10 +7,36 @@
  * Stagger    : staggerChildren 0.12s
  * HoverCard  : whileHover scale 1.02, y -4 (spring)
  * MotionCard : configurable hover — for server-component card shells
+ *
+ * Reveal/Stagger also force-show their content a couple seconds after
+ * mount even if the viewport IntersectionObserver never fires (e.g. a
+ * backgrounded tab, a headless screenshot/crawler that never scrolls,
+ * or any other edge case) — so sections never end up permanently blank.
  */
 
 import { motion } from "framer-motion";
-import type { ReactNode, CSSProperties } from "react";
+import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
+
+/** Safety net: guarantee visibility this long after mount even without a scroll trigger. */
+const REVEAL_FALLBACK_MS = 2000;
+
+function useRevealFallback() {
+  const [forced, setForced] = useState(false);
+  const firedRef = useRef(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!firedRef.current) setForced(true);
+    }, REVEAL_FALLBACK_MS);
+    return () => clearTimeout(timer);
+  }, []);
+  return {
+    forced,
+    /** call when the real viewport trigger fires, so the fallback timer becomes a no-op */
+    markFired: () => {
+      firedRef.current = true;
+    },
+  };
+}
 
 /* ── Single scroll reveal ───────────────────────────────── */
 interface RevealProps {
@@ -21,10 +47,13 @@ interface RevealProps {
 }
 
 export function Reveal({ children, delay = 0, className, style }: RevealProps) {
+  const { forced, markFired } = useRevealFallback();
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
+      animate={forced ? { opacity: 1, y: 0 } : undefined}
+      onViewportEnter={markFired}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
@@ -49,10 +78,13 @@ export function Stagger({
   delay   = 0,
   stagger = 0.12,
 }: StaggerProps) {
+  const { forced, markFired } = useRevealFallback();
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
+      animate={forced ? "visible" : undefined}
+      onViewportEnter={markFired}
       viewport={{ once: true, margin: "-80px" }}
       variants={{
         visible: {

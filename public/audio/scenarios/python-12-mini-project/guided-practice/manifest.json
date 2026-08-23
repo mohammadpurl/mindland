@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-12-mini-project",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: اسکلت ماشین‌حساب رو کامل کن — منو، تابع، حلقه و input. یا اگه دوست داری سنگ‌کاغذقیچی بساز.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-12-mini-project/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-12-mini-project/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

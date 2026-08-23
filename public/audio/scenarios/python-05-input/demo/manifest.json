@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-05-input",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول یه سلام ثابت می‌بینیم — بعد همون رو با سؤال واقعی.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-05-input/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-05-input/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-fixed",
+      "source": "avatar",
+      "text": "این جالبه، ولی مینی همیشه فقط به آرش سلام می‌کنه. اگه من بودم چی؟",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-05-input/demo/line-01-after-fixed.mp3",
+      "lipsync": "/audio/scenarios/python-05-input/demo/line-01-after-fixed.lipsync.json"
+    },
+    {
+      "id": "line-02-after-input",
+      "source": "avatar",
+      "text": "دیدی؟ این‌بار مینی صبر کرد تا تو جواب بدی، و بعد از جواب تو استفاده کرد. این یعنی برنامه‌ای که با هرکسی اجراش کنه، فرق می‌کنه.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-05-input/demo/line-02-after-input.mp3",
+      "lipsync": "/audio/scenarios/python-05-input/demo/line-02-after-input.lipsync.json"
+    }
+  ]
+}

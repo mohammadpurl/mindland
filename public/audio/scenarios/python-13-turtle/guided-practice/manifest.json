@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-13-turtle",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: لاک‌پشت بساز، با forward حرکت کن، با left یا right بچرخ، و یه شکل ساده (مثلاً مربع) بکش.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-13-turtle/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-13-turtle/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

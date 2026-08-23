@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-04-numbers",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "چهار عمل رو بزن، بعد ببین پرانتز چطور ترتیب رو عوض می‌کنه. آخر سر با % باقی‌ماندهٔ تقسیم رو هم پیدا کن.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-04-numbers/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

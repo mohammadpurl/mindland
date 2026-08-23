@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-08-while-loop",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول بدون while — فقط یه شانس. بعد با while تا وقتی درست حدس نزدی ادامه می‌ده.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-08-while-loop/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-once",
+      "source": "avatar",
+      "text": "این که خیلی سخت‌گیرانه‌ست! فقط یه شانس داشتیم.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-08-while-loop/demo/line-01-after-once.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/demo/line-01-after-once.lipsync.json"
+    },
+    {
+      "id": "line-02-after-while",
+      "source": "avatar",
+      "text": "دیدی؟ این‌بار مینی تا وقتی شرط (درست‌نبودن حدس) برقرار بود، ادامه داد. وقتی شرط دیگه برقرار نبود، خودش تموم شد.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-08-while-loop/demo/line-02-after-while.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/demo/line-02-after-while.lipsync.json"
+    }
+  ]
+}

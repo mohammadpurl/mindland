@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-03-variables",
+  "stepId": "challenge-a",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "دو تا جعبه بساز — یکی برای اسمت، یکی برای چیزی که دوست داری — و یه معرفی کوتاه چاپ کن.",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "audio": "/audio/scenarios/python-03-variables/challenge-a/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/challenge-a/line-00.lipsync.json"
+    }
+  ]
+}

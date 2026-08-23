@@ -1,0 +1,22 @@
+{
+  "lessonId": "python-07-for-loop",
+  "stepId": "intro",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تا حالا اگه می‌خواستی یه کارو چند بار بکنی، باید چند بار می‌نوشتی. امروز یاد می‌گیری یه‌بار بگی: این کارو N بار انجام بده.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-07-for-loop/intro/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/intro/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "همون اصلی که برای جعبهٔ متغیر یاد گرفتیم — کار دستی خسته‌کننده در مقابل ابزار. این‌بار خودِ تکرار کار کوتاه می‌شه.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-07-for-loop/intro/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/intro/line-01.lipsync.json"
+    }
+  ]
+}

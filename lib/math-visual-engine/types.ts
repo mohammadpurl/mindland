@@ -82,8 +82,45 @@ export interface PolygonParams {
   quiz?: PolygonQuiz
 }
 
-/** پارامترهای آینده NumberLine */
-export type MathVisualParams = FractionCircleParams | PolygonParams | Record<string, unknown>
+/** یک نقطهٔ ثابت روی خط اعداد (demo / static) */
+export interface NumberLinePoint {
+  value: number
+  label?: string
+  color?: string
+}
+
+/** یک پرش (+/-) روی خط اعداد — برای نمایش جمع/تفریق */
+export interface NumberLineJump {
+  from: number
+  to: number
+  label?: string
+}
+
+/** پارامترهای ویژوال خط اعداد (NumberLine) */
+export interface NumberLineParams {
+  title?: string
+  /** بازهٔ نمایش خط — اگر ندهید، از point/target/compareValues محاسبه می‌شود */
+  min?: number
+  max?: number
+  /** نقطه(های) ثابت برای نمایش در demo/static */
+  points?: NumberLinePoint[]
+  /** پرش +/- برای نمایش جمع/تفریق (demo) — با انیمیشن حرکت نشانگر */
+  jump?: NumberLineJump
+  jumpAnimate?: boolean
+  /** تمرین جای‌گذاری: نشانگر را با drag به این مقدار برسان */
+  target?: number
+  /** مقدار شروع نشانگر قبل از drag (پیش‌فرض 0) */
+  startValue?: number
+  /** تمرین مقایسه: کدام عدد بزرگ‌تر/کوچک‌تر/مساوی است */
+  compareValues?: [number, number]
+  comparisonAnswer?: 'lt' | 'eq' | 'gt'
+}
+
+export type MathVisualParams =
+  | FractionCircleParams
+  | PolygonParams
+  | NumberLineParams
+  | Record<string, unknown>
 
 export interface MathVisualConfig {
   type: MathVisualType

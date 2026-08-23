@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-14-capstone",
+  "stepId": "challenge-a",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "از یکی از قالب‌ها شروع کن و کاملش کن — بعد توضیح بده.",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "audio": "/audio/scenarios/python-14-capstone/challenge-a/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/challenge-a/line-00.lipsync.json"
+    }
+  ]
+}

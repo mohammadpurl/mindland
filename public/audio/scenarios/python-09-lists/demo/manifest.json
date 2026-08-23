@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-09-lists",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول سه دوست با سه جعبهٔ جدا — بعد همون‌ها تو یک لیست.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-09-lists/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-09-lists/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-separate",
+      "source": "avatar",
+      "text": "کار می‌کرد، ولی هر بار باید اسم هر جعبه رو جدا می‌نوشتی.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-09-lists/demo/line-01-after-separate.mp3",
+      "lipsync": "/audio/scenarios/python-09-lists/demo/line-01-after-separate.lipsync.json"
+    },
+    {
+      "id": "line-02-after-list",
+      "source": "avatar",
+      "text": "حالا همه تو یه لیستن — با for یکی‌یکی صدا می‌زنیم.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-09-lists/demo/line-02-after-list.mp3",
+      "lipsync": "/audio/scenarios/python-09-lists/demo/line-02-after-list.lipsync.json"
+    }
+  ]
+}

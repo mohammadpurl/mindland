@@ -1,0 +1,100 @@
+{
+  "id": "integer-02-compare",
+  "subjectId": "math",
+  "topicId": "integers",
+  "order": 2,
+  "level": 2,
+  "title": "درس ۲ — مقایسه اعداد صحیح",
+  "description": "کدام عدد بزرگ‌تر است؟ — با نگاه به خط اعداد",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز یاد می‌گیریم چطور بفهمیم کدام عدد از عدد دیگر بزرگ‌تر است — حتی وقتی هر دو منفی‌اند!",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "rule",
+      "title": "قانون طلایی",
+      "speak": "قانون طلایی خط اعداد: هر عددی که سمت راست‌تر باشد، بزرگ‌تر است — فرقی نمی‌کند مثبت باشد یا منفی.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "راست‌تر یعنی بزرگ‌تر",
+          "min": -6,
+          "max": 6,
+          "points": [
+            { "value": -2, "label": "−۲" },
+            { "value": 3, "label": "۳" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "two-negatives",
+      "title": "دو عدد منفی",
+      "speak": "نکته‌ی جالب: بین منفی پنج و منفی یک، کدام بزرگ‌تر است؟ منفی یک، چون به صفر نزدیک‌تر و سمت راست‌تر است — با اینکه ۵ از ۱ بزرگ‌تر است، منفی پنج از منفی یک کوچک‌تر است!",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "منفی پنج در برابر منفی یک",
+          "min": -6,
+          "max": 6,
+          "points": [
+            { "value": -5, "label": "−۵" },
+            { "value": -1, "label": "−۱" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-neg-vs-neg",
+      "title": "تمرین ۱ — منفی پنج یا منفی یک؟",
+      "speak": "کدام‌یک بزرگ‌تر است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "منفی پنج یا منفی یک؟",
+          "min": -6,
+          "max": 6,
+          "compareValues": [-5, -1],
+          "comparisonAnswer": "lt"
+        }
+      },
+      "successMessage": "درست! منفی یک به صفر نزدیک‌تر است، پس بزرگ‌تر است.",
+      "wrongMessage": "به خط اعداد نگاه کن — کدام سمت راست‌تر است؟"
+    },
+    {
+      "type": "practice",
+      "id": "practice-pos-vs-neg",
+      "title": "تمرین ۲ — چهار یا منفی شش؟",
+      "speak": "این‌بار یک عدد مثبت و یک عدد منفی داریم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "چهار یا منفی شش؟",
+          "min": -6,
+          "max": 6,
+          "compareValues": [4, -6],
+          "comparisonAnswer": "gt"
+        }
+      },
+      "successMessage": "آفرین! هر عدد مثبتی از هر عدد منفی بزرگ‌تر است.",
+      "wrongMessage": "عدد مثبت همیشه سمت راست صفر است، پس همیشه از منفی بزرگ‌تر است."
+    }
+  ]
+}

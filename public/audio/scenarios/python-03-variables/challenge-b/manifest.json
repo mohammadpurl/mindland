@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-03-variables",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "سه جعبه: name، age، city. معرفی رو چاپ کن، بعد انگار جابه‌جا شدی — فقط city رو عوض کن و دوباره ببین.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-03-variables/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

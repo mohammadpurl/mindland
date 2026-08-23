@@ -1,0 +1,22 @@
+{
+  "lessonId": "python-04-numbers",
+  "stepId": "intro",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تا حالا مینی حرف می‌زد و جعبه می‌ساخت. امروز یاد می‌گیره حساب هم بکنه — ولی فقط وقتی بهش بگی این عدده، نه اسم یه چیز.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-04-numbers/intro/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/intro/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "اگه با گیومه بنویسی، حتی اگه شکلش عدد باشه، برای مینی متنه. بدون گیومه، می‌فهمه واقعاً عدده و می‌تونه جمع و تفریق کنه.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-04-numbers/intro/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/intro/line-01.lipsync.json"
+    }
+  ]
+}

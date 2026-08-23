@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-03-variables",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "وقتی یه چیزی رو تو یه جعبه‌ی اسم‌دار می‌ذاری، دیگه لازم نیست هر بار دوباره بگیش.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-03-variables/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "اگه جعبه رو عوض کنی، هرجا که ازش استفاده کردی هم خودش به‌روز می‌شه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-03-variables/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "ولی اگه اسم جعبه‌ای که هنوز نساختی رو صدا بزنی، من نمی‌دونم کدوم جعبه رو می‌گی.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-03-variables/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

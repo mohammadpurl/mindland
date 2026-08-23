@@ -5,17 +5,35 @@
     {
       "speaker": "avatar",
       "as": "mini",
-      "text": "وقتی دقیق باهام حرف بزنی، دقیقاً همونو می‌گم."
+      "text": "وقتی دقیق باهام حرف بزنی، دقیقاً همونو می‌گم.",
+      "mediaKey": "python-01-intro/wrap-up/line-0",
+      "animation": "Talking",
+      "board": {
+        "title": "از زبان مینی",
+        "lines": ["دقیق = همان خروجی"]
+      }
     },
     {
       "speaker": "avatar",
       "as": "mini",
-      "text": "اگه یه علامت کم باشه، گیر می‌کنم — نه چون بداخلاقم، چون زبونم همینه."
+      "text": "اگه یه علامت کم باشه، گیر می‌کنم — نه چون بداخلاقم، چون زبونم همینه.",
+      "mediaKey": "python-01-intro/wrap-up/line-1",
+      "animation": "Talking",
+      "board": {
+        "title": "از زبان مینی",
+        "lines": ["علامت کم = قفل"]
+      }
     },
     {
       "speaker": "avatar",
       "as": "mini",
-      "text": "هرچی دقیق‌تر بنویسی، من راحت‌تر می‌فهمم."
+      "text": "هرچی دقیق‌تر بنویسی، من راحت‌تر می‌فهمم.",
+      "mediaKey": "python-01-intro/wrap-up/line-2",
+      "animation": "StandingGreeting",
+      "board": {
+        "title": "از زبان مینی",
+        "lines": ["دقت بیشتر → فهم بهتر"]
+      }
     }
   ],
   "productionNotes": [

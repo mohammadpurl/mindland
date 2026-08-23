@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-07-for-loop",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "وقتی می‌گی چندبار یه کارو تکرار کنم، دیگه لازم نیست هر بار دوباره بنویسیش.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-07-for-loop/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "شمارش من از صفر شروع می‌شه، نه از یک — یادت باشه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-07-for-loop/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "و می‌تونم شماره‌ی هر تکرار رو هم بهت بگم، اگه بخوای ازش استفاده کنی.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-07-for-loop/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

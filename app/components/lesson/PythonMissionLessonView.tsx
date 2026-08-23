@@ -54,7 +54,7 @@ function MissionClassroom({
   lang: string
   lesson: MissionLessonData
 }) {
-  const { speak } = useAvatarLessonSpeak()
+  const { speakStepLine } = useAvatarLessonSpeak()
   const [stepId, setStepId] = useState(lesson.steps[0]?.id ?? 'intro')
   const [bandFocus, setBandFocus] = useState<'A' | 'B'>('A')
   const [lineIndex, setLineIndex] = useState(0)
@@ -77,18 +77,28 @@ function MissionClassroom({
   const isWrapAsMini = stepId === 'wrap-up'
 
   const speakLine = useCallback(
+    (text: string, index: number) => {
+      setBubble(text)
+      setSpeaking(true)
+      speakStepLine(lesson.id, stepId, index, text, { animation: 'Talking', emotion: 'explaining' })
+      window.setTimeout(() => setSpeaking(false), Math.min(8000, 1200 + text.length * 45))
+    },
+    [speakStepLine, lesson.id, stepId]
+  )
+
+  const narrate = useCallback(
     (text: string) => {
       setBubble(text)
       setSpeaking(true)
-      speak(text, { animation: 'Talking', emotion: 'explaining' })
+      speakStepLine(lesson.id, stepId, -1, text, { animation: 'Talking', emotion: 'explaining' })
       window.setTimeout(() => setSpeaking(false), Math.min(8000, 1200 + text.length * 45))
     },
-    [speak]
+    [speakStepLine, lesson.id, stepId]
   )
 
   useEffect(() => {
     setLineIndex(0)
-    if (lines[0]) speakLine(lines[0])
+    if (lines[0]) speakLine(lines[0], 0)
     else setBubble('')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stepId, bandFocus])
@@ -104,7 +114,7 @@ function MissionClassroom({
     if (lineIndex + 1 < lines.length) {
       const next = lineIndex + 1
       setLineIndex(next)
-      speakLine(lines[next]!)
+      speakLine(lines[next]!, next)
       return
     }
     if (stepId === 'wrap-up') {
@@ -198,7 +208,7 @@ function MissionClassroom({
                 mission={step.stageMission || step.brief}
                 checklist={step.missionChecklist}
                 initialCode={step.starterCode ?? ''}
-                onNarrate={speakLine}
+                onNarrate={narrate}
               />
             ) : null}
 

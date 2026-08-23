@@ -4,7 +4,18 @@
   "lines": [
     {
       "speaker": "avatar",
-      "text": "مأموریت: یه جمله بنویس که مینی دقیقاً همونو بگه — بدون قفل کردن. خودت تایپ کن و اجرا کن."
+      "text": "مأموریت: یه جمله بنویس که مینی دقیقاً همونو بگه — بدون قفل کردن. خودت تایپ کن و اجرا کن.",
+      "mediaKey": "python-01-intro/guided-practice/line-0",
+      "animation": "Pointing",
+      "board": {
+        "title": "تمرین مأموریت",
+        "lines": ["یک print بنویس", "مینی همان را بگوید"],
+        "checklist": [
+          { "id": "typed", "label": "کد رو تایپ کردم" },
+          { "id": "ran", "label": "اجرا کردم" },
+          { "id": "said", "label": "مینی درست گفتش (بدون خطا)" }
+        ]
+      }
     }
   ],
   "missionChecklist": [

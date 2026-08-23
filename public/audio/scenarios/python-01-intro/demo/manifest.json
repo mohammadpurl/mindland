@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-01-intro",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "دو اجرا می‌بینیم. جمله‌ تقریباً یکیه — فقط تو دومی یه علامت کم می‌ذاریم. خودت ببین.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-01-intro/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-01-intro/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-good",
+      "source": "avatar",
+      "text": "این شد.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-01-intro/demo/line-01-after-good.mp3",
+      "lipsync": "/audio/scenarios/python-01-intro/demo/line-01-after-good.lipsync.json"
+    },
+    {
+      "id": "line-02-after-bad",
+      "source": "avatar",
+      "text": "جمله‌ی ما تقریباً همون بود. فقط یه علامت کم داشت. برای مینی، تقریباً یعنی نه.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-01-intro/demo/line-02-after-bad.mp3",
+      "lipsync": "/audio/scenarios/python-01-intro/demo/line-02-after-bad.lipsync.json"
+    }
+  ]
+}

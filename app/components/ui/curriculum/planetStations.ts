@@ -26,6 +26,16 @@ export interface PlanetStation {
   planetTo: string
   accent: string
   emoji: string
+  /** برچسب سطح — مقدماتی/پایه/میانی/پیشرفته (برای کارت کهکشانی) */
+  level?: string
+  /** تعداد درس‌های این ایستگاه */
+  lessonsCount?: number
+  /** امتیاز XP نمادین این ایستگاه */
+  xp?: number
+  /** رنگ هالهٔ نورانی دور سیاره (rgba) */
+  glow?: string
+  /** رنگ حلقهٔ زحل‌مانند دور سیاره (rgba) */
+  ring?: string
 }
 
 export const CATEGORY_COLORS: Record<PlanetCategory, string> = {
@@ -46,18 +56,40 @@ export const CATEGORY_LABELS: Record<PlanetCategory, string> = {
   ai: 'هوش مصنوعی',
 }
 
-export const FLIGHT_PATH_D =
-  'M 200 60 ' +
-  'C 300 140, 330 240, 260 340 ' +
-  'C 170 470, 70 540, 110 700 ' +
-  'C 150 860, 310 920, 300 1080 ' +
-  'C 290 1240, 120 1310, 130 1470 ' +
-  'C 145 1650, 300 1720, 280 1880 ' +
-  'C 255 2060, 100 2140, 140 2300 ' +
-  'C 185 2480, 300 2560, 200 2860'
+/** طول مسیر پرواز/فاصله عمودی بین دو ایستگاه — بر اساس همین عدد طول مسیر متناسب با تعداد ایستگاه‌ها می‌شود */
+const STATION_STEP = 300
+const PATH_TOP_PAD = 70
+const PATH_BOTTOM_PAD = 90
 
 export const VIEW_W = 400
-export const VIEW_H = 3000
+
+/**
+ * مسیر پرواز مارپیچ را متناسب با تعداد ایستگاه‌ها می‌سازد — نه یک مسیر
+ * ثابت با طول یکسان برای هر مدرسه، صرف‌نظر از اینکه ۳ ایستگاه دارد یا ۱۰ تا.
+ * همان حس مارپیچ/فرود بین سیاره‌ها حفظ می‌شود، فقط طول اسکرول با محتوا هم‌راستا است.
+ */
+export function buildFlightPath(stationCount: number): { d: string; viewH: number } {
+  const segments = Math.max(1, stationCount - 1)
+  const viewH = PATH_TOP_PAD + STATION_STEP * segments + PATH_BOTTOM_PAD
+  const cx = VIEW_W / 2
+  const amp = 92
+  let d = `M ${cx} ${PATH_TOP_PAD}`
+  let prevX = cx
+  for (let i = 0; i < segments; i++) {
+    const y0 = PATH_TOP_PAD + STATION_STEP * i
+    const y1 = PATH_TOP_PAD + STATION_STEP * (i + 1)
+    const dir = i % 2 === 0 ? 1 : -1
+    const nextDir = i % 2 === 0 ? -1 : 1
+    const x1 = cx + dir * amp
+    const cy0 = y0 + STATION_STEP * 0.42
+    const cy1 = y1 - STATION_STEP * 0.42
+    /** کنترل‌پوینت اول کمی به‌سمت جهت بعدی خم می‌شود تا مسیر نرم/موج‌دار بماند، نه زاویه‌دار */
+    const cx0 = prevX + nextDir * amp * 0.15
+    d += ` C ${cx0} ${cy0}, ${x1} ${cy1}, ${x1} ${y1}`
+    prevX = x1
+  }
+  return { d, viewH }
+}
 
 export function buildDefaultPlanetStations(lang: string): PlanetStation[] {
   const base = `/${lang}/curriculum`

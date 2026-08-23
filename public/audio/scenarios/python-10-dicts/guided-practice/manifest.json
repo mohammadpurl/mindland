@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-10-dicts",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: یه کارت بازیکن با حداقل ۳ فیلد بساز، با کلید هر کدوم رو بخون و چاپ کن.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-10-dicts/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-10-dicts/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

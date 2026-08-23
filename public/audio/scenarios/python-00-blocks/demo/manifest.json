@@ -1,0 +1,62 @@
+{
+  "lessonId": "python-00-blocks",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "دو اجرا می‌بینیم. بلوک‌ها یکی‌ان — فقط ترتیب فرق داره. خودت ببین.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-00-blocks/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-good",
+      "source": "avatar",
+      "text": "این شد.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-00-blocks/demo/line-01-after-good.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/demo/line-01-after-good.lipsync.json"
+    },
+    {
+      "id": "line-02-after-bad",
+      "source": "avatar",
+      "text": "هر دو بار بلوک‌های یکسان بودن. فقط ترتیبشون فرق داشت. مینی هیچ اشتباهی نکرد — دقیقاً همونی که گفتیم رو انجام داد.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-00-blocks/demo/line-02-after-bad.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/demo/line-02-after-bad.lipsync.json"
+    },
+    {
+      "id": "line-03-edge-setup",
+      "source": "avatar",
+      "text": "حالا بدون قانون، مینی رو مستقیم می‌فرستم سمت لبه. ببین چی می‌شه.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-00-blocks/demo/line-03-edge-setup.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/demo/line-03-edge-setup.lipsync.json"
+    },
+    {
+      "id": "line-04-edge-fixed",
+      "source": "avatar",
+      "text": "با قانون «اگر به لبه رسید، برگرد» همون مسیر خراب نمی‌شه.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-00-blocks/demo/line-04-edge-fixed.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/demo/line-04-edge-fixed.lipsync.json"
+    },
+    {
+      "id": "line-05-repeat-verbose",
+      "source": "avatar",
+      "text": "حالا یه رقص دو دور: بچرخ، سلام، بچرخ، سلام. با چهار بلوک جدا. کار می‌کنه — ولی شلوغه.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-00-blocks/demo/line-05-repeat-verbose.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/demo/line-05-repeat-verbose.lipsync.json"
+    },
+    {
+      "id": "line-06-repeat-clean",
+      "source": "avatar",
+      "text": "همون نمایش. فقط این‌بار یک‌بار می‌گیم چیکار کن، و می‌گیم دو بار تکرار کن. تمیزتره.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-00-blocks/demo/line-06-repeat-clean.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/demo/line-06-repeat-clean.lipsync.json"
+    }
+  ]
+}

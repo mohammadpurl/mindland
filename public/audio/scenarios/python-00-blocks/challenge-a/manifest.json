@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-00-blocks",
+  "stepId": "challenge-a",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "کارت مأموریت آماده‌ست. یک خط — خودت بساز.",
+      "dialogueFile": "dialogue/challenge-a.json",
+      "audio": "/audio/scenarios/python-00-blocks/challenge-a/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/challenge-a/line-00.lipsync.json"
+    }
+  ]
+}

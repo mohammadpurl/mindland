@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-09-lists",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "با in بگرد و بعد یه عضو رو با [شماره] عوض کن — یادت باشه از صفر می‌شماریم.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-09-lists/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-09-lists/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

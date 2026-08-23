@@ -1,0 +1,22 @@
+{
+  "lessonId": "python-02-print-strings",
+  "stepId": "intro",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تو درس قبل مینی یه جمله گفت. امروز می‌خوایم چند جمله پشت سر هم بگه — مثل خوندن یه کارت تبریک.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-02-print-strings/intro/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-02-print-strings/intro/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "هر خط یه جمله داره، و هر جمله بین دو تا نگهبان جفت قفل می‌شه — یا دو تا دبل‌کوت، یا دو تا سینگل‌کوت. اگه نگهبان‌ها جفت نباشن، مینی وسط همون خط گیر می‌کنه.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-02-print-strings/intro/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-02-print-strings/intro/line-01.lipsync.json"
+    }
+  ]
+}

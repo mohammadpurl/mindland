@@ -1,0 +1,568 @@
+{
+  "generatedAt": "2026-08-23T08:19:25Z",
+  "lessons": [
+    "python-00-blocks",
+    "python-01-intro",
+    "python-02-print-strings",
+    "python-03-variables",
+    "python-04-numbers",
+    "python-05-input",
+    "python-06-conditions",
+    "python-07-for-loop",
+    "python-08-while-loop",
+    "python-09-lists",
+    "python-10-dicts",
+    "python-11-functions",
+    "python-12-mini-project",
+    "python-13-turtle",
+    "python-14-capstone"
+  ],
+  "steps": [
+    {
+      "lessonId": "python-00-blocks",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-00-blocks/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-00-blocks",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-00-blocks/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-00-blocks",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-00-blocks/demo/manifest.json",
+      "itemCount": 7
+    },
+    {
+      "lessonId": "python-00-blocks",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-00-blocks/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-00-blocks",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-00-blocks/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-00-blocks",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-00-blocks/wrap-up/manifest.json",
+      "itemCount": 4
+    },
+    {
+      "lessonId": "python-01-intro",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-01-intro/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-01-intro",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-01-intro/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-01-intro",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-01-intro/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-01-intro",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-01-intro/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-01-intro",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-01-intro/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-01-intro",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-01-intro/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-02-print-strings",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-02-print-strings/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-02-print-strings",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-02-print-strings/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-02-print-strings",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-02-print-strings/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-02-print-strings",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-02-print-strings/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-02-print-strings",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-02-print-strings/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-02-print-strings",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-02-print-strings/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-03-variables",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-03-variables/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-03-variables",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-03-variables/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-03-variables",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-03-variables/demo/manifest.json",
+      "itemCount": 4
+    },
+    {
+      "lessonId": "python-03-variables",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-03-variables/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-03-variables",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-03-variables/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-03-variables",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-03-variables/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-04-numbers",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-04-numbers/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-04-numbers",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-04-numbers/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-04-numbers",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-04-numbers/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-04-numbers",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-04-numbers/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-04-numbers",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-04-numbers/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-04-numbers",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-04-numbers/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-05-input",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-05-input/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-05-input",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-05-input/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-05-input",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-05-input/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-05-input",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-05-input/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-05-input",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-05-input/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-05-input",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-05-input/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-06-conditions",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-06-conditions/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-06-conditions",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-06-conditions/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-06-conditions",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-06-conditions/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-06-conditions",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-06-conditions/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-06-conditions",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-06-conditions/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-06-conditions",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-06-conditions/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-07-for-loop",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-07-for-loop/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-07-for-loop",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-07-for-loop/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-07-for-loop",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-07-for-loop/demo/manifest.json",
+      "itemCount": 4
+    },
+    {
+      "lessonId": "python-07-for-loop",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-07-for-loop/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-07-for-loop",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-07-for-loop/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-07-for-loop",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-07-for-loop/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-08-while-loop",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-08-while-loop/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-08-while-loop",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-08-while-loop/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-08-while-loop",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-08-while-loop/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-08-while-loop",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-08-while-loop/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-08-while-loop",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-08-while-loop/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-08-while-loop",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-08-while-loop/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-09-lists",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-09-lists/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-09-lists",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-09-lists/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-09-lists",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-09-lists/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-09-lists",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-09-lists/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-09-lists",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-09-lists/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-09-lists",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-09-lists/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-10-dicts",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-10-dicts/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-10-dicts",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-10-dicts/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-10-dicts",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-10-dicts/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-10-dicts",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-10-dicts/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-10-dicts",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-10-dicts/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-10-dicts",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-10-dicts/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-11-functions",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-11-functions/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-11-functions",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-11-functions/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-11-functions",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-11-functions/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-11-functions",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-11-functions/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-11-functions",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-11-functions/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-11-functions",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-11-functions/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-12-mini-project",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-12-mini-project/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-12-mini-project",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-12-mini-project/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-12-mini-project",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-12-mini-project/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-12-mini-project",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-12-mini-project/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-12-mini-project",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-12-mini-project/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-12-mini-project",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-12-mini-project/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-13-turtle",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-13-turtle/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-13-turtle",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-13-turtle/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-13-turtle",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-13-turtle/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-13-turtle",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-13-turtle/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-13-turtle",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-13-turtle/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-13-turtle",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-13-turtle/wrap-up/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-14-capstone",
+      "stepId": "challenge-a",
+      "manifest": "/audio/scenarios/python-14-capstone/challenge-a/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-14-capstone",
+      "stepId": "challenge-b",
+      "manifest": "/audio/scenarios/python-14-capstone/challenge-b/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-14-capstone",
+      "stepId": "demo",
+      "manifest": "/audio/scenarios/python-14-capstone/demo/manifest.json",
+      "itemCount": 3
+    },
+    {
+      "lessonId": "python-14-capstone",
+      "stepId": "guided-practice",
+      "manifest": "/audio/scenarios/python-14-capstone/guided-practice/manifest.json",
+      "itemCount": 1
+    },
+    {
+      "lessonId": "python-14-capstone",
+      "stepId": "intro",
+      "manifest": "/audio/scenarios/python-14-capstone/intro/manifest.json",
+      "itemCount": 2
+    },
+    {
+      "lessonId": "python-14-capstone",
+      "stepId": "wrap-up",
+      "manifest": "/audio/scenarios/python-14-capstone/wrap-up/manifest.json",
+      "itemCount": 3
+    }
+  ],
+  "stats": {
+    "total": 172,
+    "generated": 12,
+    "skipped": 160,
+    "failed": 0
+  }
+}

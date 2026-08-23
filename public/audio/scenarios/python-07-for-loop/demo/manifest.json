@@ -1,0 +1,38 @@
+{
+  "lessonId": "python-07-for-loop",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول بدون حلقه — عمداً خسته‌کننده. بعد با حلقه. بعد فقط یه عدد رو عوض می‌کنیم.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-07-for-loop/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-manual",
+      "source": "avatar",
+      "text": "بازم بنویسم... بازم... حالا اگه بخوام این‌کارو ۵۰ بار بکنم چی؟ باید ۵۰ خط بنویسم؟",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-07-for-loop/demo/line-01-after-manual.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/demo/line-01-after-manual.lipsync.json"
+    },
+    {
+      "id": "line-02-after-loop",
+      "source": "avatar",
+      "text": "همون ۵ ستاره، ولی با دو خط کد.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-07-for-loop/demo/line-02-after-loop.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/demo/line-02-after-loop.lipsync.json"
+    },
+    {
+      "id": "line-03-after-fifty",
+      "source": "avatar",
+      "text": "دیدی؟ با تغییر یه عدد، از ۵ تا رسیدیم به ۵۰ تا، بدون این‌که ۵۰ خط بنویسیم. این قدرت حلقه‌ست.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-07-for-loop/demo/line-03-after-fifty.mp3",
+      "lipsync": "/audio/scenarios/python-07-for-loop/demo/line-03-after-fifty.lipsync.json"
+    }
+  ]
+}

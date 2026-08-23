@@ -14,11 +14,10 @@ import {
 import { Lock, Rocket, Sparkles, CloudSun } from 'lucide-react'
 import {
   buildDefaultPlanetStations,
+  buildFlightPath,
   CATEGORY_COLORS,
   CATEGORY_LABELS,
-  FLIGHT_PATH_D,
   sampleFlightPath,
-  VIEW_H,
   VIEW_W,
   type PlanetCategory,
   type PlanetStation,
@@ -128,15 +127,20 @@ function AtmosphereLayers() {
 
 function SkyAndSpaceSvg({
   pathRef,
+  pathD,
+  viewH,
   ship,
   starOpacity,
   cloudOpacity,
 }: {
   pathRef: React.RefObject<SVGPathElement | null>
+  pathD: string
+  viewH: number
   ship: PathPoint
   starOpacity: number
   cloudOpacity: number
 }) {
+  const skyZoneH = Math.min(900, viewH * 0.55)
   const stars = useMemo(() => {
     const out: { x: number; y: number; r: number; o: number }[] = []
     let s = 4242
@@ -148,17 +152,17 @@ function SkyAndSpaceSvg({
       out.push({
         x: rnd() * VIEW_W,
         /** ستاره‌ها بیشتر در نیمهٔ پایینی (فضا) */
-        y: 900 + rnd() * (VIEW_H - 900),
+        y: skyZoneH + rnd() * Math.max(1, viewH - skyZoneH),
         r: 0.5 + rnd() * 1.8,
         o: 0.35 + rnd() * 0.65,
       })
     }
     return out
-  }, [])
+  }, [skyZoneH, viewH])
 
   return (
     <svg
-      viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+      viewBox={`0 0 ${VIEW_W} ${viewH}`}
       className="pointer-events-none absolute inset-0 h-full w-full"
       role="img"
       aria-label="پرواز از آسمان آبی تا فضا"
@@ -202,7 +206,7 @@ function SkyAndSpaceSvg({
 
       {/* رد پرواز */}
       <path
-        d={FLIGHT_PATH_D}
+        d={pathD}
         fill="none"
         stroke="url(#trail-ascent)"
         strokeWidth={16}
@@ -211,7 +215,7 @@ function SkyAndSpaceSvg({
       />
       <path
         ref={pathRef}
-        d={FLIGHT_PATH_D}
+        d={pathD}
         fill="none"
         stroke="#FFFFFF"
         strokeWidth={3.5}
@@ -235,6 +239,7 @@ function PlanetCardLight({
   reducedMotion,
   side,
   depthTilt,
+  viewH,
 }: {
   station: PlanetStation
   x: number
@@ -244,6 +249,7 @@ function PlanetCardLight({
   side: 'left' | 'right'
   /** حس عمق ساده بدون WebGL */
   depthTilt: number
+  viewH: number
 }) {
   const locked = Boolean(station.locked)
   const catColor = CATEGORY_COLORS[station.category]
@@ -261,11 +267,11 @@ function PlanetCardLight({
         reducedMotion ? { duration: 0 } : { type: 'spring', stiffness: 280, damping: 22 }
       }
       className={[
-        'absolute w-[10rem] sm:w-[11.5rem] md:w-[14rem] -translate-x-1/2 -translate-y-1/2',
+        'absolute w-[13.5rem] sm:w-[15rem] md:w-[17rem] -translate-x-1/2 -translate-y-1/2',
         locked ? 'cursor-not-allowed' : 'cursor-pointer',
       ].join(' ')}
       style={{
-        left: side === 'left' ? '-4.75rem' : '4.75rem',
+        left: side === 'left' ? '-6.25rem' : '6.25rem',
         top: 0,
         transformStyle: 'preserve-3d',
         perspective: 800,
@@ -273,7 +279,7 @@ function PlanetCardLight({
     >
       <div
         className={[
-          'relative rounded-2xl border-2 p-3 shadow-lg md:p-3.5',
+          'relative rounded-2xl border-2 p-4 shadow-lg md:p-5',
           inSpaceZone
             ? active
               ? 'border-sky-200/80 bg-white/95'
@@ -290,7 +296,7 @@ function PlanetCardLight({
       >
         <div className="mb-2 flex items-start gap-2.5">
           <span
-            className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl md:h-14 md:w-14 md:text-2xl"
+            className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-2xl md:h-16 md:w-16 md:text-3xl"
             style={{
               background: `radial-gradient(circle at 32% 28%, #fff 0%, ${station.accent} 28%, ${station.planetFrom} 58%, ${station.planetTo})`,
               boxShadow: `inset -5px -3px 10px rgba(0,0,0,0.18), 0 0 0 3px ${station.accent}`,
@@ -305,25 +311,25 @@ function PlanetCardLight({
             ) : null}
           </span>
           <div className="min-w-0 flex-1 pt-0.5">
-            <p className="text-[9px] font-bold md:text-[10px]" style={{ color: catColor }}>
+            <p className="text-[11px] font-bold md:text-xs" style={{ color: catColor }}>
               {CATEGORY_LABELS[station.category]}
               {locked ? ' · به‌زودی' : ''}
             </p>
-            <h3 className="text-[11px] font-extrabold leading-snug text-slate-800 md:text-sm">
+            <h3 className="text-sm font-extrabold leading-snug text-slate-800 md:text-base">
               {station.label}
             </h3>
           </div>
         </div>
 
-        <p className="text-[10px] leading-5 text-slate-600 md:text-[11px] md:leading-5">
+        <p className="text-xs leading-6 text-slate-600 md:text-[13px] md:leading-6">
           {station.learn}
         </p>
 
-        <ul className="mt-2 flex flex-wrap gap-1">
+        <ul className="mt-2.5 flex flex-wrap gap-1.5">
           {station.highlights.map((h) => (
             <li
               key={h}
-              className="rounded-full px-1.5 py-0.5 text-[8px] font-bold text-slate-800 md:text-[9px]"
+              className="rounded-full px-2 py-0.5 text-[10px] font-bold text-slate-800 md:text-[11px]"
               style={{ backgroundColor: station.accent }}
             >
               {h}
@@ -332,12 +338,12 @@ function PlanetCardLight({
         </ul>
 
         {station.prerequisites && station.prerequisites.length > 0 ? (
-          <div className="mt-2 space-y-1 border-t border-slate-100 pt-2">
-            <p className="text-[8px] font-bold text-slate-500 md:text-[9px]">پیش‌نیاز (ارجاع):</p>
+          <div className="mt-2.5 space-y-1 border-t border-slate-100 pt-2">
+            <p className="text-[10px] font-bold text-slate-500 md:text-[11px]">پیش‌نیاز (ارجاع):</p>
             <ul className="flex flex-wrap gap-1">
               {station.prerequisites.map((p) => (
                 <li key={p.href}>
-                  <span className="inline-block rounded-md bg-sky-50 px-1.5 py-0.5 text-[8px] font-bold text-sky-800 md:text-[9px]">
+                  <span className="inline-block rounded-md bg-sky-50 px-2 py-0.5 text-[10px] font-bold text-sky-800 md:text-[11px]">
                     {p.label}
                   </span>
                 </li>
@@ -347,12 +353,12 @@ function PlanetCardLight({
         ) : null}
 
         {!locked ? (
-          <p className="mt-2 flex items-center gap-1 text-[9px] font-bold text-sky-700 md:text-[10px]">
-            <Sparkles className="h-3 w-3" aria-hidden />
+          <p className="mt-2.5 flex items-center gap-1.5 text-[11px] font-bold text-sky-700 md:text-xs">
+            <Sparkles className="h-3.5 w-3.5" aria-hidden />
             {station.kind === 'prerequisite' ? 'برو به درس پیش‌نیاز' : 'بزن بریم این ایستگاه!'}
           </p>
         ) : (
-          <p className="mt-2 text-[9px] font-bold text-slate-400 md:text-[10px]">به‌زودی باز می‌شود</p>
+          <p className="mt-2.5 text-[11px] font-bold text-slate-400 md:text-xs">به‌زودی باز می‌شود</p>
         )}
       </div>
     </motion.div>
@@ -361,7 +367,7 @@ function PlanetCardLight({
   const wrapStyle: CSSProperties = {
     position: 'absolute',
     left: `${(x / VIEW_W) * 100}%`,
-    top: `${(y / VIEW_H) * 100}%`,
+    top: `${(y / viewH) * 100}%`,
     zIndex: active ? 30 : 10,
     perspective: '900px',
   }
@@ -397,6 +403,7 @@ function PlanetWithProgressLight({
   reducedMotion,
   side,
   inView,
+  viewH,
 }: {
   station: PlanetStation
   x: number
@@ -405,6 +412,7 @@ function PlanetWithProgressLight({
   reducedMotion: boolean
   side: 'left' | 'right'
   inView: boolean
+  viewH: number
 }) {
   const [active, setActive] = useState(() => progress.get() >= station.t)
 
@@ -422,6 +430,7 @@ function PlanetWithProgressLight({
       reducedMotion={reducedMotion}
       side={side}
       depthTilt={active ? 8 : 4}
+      viewH={viewH}
     />
   )
 }
@@ -451,6 +460,7 @@ export function ScrollRoadmapLight({
     () => stationsProp ?? buildDefaultPlanetStations(lang),
     [stationsProp, lang]
   )
+  const { d: pathD, viewH } = useMemo(() => buildFlightPath(stations.length), [stations.length])
   const reducedMotion = useReducedMotion() ?? false
   const sectionRef = useRef<HTMLElement>(null)
   const pathRef = useRef<SVGPathElement>(null)
@@ -558,21 +568,13 @@ export function ScrollRoadmapLight({
         {pageHeader ? <div className="mx-auto max-w-5xl px-4 pt-6 md:pt-8">{pageHeader}</div> : null}
 
         <div className="mx-auto mb-4 max-w-3xl px-4 text-center md:mb-8">
-          <p className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-white/70 px-3 py-1 text-xs font-bold text-sky-900 shadow-sm backdrop-blur md:text-sm">
-            <CloudSun className="h-3.5 w-3.5" aria-hidden />
-            تم روشن · از آسمان تا فضا
-          </p>
           <h2
             id="space-journey-light-heading"
-            className="text-2xl font-extrabold tracking-tight text-slate-900 md:text-3xl"
+            className="inline-flex items-center gap-2 text-xl font-extrabold tracking-tight text-slate-900 md:text-2xl"
           >
+            <CloudSun className="h-5 w-5 text-sky-500" aria-hidden />
             {title}
           </h2>
-          {subtitle ? (
-            <p className="mx-auto mt-2 max-w-xl text-sm leading-7 text-slate-700 md:text-base">
-              {subtitle}
-            </p>
-          ) : null}
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-[11px] font-bold md:gap-3 md:text-xs">
             {(Object.keys(CATEGORY_LABELS) as PlanetCategory[]).map((key) => (
@@ -602,12 +604,14 @@ export function ScrollRoadmapLight({
           <div
             className="relative w-full"
             style={{
-              aspectRatio: `${VIEW_W} / ${VIEW_H}`,
-              minHeight: 'min(3200px, 380vw)',
+              aspectRatio: `${VIEW_W} / ${viewH}`,
+              minHeight: 'min(70vh, 560px)',
             }}
           >
             <SkyAndSpaceSvg
               pathRef={pathRef}
+              pathD={pathD}
+              viewH={viewH}
               ship={ship}
               starOpacity={starOpacity}
               cloudOpacity={cloudOpacity}
@@ -627,6 +631,7 @@ export function ScrollRoadmapLight({
                     reducedMotion={reducedMotion}
                     side={i % 2 === 0 ? 'left' : 'right'}
                     inView={inView}
+                    viewH={viewH}
                   />
                 )
               })}

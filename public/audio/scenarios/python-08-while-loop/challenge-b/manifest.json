@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-08-while-loop",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "یه شمارنده بذار که هر بار حدس زدی یکی بره بالا، و آخرش بگو با چند تلاش بردی.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-08-while-loop/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-08-while-loop/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

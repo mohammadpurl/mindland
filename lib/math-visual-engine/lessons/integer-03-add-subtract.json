@@ -1,0 +1,114 @@
+{
+  "id": "integer-03-add-subtract",
+  "subjectId": "math",
+  "topicId": "integers",
+  "order": 3,
+  "level": 3,
+  "title": "درس ۳ — جمع و تفریق روی خط اعداد",
+  "description": "جمع یعنی پرش به راست، تفریق یعنی پرش به چپ",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز یاد می‌گیریم جمع و تفریق روی خط اعداد یعنی پریدن به راست یا چپ.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "add-is-right",
+      "title": "جمع = پرش به راست",
+      "speak": "یک به‌علاوه‌ی چهار یعنی: از یک شروع کن و چهار تا به راست بپر. کجا می‌رسی؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "۱ + ۴",
+          "min": -6,
+          "max": 6,
+          "jump": { "from": 1, "to": 5, "label": "+۴" }
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "subtract-is-left",
+      "title": "تفریق = پرش به چپ",
+      "speak": "دو منهای پنج یعنی: از دو شروع کن و پنج تا به چپ بپر. می‌رسی به منفی سه!",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "۲ − ۵",
+          "min": -6,
+          "max": 6,
+          "jump": { "from": 2, "to": -3, "label": "−۵" }
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-add",
+      "title": "تمرین ۱ — منفی دو به‌علاوه‌ی سه",
+      "speak": "از منفی دو شروع کن و سه تا به راست بپر. نشانگر را بکش تا جواب را پیدا کنی.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "−۲ + ۳ = ؟",
+          "min": -6,
+          "max": 6,
+          "startValue": -2,
+          "target": 1
+        }
+      },
+      "successMessage": "درسته! منفی دو به‌علاوه‌ی سه می‌شود یک.",
+      "wrongMessage": "از منفی دو، سه قدم به راست بشمار."
+    },
+    {
+      "type": "practice",
+      "id": "practice-subtract",
+      "title": "تمرین ۲ — سه منهای پنج",
+      "speak": "این‌بار از سه شروع کن و پنج تا به چپ بپر.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "۳ − ۵ = ؟",
+          "min": -6,
+          "max": 6,
+          "startValue": 3,
+          "target": -2
+        }
+      },
+      "successMessage": "آفرین! سه منهای پنج می‌شود منفی دو.",
+      "wrongMessage": "از سه، پنج قدم به چپ بشمار — از صفر هم رد می‌شوی."
+    },
+    {
+      "type": "practice",
+      "id": "practice-mixed",
+      "title": "تمرین ۳ — منفی سه به‌علاوه‌ی هفت",
+      "speak": "یک چالش دیگر: از منفی سه شروع کن و هفت تا به راست بپر.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "−۳ + ۷ = ؟",
+          "min": -6,
+          "max": 6,
+          "startValue": -3,
+          "target": 4
+        }
+      },
+      "successMessage": "عالی بود! منفی سه به‌علاوه‌ی هفت می‌شود چهار.",
+      "wrongMessage": "از منفی سه، هفت قدم به راست بشمار."
+    }
+  ]
+}

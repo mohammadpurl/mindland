@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-12-mini-project",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "یه ماشین‌حساب کوچک — منو، دو تابع، حلقه و input.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-12-mini-project/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-12-mini-project/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-menu",
+      "source": "avatar",
+      "text": "کاربر انتخاب می‌کنه — جمع یا تفریق.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-12-mini-project/demo/line-01-after-menu.mp3",
+      "lipsync": "/audio/scenarios/python-12-mini-project/demo/line-01-after-menu.lipsync.json"
+    },
+    {
+      "id": "line-02-after-loop",
+      "source": "avatar",
+      "text": "تا وقتی خروج نزنه، برنامه ادامه داره.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-12-mini-project/demo/line-02-after-loop.mp3",
+      "lipsync": "/audio/scenarios/python-12-mini-project/demo/line-02-after-loop.lipsync.json"
+    }
+  ]
+}

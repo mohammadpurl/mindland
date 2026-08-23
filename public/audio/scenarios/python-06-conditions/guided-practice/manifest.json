@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-06-conditions",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: یه آزمون تک‌سؤالی بساز — مثلاً «پایتخت ایران کجاست؟» — با if جواب درست رو چک کن و با else بگو «دوباره تلاش کن!».",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-06-conditions/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-06-conditions/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

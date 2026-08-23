@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-04-numbers",
+  "stepId": "guided-practice",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "مأموریت: با اعداد واقعی (بدون گیومه) پول توجیبی این هفته رو حساب کن — مثلاً print(2000 + 1500) — و نتیجه‌ش رو ببین. بعد یه تفریق یا ضرب هم اضافه کن.",
+      "dialogueFile": "dialogue/guided-practice.json",
+      "audio": "/audio/scenarios/python-04-numbers/guided-practice/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/guided-practice/line-00.lipsync.json"
+    }
+  ]
+}

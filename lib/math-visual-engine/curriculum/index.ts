@@ -16,6 +16,9 @@ import fraction10 from '../lessons/fraction-10-textbook-compare.json'
 import fraction11 from '../lessons/fraction-11-textbook-multiply.json'
 import geometry01 from '../lessons/geometry-01-area-friends.json'
 import fractionCircleIntro from '../lessons/fraction-circle-intro.json'
+import integer01 from '../lessons/integer-01-number-line-intro.json'
+import integer02 from '../lessons/integer-02-compare.json'
+import integer03 from '../lessons/integer-03-add-subtract.json'
 
 const CURRICULUM = curriculumData as Curriculum
 
@@ -35,6 +38,9 @@ const LESSON_RAW: Record<string, OrchestratorLessonInput> = {
   [fraction11.id]: fraction11 as OrchestratorLessonInput,
   [geometry01.id]: geometry01 as OrchestratorLessonInput,
   [fractionCircleIntro.id]: fractionCircleIntro as OrchestratorLessonInput,
+  [integer01.id]: integer01 as OrchestratorLessonInput,
+  [integer02.id]: integer02 as OrchestratorLessonInput,
+  [integer03.id]: integer03 as OrchestratorLessonInput,
 }
 
 function resolveLesson(raw: OrchestratorLessonInput): OrchestratorLesson {

@@ -965,6 +965,31 @@ export const Avatar = React.forwardRef((props, ref) => {
     }
   }, [isProcessing, isAvatarTalking, setAnimation, showQRCode]);
 
+  // Start with Idle animation on mount (only once) — این افکت باید پیش از افکت
+  // «Audio and lipsync logic» اجرا شود (ترتیب useEffect برابر با ترتیب اعلان است)
+  // تا currentAnimationRef پیش از آنکه پیام اول Talking را ست کند، روی Idle قرار بگیرد؛
+  // در غیر این صورت اولین گفته مستقیم از حالت خام مدل به Talking می‌پرد و کراس‌فید Idle
+  // هرگز دیده نمی‌شود.
+  useEffect(() => {
+    // Check if animations are loaded and initial Idle hasn't been set yet
+    if (animations && animations.actions && animations.actions['Idle'] && !hasStartedInitialIdleRef.current && currentAnimationRef.current === null) {
+      hasStartedInitialIdleRef.current = true;
+      // Temporarily disable lock to allow initial Idle
+      pointingAnimationLockRef.current = false;
+      console.log("Avatar: Setting initial Idle animation");
+      // Call setAnimation directly with bypass
+      const action = animations.actions['Idle'];
+      if (action) {
+        action.reset();
+        action.setLoop(THREE.LoopRepeat, Infinity);
+        action.timeScale = 1;
+        action.fadeIn(0.3).play();
+        currentAnimationRef.current = 'Idle';
+        console.log("Avatar: Initial Idle animation started");
+      }
+    }
+  }, [animations.actions]);
+
   // Audio and lipsync logic
   useEffect(() => {
     const messageId = lastAvatarMessage?.id;
@@ -986,7 +1011,13 @@ export const Avatar = React.forwardRef((props, ref) => {
       applyFacialExpression(lastAvatarMessage.facialExpression);
     }
 
+    // idempotent — ممکن است هم از رویداد طبیعی پایان (onended/onerror) و هم به‌عنوان
+    // safety-net در cleanup (وقتی پخش شروع شده بود ولی قطع شد) صدا زده شود؛ بدون این
+    // محافظت، صدا زدن دوباره یعنی onMessagePlayed دوبار اجرا شود.
+    let speechEnded = false;
     const endSpeech = () => {
+      if (speechEnded) return;
+      speechEnded = true;
       speechActiveRef.current = false;
       setIsAvatarTalking(false);
       setLipsync(undefined);
@@ -999,31 +1030,17 @@ export const Avatar = React.forwardRef((props, ref) => {
       }
     };
 
-    if (lastAvatarMessage.audio) {
+    // بازگرداندن {cleanup, hasStarted} تا cleanup فقط وقتی که صدا واقعاً هرگز شروع نشده
+    // اجازهٔ تلاش دوباره برای همین messageId را بدهد (مثلاً React StrictMode) — نه هر بار
+    // که این افکت به دلایل نامرتبط (مثلاً رفرنس ناپایدار setIsAvatarTalking) دوباره اجرا می‌شود،
+    // چون آن حالت باید صدای در حال پخش را متوقف کند نه از اول پخش کند.
+    const speakWithBrowserTts = (text) => {
+      if (typeof window === "undefined" || !window.speechSynthesis || !text) {
+        endSpeech();
+        return { cleanup: () => {}, hasStarted: () => false };
+      }
       speechActiveRef.current = true;
-      const audioEl = new Audio("data:audio/mp3;base64," + lastAvatarMessage.audio);
-      setIsAvatarTalking(true);
-
-      const playAudio = async () => {
-        try {
-          await audioEl.play();
-          setAudio(audioEl);
-        } catch (error) {
-          console.warn("Audio play failed:", error);
-          endSpeech();
-        }
-      };
-
-      playAudio();
-      audioEl.onended = endSpeech;
-      return () => {
-        audioEl.pause();
-        audioEl.onended = null;
-      };
-    }
-
-    if (lastAvatarMessage.useBrowserTts && lastAvatarMessage.text && typeof window !== "undefined" && window.speechSynthesis) {
-      speechActiveRef.current = true;
+      let started = false;
       const startTime = performance.now();
       const fakeAudio = {
         get currentTime() {
@@ -1033,13 +1050,14 @@ export const Avatar = React.forwardRef((props, ref) => {
 
       const speak = () => {
         window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(lastAvatarMessage.text);
+        const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = "fa-IR";
         const voices = window.speechSynthesis.getVoices();
         const faVoice = voices.find((v) => v.lang.startsWith("fa"));
         if (faVoice) utterance.voice = faVoice;
 
         utterance.onstart = () => {
+          started = true;
           setIsAvatarTalking(true);
           setAudio(fakeAudio);
         };
@@ -1058,12 +1076,70 @@ export const Avatar = React.forwardRef((props, ref) => {
         speak();
       }
 
+      return {
+        cleanup: () => {
+          window.speechSynthesis.cancel();
+          speechActiveRef.current = false;
+        },
+        hasStarted: () => started,
+      };
+    };
+
+    if (lastAvatarMessage.audio || lastAvatarMessage.audioUrl) {
+      speechActiveRef.current = true;
+      const audioSrc = lastAvatarMessage.audioUrl
+        ? lastAvatarMessage.audioUrl
+        : "data:audio/mp3;base64," + lastAvatarMessage.audio;
+      const audioEl = new Audio(audioSrc);
+      setIsAvatarTalking(true);
+      let cancelled = false;
+      let started = false;
+      let ttsHandle = null;
+
+      const playAudio = async () => {
+        try {
+          await audioEl.play();
+          if (cancelled) return; // cleanup پیش از رزالو شدن play() اجرا شد (مثلاً React StrictMode)
+          started = true;
+          setAudio(audioEl);
+        } catch (error) {
+          if (cancelled) return; // pause() خودمان در cleanup باعث AbortError شد — خطای واقعی نیست
+          // مسدود شدن autoplay بدون تعامل کاربر یا خطای بارگذاری — برگشت به TTS مرورگر
+          console.warn("Pre-generated audio play failed, falling back to browser TTS:", error);
+          setLipsync(undefined); // lipsync اصلی با زمان‌بندی TTS مرورگر تطبیق ندارد
+          ttsHandle = speakWithBrowserTts(lastAvatarMessage.text);
+        }
+      };
+
+      playAudio();
+      audioEl.onended = endSpeech;
       return () => {
-        window.speechSynthesis.cancel();
-        speechActiveRef.current = false;
+        cancelled = true;
+        audioEl.pause();
+        audioEl.onended = null;
+        if (ttsHandle) ttsHandle.cleanup();
+        const reallyStarted = started || (ttsHandle ? ttsHandle.hasStarted() : false);
+        if (reallyStarted) {
+          // پخش واقعاً شروع شده بود ولی قطع شد — آواتار را از حالت میانی/گیرکرده به Idle برگردان
+          endSpeech();
+        } else if (lastSpeechMessageIdRef.current === messageId) {
+          lastSpeechMessageIdRef.current = null;
+        }
       };
     }
-  }, [lastAvatarMessage?.id, lastAvatarMessage?.audio, lastAvatarMessage?.useBrowserTts, applyFacialExpression, setAnimation, onMessagePlayed, setIsAvatarTalking, closeMouth]);
+
+    if (lastAvatarMessage.useBrowserTts && lastAvatarMessage.text) {
+      const ttsHandle = speakWithBrowserTts(lastAvatarMessage.text);
+      return () => {
+        ttsHandle.cleanup(); // speechSynthesis.cancel() معمولاً خودش onerror→endSpeech را صدا می‌زند
+        if (ttsHandle.hasStarted()) {
+          endSpeech(); // safety-net ایمن به تکرار، برای اطمینان از خروج از حالت گیرکرده
+        } else if (lastSpeechMessageIdRef.current === messageId) {
+          lastSpeechMessageIdRef.current = null;
+        }
+      };
+    }
+  }, [lastAvatarMessage?.id, lastAvatarMessage?.audio, lastAvatarMessage?.audioUrl, lastAvatarMessage?.useBrowserTts, applyFacialExpression, setAnimation, onMessagePlayed, setIsAvatarTalking, closeMouth]);
 
   // Blink effect (original, now with state)
   useEffect(() => {
@@ -1154,27 +1230,6 @@ export const Avatar = React.forwardRef((props, ref) => {
       });
     });
   });
-
-  // Start with Idle animation on mount (only once)
-  useEffect(() => {
-    // Check if animations are loaded and initial Idle hasn't been set yet
-    if (animations && animations.actions && animations.actions['Idle'] && !hasStartedInitialIdleRef.current && currentAnimationRef.current === null) {
-      hasStartedInitialIdleRef.current = true;
-      // Temporarily disable lock to allow initial Idle
-      pointingAnimationLockRef.current = false;
-      console.log("Avatar: Setting initial Idle animation");
-      // Call setAnimation directly with bypass
-      const action = animations.actions['Idle'];
-      if (action) {
-        action.reset();
-        action.setLoop(THREE.LoopRepeat, Infinity);
-        action.timeScale = 1;
-        action.fadeIn(0.3).play();
-        currentAnimationRef.current = 'Idle';
-        console.log("Avatar: Initial Idle animation started");
-      }
-    }
-  }, [animations.actions]);
 
   // After any one-shot animation finishes, return to Idle
   useEffect(() => {

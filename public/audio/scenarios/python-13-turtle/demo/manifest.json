@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-13-turtle",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول یه مربع — چهار بار forward و left.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-13-turtle/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-13-turtle/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-square",
+      "source": "avatar",
+      "text": "هر ضلع ۱۰۰ پیکسل، هر زاویه ۹۰ درجه.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-13-turtle/demo/line-01-after-square.mp3",
+      "lipsync": "/audio/scenarios/python-13-turtle/demo/line-01-after-square.lipsync.json"
+    },
+    {
+      "id": "line-02-after-circle",
+      "source": "avatar",
+      "text": "با circle می‌تونی دایره هم بکشی — یا با تکرار forward و turn.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-13-turtle/demo/line-02-after-circle.mp3",
+      "lipsync": "/audio/scenarios/python-13-turtle/demo/line-02-after-circle.lipsync.json"
+    }
+  ]
+}

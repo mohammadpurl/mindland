@@ -24,7 +24,7 @@ export function SchoolJourneyView({
   subjectId,
   pageHeader,
   children,
-  defaultTheme = 'light',
+  defaultTheme = 'dark',
 }: SchoolJourneyViewProps) {
   const school = getSchoolJourney(subjectId)
   const stations = useMemo(() => buildStationsForSchool(subjectId, lang), [subjectId, lang])
@@ -37,54 +37,19 @@ export function SchoolJourneyView({
 
   return (
     <div className="relative w-full" data-school-journey={subjectId}>
-      <div className="sticky top-[4.5rem] z-50 mx-auto flex max-w-lg justify-center px-4 pt-3 md:top-20">
-        <div
-          className={[
-            'flex w-full items-center gap-1 rounded-2xl border p-1 shadow-lg backdrop-blur-md',
-            isLight ? 'border-sky-200/80 bg-white/90' : 'border-white/15 bg-slate-950/80',
-          ].join(' ')}
-          role="group"
-          aria-label="تم مسیر مدرسه"
-          dir="rtl"
-        >
-          <button
-            type="button"
-            onClick={() => setTheme('light')}
-            aria-pressed={isLight}
-            className={[
-              'flex flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-xs font-extrabold transition md:text-sm',
-              isLight ? 'bg-sky-600 text-white shadow-sm' : 'text-slate-300 hover:bg-white/10',
-            ].join(' ')}
-          >
-            <Sun className="h-4 w-4" aria-hidden />
-            روشن
-          </button>
-          <button
-            type="button"
-            onClick={() => setTheme('dark')}
-            aria-pressed={!isLight}
-            className={[
-              'flex flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-xs font-extrabold transition md:text-sm',
-              !isLight ? 'bg-slate-100 text-slate-900 shadow-sm' : 'text-slate-600 hover:bg-slate-100',
-            ].join(' ')}
-          >
-            <Moon className="h-4 w-4" aria-hidden />
-            تیره
-          </button>
-        </div>
-      </div>
-
-      {school ? (
-        <p
-          className={[
-            'relative z-40 px-4 pt-3 text-center text-xs font-bold md:text-sm',
-            isLight ? 'text-sky-900/80' : 'text-sky-200',
-          ].join(' ')}
-          dir="rtl"
-        >
-          {school.schoolTitle}
-        </p>
-      ) : null}
+      <button
+        type="button"
+        onClick={() => setTheme(isLight ? 'dark' : 'light')}
+        aria-label={isLight ? 'تغییر به تم تیره' : 'تغییر به تم روشن'}
+        className={[
+          'fixed left-4 top-24 z-50 flex h-10 w-10 items-center justify-center rounded-full border shadow-lg backdrop-blur-md transition md:top-28',
+          isLight
+            ? 'border-sky-200/80 bg-white/90 text-sky-700 hover:bg-white'
+            : 'border-white/15 bg-slate-950/80 text-sky-200 hover:bg-slate-900',
+        ].join(' ')}
+      >
+        {isLight ? <Moon className="h-4 w-4" aria-hidden /> : <Sun className="h-4 w-4" aria-hidden />}
+      </button>
 
       {isLight ? (
         <ScrollRoadmapLight

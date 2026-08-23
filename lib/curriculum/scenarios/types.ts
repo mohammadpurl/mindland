@@ -12,12 +12,31 @@ export interface ScenarioProductionNote {
   beat?: string
 }
 
+export interface ScenarioBoardContent {
+  title?: string
+  lines?: string[]
+  code?: string
+  checklist?: { id: string; label: string }[]
+}
+
 export interface ScenarioDialogueLine {
   /** فقط گفتهٔ کاراکتر GLB */
   speaker: DialogueSpeaker
   text: string
   beat?: string
   animation?: string
+  /** کلید پایدار media — مثلاً python-01-intro/intro/line-0 */
+  mediaKey?: string
+  board?: ScenarioBoardContent
+  as?: string
+}
+
+export interface ScenarioSystemMessage {
+  id: string
+  when?: string
+  text: string
+  mediaKey?: string
+  board?: ScenarioBoardContent
 }
 
 export interface ScenarioDialogueFile {
@@ -30,7 +49,7 @@ export interface ScenarioDialogueFile {
   /** نکات تولید؛ نمایش داده نمی‌شود */
   productionNotes?: Array<string | ScenarioProductionNote>
   /** پیام‌های سیستم نمایش — نه دیالوگ معلم */
-  systemMessages?: { id: string; when?: string; text: string }[]
+  systemMessages?: ScenarioSystemMessage[]
   missionChecklist?: { id: string; label: string }[]
   brief?: string
   errorScripts?: { when: string; say: string; why?: string; errorId?: string }[]

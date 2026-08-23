@@ -147,10 +147,38 @@
         {
           "id": "integers",
           "title": "اعداد صحیح و منفی",
-          "description": "اعداد صحیح، منفی و خط اعداد — به‌زودی",
+          "description": "اعداد صحیح، منفی و خط اعداد",
           "order": 4,
           "icon": "➖",
-          "lessons": []
+          "lessons": [
+            {
+              "id": "integer-01-number-line-intro",
+              "title": "درس ۱ — خط اعداد و اعداد منفی",
+              "description": "آشنایی با خط اعداد، صفر، و جای اعداد مثبت و منفی",
+              "order": 1,
+              "level": 2,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "integer-02-compare",
+              "title": "درس ۲ — مقایسه اعداد صحیح",
+              "description": "کدام عدد بزرگ‌تر است؟ — با نگاه به خط اعداد",
+              "order": 2,
+              "level": 2,
+              "teachSteps": 2,
+              "practiceSteps": 2
+            },
+            {
+              "id": "integer-03-add-subtract",
+              "title": "درس ۳ — جمع و تفریق روی خط اعداد",
+              "description": "جمع یعنی پرش به راست، تفریق یعنی پرش به چپ",
+              "order": 3,
+              "level": 3,
+              "teachSteps": 2,
+              "practiceSteps": 3
+            }
+          ]
         },
         {
           "id": "geometry",

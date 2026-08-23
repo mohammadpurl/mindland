@@ -1,0 +1,38 @@
+{
+  "lessonId": "python-00-blocks",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "من فقط همونی رو انجام می‌دم که بهم می‌گی — به همون ترتیب.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-00-blocks/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "اگه ترتیب عوض بشه، نمایش عوض می‌شه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-00-blocks/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "اگه یه کار رو چندبار لازم داشته باشی، یک‌بار تعریفش کن و بگو چندبار تکرار بشه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-00-blocks/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/wrap-up/line-02.lipsync.json"
+    },
+    {
+      "id": "line-03",
+      "source": "avatar",
+      "text": "و اگه یه قانون براش تعریف نکنی، وقتی به یه اتفاق پیش‌بینی‌نشده برسم، نمایش می‌تونه خراب بشه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-00-blocks/wrap-up/line-03.mp3",
+      "lipsync": "/audio/scenarios/python-00-blocks/wrap-up/line-03.lipsync.json"
+    }
+  ]
+}

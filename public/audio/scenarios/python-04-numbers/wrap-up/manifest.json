@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-04-numbers",
+  "stepId": "wrap-up",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "وقتی بدون گیومه عدد می‌نویسی، می‌تونم واقعاً باهاش حساب کنم.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-04-numbers/wrap-up/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/wrap-up/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "وقتی با گیومه می‌نویسی، برام یه متنه — حتی اگه شکلش عدد باشه.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-04-numbers/wrap-up/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/wrap-up/line-01.lipsync.json"
+    },
+    {
+      "id": "line-02",
+      "source": "avatar",
+      "text": "و اگه عدد و متن رو با هم جمع بزنی، گیج می‌شم — باید هم‌جنس باشن.",
+      "dialogueFile": "dialogue/wrap-up.json",
+      "audio": "/audio/scenarios/python-04-numbers/wrap-up/line-02.mp3",
+      "lipsync": "/audio/scenarios/python-04-numbers/wrap-up/line-02.lipsync.json"
+    }
+  ]
+}

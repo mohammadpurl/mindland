@@ -1,0 +1,14 @@
+{
+  "lessonId": "python-14-capstone",
+  "stepId": "challenge-b",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "ایدهٔ خودت رو پیاده کن — تابع، داده و توضیح کامل.",
+      "dialogueFile": "dialogue/challenge-b.json",
+      "audio": "/audio/scenarios/python-14-capstone/challenge-b/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-14-capstone/challenge-b/line-00.lipsync.json"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "lessonId": "python-03-variables",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول بدون جعبه کار می‌کنیم — عمداً خسته‌کننده. بعد با جعبه. بعد فقط اسم رو عوض می‌کنیم.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-03-variables/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-manual",
+      "source": "avatar",
+      "text": "باز بنویسم آرش... دوباره... بازم... اگه اسم بشه سارا، چندجا رو باید دستی عوض کنم؟",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-03-variables/demo/line-01-after-manual.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/demo/line-01-after-manual.lipsync.json"
+    },
+    {
+      "id": "line-02-after-box",
+      "source": "avatar",
+      "text": "همین نتیجه، ولی اسم فقط یه‌جا نوشته شده.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-03-variables/demo/line-02-after-box.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/demo/line-02-after-box.lipsync.json"
+    },
+    {
+      "id": "line-03-after-rename",
+      "source": "avatar",
+      "text": "فقط یه‌جا رو عوض کردم، ولی هر سه خط خودشون به‌روز شدن. چون از همون جعبه می‌خوندن.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-03-variables/demo/line-03-after-rename.mp3",
+      "lipsync": "/audio/scenarios/python-03-variables/demo/line-03-after-rename.lipsync.json"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "lessonId": "python-11-functions",
+  "stepId": "demo",
+  "items": [
+    {
+      "id": "line-00-setup",
+      "source": "avatar",
+      "text": "اول سه بار همون کد رو تکرار می‌کنیم — بعد با یه تابع.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-11-functions/demo/line-00-setup.mp3",
+      "lipsync": "/audio/scenarios/python-11-functions/demo/line-00-setup.lipsync.json"
+    },
+    {
+      "id": "line-01-after-repeat",
+      "source": "avatar",
+      "text": "هر بار باید همون خطوط رو بنویسی — خسته‌کننده و پر از اشتباه.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-11-functions/demo/line-01-after-repeat.mp3",
+      "lipsync": "/audio/scenarios/python-11-functions/demo/line-01-after-repeat.lipsync.json"
+    },
+    {
+      "id": "line-02-after-function",
+      "source": "avatar",
+      "text": "حالا یه تابع داریم — هر بار فقط اسمش رو صدا می‌زنیم.",
+      "dialogueFile": "dialogue/demo.json",
+      "audio": "/audio/scenarios/python-11-functions/demo/line-02-after-function.mp3",
+      "lipsync": "/audio/scenarios/python-11-functions/demo/line-02-after-function.lipsync.json"
+    }
+  ]
+}

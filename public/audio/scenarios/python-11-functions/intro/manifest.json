@@ -1,0 +1,22 @@
+{
+  "lessonId": "python-11-functions",
+  "stepId": "intro",
+  "items": [
+    {
+      "id": "line-00",
+      "source": "avatar",
+      "text": "تا حالا کدها رو خط‌به‌خط می‌نوشتی. امروز یاد می‌گیری یه «دکمهٔ جادویی» بسازی — یه تابع که یک‌بار می‌نویسیش و هر بار که بخوای صدا می‌زنی.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-11-functions/intro/line-00.mp3",
+      "lipsync": "/audio/scenarios/python-11-functions/intro/line-00.lipsync.json"
+    },
+    {
+      "id": "line-01",
+      "source": "avatar",
+      "text": "با def تابع می‌سازی، با return جواب برمی‌گردونی، و با آرگومان می‌تونی بهش اطلاعات بدی.",
+      "dialogueFile": "dialogue/intro.json",
+      "audio": "/audio/scenarios/python-11-functions/intro/line-01.mp3",
+      "lipsync": "/audio/scenarios/python-11-functions/intro/line-01.lipsync.json"
+    }
+  ]
+}
