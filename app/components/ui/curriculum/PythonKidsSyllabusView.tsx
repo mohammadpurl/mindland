@@ -231,7 +231,13 @@ export function PythonKidsSyllabusView({ lang }: { lang: string }) {
 
   const unlockOf = useMemo(() => {
     return (lessonId: string): LessonUnlockState => {
-      if (tick === 0) return sequence[0] === lessonId ? 'current' : sequence.includes(lessonId) ? 'locked' : 'free'
+      if (tick === 0) {
+        return sequence[0] === lessonId || sequence[1] === lessonId
+          ? 'current'
+          : sequence.includes(lessonId)
+            ? 'locked'
+            : 'free'
+      }
       return getLessonUnlockState(lessonId, sequence)
     }
   }, [sequence, tick])

@@ -38,7 +38,8 @@ export type LessonUnlockState = 'completed' | 'current' | 'locked' | 'free'
  * وضعیت باز/بسته‌بودن یک درس در یک زنجیرهٔ ترتیبی.
  * - «free»: درس اصلاً بخشی از این زنجیره نیست (مثلاً بخش اختیاری) — همیشه باز است.
  * - «completed»: قبلاً تمام شده.
- * - «current»: اولین درس ناتمام زنجیره — همین الان قابل شروع است.
+ * - «current»: قابل شروع همین الان — دو درس اول زنجیره همیشه پیش‌فرض باز هستند، از سومین
+ *   درس به بعد فقط وقتی درس قبلی تمام شده باشد.
  * - «locked»: درس قبلیِ زنجیره هنوز تمام نشده.
  */
 export function getLessonUnlockState(lessonId: string, sequence: string[]): LessonUnlockState {
@@ -46,6 +47,6 @@ export function getLessonUnlockState(lessonId: string, sequence: string[]): Less
   if (idx === -1) return 'free'
   if (isLessonCompleted(lessonId)) return 'completed'
   const prevId = sequence[idx - 1]
-  if (idx === 0 || (prevId && isLessonCompleted(prevId))) return 'current'
+  if (idx <= 1 || (prevId && isLessonCompleted(prevId))) return 'current'
   return 'locked'
 }
