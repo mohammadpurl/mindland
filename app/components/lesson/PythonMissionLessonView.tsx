@@ -103,6 +103,15 @@ function MissionClassroom({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stepId, bandFocus])
 
+  // به‌محض رسیدن به آخرین گفتهٔ جمع‌بندی، درس را کامل‌شده علامت بزن — نه فقط وقتی
+  // دکمهٔ «پایان» کلیک می‌شود. کاربر معمولاً همان‌جا روی لینک «بازگشت به فهرست»
+  // کلیک می‌کند و nextLine() هرگز صدا زده نمی‌شود، پس درس بعدی همیشه قفل می‌مانَد.
+  useEffect(() => {
+    if (stepId === 'wrap-up' && lines.length > 0 && lineIndex + 1 >= lines.length) {
+      markLessonCompleted(lesson.id, stepId)
+    }
+  }, [stepId, lineIndex, lines.length, lesson.id])
+
   function go(delta: number) {
     const ids = visibleSteps.map((s) => s.id)
     const i = ids.indexOf(stepId)
@@ -116,9 +125,6 @@ function MissionClassroom({
       setLineIndex(next)
       speakLine(lines[next]!, next)
       return
-    }
-    if (stepId === 'wrap-up') {
-      markLessonCompleted(lesson.id, stepId)
     }
     go(1)
   }

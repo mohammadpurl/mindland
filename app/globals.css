@@ -562,4 +562,15 @@
     border-radius: 0.75rem;
     border: 1px solid #e2e8f0;
   }
+
+  /* ── Galactic curriculum map (/curriculum) ───────── */
+  @keyframes galaxy-twinkle {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 0.9; }
+  }
+
+  @keyframes galaxy-bob {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -58%) scale(1.06); }
+  }
 }
