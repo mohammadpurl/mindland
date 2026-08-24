@@ -1,0 +1,126 @@
+{
+  "id": "geometry-02-angles",
+  "subjectId": "math",
+  "topicId": "geometry",
+  "order": 2,
+  "level": 3,
+  "title": "درس ۲ — متمّم، مکمّل و زاویه‌های متقابل‌به‌رأس",
+  "description": "دو زاویه چه رابطه‌ای دارند؟ متمّم (مجموع ۹۰) و مکمّل (مجموع ۱۸۰) را بساز",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز با رابطه‌ی بین زاویه‌ها آشنا می‌شویم — بعضی زاویه‌ها با هم دوست‌اند و مجموع خاصی می‌سازند!",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "complementary-intro",
+      "title": "زاویه‌ی متمّم",
+      "speak": "به دو زاویه که مجموعشان نود درجه باشد، متمّم می‌گوییم. این زاویه سی‌وپنج درجه است. متمّمش باید پنجاه‌وپنج درجه باشد تا با هم نود درجه شوند.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "angle",
+        "mode": "static",
+        "params": {
+          "title": "زاویه‌ی ۳۵ درجه",
+          "angle": 35
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "supplementary-intro",
+      "title": "زاویه‌ی مکمّل",
+      "speak": "و اگر مجموع دو زاویه صد‌و‌هشتاد درجه شود، به آن‌ها مکمّل می‌گوییم — یعنی یک خط راست کامل. این زاویه صد‌و‌بیست درجه است، مکمّلش شصت درجه است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "angle",
+        "mode": "static",
+        "params": {
+          "title": "زاویه‌ی ۱۲۰ درجه",
+          "angle": 120
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-complement",
+      "title": "تمرین ۱ — متمّم ۳۵ درجه",
+      "speak": "نقطه‌ی بنفش را بکش تا زاویه‌ای بسازی که با سی‌وپنج درجه، متمّم شود — یعنی مجموعشان نود درجه.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "angle",
+        "mode": "interactive",
+        "params": {
+          "title": "متمّم ۳۵ درجه چند است؟",
+          "referenceAngle": 35,
+          "target": 55,
+          "startAngle": 20,
+          "relation": "complementary"
+        }
+      },
+      "successMessage": "آفرین! ۳۵ + ۵۵ = ۹۰ — درست بود!",
+      "wrongMessage": "برای متمّم: نود منهای زاویه‌ی مرجع را حساب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-supplement",
+      "title": "تمرین ۲ — مکمّل ۱۲۰ درجه",
+      "speak": "این‌بار زاویه‌ای بساز که با صد‌و‌بیست درجه، مکمّل شود — مجموعشان صد‌و‌هشتاد درجه.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "angle",
+        "mode": "interactive",
+        "params": {
+          "title": "مکمّل ۱۲۰ درجه چند است؟",
+          "referenceAngle": 120,
+          "target": 60,
+          "startAngle": 100,
+          "relation": "supplementary"
+        }
+      },
+      "successMessage": "عالی! ۱۲۰ + ۶۰ = ۱۸۰ — دقیقاً درست.",
+      "wrongMessage": "برای مکمّل: صد‌و‌هشتاد منهای زاویه‌ی مرجع را حساب کن."
+    },
+    {
+      "type": "teach",
+      "id": "vertical-intro",
+      "title": "زاویه‌های متقابل‌به‌رأس",
+      "speak": "وقتی دو خط همدیگر را قطع می‌کنند، چهار زاویه ساخته می‌شود. زاویه‌های روبه‌رو (متقابل‌به‌رأس) همیشه با هم برابرند — نگاه کن، هر دو زاویه‌ی نارنجی برابرند و هر دو زاویه‌ی آبی هم برابرند.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "angle",
+        "mode": "static",
+        "params": {
+          "title": "دو خط متقاطع",
+          "showVerticalPair": true,
+          "verticalReferenceAngle": 65
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-vertical",
+      "title": "تمرین ۳ — زاویه‌ی متقابل‌به‌رأس",
+      "speak": "یک زاویه هفتادوچهار درجه است. زاویه‌ی متقابل‌به‌رأسش را بساز — یادت باشد، این‌ها همیشه برابرند!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "angle",
+        "mode": "interactive",
+        "params": {
+          "title": "متقابل‌به‌رأس ۷۴ درجه چند است؟",
+          "referenceAngle": 74,
+          "target": 74,
+          "startAngle": 50,
+          "relation": "vertical"
+        }
+      },
+      "successMessage": "درست بود! زاویه‌های متقابل‌به‌رأس همیشه دقیقاً برابرند.",
+      "wrongMessage": "متقابل‌به‌رأس یعنی برابر — همان هفتادوچهار درجه را بساز."
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "id": "divisibility-04-detective-challenge",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 4,
+  "level": 4,
+  "title": "درس ۴ — چالش کارآگاه عددها",
+  "description": "چند نشانه را با هم ترکیب کن تا یک رمز مخفی را کشف کنی",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "امروز کارآگاه عددها می‌شوی! از همهٔ نشانه‌هایی که یاد گرفتی — رقم آخر و مجموع رقم‌ها — با هم استفاده می‌کنی تا رمزهای مخفی را کشف کنی.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "combine-clues",
+      "title": "ترکیب نشانه‌ها روی یک عدد",
+      "speak": "عدد چهارصدوپنجاه را نگاه کن: رقم یکانش صفر است — پس هم بر دو و هم بر پنج بخش‌پذیر است. حالا رقم‌هایش را هم جمع بزنیم: چهار به‌علاوه‌ی پنج می‌شود نه — پس بر سه هم بخش‌پذیر است! یک عدد می‌تواند چند نشانه را همزمان داشته باشد.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": { "title": "۴۵۰ بر ۳ هم بخش‌پذیر است؟", "number": 450, "divisor": 3, "highlight": "digitSum" }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-divisible-by-10",
+      "title": "تمرین ۱ — کدام عددها هم بر ۲ و هم بر ۵ بخش‌پذیرند؟",
+      "speak": "یادت باشد: اگر عددی هم بر ۲ و هم بر ۵ بخش‌پذیر باشد، در واقع بر ۱۰ بخش‌پذیر است.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها هم بر ۲ و هم بر ۵ بخش‌پذیرند؟",
+          "candidates": [
+            { "value": 450, "correct": true },
+            { "value": 330, "correct": true },
+            { "value": 125, "correct": false },
+            { "value": 244, "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! فقط ۴۵۰ و ۳۳۰ رقم یکانشان صفر است — یعنی بر هر دو، و در نتیجه بر ۱۰، بخش‌پذیرند.",
+      "wrongMessage": "دنبال عددهایی بگرد که رقم یکانشان دقیقاً صفر باشد."
+    },
+    {
+      "type": "practice",
+      "id": "final-mission-secret-code",
+      "title": "مأموریت پایانی — رمز سه‌رقمی مخفی",
+      "speak": "این رمز سه‌رقمی را پیدا کن: بر دو بخش‌پذیر است، بر پنج هم بخش‌پذیر است، و مجموع رقم‌هایش نه است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "رمز سه‌رقمی: بر ۲ بخش‌پذیر + بر ۵ بخش‌پذیر + مجموع رقم‌ها = ۹",
+          "choices": [
+            { "label": "۴۵۰", "correct": true },
+            { "label": "۲۳۴", "correct": false },
+            { "label": "۳۱۵", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "تبریک، کارآگاه عددها! ۴۵۰ زوج است، به صفر ختم می‌شود، و چهار‌به‌علاوه‌ی پنج می‌شود نه. هر سه نشانه با هم جور در آمدند.",
+      "wrongMessage": "هر سه شرط را جدا بررسی کن: زوج بودن، ختم‌شدن به صفر یا پنج، و مجموع رقم‌ها."
+    },
+    {
+      "type": "practice",
+      "id": "practice-divisible-by-6",
+      "title": "تمرین چالشی — کدام عددها هم بر ۲ و هم بر ۳ بخش‌پذیرند؟",
+      "speak": "چالش پیشرفته: اگر عددی هم بر ۲ و هم بر ۳ بخش‌پذیر باشد، بر ۶ هم بخش‌پذیر است.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها هم بر ۲ و هم بر ۳ بخش‌پذیرند؟ (یعنی بر ۶ بخش‌پذیرند)",
+          "candidates": [
+            { "value": 126, "correct": true },
+            { "value": 135, "correct": false },
+            { "value": 144, "correct": true },
+            { "value": 98, "correct": false }
+          ]
+        }
+      },
+      "successMessage": "عالی بود! ۱۲۶ و ۱۴۴ هم زوج‌اند و هم مجموع رقم‌هایشان بر سه بخش‌پذیر است — پس هر دو بر ۶ بخش‌پذیرند. تو امروز فقط قانون حفظ نکردی، یاد گرفتی از نشانه‌ها برای حل مسئله استفاده کنی!",
+      "wrongMessage": "اول زوج بودن را بررسی کن، بعد مجموع رقم‌ها را — هر دو شرط باید برقرار باشند."
+    }
+  ]
+}

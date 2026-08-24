@@ -1,0 +1,154 @@
+{
+  "id": "fraction-13-equal-fractions",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 14,
+  "level": 4,
+  "title": "درس ۱۴ — تساوی دو کسر (کتاب ششم ص ۳۳، ۳۷، ۳۸)",
+  "description": "اگر صورت و مخرج یک کسر را در عدد یکسانی ضرب کنیم، ارزش کسر تغییر نمی‌کند",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "اگر صورت و مخرج یک کسر را در عدد یکسانی ضرب کنیم، کسر جدید هم‌ارزش کسر اول است — فقط شکل نمایشش عوض می‌شود، نه مقدارش.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "equivalent-chain",
+      "title": "زنجیرهٔ کسرهای مساوی",
+      "speak": "یک‌دوم را نگاه کن. اگر صورت و مخرج را در دو ضرب کنیم می‌شود دو‌چهارم، در سه ضرب کنیم می‌شود سه‌ششم، در شش ضرب کنیم می‌شود شش‌دوازدهم. همهٔ اینها دقیقاً هم‌ارزش یک‌دوم‌اند: یک‌دوم = دو‌چهارم = سه‌ششم = شش‌دوازدهم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": { "title": "۱/۲ = ۲/۴ = ۳/۶ = ۶/۱۲", "numerator": 1, "denominator": 2 }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "cross-multiply-rule",
+      "title": "قانون ضرب متقاطع",
+      "speak": "برای پیدا کردن عدد جای خالی در تساوی دو کسر، مثل دو‌سوم برابر جای‌خالی روی بیست‌وچهار: کافی است صورت را در مخرج دوم ضرب و بر مخرج اول تقسیم کنیم. دو ضرب‌در بیست‌وچهار، تقسیم‌بر سه، می‌شود شانزده.",
+      "animation": "Talking",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۲/۳ = ؟/۲۴  →  ؟ = ۲×۲۴÷۳ = ۱۶" }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-2-3-24",
+      "title": "تمرین ۱ — ۲/۳ = ؟/۲۴",
+      "speak": "عدد جای خالی را پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "در تساوی ۲/۳ = ؟/۲۴ ، عدد جای خالی کدام است؟",
+          "choices": [
+            { "label": "۱۶", "correct": true },
+            { "label": "۱۲", "correct": false },
+            { "label": "۸", "correct": false },
+            { "label": "۱۸", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۲×۲۴÷۳=۱۶، پس ۲/۳=۱۶/۲۴.",
+      "wrongMessage": "صورت (۲) را در مخرج دوم (۲۴) ضرب کن و بر مخرج اول (۳) تقسیم کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-42-35-12",
+      "title": "تمرین ۲ — ۴۲/۳۵ = ۱۲/؟",
+      "speak": "این‌بار جای خالی مخرج است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "در تساوی ۴۲/۳۵ = ۱۲/؟ ، عدد جای خالی کدام است؟",
+          "choices": [
+            { "label": "۱۰", "correct": true },
+            { "label": "۱۲", "correct": false },
+            { "label": "۳۵", "correct": false },
+            { "label": "۴۲", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۴۲/۳۵ ساده‌شده می‌شود ۶/۵، و ۶/۵=۱۲/۱۰.",
+      "wrongMessage": "ابتدا ۴۲/۳۵ را ساده کن، یا ۱۲ را در ۳۵ ضرب و بر ۴۲ تقسیم کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-odd-one-out",
+      "title": "تمرین ۳ — کدام برابر بقیه نیست؟",
+      "speak": "چهارتای این کسرها با هم مساوی‌اند، یکی نیست. پیدایش کن!",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام یک از این کسرها با بقیه برابر نیست؟",
+          "choices": [
+            { "label": "۳۰/۴۲", "correct": false },
+            { "label": "۱۰/۱۴", "correct": false },
+            { "label": "۱۵/۳۵", "correct": true, "note": "این ساده می‌شود ۳/۷؛ بقیه همه ۵/۷ هستند." },
+            { "label": "۳۵/۴۹", "correct": false },
+            { "label": "۲۰/۲۸", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۱۵/۳۵ ساده می‌شود ۳/۷، ولی بقیه ساده می‌شوند ۵/۷.",
+      "wrongMessage": "هر کسر را تا جای ممکن ساده کن و نتیجه‌ها را با هم مقایسه کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-1-4-8",
+      "title": "تمرین ۴ — ۱/۴ = ۸/؟",
+      "speak": "عدد جای خالی مخرج را پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "در تساوی ۱/۴ = ۸/؟ ، عدد جای خالی کدام است؟",
+          "choices": [
+            { "label": "۳۲", "correct": true },
+            { "label": "۱۶", "correct": false },
+            { "label": "۴", "correct": false },
+            { "label": "۲", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! صورت یک‌چهارم در ۸ ضرب شده (۱×۸=۸)، پس مخرج هم باید در ۸ ضرب شود: ۴×۸=۳۲.",
+      "wrongMessage": "صورت از ۱ به ۸ رفته یعنی در ۸ ضرب شده — همان کار را با مخرج ۴ بکن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-how-many-blanks",
+      "title": "تمرین ۵ — چند جواب دارد؟",
+      "speak": "در دو‌سوم ضرب‌در جای‌خالی برابر ده‌سوم، چند کسر می‌توان جای خالی گذاشت؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "در تساوی (۲/۳) × ؟ = ۱۰/۳ ، چند عدد می‌توان به‌جای علامت سؤال گذاشت؟",
+          "choices": [
+            { "label": "فقط یک عدد: ۵", "correct": true },
+            { "label": "بی‌نهایت عدد", "correct": false },
+            { "label": "هیچ عددی جواب نیست", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۱۰/۳ تقسیم‌بر ۲/۳ می‌شود ۵ — فقط همین یک عدد جواب می‌دهد.",
+      "wrongMessage": "برای پیدا کردن جای خالی، ۱۰/۳ را بر ۲/۳ تقسیم کن."
+    }
+  ]
+}

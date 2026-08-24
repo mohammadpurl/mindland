@@ -1,0 +1,116 @@
+{
+  "id": "divisibility-03-rule-3-9",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 3,
+  "level": 3,
+  "title": "درس ۳ — اثر انگشت عددها: بخش‌پذیری بر ۳ و ۹",
+  "description": "این‌بار رقم یکان کافی نیست — باید همهٔ رقم‌ها را با هم جمع بزنیم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "بعضی عددها رازشان را در تک‌تک رقم‌هایشان پنهان می‌کنند. این‌بار به‌جای رقم آخر، باید همهٔ رقم‌ها را با هم جمع بزنیم.",
+      "animation": "StandingGreeting",
+      "emotion": "curious",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-3",
+      "title": "قانون ۳ — مجموع رقم‌ها",
+      "speak": "سیصدوهفتادودو را نگاه کن: رقم‌هایش سه، هفت و دو هستند. جمعشان می‌شود دوازده. دوازده بر سه بخش‌پذیر است، پس خود سیصدوهفتادودو هم بر سه بخش‌پذیر است!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": { "title": "۳۷۲ بر ۳ بخش‌پذیر است؟", "number": 372, "divisor": 3, "highlight": "digitSum" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-9",
+      "title": "قانون ۹ — همان ترفند، برای ۹",
+      "speak": "هفتصدوبیست‌ونه را نگاه کن: هفت به‌علاوه‌ی دو به‌علاوه‌ی نه می‌شود هجده. هجده بر نه بخش‌پذیر است، پس هفتصدوبیست‌ونه هم بر نه بخش‌پذیر است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": { "title": "۷۲۹ بر ۹ بخش‌پذیر است؟", "number": 729, "divisor": 9, "highlight": "digitSum" }
+      }
+    },
+    {
+      "type": "speak",
+      "id": "why-it-works",
+      "message": "چرا این ترفند کار می‌کند؟ چون هر ده‌تایی، دقیقاً یکی بیشتر از یک مضرب سه یا نه است — پس فقط رقم‌ها اهمیت دارند، نه اندازهٔ خود عدد. به همین دلیل این ترفند برای عددهای خیلی بزرگ هم کار می‌کند!",
+      "animation": "Thinking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "practice-why-3",
+      "title": "تمرین ۱ — چرا ۷۲۶ بر ۳ بخش‌پذیر است؟",
+      "speak": "دلیل درست را انتخاب کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "چرا عدد ۷۲۶ بر ۳ بخش‌پذیر است؟",
+          "choices": [
+            { "label": "چون رقم آخر آن زوج است", "correct": false },
+            { "label": "چون مجموع رقم‌های آن بر ۳ بخش‌پذیر است", "correct": true },
+            { "label": "چون عدد بزرگی است", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! هفت به‌علاوه‌ی دو به‌علاوه‌ی شش می‌شود پانزده، و پانزده بر سه بخش‌پذیر است.",
+      "wrongMessage": "قانون رقم آخر فقط برای ۲، ۵ و ۱۰ است — برای ۳ باید رقم‌ها را جمع بزنی."
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-3",
+      "title": "تمرین ۲ — کدام عددها بر ۳ بخش‌پذیرند؟",
+      "speak": "رقم‌های هر عدد را جمع بزن و ببین نتیجه بر سه بخش‌پذیر است یا نه.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها بر ۳ بخش‌پذیرند؟",
+          "candidates": [
+            { "value": 124, "correct": false },
+            { "value": 257, "correct": false },
+            { "value": 351, "correct": true },
+            { "value": 402, "correct": true }
+          ]
+        }
+      },
+      "successMessage": "آفرین! سه‌به‌علاوه‌ی پنج‌به‌علاوه‌ی یک می‌شود نه، و چهار‌به‌علاوه‌ی صفر‌به‌علاوه‌ی دو می‌شود شش — هر دو بر سه بخش‌پذیرند.",
+      "wrongMessage": "رقم‌های هر عدد را جمع بزن — اگر نتیجه بر سه بخش‌پذیر بود، انتخابش کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-9",
+      "title": "تمرین ۳ — کدام عدد بر ۹ بخش‌پذیر است؟",
+      "speak": "این‌بار مجموع رقم‌ها باید بر نه بخش‌پذیر باشد.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عدد بر ۹ بخش‌پذیر است؟",
+          "choices": [
+            { "label": "۲۳۴", "correct": true },
+            { "label": "۵۱۲", "correct": false },
+            { "label": "۱۵۰", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! دو‌به‌علاوه‌ی سه‌به‌علاوه‌ی چهار می‌شود نه، و نه بر نه بخش‌پذیر است.",
+      "wrongMessage": "رقم‌های هر گزینه را جمع بزن — کدام مجموع، بر نه بخش‌پذیر است؟"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "coord-02-reflection",
+  "subjectId": "math",
+  "topicId": "coordinates",
+  "order": 2,
+  "level": 3,
+  "title": "درس ۲ — تقارن روی صفحهٔ مختصات",
+  "description": "بازتاب یک نقطه حول محور x یا y — مثل نگاه‌کردن در آینه",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز یاد می‌گیریم وقتی یک نقطه را حول یک محور «آینه» می‌کنیم، کجا می‌رود.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "mirror-x",
+      "title": "آینه حول محور x",
+      "speak": "این محور x است — مثل یک آینه. نقطهٔ A بالای آینه است. تصویرش، نقطهٔ B، دقیقاً به همان فاصله زیر آینه قرار می‌گیرد. x تغییر نمی‌کند، فقط علامت y عوض می‌شود!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "static",
+        "params": {
+          "title": "بازتاب حول محور x",
+          "range": 5,
+          "reflect": { "point": { "x": 3, "y": 3 }, "axis": "x" }
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "mirror-y",
+      "title": "آینه حول محور y",
+      "speak": "این‌بار آینه محور y است. نقطهٔ A سمت راست آینه است، تصویرش B به همان فاصله سمت چپ می‌رود. این‌بار y تغییر نمی‌کند، علامت x عوض می‌شود.",
+      "animation": "Talking",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "static",
+        "params": {
+          "title": "بازتاب حول محور y",
+          "range": 5,
+          "reflect": { "point": { "x": 4, "y": 2 }, "axis": "y" }
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-reflect-x",
+      "title": "تمرین ۱ — بازتاب حول x",
+      "speak": "نقطهٔ A روی (دو، چهار) است. تصویرش را حول محور x پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "interactive",
+        "params": {
+          "title": "تصویر آینه‌ای A حول محور x کجاست؟",
+          "range": 5,
+          "reflect": { "point": { "x": 2, "y": 4 }, "axis": "x" }
+        }
+      },
+      "successMessage": "درست بود! (۲, ۴) حول x می‌شود (۲, −۴).",
+      "wrongMessage": "x همان می‌ماند، فقط علامت y عوض می‌شود."
+    },
+    {
+      "type": "practice",
+      "id": "practice-reflect-y",
+      "title": "تمرین ۲ — بازتاب حول y",
+      "speak": "این‌بار نقطهٔ A روی (منفی سه، دو) است. تصویرش را حول محور y پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "interactive",
+        "params": {
+          "title": "تصویر آینه‌ای A حول محور y کجاست؟",
+          "range": 5,
+          "reflect": { "point": { "x": -3, "y": 2 }, "axis": "y" }
+        }
+      },
+      "successMessage": "آفرین! (−۳, ۲) حول y می‌شود (۳, ۲).",
+      "wrongMessage": "y همان می‌ماند، فقط علامت x عوض می‌شود."
+    }
+  ]
+}

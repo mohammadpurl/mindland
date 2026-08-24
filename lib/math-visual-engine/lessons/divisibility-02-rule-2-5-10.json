@@ -1,0 +1,121 @@
+{
+  "id": "divisibility-02-rule-2-5-10",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 2,
+  "level": 2,
+  "title": "درس ۲ — نشانه‌های بخش‌پذیری بر ۲، ۵ و ۱۰",
+  "description": "بدون تقسیم کردن، فقط با نگاه به رقم آخر بفهم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "بعضی وقت‌ها لازم نیست کل عدد را تقسیم کنیم — فقط کافی‌ست به رقم آخرش نگاه کنیم. بیا این راز را کشف کنیم.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-2",
+      "title": "قانون ۲ — رقم یکان زوج",
+      "speak": "چهل‌ودو را نگاه کن: رقم یکانش دو است — یک عدد زوج. هر عددی که رقم یکانش صفر، دو، چهار، شش یا هشت باشد، بر دو بخش‌پذیر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": { "title": "۴۲ بر ۲ بخش‌پذیر است؟", "number": 42, "divisor": 2, "highlight": "lastDigit" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-5",
+      "title": "قانون ۵ — رقم یکان ۰ یا ۵",
+      "speak": "دویست‌وچهل‌وپنج را نگاه کن: رقم یکانش پنج است. هر عددی که رقم یکانش صفر یا پنج باشد، بر پنج بخش‌پذیر است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": { "title": "۲۴۵ بر ۵ بخش‌پذیر است؟", "number": 245, "divisor": 5, "highlight": "lastDigit" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-10",
+      "title": "قانون ۱۰ — رقم یکان ۰",
+      "speak": "نود را نگاه کن: رقم یکانش صفر است. هر عددی که رقم یکانش دقیقاً صفر باشد، بر ده بخش‌پذیر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": { "title": "۹۰ بر ۱۰ بخش‌پذیر است؟", "number": 90, "divisor": 10, "highlight": "lastDigit" }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-2",
+      "title": "تمرین ۱ — کدام عددها بر ۲ بخش‌پذیرند؟",
+      "speak": "به رقم یکان هر عدد نگاه کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها بر ۲ بخش‌پذیرند؟",
+          "candidates": [
+            { "value": 18, "correct": true },
+            { "value": 25, "correct": false },
+            { "value": 42, "correct": true },
+            { "value": 67, "correct": false },
+            { "value": 90, "correct": true }
+          ]
+        }
+      },
+      "successMessage": "درسته! هجده، چهل‌ودو و نود، رقم یکان زوج دارند.",
+      "wrongMessage": "رقم آخر باید صفر، دو، چهار، شش یا هشت باشد."
+    },
+    {
+      "type": "practice",
+      "id": "practice-both-2-5-10",
+      "title": "تمرین ۲ — عدد ۴۵۰ بر کدام عددها بخش‌پذیر است؟",
+      "speak": "این‌بار سه گزینه داری — ممکن است بیش از یکی درست باشد!",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "عدد ۴۵۰ بر کدام عددها بخش‌پذیر است؟ (ممکن است چند گزینه درست باشد)",
+          "candidates": [
+            { "value": 2, "correct": true },
+            { "value": 5, "correct": true },
+            { "value": 10, "correct": true }
+          ]
+        }
+      },
+      "successMessage": "عالی! چون رقم یکان ۴۵۰ صفر است، هم بر ۲، هم بر ۵ و هم بر ۱۰ بخش‌پذیر است.",
+      "wrongMessage": "رقم یکان ۴۵۰ چیست؟ ببین با کدام قانون‌ها جور در می‌آید."
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-10",
+      "title": "تمرین ۳ — کدام عدد بر ۱۰ بخش‌پذیر است؟",
+      "speak": "فقط یک گزینه رقم یکانش دقیقاً صفر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عدد بر ۱۰ بخش‌پذیر است؟",
+          "choices": [
+            { "label": "۳۴۰", "correct": true },
+            { "label": "۳۰۵", "correct": false },
+            { "label": "۴۰۲", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! رقم یکان ۳۴۰ صفر است.",
+      "wrongMessage": "فقط عددی که رقم یکانش صفر باشد، بر ۱۰ بخش‌پذیر است."
+    }
+  ]
+}

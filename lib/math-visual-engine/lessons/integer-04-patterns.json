@@ -1,0 +1,155 @@
+{
+  "id": "integer-04-patterns",
+  "subjectId": "math",
+  "topicId": "integers",
+  "order": 4,
+  "level": 3,
+  "title": "درس ۴ — الگوهای عددی روی خط اعداد",
+  "description": "با نگاه‌کردن به فاصله‌ی بین نقطه‌ها، قانون یک دنباله را پیدا کن و ادامه‌اش بده",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز کارآگاه عدد می‌شویم — باید فاصله‌ی بین نقطه‌ها را پیدا کنیم تا بفهمیم دنباله چطور ادامه پیدا می‌کند.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "see-pattern",
+      "title": "قانون دنباله را پیدا کن",
+      "speak": "به این نقطه‌ها نگاه کن: منفی شش، منفی سه، صفر، سه. هر بار چقدر به راست پریدیم؟ درسته — هر بار سه تا! این قانون دنباله است: به‌علاوه‌ی سه.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "منفی شش، منفی سه، صفر، سه، ...",
+          "min": -8,
+          "max": 8,
+          "points": [
+            { "value": -6, "label": "؟" },
+            { "value": -3, "label": "؟" },
+            { "value": 0, "label": "؟" },
+            { "value": 3, "label": "؟" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "confirm-step",
+      "title": "هر بار +۳",
+      "speak": "برای مطمئن‌شدن، از سه، سه‌تا به راست می‌پریم. کجا می‌رسیم؟ به شش! پس عدد بعدی دنباله، شش است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "۳ + ۳ = ؟",
+          "min": -8,
+          "max": 8,
+          "jump": { "from": 3, "to": 6, "label": "+۳" }
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-increasing",
+      "title": "تمرین ۱ — ادامه‌ی دنباله",
+      "speak": "این دنباله را ببین: منفی شش، منفی سه، صفر، سه. عدد بعدی کجاست؟ نشانگر را روی جای درست بگذار.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "عدد بعدی دنباله کجاست؟",
+          "min": -8,
+          "max": 8,
+          "points": [
+            { "value": -6 },
+            { "value": -3 },
+            { "value": 0 }
+          ],
+          "startValue": 3,
+          "target": 6
+        }
+      },
+      "successMessage": "درسته! هر بار سه تا به راست — قانون دنباله همینه.",
+      "wrongMessage": "فاصله‌ی بین نقطه‌های دنباله را دوباره بشمار — هر بار چند تا؟"
+    },
+    {
+      "type": "teach",
+      "id": "see-pattern-down",
+      "title": "دنباله‌ی رو به پایین",
+      "speak": "این‌بار یک دنباله‌ی رو به پایین: ده، هفت، چهار، یک. هر بار چقدر به چپ می‌رویم؟ هر بار سه تا! پس این دنباله «منهای سه» است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "ده، هفت، چهار، یک، ...",
+          "min": -6,
+          "max": 12,
+          "points": [
+            { "value": 10, "label": "؟" },
+            { "value": 7, "label": "؟" },
+            { "value": 4, "label": "؟" },
+            { "value": 1, "label": "؟" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-decreasing",
+      "title": "تمرین ۲ — دنباله‌ی رو به پایین",
+      "speak": "دنباله: ده، هفت، چهار، یک. عدد بعدی — با همان قانون منهای سه — کجاست؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "عدد بعدی دنباله کجاست؟",
+          "min": -6,
+          "max": 12,
+          "points": [
+            { "value": 10 },
+            { "value": 7 },
+            { "value": 4 }
+          ],
+          "startValue": 1,
+          "target": -2
+        }
+      },
+      "successMessage": "آفرین! از صفر هم رد شدیم و به منفی رسیدیم — همیشه با همان قانون.",
+      "wrongMessage": "هر بار سه تا به چپ برو — حتی وقتی از صفر رد می‌شوی."
+    },
+    {
+      "type": "practice",
+      "id": "practice-mixed-step",
+      "title": "تمرین ۳ — قانون تازه",
+      "speak": "دنباله‌ی جدید: منفی هشت، منفی چهار، صفر. این‌بار قانون چیست؟ عدد بعدی را پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "عدد بعدی دنباله کجاست؟",
+          "min": -10,
+          "max": 10,
+          "points": [
+            { "value": -8 },
+            { "value": -4 }
+          ],
+          "startValue": 0,
+          "target": 4
+        }
+      },
+      "successMessage": "درست بود! این‌بار قانون به‌علاوه‌ی چهار بود.",
+      "wrongMessage": "فاصله‌ی منفی هشت تا منفی چهار را بشمار — همان فاصله را دوباره برو."
+    }
+  ]
+}

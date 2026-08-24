@@ -125,6 +125,51 @@
               "level": 5,
               "teachSteps": 2,
               "practiceSteps": 7
+            },
+            {
+              "id": "fraction-12-reciprocal",
+              "title": "درس ۱۳ — معکوس یک کسر (کتاب ششم ص ۲۹)",
+              "description": "هرگاه حاصل‌ضرب دو عدد برابر ۱ شود، آن دو عدد معکوس یکدیگرند",
+              "order": 13,
+              "level": 4,
+              "teachSteps": 2,
+              "practiceSteps": 6
+            },
+            {
+              "id": "fraction-13-equal-fractions",
+              "title": "درس ۱۴ — تساوی دو کسر (کتاب ششم ص ۳۳، ۳۷، ۳۸)",
+              "description": "اگر صورت و مخرج یک کسر را در عدد یکسانی ضرب کنیم، ارزش کسر تغییر نمی‌کند",
+              "order": 14,
+              "level": 4,
+              "teachSteps": 2,
+              "practiceSteps": 5
+            },
+            {
+              "id": "fraction-14-textbook-multiply-2",
+              "title": "درس ۱۵ — ضرب کسرها، مسئله‌های واقعی (کتاب ششم ص ۲۸، ۳۱)",
+              "description": "کسری از کسر دیگر — با مسئله‌های واقعی کتاب ششم",
+              "order": 15,
+              "level": 4,
+              "teachSteps": 2,
+              "practiceSteps": 4
+            },
+            {
+              "id": "fraction-15-textbook-divide-2",
+              "title": "درس ۱۶ — تقسیم کسرها، مسئله‌های واقعی (کتاب ششم ص ۳۲–۳۵)",
+              "description": "برای تقسیم دو کسر، کسر اول را در معکوس کسر دوم ضرب می‌کنیم",
+              "order": 16,
+              "level": 4,
+              "teachSteps": 2,
+              "practiceSteps": 6
+            },
+            {
+              "id": "fraction-16-compare-order-advanced",
+              "title": "درس ۱۷ — مقایسه، ترتیب و مسئله‌های ترکیبی (کتاب ششم ص ۳۷، ۳۹، ۴۱)",
+              "description": "مرتب‌سازی چند کسر، کسرهای بین دو کسر، و مسئله‌های ترکیبی محیط و مساحت",
+              "order": 17,
+              "level": 5,
+              "teachSteps": 1,
+              "practiceSteps": 6
             }
           ]
         },
@@ -139,10 +184,29 @@
         {
           "id": "ratios",
           "title": "نسبت و تناسب",
-          "description": "نسبت، تناسب و مسئله‌های کاربردی — به‌زودی",
+          "description": "درصد یعنی چه، و کاربردش در تخفیف و محاسبات مالی",
           "order": 3,
           "icon": "⚖️",
-          "lessons": []
+          "lessons": [
+            {
+              "id": "ratio-01-percent-intro",
+              "title": "درس ۱ — درصد یعنی چه؟",
+              "description": "درصد یعنی چند تا از هر صد تا — با یک نوار رنگی می‌بینیمش",
+              "order": 1,
+              "level": 3,
+              "teachSteps": 2,
+              "practiceSteps": 2
+            },
+            {
+              "id": "ratio-02-percent-discount",
+              "title": "درس ۲ — کاربرد درصد در تخفیف",
+              "description": "وقتی یک چیز تخفیف می‌خورد، چند درصد قیمتش را باید بدهیم؟",
+              "order": 2,
+              "level": 4,
+              "teachSteps": 2,
+              "practiceSteps": 2
+            }
+          ]
         },
         {
           "id": "integers",
@@ -154,11 +218,11 @@
             {
               "id": "integer-01-number-line-intro",
               "title": "درس ۱ — خط اعداد و اعداد منفی",
-              "description": "آشنایی با خط اعداد، صفر، و جای اعداد مثبت و منفی",
+              "description": "آشنایی با خط اعداد، مبدأ، و جای اعداد مثبت و منفی در دنیای واقعی",
               "order": 1,
               "level": 2,
-              "teachSteps": 3,
-              "practiceSteps": 2
+              "teachSteps": 5,
+              "practiceSteps": 3
             },
             {
               "id": "integer-02-compare",
@@ -177,6 +241,87 @@
               "level": 3,
               "teachSteps": 2,
               "practiceSteps": 3
+            },
+            {
+              "id": "integer-04-patterns",
+              "title": "درس ۴ — الگوهای عددی روی خط اعداد",
+              "description": "با نگاه‌کردن به فاصله‌ی بین نقطه‌ها، قانون یک دنباله را پیدا کن و ادامه‌اش بده",
+              "order": 4,
+              "level": 3,
+              "teachSteps": 3,
+              "practiceSteps": 3
+            },
+            {
+              "id": "integer-05-multiply-divide",
+              "title": "درس ۵ — ضرب و تقسیم اعداد صحیح",
+              "description": "وقتی عددهای منفی را در هم ضرب یا بر هم تقسیم می‌کنیم، چه اتفاقی می‌افتد؟",
+              "order": 5,
+              "level": 4,
+              "teachSteps": 3,
+              "practiceSteps": 4
+            },
+            {
+              "id": "integer-06-order-of-operations",
+              "title": "درس ۶ — تقدم عملیات",
+              "description": "اگر یک عبارت چند عملیات همزمان داشته باشد، اول کدام را انجام می‌دهیم؟",
+              "order": 6,
+              "level": 4,
+              "teachSteps": 3,
+              "practiceSteps": 4
+            },
+            {
+              "id": "integer-07-parentheses",
+              "title": "درس ۷ — پرانتز، دستور ویژه",
+              "description": "پرانتز به ما اجازه می‌دهد ترتیب همیشگی محاسبات را عوض کنیم",
+              "order": 7,
+              "level": 5,
+              "teachSteps": 2,
+              "practiceSteps": 4
+            }
+          ]
+        },
+        {
+          "id": "divisibility",
+          "title": "بخش‌پذیری",
+          "description": "نشانه‌های پنهان اعداد — بدون تقسیم کردن بفهم یک عدد بر عدد دیگر بخش‌پذیر است یا نه",
+          "order": 5,
+          "icon": "🔍",
+          "lessons": [
+            {
+              "id": "divisibility-01-concept",
+              "title": "درس ۱ — بخش‌پذیری یعنی چه؟",
+              "description": "چرا بعضی عددها راحت تقسیم می‌شوند و بعضی‌ها نه؟",
+              "order": 1,
+              "level": 2,
+              "teachSteps": 2,
+              "practiceSteps": 2
+            },
+            {
+              "id": "divisibility-02-rule-2-5-10",
+              "title": "درس ۲ — نشانه‌های بخش‌پذیری بر ۲، ۵ و ۱۰",
+              "description": "بدون تقسیم کردن، فقط با نگاه به رقم آخر بفهم",
+              "order": 2,
+              "level": 2,
+              "teachSteps": 3,
+              "practiceSteps": 3
+            },
+            {
+              "id": "divisibility-03-rule-3-9",
+              "title": "درس ۳ — اثر انگشت عددها: بخش‌پذیری بر ۳ و ۹",
+              "description": "این‌بار رقم یکان کافی نیست — باید همهٔ رقم‌ها را با هم جمع بزنیم",
+              "order": 3,
+              "level": 3,
+              "teachSteps": 2,
+              "practiceSteps": 3
+            },
+            {
+              "id": "divisibility-04-detective-challenge",
+              "title": "درس ۴ — چالش کارآگاه عددها",
+              "description": "چند نشانه را با هم ترکیب کن تا یک رمز مخفی را کشف کنی",
+              "order": 4,
+              "level": 4,
+              "teachSteps": 1,
+              "practiceSteps": 3
             }
           ]
         },
@@ -184,7 +329,7 @@
           "id": "geometry",
           "title": "هندسه پایه",
           "description": "محیط، مساحت، زاویه و اشکال دوبعدی",
-          "order": 5,
+          "order": 6,
           "icon": "📐",
           "lessons": [
             {
@@ -195,6 +340,24 @@
               "level": 2,
               "teachSteps": 5,
               "practiceSteps": 3
+            },
+            {
+              "id": "geometry-02-angles",
+              "title": "درس ۲ — متمّم، مکمّل و زاویه‌های متقابل‌به‌رأس",
+              "description": "دو زاویه چه رابطه‌ای دارند؟ متمّم (مجموع ۹۰) و مکمّل (مجموع ۱۸۰) را بساز",
+              "order": 2,
+              "level": 3,
+              "teachSteps": 3,
+              "practiceSteps": 3
+            },
+            {
+              "id": "geometry-03-circle-area",
+              "title": "درس ۳ — مساحت دایره",
+              "description": "شعاع دایره چیست، و چطور با آن مساحت دایره را حساب کنیم",
+              "order": 3,
+              "level": 4,
+              "teachSteps": 3,
+              "practiceSteps": 2
             }
           ]
         },
@@ -202,7 +365,7 @@
           "id": "algebra",
           "title": "جبر پایه",
           "description": "معادلات یک‌مجهولی و عبارت‌های جبری — به‌زودی",
-          "order": 6,
+          "order": 7,
           "icon": "𝑥",
           "lessons": []
         },
@@ -210,23 +373,51 @@
           "id": "powers",
           "title": "توان و رادیکال",
           "description": "توان، ریشه و قوانین پایه — به‌زودی",
-          "order": 7,
+          "order": 8,
           "icon": "²",
           "lessons": []
         },
         {
           "id": "coordinates",
           "title": "مختصات و دستگاه محورها",
-          "description": "صفحه مختصات و نقاط — به‌زودی",
-          "order": 8,
+          "description": "صفحهٔ مختصات، تقارن حول محورها، و دوران حول مبدأ",
+          "order": 9,
           "icon": "🗺️",
-          "lessons": []
+          "lessons": [
+            {
+              "id": "coord-01-plot-points",
+              "title": "درس ۱ — آشنایی با صفحهٔ مختصات",
+              "description": "دو محور، مبدأ، و پیدا کردن جای هر نقطه با یک جفت عدد",
+              "order": 1,
+              "level": 3,
+              "teachSteps": 3,
+              "practiceSteps": 2
+            },
+            {
+              "id": "coord-02-reflection",
+              "title": "درس ۲ — تقارن روی صفحهٔ مختصات",
+              "description": "بازتاب یک نقطه حول محور x یا y — مثل نگاه‌کردن در آینه",
+              "order": 2,
+              "level": 3,
+              "teachSteps": 2,
+              "practiceSteps": 2
+            },
+            {
+              "id": "coord-03-rotation",
+              "title": "درس ۳ — دوران حول مبدأ",
+              "description": "چرخاندن یک نقطه دور مبدأ — ۹۰، ۱۸۰ و ۲۷۰ درجه",
+              "order": 3,
+              "level": 4,
+              "teachSteps": 2,
+              "practiceSteps": 3
+            }
+          ]
         },
         {
           "id": "stats",
           "title": "آمار توصیفی",
           "description": "میانگین، میانه و نمودار — به‌زودی",
-          "order": 9,
+          "order": 10,
           "icon": "📊",
           "lessons": []
         },
@@ -234,7 +425,7 @@
           "id": "probability",
           "title": "احتمال پایه",
           "description": "احتمال ساده و ترکیبیات مقدماتی — به‌زودی",
-          "order": 10,
+          "order": 11,
           "icon": "🎲",
           "lessons": []
         },
@@ -242,7 +433,7 @@
           "id": "algebra-advanced",
           "title": "جبر پیشرفته",
           "description": "معادلات دومجهولی، نامعادلات و توابع خطی — به‌زودی",
-          "order": 11,
+          "order": 12,
           "icon": "∑",
           "lessons": []
         },
@@ -250,7 +441,7 @@
           "id": "functions",
           "title": "توابع و نمودار",
           "description": "توابع و رسم نمودار — به‌زودی",
-          "order": 12,
+          "order": 13,
           "icon": "📈",
           "lessons": []
         },
@@ -258,7 +449,7 @@
           "id": "analytic-geometry",
           "title": "هندسه تحلیلی مقدماتی",
           "description": "خط، فاصله و شکل در مختصات — به‌زودی",
-          "order": 13,
+          "order": 14,
           "icon": "📏",
           "lessons": []
         },
@@ -266,7 +457,7 @@
           "id": "stats-advanced",
           "title": "آمار و احتمال پیشرفته",
           "description": "توزیع احتمال و احتمال شرطی — پیش‌نیاز هوش مصنوعی — به‌زودی",
-          "order": 14,
+          "order": 15,
           "icon": "📉",
           "lessons": []
         },
@@ -274,7 +465,7 @@
           "id": "trigonometry",
           "title": "مثلثات پایه",
           "description": "سینوس، کسینوس — پیش‌نیاز رباتیک و گرافیک — به‌زودی",
-          "order": 15,
+          "order": 16,
           "icon": "△",
           "lessons": []
         },
@@ -282,7 +473,7 @@
           "id": "linear-algebra",
           "title": "مبانی جبر خطی",
           "description": "بردار و ماتریس — پیش‌نیاز هوش مصنوعی — به‌زودی",
-          "order": 16,
+          "order": 17,
           "icon": "▦",
           "lessons": []
         },
@@ -290,7 +481,7 @@
           "id": "calculus-intro",
           "title": "مبانی مشتق و حد",
           "description": "درک شهودی حد و مشتق — اختیاری برای AI پیشرفته — به‌زودی",
-          "order": 17,
+          "order": 18,
           "icon": "∂",
           "lessons": []
         }

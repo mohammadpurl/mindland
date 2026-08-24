@@ -1,0 +1,159 @@
+{
+  "id": "integer-05-multiply-divide",
+  "subjectId": "math",
+  "topicId": "integers",
+  "order": 5,
+  "level": 4,
+  "title": "درس ۵ — ضرب و تقسیم اعداد صحیح",
+  "description": "وقتی عددهای منفی را در هم ضرب یا بر هم تقسیم می‌کنیم، چه اتفاقی می‌افتد؟",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! سیستم دمای مایندلند هر ساعت دو درجه سرد می‌شود. اگر سه ساعت صبر کنیم، دما چقدر تغییر می‌کند؟ برای این سؤال باید ضرب اعداد منفی را یاد بگیریم.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "positive-times-negative",
+      "title": "مثبت × منفی",
+      "speak": "سه ساعت، هر ساعت دو درجه سرد می‌شود؛ یعنی سه بار پشت‌سرهم دو قدم به چپ می‌پریم. سه ضرب‌در منفی دو می‌شود منفی شش.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "۳ × (−۲) = −۶",
+          "min": -8,
+          "max": 8,
+          "jump": { "from": 0, "to": -6, "label": "۳ × (−۲)" }
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "negative-times-negative",
+      "title": "منفی × منفی — برگشت به گذشته",
+      "speak": "حالا سؤال برعکس: دما با همین سرعت سرد می‌شده؛ سه ساعت پیش، یعنی قبل از الان، دما چقدر بوده؟ رفتن به «قبل» یعنی جهت را برعکس کنیم — پس منفی سه ضرب‌در منفی دو می‌شود مثبت شش، نه منفی!",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "(−۳) × (−۲) = +۶",
+          "min": -8,
+          "max": 8,
+          "jump": { "from": 0, "to": 6, "label": "(−۳) × (−۲)" }
+        }
+      }
+    },
+    {
+      "type": "speak",
+      "id": "sign-rule",
+      "message": "قانون علامت‌ها همین‌جا کشف شد: وقتی دو عدد هم‌علامت باشند (هر دو مثبت یا هر دو منفی)، حاصل‌ضرب مثبت است. وقتی علامت‌شان فرق کند، حاصل‌ضرب منفی است. همین قانون دقیقاً برای تقسیم هم درست است.",
+      "animation": "Thinking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "division-as-unknown-factor",
+      "title": "تقسیم یعنی پیدا کردن ضریب گم‌شده",
+      "speak": "منفی هشت را بر منفی دو تقسیم می‌کنیم یعنی می‌پرسیم: منفی دو در چند ضرب شود تا منفی هشت شود؟ جواب: چهار بار. پس منفی هشت تقسیم‌بر منفی دو می‌شود چهار.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "(−۸) ÷ (−۲) = ۴",
+          "min": -10,
+          "max": 6,
+          "jump": { "from": 0, "to": -8, "label": "(−۲) × ۴ = −۸" }
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-pos-times-neg",
+      "title": "تمرین ۱ — چهار ضرب‌در منفی سه",
+      "speak": "نشانگر را بکش تا حاصل‌ضرب چهار در منفی سه را روی خط پیدا کنی.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "۴ × (−۳) = ؟",
+          "min": -14,
+          "max": 6,
+          "startValue": 0,
+          "target": -12
+        }
+      },
+      "successMessage": "درسته! چهار ضرب‌در منفی سه می‌شود منفی دوازده — علامت‌ها فرق دارند، پس منفی.",
+      "wrongMessage": "چهار بار پشت‌سرهم سه قدم به چپ بپر."
+    },
+    {
+      "type": "practice",
+      "id": "practice-neg-times-neg",
+      "title": "تمرین ۲ — منفی پنج ضرب‌در منفی دو",
+      "speak": "این‌بار هر دو عدد منفی‌اند. حاصل‌ضرب چه علامتی دارد؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "(−۵) × (−۲) = ؟",
+          "min": -4,
+          "max": 12,
+          "startValue": 0,
+          "target": 10
+        }
+      },
+      "successMessage": "آفرین! هر دو منفی بودند، پس حاصل‌ضرب مثبت شد: ده.",
+      "wrongMessage": "هر دو عدد منفی‌اند — پس علامت‌ها یکی است و جواب باید مثبت باشد."
+    },
+    {
+      "type": "practice",
+      "id": "practice-division-negative",
+      "title": "تمرین ۳ — منفی دوازده تقسیم‌بر چهار",
+      "speak": "چهار در چند ضرب شود تا منفی دوازده شود؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "(−۱۲) ÷ ۴ = ؟",
+          "min": -14,
+          "max": 4,
+          "startValue": 0,
+          "target": -3
+        }
+      },
+      "successMessage": "درسته! چهار ضرب‌در منفی سه می‌شود منفی دوازده، پس جواب منفی سه است.",
+      "wrongMessage": "به دنبال عددی بگرد که چهار در آن، منفی دوازده شود."
+    },
+    {
+      "type": "practice",
+      "id": "practice-division-two-negatives",
+      "title": "تمرین ۴ — چالش: منفی هجده تقسیم‌بر منفی سه",
+      "speak": "چالش پایانی: منفی هجده را بر منفی سه تقسیم کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "(−۱۸) ÷ (−۳) = ؟",
+          "min": -2,
+          "max": 10,
+          "startValue": 0,
+          "target": 6
+        }
+      },
+      "successMessage": "عالی بود! هر دو عدد منفی بودند، پس جواب مثبت شش است.",
+      "wrongMessage": "هر دو عدد منفی‌اند — یادت باشد، همان علامت یعنی جواب مثبت."
+    }
+  ]
+}

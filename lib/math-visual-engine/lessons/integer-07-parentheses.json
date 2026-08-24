@@ -1,0 +1,137 @@
+{
+  "id": "integer-07-parentheses",
+  "subjectId": "math",
+  "topicId": "integers",
+  "order": 7,
+  "level": 5,
+  "title": "درس ۷ — پرانتز، دستور ویژه",
+  "description": "پرانتز به ما اجازه می‌دهد ترتیب همیشگی محاسبات را عوض کنیم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "درس قبل یاد گرفتیم که ضرب همیشه قبل از جمع انجام می‌شود. اما گاهی خودمان می‌خواهیم اول جمع را انجام دهیم! پرانتز دقیقاً همین کار را برای ما می‌کند.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "parens-change-order",
+      "title": "پرانتز، یک مأموریت جداست",
+      "speak": "هر چیزی که داخل پرانتز باشد، اول انجام می‌شود — حتی جمع، حتی جلوی ضرب. پنج به‌علاوه‌ی سه، همه‌اش داخل پرانتز است، پس اول جمع می‌شود هشت، و بعد در دو ضرب می‌شود شانزده. جواب کاملاً فرق کرد!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "بدون پرانتز در مقابل با پرانتز",
+          "min": -2,
+          "max": 18,
+          "points": [
+            { "value": 11, "label": "۵ + ۳ × ۲" },
+            { "value": 16, "label": "(۵ + ۳) × ۲" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "nested-parens",
+      "title": "پرانتز تودرتو — از داخل به بیرون",
+      "speak": "وقتی پرانتز توی پرانتز باشد، از داخلی‌ترین شروع می‌کنیم: دو به‌علاوه‌ی سه می‌شود پنج، پنج ضرب‌در دو می‌شود ده، ده منهای چهار می‌شود شش.",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "((۲ + ۳) × ۲) − ۴ = ۶",
+          "min": -2,
+          "max": 12,
+          "points": [{ "value": 6, "label": "((۲+۳)×۲)−۴" }]
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-simple-parens",
+      "title": "تمرین ۱ — شش منهای دو، همه در پرانتز، ضرب‌در سه",
+      "speak": "اول داخل پرانتز را حساب کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "(۶ − ۲) × ۳ = ؟",
+          "min": -2,
+          "max": 16,
+          "startValue": 0,
+          "target": 12
+        }
+      },
+      "successMessage": "درسته! شش منهای دو می‌شود چهار، چهار ضرب‌در سه می‌شود دوازده.",
+      "wrongMessage": "اول داخل پرانتز را حساب کن: شش منهای دو."
+    },
+    {
+      "type": "practice",
+      "id": "practice-parens-with-sub",
+      "title": "تمرین ۲ — بیست منهای پرانتزِ سه به‌علاوه‌ی دو، ضرب‌در دو",
+      "speak": "اول جمع داخل پرانتز، بعد ضرب، بعد تفریق.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "۲۰ − (۳ + ۲) × ۲ = ؟",
+          "min": -2,
+          "max": 22,
+          "startValue": 0,
+          "target": 10
+        }
+      },
+      "successMessage": "آفرین! سه به‌علاوه‌ی دو می‌شود پنج، پنج ضرب‌در دو می‌شود ده، بیست منهای ده می‌شود ده.",
+      "wrongMessage": "اول داخل پرانتز، بعد ضرب، و در آخر تفریق را انجام بده."
+    },
+    {
+      "type": "practice",
+      "id": "practice-parens-division",
+      "title": "تمرین ۳ — پرانتزِ چهار به‌علاوه‌ی چهار، تقسیم‌بر دو",
+      "speak": "اول جمع داخل پرانتز را حساب کن، بعد تقسیم کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "(۴ + ۴) ÷ ۲ = ؟",
+          "min": -2,
+          "max": 10,
+          "startValue": 0,
+          "target": 4
+        }
+      },
+      "successMessage": "درسته! چهار به‌علاوه‌ی چهار می‌شود هشت، و هشت تقسیم‌بر دو می‌شود چهار.",
+      "wrongMessage": "اول داخل پرانتز را جمع بزن، بعد تقسیم کن."
+    },
+    {
+      "type": "practice",
+      "id": "final-mission-temperature",
+      "title": "مأموریت پایانی فصل — دمای سیستم مایندلند",
+      "speak": "چالش نهایی فصل اعداد صحیح! دمای اولیه مثبت چهار بود. صبح منهای هفت درجه تغییر کرد، ظهر مثبت پنج درجه تغییر کرد، و شب منهای سه درجه. برای اینکه صبح و شب را با هم مقایسه کنیم، آن‌ها را در پرانتز گذاشته‌ایم: دمای نهایی (چهار منهای هفت) به‌علاوه‌ی (پنج منهای سه) چند درجه است؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "(۴ − ۷) + (۵ − ۳) = ؟",
+          "min": -8,
+          "max": 8,
+          "startValue": 0,
+          "target": -1
+        }
+      },
+      "successMessage": "تبریک! فصل اعداد صحیح را تمام کردی: چهار منهای هفت می‌شود منفی سه، پنج منهای سه می‌شود دو، و منفی سه به‌علاوه‌ی دو می‌شود منفی یک درجه.",
+      "wrongMessage": "اول هر پرانتز را جدا حساب کن: چهار منهای هفت، و پنج منهای سه — بعد جمعشان بزن."
+    }
+  ]
+}

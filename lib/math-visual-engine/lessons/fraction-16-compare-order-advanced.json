@@ -1,0 +1,164 @@
+{
+  "id": "fraction-16-compare-order-advanced",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 17,
+  "level": 5,
+  "title": "درس ۱۷ — مقایسه، ترتیب و مسئله‌های ترکیبی (کتاب ششم ص ۳۷، ۳۹، ۴۱)",
+  "description": "مرتب‌سازی چند کسر، کسرهای بین دو کسر، و مسئله‌های ترکیبی محیط و مساحت",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "امروز چند کسر را با هم مرتب می‌کنیم، کسرهای بین دو کسر را پیدا می‌کنیم، و چند مسئلهٔ ترکیبی واقعی از کتاب ششم حل می‌کنیم.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "how-to-order",
+      "title": "چطور چند کسر را مرتب کنیم؟",
+      "speak": "برای مرتب‌کردن چند کسر با مخرج‌های مختلف، بهتر است همه را با یک مخرج مشترک بنویسیم؛ آن‌وقت فقط کافی است صورت‌ها را مقایسه کنیم. مثلاً یک‌دهم، یک‌صدم و یک‌بیست‌وپنجم — هرچه مخرج بزرگ‌تر باشد و صورت یک ثابت بماند، کسر کوچک‌تر می‌شود.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۱/۱۰۰ < ۱/۲۵ < ۱/۱۰  —  هرچه مخرج بزرگ‌تر، کسر کوچک‌تر" }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-order-set",
+      "title": "تمرین ۱ — کدام دسته درست مرتب شده؟",
+      "speak": "کدام‌یک از این دسته‌ها از کوچک به بزرگ مرتب شده است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام دسته از کسرهای زیر از کوچک به بزرگ مرتّب شده‌اند؟",
+          "choices": [
+            { "label": "۲/۱۰ ، ۶/۱۵ ، ۳/۵", "correct": true },
+            { "label": "۳/۵ ، ۶/۱۵ ، ۲/۱۰", "correct": false },
+            { "label": "۶/۱۵ ، ۲/۱۰ ، ۳/۵", "correct": false },
+            { "label": "۲/۱۰ ، ۳/۵ ، ۶/۱۵", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۲/۱۰=۰٫۲ ، ۶/۱۵=۰٫۴ ، ۳/۵=۰٫۶ — دقیقاً از کوچک به بزرگ.",
+      "wrongMessage": "هر کسر را به عدد اعشاری تبدیل کن و مقایسه کن: ۲/۱۰، ۶/۱۵، ۳/۵."
+    },
+    {
+      "type": "practice",
+      "id": "practice-closest-estimate",
+      "title": "تمرین ۲ — تخمین نزدیک‌ترین عدد",
+      "speak": "بدون محاسبهٔ دقیق، تخمین بزن: حاصل پنج‌هشتم به‌علاوه‌ی نود‌ونه‌صدم، به کدام عدد نزدیک‌تر است؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "حاصل ۵/۸ + ۹۹/۱۰۰ به کدام یک از عددهای زیر نزدیک‌تر است؟",
+          "choices": [
+            { "label": "۱", "correct": true, "note": "۵/۸ کمی بیشتر از نصف، و ۹۹/۱۰۰ تقریباً یک است." },
+            { "label": "۳", "correct": false },
+            { "label": "۵", "correct": false },
+            { "label": "۱۰", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۵/۸ حدود ۰٫۶ و ۹۹/۱۰۰ حدود ۱ است؛ جمعشان نزدیک ۱٫۶ می‌شود — نزدیک‌تر به ۱ تا بقیهٔ گزینه‌ها.",
+      "wrongMessage": "۵/۸ را با ۱/۲ و ۹۹/۱۰۰ را با ۱ مقایسه کن — جمعشان نزدیک به چند است؟"
+    },
+    {
+      "type": "practice",
+      "id": "practice-between-fractions",
+      "title": "تمرین ۳ — کسرهای بین ۱ و ۲",
+      "speak": "کدام دسته، سه کسر بین یک و دو هستند که هر سه از یک‌وچهارم بزرگ‌ترند... یعنی از یک‌ویک‌چهارم بزرگ‌ترند؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام دسته، سه کسر بین ۱ و ۲ هستند که هر سه از ۱¼ بزرگ‌ترند؟",
+          "choices": [
+            { "label": "۷/۵ ، ۳/۲ ، ۹/۵", "correct": true, "note": "هر سه بین ۱٫۲۵ و ۲ قرار دارند." },
+            { "label": "۱/۵ ، ۱/۲ ، ۹/۵", "correct": false },
+            { "label": "۷/۵ ، ۳ ، ۹/۵", "correct": false },
+            { "label": "۱ ، ۳/۲ ، ۲", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۷/۵=۱٫۴ ، ۳/۲=۱٫۵ ، ۹/۵=۱٫۸ — همه بین ۱٫۲۵ و ۲ هستند.",
+      "wrongMessage": "هر عدد را به اعشار تبدیل کن و ببین بین ۱٫۲۵ و ۲ است یا نه."
+    },
+    {
+      "type": "practice",
+      "id": "practice-combined-calc",
+      "title": "تمرین ۴ — محاسبهٔ ترکیبی",
+      "speak": "این عبارت سه بخش دارد: جمع، جمع و تفریق با اعداد مخلوط. با دقت محاسبه کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "حاصل ۸⅖ + ۱¾ − ۲(۱/۱۰) کدام است؟",
+          "choices": [
+            { "label": "۸ (۱/۲۰)", "correct": true },
+            { "label": "۸", "correct": false },
+            { "label": "۷ (۱۹/۲۰)", "correct": false },
+            { "label": "۸٫۵", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! با مخرج مشترک ۲۰: ۱۶۸/۲۰ + ۳۵/۲۰ − ۴۲/۲۰ = ۱۶۱/۲۰ = ۸ (۱/۲۰).",
+      "wrongMessage": "هر عدد مخلوط را به کسر تبدیل کن، مخرج مشترک ۲۰ بگیر، بعد جمع و تفریق کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-garden-perimeter",
+      "title": "تمرین ۵ — محیط باغچه",
+      "speak": "طول یک باغچهٔ مستطیل‌شکل دو‌ویک‌دهم متر و عرضش یک‌ویک‌چهارم متر است. محیط این باغچه چقدر است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "طول باغچه ۲(۱/۱۰) متر و عرض آن ۱(۱/۴) متر است. محیط باغچه چند متر است؟",
+          "choices": [
+            { "label": "۶ (۷/۱۰) متر", "correct": true },
+            { "label": "۳ (۳۵/۴۰) متر", "correct": false },
+            { "label": "۲ (۶۵/۱۰۰) متر", "correct": false },
+            { "label": "۷ متر", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! محیط = ۲×(طول+عرض) = ۲×(۲٫۱+۱٫۲۵) = ۲×۳٫۳۵ = ۶٫۷ متر = ۶(۷/۱۰) متر.",
+      "wrongMessage": "اول طول و عرض را جمع بزن، بعد حاصل را در ۲ ضرب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-garden-area",
+      "title": "تمرین ۶ — مساحت باغچه",
+      "speak": "همان باغچه — این‌بار مساحتش را حساب کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "طول باغچه ۲(۱/۱۰) متر و عرض آن ۱(۱/۴) متر است. مساحت باغچه چند متر مربع است؟",
+          "choices": [
+            { "label": "۲ (۵/۸) متر مربع", "correct": true },
+            { "label": "۶ (۷/۱۰) متر مربع", "correct": false },
+            { "label": "۳ (۳۵/۴۰) متر مربع", "correct": false },
+            { "label": "۲ متر مربع", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! مساحت = طول × عرض = ۲۱/۱۰ × ۵/۴ = ۱۰۵/۴۰ = ۲(۵/۸) متر مربع.",
+      "wrongMessage": "طول را در عرض ضرب کن: ۲۱/۱۰ × ۵/۴."
+    }
+  ]
+}

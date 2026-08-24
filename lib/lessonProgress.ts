@@ -35,6 +35,15 @@ export function isLessonCompleted(lessonId: string): boolean {
 export type LessonUnlockState = 'completed' | 'current' | 'locked' | 'free'
 
 /**
+ * حالت تست: وقتی NEXT_PUBLIC_UNLOCK_ALL_LESSONS=true باشد، قفل ترتیبی درس‌ها
+ * نادیده گرفته می‌شود تا بتوان مستقیم هر درسی را برای تست باز کرد. فقط برای
+ * محیط توسعه/تست است — در .env.local تنظیم می‌شود، نه در کد.
+ */
+function unlockAllLessonsEnabled(): boolean {
+  return process.env.NEXT_PUBLIC_UNLOCK_ALL_LESSONS === 'true'
+}
+
+/**
  * وضعیت باز/بسته‌بودن یک درس در یک زنجیرهٔ ترتیبی.
  * - «free»: درس اصلاً بخشی از این زنجیره نیست (مثلاً بخش اختیاری) — همیشه باز است.
  * - «completed»: قبلاً تمام شده.
@@ -46,6 +55,7 @@ export function getLessonUnlockState(lessonId: string, sequence: string[]): Less
   const idx = sequence.indexOf(lessonId)
   if (idx === -1) return 'free'
   if (isLessonCompleted(lessonId)) return 'completed'
+  if (unlockAllLessonsEnabled()) return 'current'
   const prevId = sequence[idx - 1]
   if (idx <= 1 || (prevId && isLessonCompleted(prevId))) return 'current'
   return 'locked'

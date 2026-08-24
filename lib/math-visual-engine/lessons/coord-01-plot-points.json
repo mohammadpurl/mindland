@@ -1,0 +1,107 @@
+{
+  "id": "coord-01-plot-points",
+  "subjectId": "math",
+  "topicId": "coordinates",
+  "order": 1,
+  "level": 3,
+  "title": "درس ۱ — آشنایی با صفحهٔ مختصات",
+  "description": "دو محور، مبدأ، و پیدا کردن جای هر نقطه با یک جفت عدد",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز با یک نقشه‌ی جادویی آشنا می‌شویم که با آن می‌توانیم جای هر نقطه را دقیقاً پیدا کنیم — به آن صفحهٔ مختصات می‌گویند.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "two-axes",
+      "title": "دو محور",
+      "speak": "این خط افقی را محور x می‌نامیم و این خط عمودی را محور y. جایی که این دو خط همدیگر را قطع می‌کنند، مبدأ یا نقطهٔ (صفر، صفر) است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "static",
+        "params": {
+          "title": "محور x و محور y",
+          "range": 5,
+          "points": []
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "read-point",
+      "title": "خواندن یک نقطه",
+      "speak": "برای رسیدن به این نقطه، اول سه قدم روی محور x به راست می‌رویم، بعد دو قدم روی محور y به بالا. به این می‌گوییم نقطهٔ (سه، دو).",
+      "animation": "Talking",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "static",
+        "params": {
+          "title": "نقطهٔ (۳, ۲)",
+          "range": 5,
+          "points": [{ "x": 3, "y": 2, "label": "(۳, ۲)" }]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "negative-coords",
+      "title": "مختصات منفی",
+      "speak": "عددها می‌توانند منفی هم باشند! نقطهٔ (منفی دو، منفی سه) یعنی دو قدم به چپ و سه قدم به پایین از مبدأ.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "static",
+        "params": {
+          "title": "نقطهٔ (−۲, −۳)",
+          "range": 5,
+          "points": [
+            { "x": 3, "y": 2, "label": "(۳, ۲)" },
+            { "x": -2, "y": -3, "label": "(−۲, −۳)", "color": "#F97316" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-plot-1",
+      "title": "تمرین ۱ — نقطهٔ (۴, ۱)",
+      "speak": "حالا خودت امتحان کن! نشانگر بنفش را به نقطهٔ (چهار، یک) ببر.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "interactive",
+        "params": {
+          "title": "نقطهٔ (۴, ۱) کجاست؟",
+          "range": 5,
+          "target": { "x": 4, "y": 1 }
+        }
+      },
+      "successMessage": "آفرین! دقیقاً درست بود!",
+      "wrongMessage": "اول روی محور x چهار قدم برو، بعد روی y یک قدم بالا."
+    },
+    {
+      "type": "practice",
+      "id": "practice-plot-2",
+      "title": "تمرین ۲ — نقطهٔ (−۳, ۴)",
+      "speak": "این‌بار یک مختصات منفی: نقطهٔ (منفی سه، چهار) را پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "interactive",
+        "params": {
+          "title": "نقطهٔ (−۳, ۴) کجاست؟",
+          "range": 5,
+          "target": { "x": -3, "y": 4 }
+        }
+      },
+      "successMessage": "عالی بود! منفی یعنی سمت چپ یا پایین مبدأ.",
+      "wrongMessage": "منفی سه روی x یعنی سه قدم به چپ — بعد چهار قدم بالا."
+    }
+  ]
+}

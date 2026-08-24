@@ -1,0 +1,147 @@
+{
+  "id": "fraction-14-textbook-multiply-2",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 15,
+  "level": 4,
+  "title": "درس ۱۵ — ضرب کسرها، مسئله‌های واقعی (کتاب ششم ص ۲۸، ۳۱)",
+  "description": "کسری از کسر دیگر — با مسئله‌های واقعی کتاب ششم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "برای ضرب دو کسر، صورت‌ها را در هم و مخرج‌ها را در هم ضرب می‌کنیم. امروز با مسئله‌های واقعی کتاب ششم تمرین می‌کنیم.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "word-problem-cake",
+      "title": "مسئلهٔ کیک — کسری از عدد",
+      "speak": "برای پختن یک کیک، سه‌چهارم کیلوگرم آرد لازم است. برای پختن دو کیک از همان نوع، دو برابر آرد لازم است: سه‌چهارم ضرب‌در دو، می‌شود سه‌دوم — یعنی یک‌ونیم کیلوگرم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۳/۴ × ۲ = ۳/۲ = ۱٫۵ کیلوگرم آرد" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "word-problem-students",
+      "title": "مسئلهٔ دانش‌آموزان — کسری از کسر",
+      "speak": "حدود سه‌پنجم دانش‌آموزان ایرانی در دورهٔ ابتدایی درس می‌خوانند. اگر یک‌ششم آنها کلاس ششمی باشند، چه کسری از همهٔ دانش‌آموزان ابتدایی، کلاس ششمی‌اند؟ سه‌پنجم ضرب‌در یک‌ششم می‌شود سه‌سی‌ام، که ساده می‌شود یک‌دهم.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۳/۵ × ۱/۶ = ؟",
+          "compareFractions": [
+            { "numerator": 3, "denominator": 5, "label": "۳/۵" },
+            { "numerator": 1, "denominator": 6, "label": "۱/۶" }
+          ],
+          "operationSymbol": "×",
+          "target": { "numerator": 1, "denominator": 10 }
+        }
+      },
+      "successMessage": "درسته! سه‌پنجم ضرب‌در یک‌ششم می‌شود سه‌سی‌ام، که ساده می‌شود یک‌دهم.",
+      "wrongMessage": "صورت‌ها را در هم و مخرج‌ها را در هم ضرب کن، بعد ساده کن: ۳×۱=۳ و ۵×۶=۳۰."
+    },
+    {
+      "type": "practice",
+      "id": "practice-find-8-15",
+      "title": "تمرین ۱ — بساز تا حاصلش ۸/۱۵ شود",
+      "speak": "چهار‌پنجم را در دو‌سوم ضرب کن و ببین حاصلش چه می‌شود.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۴/۵ × ۲/۳ = ؟",
+          "compareFractions": [
+            { "numerator": 4, "denominator": 5, "label": "۴/۵" },
+            { "numerator": 2, "denominator": 3, "label": "۲/۳" }
+          ],
+          "operationSymbol": "×",
+          "target": { "numerator": 8, "denominator": 15 }
+        }
+      },
+      "successMessage": "درسته! ۴×۲=۸ و ۵×۳=۱۵، پس حاصل ۸/۱۵ است — دقیقاً همان چیزی که کتاب می‌خواست!",
+      "wrongMessage": "صورت‌ها را در هم ضرب کن (۴×۲) و مخرج‌ها را در هم ضرب کن (۵×۳)."
+    },
+    {
+      "type": "practice",
+      "id": "practice-four-cards",
+      "title": "تمرین ۲ — چهار کارت، بیشترین حاصل‌ضرب",
+      "speak": "با کارت‌های ۱، ۲، ۳ و ۴ می‌خواهیم دو کسر بسازیم و در هم ضرب کنیم تا بیشترین حاصل‌ضرب ممکن به‌دست آید.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "با کارت‌های ۱،۲،۳،۴ (هر کدام یک‌بار) کدام آرایش □/□ × □/□ بیشترین حاصل‌ضرب را می‌دهد؟",
+          "choices": [
+            { "label": "۴/۱ × ۳/۲ = ۶", "correct": true },
+            { "label": "۱/۴ × ۲/۳ = ۱/۶", "correct": false },
+            { "label": "۲/۱ × ۴/۳ = ۸/۳", "correct": false },
+            { "label": "۱/۲ × ۳/۴ = ۳/۸", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! برای بیشترین حاصل، بزرگ‌ترین عددها را صورت و کوچک‌ترین را مخرج می‌گذاریم: ۴/۱ × ۳/۲ = ۶.",
+      "wrongMessage": "برای بیشترین حاصل‌ضرب، عددهای بزرگ باید صورت باشند و عددهای کوچک مخرج."
+    },
+    {
+      "type": "practice",
+      "id": "practice-which-equals",
+      "title": "تمرین ۳ — کدام برابر همین حاصل‌ضرب است؟",
+      "speak": "حاصل‌ضرب سه‌چهارم در پنج‌دوازدهم با کدام‌یک از این عبارت‌ها برابر است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "حاصل‌ضرب ۳/۴ × ۵/۱۲ با کدام عبارت زیر برابر است؟",
+          "choices": [
+            { "label": "۵/۱۶ × ۱/۳", "correct": true, "note": "هر دو برابر ۵/۴۸ هستند." },
+            { "label": "۵/۸ × ۱/۲", "correct": false },
+            { "label": "۴/۱۲ × ۵/۳", "correct": false },
+            { "label": "۵/۴ × ۳/۱۲", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! هر دو عبارت وقتی حساب شوند، دقیقاً ۵/۴۸ می‌دهند.",
+      "wrongMessage": "حاصل‌ضرب ۳/۴ × ۵/۱۲ را اول حساب کن (۵/۴۸)، بعد هر گزینه را هم حساب کن و مقایسه کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-which-correct",
+      "title": "تمرین ۴ — کدام محاسبه درست است؟",
+      "speak": "یکی از این دو روش محاسبهٔ یک ضرب کسر مخلوط درست است. کدام‌یک؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "برای محاسبهٔ ۱⅔ × ۲¾ ، کدام روش درست است؟",
+          "choices": [
+            {
+              "label": "اول هر دو را به کسر تبدیل کنیم: ۵/۳ × ۱۱/۴ = ۵۵/۱۲",
+              "correct": true
+            },
+            {
+              "label": "قسمت صحیح‌ها را در هم و کسرها را در هم ضرب کنیم: ۲×۶/۱۲",
+              "correct": false,
+              "note": "عدد مخلوط را باید اول به کسر تبدیل کرد، نمی‌شود قسمت‌ها را جدا ضرب کرد."
+            }
+          ]
+        }
+      },
+      "successMessage": "درسته! همیشه اول عدد مخلوط را به کسر تبدیل می‌کنیم، بعد ضرب می‌کنیم.",
+      "wrongMessage": "عدد مخلوط را نمی‌شود تکه‌تکه ضرب کرد — اول باید به کسر تبدیلش کنیم."
+    }
+  ]
+}

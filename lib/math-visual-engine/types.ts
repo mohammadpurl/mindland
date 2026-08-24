@@ -2,7 +2,15 @@ import type { AvatarAnimation } from '@/lib/avatar-bridge/types'
 import type { TeacherState } from '@/lib/animation-types'
 
 /** شناسه کامپوننت‌های بصری ریاضی — برای رجیستری */
-export type MathVisualType = 'fraction-circle' | 'number-line' | 'polygon'
+export type MathVisualType =
+  | 'fraction-circle'
+  | 'number-line'
+  | 'polygon'
+  | 'coordinate-grid'
+  | 'angle'
+  | 'percent-bar'
+  | 'divisibility'
+  | 'quiz'
 
 export type MathVisualMode = 'demo' | 'static' | 'interactive'
 
@@ -44,15 +52,17 @@ export interface FractionCircleParams {
 }
 
 /** شکل هندسی برای ویژوال Polygon */
-export type PolygonShapeKind = 'triangle' | 'parallelogram' | 'square' | 'rectangle'
+export type PolygonShapeKind = 'triangle' | 'parallelogram' | 'square' | 'rectangle' | 'circle'
 
 export interface PolygonShapeSpec {
   kind: PolygonShapeKind
   label?: string
-  /** طول قاعده (واحد نمایشی) */
+  /** طول قاعده (واحد نمایشی) — برای مثلث/متوازی‌الاضلاع/مربع */
   base?: number
-  /** ارتفاع (واحد نمایشی) */
+  /** ارتفاع (واحد نمایشی) — برای مثلث/متوازی‌الاضلاع/مربع */
   height?: number
+  /** شعاع (واحد نمایشی) — فقط برای kind: 'circle' */
+  radius?: number
   /** برجسته‌سازی بُعد */
   highlight?: 'base' | 'height' | 'area' | 'none'
   mood?: 'happy' | 'sad' | 'neutral' | 'curious'
@@ -116,10 +126,142 @@ export interface NumberLineParams {
   comparisonAnswer?: 'lt' | 'eq' | 'gt'
 }
 
+/** یک نقطهٔ ثابت روی صفحهٔ مختصات (demo / static) */
+export interface CoordinatePoint {
+  x: number
+  y: number
+  label?: string
+  color?: string
+}
+
+export type ReflectionAxis = 'x' | 'y'
+export type RotationAngle = 90 | 180 | 270
+
+/** پارامترهای ویژوال صفحهٔ مختصات (CoordinateGrid) — رسم نقطه، تقارن، دوران */
+export interface CoordinateGridParams {
+  title?: string
+  /** بازهٔ نمایش هر دو محور: از −range تا +range (پیش‌فرض بر اساس نقاط محاسبه می‌شود) */
+  range?: number
+  /** نقطه(های) ثابت برای نمایش در demo/static */
+  points?: CoordinatePoint[]
+  /** تمرین جای‌گذاری ساده: نشانگر را به این مختصات برسان */
+  target?: { x: number; y: number }
+  /** مختصات شروع نشانگر (پیش‌فرض مبدأ) */
+  startPoint?: { x: number; y: number }
+  /**
+   * تمرین/نمایش تقارن: نقطهٔ A ثابت + محور بازتاب —
+   * در interactive نشانگر باید تصویر آینه‌ای A را پیدا کند؛
+   * در demo با انیمیشن بازتاب آن نشان داده می‌شود.
+   */
+  reflect?: { point: { x: number; y: number }; axis: ReflectionAxis }
+  /** تمرین/نمایش دوران حول مبدأ */
+  rotate?: { point: { x: number; y: number }; angle: RotationAngle }
+  /** پخش انیمیشن در حالت demo (پیش‌فرض true) */
+  animate?: boolean
+}
+
+export type AngleRelation = 'complementary' | 'supplementary' | 'vertical' | 'free'
+
+/** پارامترهای ویژوال زاویه (AngleVisual) — نمایش، متمم/مکمل، متقابل‌به‌رأس */
+export interface AngleParams {
+  title?: string
+  /** زاویهٔ ثابت نمایشی برای demo/static ساده (درجه) */
+  angle?: number
+  /** نمایش دو خط متقاطع با ۴ زاویه — برای آموزش زاویه‌های متقابل‌به‌رأس */
+  showVerticalPair?: boolean
+  /** زاویهٔ مرجع که در ۴تایی متقابل‌به‌رأس نشان داده می‌شود (درجه) */
+  verticalReferenceAngle?: number
+  /**
+   * تمرین: پرتوی آزاد را بکش تا زاویه‌اش دقیقاً برابر این مقدار شود (درجه).
+   * زاویهٔ مرجع (اگر داده شود) کنار آن نشان داده می‌شود تا رابطه (متمم/مکمل/متقابل) روشن باشد.
+   */
+  target?: number
+  /** زاویهٔ شروع پرتوی آزاد قبل از کشیدن (درجه) */
+  startAngle?: number
+  /** زاویهٔ مرجع کنار تمرین — فقط برای نمایش متن رابطه */
+  referenceAngle?: number
+  /** نوع رابطه — فقط برای متن راهنما */
+  relation?: AngleRelation
+}
+
+/** پارامترهای ویژوال نوار درصد (PercentBar) — درصد یعنی چند از صد */
+export interface PercentBarParams {
+  title?: string
+  /** درصد ثابت نمایشی برای demo/static (۰ تا ۱۰۰) */
+  percent?: number
+  /** برچسب کل — مثلاً «قیمت کتاب: ۱۷٬۰۰۰ تومان» */
+  wholeLabel?: string
+  /** برچسب بخش پرشده — اگر ندهید، از روی percent محاسبه و «٪» نشان داده می‌شود */
+  partLabel?: string
+  /** تمرین: نوار را بکش تا دقیقاً این درصد پر شود */
+  target?: number
+  /** درصد شروع قبل از کشیدن */
+  startPercent?: number
+}
+
+/** یک گزینهٔ عددی در تمرین چندانتخابی بخش‌پذیری */
+export interface DivisibilityCandidate {
+  value: number
+  /** آیا این عدد شرط قانون/مقسوم‌علیه را برآورده می‌کند */
+  correct: boolean
+}
+
+/** یک گزینهٔ متنی در تمرین «کدام دلیل درست است؟» */
+export interface DivisibilityChoice {
+  label: string
+  correct: boolean
+}
+
+/**
+ * پارامترهای ویژوال آزمایشگاه بخش‌پذیری (DivisibilityLab) — کشف باقی‌مانده،
+ * نشانه‌های رقم یکان/مجموع رقم‌ها، و تمرین چندانتخابی/انتخاب صحیح.
+ */
+export interface DivisibilityParams {
+  title?: string
+  /** عددی که بررسی می‌شود (برای نمایش تک‌عددی در teach/static) */
+  number?: number
+  /** مقسوم‌علیه — مثلاً ۲، ۳، ۵، ۹ یا ۱۰ */
+  divisor?: number
+  /** چه چیزی از عدد برجسته شود */
+  highlight?: 'remainder' | 'lastDigit' | 'digitSum'
+  /** تمرین: چند عدد که باید بر اساس divisor انتخاب شوند (چندانتخابی) */
+  candidates?: DivisibilityCandidate[]
+  /** تمرین: یک سؤال با گزینه‌های متنی (تک‌انتخابی) */
+  choices?: DivisibilityChoice[]
+  /** متن سؤال بالای گزینه‌ها (برای candidates یا choices) */
+  prompt?: string
+}
+
+/** یک گزینه در ویژوال عمومی «کوییز» */
+export interface QuizChoice {
+  label: string
+  correct: boolean
+  /** توضیح کوتاه — بعد از انتخاب (چه درست، چه غلط) نمایش داده می‌شود */
+  note?: string
+}
+
+/**
+ * پارامترهای ویژوال عمومی «کوییز» (Quiz) — چندگزینه‌ای تک‌انتخابی یا چندانتخابی،
+ * برای هر سؤالی که با کارت/دایره/محور به‌خوبی نمایش داده نمی‌شود (مثلاً «کدام محاسبه
+ * درست است؟»، «در جای خالی چه عددی؟»، «کدام‌ها از بقیه بزرگ‌ترند؟»).
+ */
+export interface QuizParams {
+  title?: string
+  prompt?: string
+  choices?: QuizChoice[]
+  /** true یعنی چند گزینه هم‌زمان می‌توانند درست باشند (با دکمهٔ «بررسی کن») */
+  multiSelect?: boolean
+}
+
 export type MathVisualParams =
   | FractionCircleParams
   | PolygonParams
   | NumberLineParams
+  | CoordinateGridParams
+  | AngleParams
+  | PercentBarParams
+  | DivisibilityParams
+  | QuizParams
   | Record<string, unknown>
 
 export interface MathVisualConfig {

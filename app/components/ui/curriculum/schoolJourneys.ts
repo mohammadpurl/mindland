@@ -122,120 +122,13 @@ function buildStationsFromTopics(
   })
 }
 
-/** ۱) مدرسه ریاضیات — ستون فقرات */
+/**
+ * ۱) مدرسه ریاضیات — ستون فقرات. سیاره‌ها از همان درسنامهٔ واقعی
+ * (math-grade-6.json) ساخته می‌شوند تا این صفحه همیشه با آنچه واقعاً
+ * ساخته شده یکی باشد.
+ */
 export function buildMathSchoolStations(lang: string): SchoolPlanetStation[] {
-  const specs: Array<Omit<SchoolPlanetStation, 't' | 'planetFrom' | 'planetTo' | 'accent'> & { t?: number }> = [
-    {
-      id: 'math-launch',
-      label: 'پایگاه ریاضی',
-      learn: 'ریاضیات ستون فقرات همه مدارس مایلند است. از اینجا سفر را شروع کن.',
-      highlights: ['ستون فقرات', 'مسیر منسجم'],
-      category: 'math',
-      href: mathHref(lang),
-      kind: 'milestone',
-      emoji: '🚀',
-    },
-    {
-      id: 'fractions',
-      label: 'کسرها',
-      learn: 'جمع، تفریق، ضرب، مقایسه و مخرج مشترک — همین حالا قابل یادگیری است.',
-      highlights: ['در حال ساخت', 'MVP فعلی', 'کتاب ششم'],
-      category: 'math',
-      href: mathHref(lang, 'fractions'),
-      kind: 'core',
-      emoji: '🍕',
-    },
-    {
-      id: 'decimals',
-      label: 'اعشار و درصد',
-      learn: 'اعداد اعشاری و درصد را مثل پول و تخفیف واقعی می‌فهمی.',
-      highlights: ['سطح مقدماتی', 'به‌زودی'],
-      category: 'math',
-      href: mathHref(lang, 'decimals'),
-      locked: true,
-      kind: 'core',
-      emoji: '💯',
-    },
-    {
-      id: 'ratios',
-      label: 'نسبت و تناسب',
-      learn: 'نسبت و تناسب را برای مسئله‌های واقعی به کار می‌گیری.',
-      highlights: ['سطح مقدماتی', 'به‌زودی'],
-      category: 'math',
-      href: mathHref(lang, 'ratios'),
-      locked: true,
-      kind: 'core',
-      emoji: '⚖️',
-    },
-    {
-      id: 'integers',
-      label: 'اعداد صحیح',
-      learn: 'اعداد منفی و خط اعداد را مسلط می‌شوی.',
-      highlights: ['سطح مقدماتی', 'به‌زودی'],
-      category: 'math',
-      href: mathHref(lang, 'integers'),
-      locked: true,
-      kind: 'core',
-      emoji: '➖',
-    },
-    {
-      id: 'geometry',
-      label: 'هندسه پایه',
-      learn: 'محیط، مساحت، زاویه و اشکال — پیش‌نیاز طراحی و رباتیک.',
-      highlights: ['شروع شده', 'پیش‌نیاز طراحی/رباتیک'],
-      category: 'math',
-      href: mathHref(lang, 'geometry'),
-      kind: 'core',
-      emoji: '📐',
-    },
-    {
-      id: 'algebra',
-      label: 'جبر پایه',
-      learn: 'معادله و عبارت جبری — پیش‌نیاز برنامه‌نویسی پیشرفته و AI.',
-      highlights: ['سطح متوسط', 'به‌زودی'],
-      category: 'math',
-      href: mathHref(lang, 'algebra'),
-      locked: true,
-      kind: 'core',
-      emoji: '𝑥',
-    },
-    {
-      id: 'stats-prob',
-      label: 'آمار و احتمال',
-      learn: 'میانگین، نمودار و احتمال ساده تا پیشرفته — مسیر مستقیم به AI.',
-      highlights: ['سطح متوسط→پیشرفته', 'پیش‌نیاز AI'],
-      category: 'math',
-      href: mathHref(lang, 'stats'),
-      locked: true,
-      kind: 'core',
-      emoji: '📊',
-    },
-    {
-      id: 'trigonometry',
-      label: 'مثلثات پایه',
-      learn: 'سینوس و کسینوس شهودی — پیش‌نیاز رباتیک و گرافیک.',
-      highlights: ['سطح پیشرفته', 'پیش‌نیاز رباتیک'],
-      category: 'math',
-      href: mathHref(lang, 'trigonometry'),
-      locked: true,
-      kind: 'core',
-      emoji: '△',
-    },
-    {
-      id: 'linear-algebra',
-      label: 'جبر خطی مقدماتی',
-      learn: 'بردار و ماتریس — پیش‌نیاز مستقیم هوش مصنوعی.',
-      highlights: ['سطح پیشرفته', 'پیش‌نیاز AI'],
-      category: 'math',
-      href: mathHref(lang, 'linear-algebra'),
-      locked: true,
-      kind: 'core',
-      emoji: '▦',
-    },
-  ]
-
-  const ts = evenly(specs.length)
-  return specs.map((s, i) => planet({ ...s, t: ts[i]! }))
+  return buildStationsFromTopics('math', lang, 'math')
 }
 
 /**

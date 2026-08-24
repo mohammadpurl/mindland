@@ -1,0 +1,118 @@
+{
+  "id": "geometry-03-circle-area",
+  "subjectId": "math",
+  "topicId": "geometry",
+  "order": 3,
+  "level": 4,
+  "title": "درس ۳ — مساحت دایره",
+  "description": "شعاع دایره چیست، و چطور با آن مساحت دایره را حساب کنیم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز یاد می‌گیریم چطور مساحت داخل یک دایره را حساب کنیم — با کمک یک عدد جادویی به اسم شعاع.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "meet-radius",
+      "title": "شعاع دایره",
+      "speak": "این خط قرمز، شعاع دایره است — فاصله‌ی مرکز دایره تا لبه‌ی آن. هر جای لبه‌ی دایره که برویم، این فاصله همیشه یکی است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "static",
+        "params": {
+          "title": "شعاع",
+          "showDimensions": true,
+          "shapes": [{ "kind": "circle", "label": "دایره", "radius": 3.5, "mood": "curious" }]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "formula",
+      "title": "فرمول مساحت دایره",
+      "speak": "راز مساحت دایره این است: شعاع را در خودش ضرب کن، بعد در عدد سه‌ممیز‌چهارده — که به آن پی می‌گویند — ضرب کن. یعنی: مساحت = شعاع × شعاع × سه‌ممیز‌چهارده.",
+      "animation": "Talking",
+      "visual": {
+        "type": "polygon",
+        "mode": "demo",
+        "params": {
+          "title": "مساحت = شعاع × شعاع × ۳/۱۴",
+          "showDimensions": true,
+          "shapes": [{ "kind": "circle", "label": "دایره", "radius": 4, "mood": "happy" }],
+          "formula": "مساحت دایره = شعاع × شعاع × ۳/۱۴"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "worked-example",
+      "title": "یک مثال حل‌شده",
+      "speak": "اگر شعاع دایره‌ای پنج سانتی‌متر باشد: پنج ضربدر پنج می‌شود بیست‌وپنج. بیست‌وپنج ضربدر سه‌ممیز‌چهارده می‌شود هفتادوهشت‌ممیز‌پنج سانتی‌متر مربّع.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "static",
+        "params": {
+          "title": "شعاع = ۵ → مساحت = ۷۸/۵",
+          "showDimensions": true,
+          "shapes": [{ "kind": "circle", "label": "شعاع = ۵", "radius": 5, "mood": "happy" }],
+          "formula": "۵ × ۵ × ۳/۱۴ = ۷۸/۵"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-radius-4",
+      "title": "تمرین ۱ — شعاع ۴",
+      "speak": "حالا خودت حساب کن: مساحت دایره‌ای با شعاع چهار سانتی‌متر چقدر است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "interactive",
+        "params": {
+          "title": "شعاع = ۴ — مساحت چقدر است؟",
+          "showDimensions": true,
+          "shapes": [{ "kind": "circle", "label": "شعاع = ۴", "radius": 4, "mood": "curious" }],
+          "quiz": {
+            "kind": "formula",
+            "prompt": "مساحت این دایره؟",
+            "options": ["۱۲/۵۶", "۵۰/۲۴", "۱۶"],
+            "answerIndex": 1
+          }
+        }
+      },
+      "successMessage": "درسته! ۴ × ۴ × ۳/۱۴ = ۵۰/۲۴",
+      "wrongMessage": "اول شعاع را در خودش ضرب کن (۴ × ۴ = ۱۶)، بعد در ۳/۱۴ ضرب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-radius-10",
+      "title": "تمرین ۲ — شعاع ۱۰",
+      "speak": "یک چالش بزرگ‌تر: مساحت دایره‌ای با شعاع هفت سانتی‌متر چقدر است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "polygon",
+        "mode": "interactive",
+        "params": {
+          "title": "شعاع = ۷ — مساحت چقدر است؟",
+          "showDimensions": true,
+          "shapes": [{ "kind": "circle", "label": "شعاع = ۷", "radius": 7, "mood": "curious" }],
+          "quiz": {
+            "kind": "formula",
+            "prompt": "مساحت این دایره؟",
+            "options": ["۱۵۳/۸۶", "۴۹", "۴۳/۹۶"],
+            "answerIndex": 0
+          }
+        }
+      },
+      "successMessage": "آفرین! ۷ × ۷ × ۳/۱۴ = ۱۵۳/۸۶",
+      "wrongMessage": "۷ × ۷ = ۴۹، بعد ۴۹ × ۳/۱۴ را حساب کن."
+    }
+  ]
+}

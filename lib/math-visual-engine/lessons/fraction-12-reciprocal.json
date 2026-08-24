@@ -1,0 +1,176 @@
+{
+  "id": "fraction-12-reciprocal",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 13,
+  "level": 4,
+  "title": "درس ۱۳ — معکوس یک کسر (کتاب ششم ص ۲۹)",
+  "description": "هرگاه حاصل‌ضرب دو عدد برابر ۱ شود، آن دو عدد معکوس یکدیگرند",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "هرگاه حاصل‌ضرب دو عدد برابر یک باشد، آن دو عدد را «معکوس» یکدیگر می‌نامیم. همهٔ اعداد به‌جز صفر معکوس دارند.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "example-3-5",
+      "title": "سه‌پنجم و پنج‌سوم",
+      "speak": "این کسر سه‌پنجم است. اگر آن را در پنج‌سوم ضرب کنیم، صورت و مخرج جابه‌جا می‌شوند و نتیجه دقیقاً یک می‌شود. پس سه‌پنجم و پنج‌سوم معکوس یکدیگرند.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": { "title": "۳/۵ × ۵/۳ = ۱", "numerator": 3, "denominator": 5 }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "how-to-find",
+      "title": "چطور معکوس پیدا کنیم؟",
+      "speak": "برای پیدا کردن معکوس یک کسر، فقط کافی است صورت و مخرج آن را جابه‌جا کنیم. مثلاً معکوس دوسوم می‌شود سه‌دوم. عدد صفر معکوس ندارد، چون هیچ عددی در صفر ضرب نمی‌شود که جوابش یک شود.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "static",
+        "params": { "title": "۲/۳ × ۳/۲ = ۱", "numerator": 2, "denominator": 3 }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-6-12",
+      "title": "تمرین ۱ — معکوس ۶/۱۲",
+      "speak": "معکوس ۶/۱۲ کدام است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "معکوس کسر ۶/۱۲ کدام است؟",
+          "choices": [
+            { "label": "۱۲/۶", "correct": true },
+            { "label": "۶/۱۲", "correct": false, "note": "این خودِ همان کسر است، نه معکوسش." },
+            { "label": "۱/۲", "correct": false, "note": "این ساده‌شدهٔ ۶/۱۲ است، نه معکوسش." }
+          ]
+        }
+      },
+      "successMessage": "درسته! صورت و مخرج را جابه‌جا کردیم: ۱۲/۶.",
+      "wrongMessage": "صورت و مخرج ۶/۱۲ را جابه‌جا کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-18-3",
+      "title": "تمرین ۲ — معکوس ۱۸/۳",
+      "speak": "معکوس ۱۸/۳ کدام است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "معکوس کسر ۱۸/۳ کدام است؟",
+          "choices": [
+            { "label": "۳/۱۸", "correct": true },
+            { "label": "۱۸/۳", "correct": false, "note": "این خودِ همان کسر است." },
+            { "label": "۶/۱", "correct": false, "note": "این ساده‌شدهٔ ۱۸/۳ است، نه معکوسش." }
+          ]
+        }
+      },
+      "successMessage": "آفرین! معکوس ۱۸/۳ می‌شود ۳/۱۸.",
+      "wrongMessage": "صورت و مخرج ۱۸/۳ را جابه‌جا کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-23",
+      "title": "تمرین ۳ — معکوس ۲۳",
+      "speak": "معکوس عدد ۲۳ را به‌صورت کسر بنویس.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "معکوس عدد ۲۳ (یعنی کسر ۲۳/۱) کدام است؟",
+          "choices": [
+            { "label": "۱/۲۳", "correct": true },
+            { "label": "۲۳/۱", "correct": false, "note": "این خودِ عدد ۲۳ است." },
+            { "label": "۰", "correct": false, "note": "صفر معکوس هیچ عددی نیست." }
+          ]
+        }
+      },
+      "successMessage": "درست! هر عدد صحیح مثل ۲۳ را می‌توان ۲۳/۱ نوشت؛ معکوسش می‌شود ۱/۲۳.",
+      "wrongMessage": "۲۳ را به‌صورت ۲۳/۱ بنویس، بعد صورت و مخرج را جابه‌جا کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-reciprocal-of-1",
+      "title": "تمرین ۴ — معکوس ۱",
+      "speak": "معکوس عدد ۱ چیست؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "معکوس عدد ۱ کدام است؟",
+          "choices": [
+            { "label": "۱", "correct": true, "note": "چون ۱×۱=۱، عدد ۱ معکوس خودش است." },
+            { "label": "۰", "correct": false },
+            { "label": "بی‌نهایت است و کسر ندارد", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! عدد ۱ تنها عددی است که معکوس خودش است.",
+      "wrongMessage": "دنبال عددی بگرد که وقتی در ۱ ضرب شود، جوابش ۱ شود."
+    },
+    {
+      "type": "practice",
+      "id": "practice-always-smaller",
+      "title": "تمرین ۵ — آیا معکوس همیشه کوچک‌تر است؟",
+      "speak": "آیا معکوس یک کسر همیشه از خود آن کسر کوچک‌تر است؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "آیا معکوس یک کسر همیشه از خود آن کسر کوچک‌تر است؟",
+          "choices": [
+            {
+              "label": "نه — مثلاً معکوس ۱/۵ برابر ۵ است که بزرگ‌تر است",
+              "correct": true
+            },
+            { "label": "بله، معکوس همیشه کوچک‌تر است", "correct": false },
+            { "label": "فقط برای کسرهای بزرگ‌تر از ۱ درست است", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! وقتی کسر کوچک‌تر از یک باشد، معکوسش بزرگ‌تر از یک می‌شود.",
+      "wrongMessage": "معکوس ۱/۵ را حساب کن — می‌شود ۵. آیا ۵ از ۱/۵ کوچک‌تر است؟"
+    },
+    {
+      "type": "practice",
+      "id": "practice-division-order",
+      "title": "تمرین ۶ — آیا ترتیب تقسیم مهم است؟",
+      "speak": "آیا حاصل یک تقسیم‌بر یک‌پنجم، با حاصل یک‌پنجم تقسیم‌بر یک، برابر است؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "آیا حاصل ۱ ÷ (۱/۵) با حاصل (۱/۵) ÷ ۱ برابر است؟",
+          "choices": [
+            {
+              "label": "نه — یکی می‌شود ۵ و دیگری می‌شود ۱/۵",
+              "correct": true
+            },
+            { "label": "بله، هر دو می‌شوند ۱", "correct": false },
+            { "label": "بله، هر دو می‌شوند ۵", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۱ ÷ (۱/۵) = ۱ × ۵ = ۵، ولی (۱/۵) ÷ ۱ = ۱/۵ × ۱ = ۱/۵. جای تقسیم مهم است!",
+      "wrongMessage": "هر تقسیم را جدا با ضرب در معکوس حساب کن و مقایسه کن."
+    }
+  ]
+}

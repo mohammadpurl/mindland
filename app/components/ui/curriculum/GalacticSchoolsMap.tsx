@@ -2,11 +2,13 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
+import { getSubject } from '@/lib/math-visual-engine/curriculum'
 
 interface Station {
   emoji: string
   name: string
   sub: string
+  lessonsCount: number
   lessons?: string
   open: boolean
 }
@@ -24,7 +26,44 @@ interface School {
   stations: Station[]
 }
 
-const SCHOOLS: School[] = [
+interface SchoolMeta {
+  short: string
+  slug: string
+  name: string
+  emoji: string
+  color: string
+  shadow: string
+  tint: string
+  desc: string
+  cta: string
+}
+
+const FA_DIGITS = '۰۱۲۳۴۵۶۷۸۹'
+const FA = (n: number | string) => String(n).replace(/\d/g, (d) => FA_DIGITS[Number(d)]!)
+
+/**
+ * ایستگاه‌های هر مدرسه از همان درسنامهٔ واقعی (math-grade-6.json) ساخته می‌شوند —
+ * تا فهرست دوره‌ها همیشه با آنچه واقعاً ساخته شده یکی باشد، نه یک لیست دستی جدا.
+ */
+function stationsFromSubject(subjectId: string): Station[] {
+  const subject = getSubject(subjectId)
+  if (!subject) return []
+  return [...subject.topics]
+    .sort((a, b) => a.order - b.order)
+    .map((topic) => {
+      const lessonsCount = topic.lessons.length
+      return {
+        emoji: topic.icon ?? '📚',
+        name: topic.title,
+        sub: topic.description ?? '',
+        lessonsCount,
+        lessons: lessonsCount > 0 ? `${FA(lessonsCount)} درس` : undefined,
+        open: lessonsCount > 0,
+      }
+    })
+}
+
+const SCHOOL_META: SchoolMeta[] = [
   {
     short: 'ریاضی',
     slug: 'math',
@@ -33,18 +72,8 @@ const SCHOOLS: School[] = [
     color: '#ffd166',
     shadow: '#c99a2e',
     tint: '#fff0c8',
-    desc: 'ستون فقرات مایلند! از کسرها شروع می‌کنی و پله‌پله تا هندسه و جبر جلو می‌ری. بقیهٔ مدرسه‌ها هم به همین سیاره‌ها برمی‌گردند.',
+    desc: 'ستون فقرات مایلند! از کسرها شروع می‌کنی و پله‌پله تا هندسه و مختصات جلو می‌ری. بقیهٔ مدرسه‌ها هم به همین سیاره‌ها برمی‌گردند.',
     cta: 'بزن بریم به کسرها 🚀',
-    stations: [
-      { emoji: '🍕', name: 'کسرها', sub: 'جمع، تفریق، ضرب و مقایسه', lessons: '۱۲ درس', open: true },
-      { emoji: '➖', name: 'اعداد صحیح و منفی', sub: 'خط اعداد و اعداد منفی', lessons: '۳ درس', open: true },
-      { emoji: '📐', name: 'هندسه پایه', sub: 'محیط، مساحت و زاویه', lessons: '۱ درس', open: true },
-      { emoji: '💯', name: 'اعداد اعشاری و درصد', sub: 'اعشار، درصد و کاربرد روزمره', open: false },
-      { emoji: '⚖️', name: 'نسبت و تناسب', sub: 'مسئله‌های کاربردی', open: false },
-      { emoji: '🎲', name: 'احتمال پایه', sub: 'احتمال ساده و شمارش', open: false },
-      { emoji: '📊', name: 'آمار توصیفی', sub: 'میانگین، میانه و نمودار', open: false },
-      { emoji: '△', name: 'مثلثات پایه', sub: 'پیش‌نیاز رباتیک و گرافیک', open: false },
-    ],
   },
   {
     short: 'برنامه‌نویسی',
@@ -54,16 +83,8 @@ const SCHOOLS: School[] = [
     color: '#4cc9f0',
     shadow: '#2b93b5',
     tint: '#d6f3fd',
-    desc: 'از بلوک‌های اسکرچ تا اولین پروژهٔ پایتون. ریاضی را دوباره درس نمی‌دهیم؛ هرجا لازم شد به سیارهٔ ریاضی‌اش لینک می‌دهیم.',
+    desc: 'از منطق بلوکی تا دورهٔ کامل پایتون کودکان. ریاضی را دوباره درس نمی‌دهیم؛ هرجا لازم شد به سیارهٔ ریاضی‌اش لینک می‌دهیم.',
     cta: 'بزن بریم به منطق 🚀',
-    stations: [
-      { emoji: '🧩', name: 'منطق و الگو', sub: 'فکر کردن مثل برنامه‌نویس', lessons: '۶ درس', open: true },
-      { emoji: '🐱', name: 'اسکرچ', sub: 'اولین بازی با بلوک‌ها', lessons: '۵ درس', open: true },
-      { emoji: '🐍', name: 'پایتون مقدماتی', sub: 'متغیر، ورودی و خروجی', lessons: '۴ درس', open: true },
-      { emoji: '🔁', name: 'حلقه و شرط', sub: 'تکرار و تصمیم‌گیری', open: false },
-      { emoji: '🎮', name: 'پروژهٔ اول', sub: 'یک بازی کوچک بساز', open: false },
-      { emoji: '🌐', name: 'وب', sub: 'صفحهٔ خودت را بساز', open: false },
-    ],
   },
   {
     short: 'هوش مصنوعی',
@@ -75,13 +96,6 @@ const SCHOOLS: School[] = [
     tint: '#ebe1ff',
     desc: 'هنوز در حال ساخت است! وقتی سیاره‌های آمار و پایتون را فتح کنی، این بازو هم از پایگاه جدا می‌شود.',
     cta: 'دیدن نقشهٔ راه 🗺️',
-    stations: [
-      { emoji: '📦', name: 'داده', sub: 'داده از کجا می‌آید؟', open: false },
-      { emoji: '🔍', name: 'الگو', sub: 'کشف الگو در داده', open: false },
-      { emoji: '🧠', name: 'مدل', sub: 'ماشین چطور یاد می‌گیرد', open: false },
-      { emoji: '✨', name: 'شبکهٔ عصبی', sub: 'نورون‌های کوچک', open: false },
-      { emoji: '🕹️', name: 'عامل هوشمند', sub: 'ربات تصمیم‌گیر', open: false },
-    ],
   },
   {
     short: 'طراحی',
@@ -93,13 +107,6 @@ const SCHOOLS: School[] = [
     tint: '#ffe1e9',
     desc: 'زبان بصری: رنگ، فرم و تایپوگرافی تا ساختن یک رابط واقعی. بازویی مستقل که فقط سر پروژه با برنامه‌نویسی قرار می‌گذارد.',
     cta: 'دیدن نقشهٔ راه 🗺️',
-    stations: [
-      { emoji: '🌈', name: 'رنگ', sub: 'ترکیب رنگ‌های دوست‌داشتنی', open: false },
-      { emoji: '🔷', name: 'فرم', sub: 'شکل‌ها و ترکیب‌بندی', open: false },
-      { emoji: '🔠', name: 'تایپوگرافی', sub: 'حروف خوش‌خوان', open: false },
-      { emoji: '📱', name: 'رابط کاربری', sub: 'اپ خودت را طراحی کن', open: false },
-      { emoji: '🧪', name: 'پروتوتایپ', sub: 'ایده را تست کن', open: false },
-    ],
   },
   {
     short: 'رباتیک',
@@ -111,18 +118,10 @@ const SCHOOLS: School[] = [
     tint: '#dcfce9',
     desc: 'سخت‌افزار روی نرم‌افزار! هندسه و مثلثات را از ریاضی و حلقه و شرط را از برنامه‌نویسی قرض می‌گیریم و اینجا فقط می‌سازیم.',
     cta: 'دیدن نقشهٔ راه 🗺️',
-    stations: [
-      { emoji: '🔌', name: 'مدار', sub: 'برق و اتصال‌ها', open: false },
-      { emoji: '📡', name: 'حسگر', sub: 'ربات چطور می‌بیند', open: false },
-      { emoji: '⚙️', name: 'موتور', sub: 'حرکت و چرخ‌ها', open: false },
-      { emoji: '🎛️', name: 'کنترل', sub: 'فرمان دادن به ربات', open: false },
-      { emoji: '🦾', name: 'ربات اول', sub: 'اولین ساختهٔ خودت', open: false },
-    ],
   },
 ]
 
-const FA_DIGITS = '۰۱۲۳۴۵۶۷۸۹'
-const FA = (n: number | string) => String(n).replace(/\d/g, (d) => FA_DIGITS[Number(d)]!)
+const SCHOOLS: School[] = SCHOOL_META.map((m) => ({ ...m, stations: stationsFromSubject(m.slug) }))
 
 interface BuiltStation extends Station {
   rowBg: string
@@ -284,8 +283,12 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
     const el = stageWrapRef.current
     if (!el || typeof ResizeObserver === 'undefined') return
     const ro = new ResizeObserver((entries) => {
-      const width = entries[0]?.contentRect.width ?? 680
-      const next = Math.max(0.42, Math.min(1, width / 680))
+      const rect = entries[0]?.contentRect
+      const width = rect?.width ?? 680
+      const height = rect?.height ?? 680
+      // اسکیل هم بر اساس عرض و هم بر اساس ارتفاع در دسترس محاسبه می‌شود
+      // تا کل نقشه همیشه بدون اسکرول در صفحه جا بگیرد.
+      const next = Math.max(0.3, Math.min(1, Math.min(width / 680, height / 680)))
       setScale((prev) => (Math.abs(next - prev) > 0.005 ? next : prev))
     })
     ro.observe(el)
@@ -295,17 +298,19 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
   const builtSchools = useMemo(() => SCHOOLS.map((s) => buildSchool(s, s.short === selected)), [selected])
   const activeSchool = builtSchools.find((s) => s.short === selected) ?? builtSchools[0]!
   const galaxyArms = useMemo(() => buildGalaxy(builtSchools), [builtSchools])
-  const totalReady = FA(builtSchools.reduce((sum, s) => sum + s.openCount, 0))
-  const stageHeight = Math.round(680 * scale)
+  const totalReady = FA(
+    builtSchools.reduce((sum, s) => sum + s.stations.reduce((a, st) => a + st.lessonsCount, 0), 0)
+  )
 
   return (
     <section
       dir="rtl"
-      className="relative"
+      className="relative flex flex-col"
       style={{
-        minHeight: '100vh',
+        height: 'calc(100dvh - 64px)',
+        overflow: 'hidden',
         boxSizing: 'border-box',
-        padding: '34px clamp(16px, 3vw, 40px)',
+        padding: '22px clamp(16px, 3vw, 40px) 16px',
         color: '#fff',
         background:
           'radial-gradient(900px 600px at 78% 4%, #4c2a9e 0%, rgba(76,42,158,0) 60%), ' +
@@ -327,30 +332,29 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
         }}
       />
 
-      <header className="relative mx-auto mb-[22px] flex max-w-[1500px] flex-wrap items-end justify-between gap-5">
+      <header
+        className="relative mx-auto mb-3 flex w-full max-w-[1500px] flex-wrap items-center justify-between gap-4"
+        style={{ flexShrink: 0 }}
+      >
         <div>
           <div
-            className="mb-3.5 inline-flex items-center gap-2 rounded-full text-[13px] font-bold"
-            style={{ padding: '7px 15px', background: 'rgba(255,255,255,.14)' }}
+            className="mb-1.5 inline-flex items-center gap-2 rounded-full text-[12px] font-bold"
+            style={{ padding: '5px 13px', background: 'rgba(255,255,255,.14)' }}
           >
             🚀 نقشهٔ کهکشانی مایلند
           </div>
-          <h1 className="m-0 mb-2.5 font-black" style={{ fontSize: 'clamp(30px, 4vw, 50px)', lineHeight: 1.2 }}>
+          <h1 className="m-0 font-black" style={{ fontSize: 'clamp(22px, 2.6vw, 34px)', lineHeight: 1.25 }}>
             کدوم سیاره رو فتح کنیم؟
           </h1>
-          <p className="m-0 max-w-[560px] text-base leading-[1.9]" style={{ color: '#d9d2ff' }}>
-            هر مدرسه یک بازوی کهکشان است و هر ایستگاه یک سیارهٔ کوچک. روی بازو بزن تا سفرش را ببینی؛ سیاره‌های روشن
-            باز شده‌اند و بقیه با موشک بعدی باز می‌شوند.
-          </p>
         </div>
         <div
-          className="flex items-center gap-2.5 rounded-[22px]"
-          style={{ padding: '12px 18px', background: 'rgba(255,255,255,.12)', border: '1px solid rgba(255,255,255,.18)' }}
+          className="flex items-center gap-2 rounded-[18px]"
+          style={{ padding: '9px 15px', background: 'rgba(255,255,255,.12)', border: '1px solid rgba(255,255,255,.18)' }}
         >
-          <span style={{ fontSize: 30 }}>🏆</span>
+          <span style={{ fontSize: 22 }}>🏆</span>
           <div>
-            <div className="text-[22px] font-black">{totalReady} درس آماده</div>
-            <div className="mt-0.5 text-[12.5px]" style={{ color: '#cfc7ff' }}>
+            <div className="text-[16px] font-black">{totalReady} درس آماده</div>
+            <div className="text-[11px]" style={{ color: '#cfc7ff' }}>
               ۵ بازو · سفر ادامه دارد
             </div>
           </div>
@@ -358,17 +362,19 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
       </header>
 
       <div
-        className="relative mx-auto grid max-w-[1500px] grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(280px,380px)]"
+        className="relative mx-auto grid w-full max-w-[1500px] grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(280px,380px)]"
+        style={{ flex: '1 1 auto', minHeight: 0 }}
       >
         <section
-          className="min-w-0 rounded-[34px]"
+          className="flex min-w-0 flex-col rounded-[34px]"
           style={{
-            padding: '20px clamp(14px,2vw,26px) 22px',
+            padding: '16px clamp(14px,2vw,26px) 14px',
             background: 'linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.05))',
             border: '1px solid rgba(255,255,255,.16)',
+            minHeight: 0,
           }}
         >
-          <div className="mb-1.5 flex flex-wrap items-center gap-2">
+          <div className="mb-1.5 flex flex-wrap items-center gap-2" style={{ flexShrink: 0 }}>
             {builtSchools.map((s) => (
               <button
                 key={s.short}
@@ -382,11 +388,15 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
             ))}
           </div>
 
-          <div ref={stageWrapRef} className="relative mx-auto mt-1.5 w-full overflow-hidden" style={{ height: stageHeight }}>
+          <div
+            ref={stageWrapRef}
+            className="relative mx-auto mt-1.5 flex w-full items-center justify-center overflow-hidden"
+            style={{ flex: '1 1 auto', minHeight: 0 }}
+          >
             <div
               dir="ltr"
-              className="absolute left-1/2 top-0"
-              style={{ width: 680, height: 680, transformOrigin: 'center top', transform: `translateX(-50%) scale(${scale})` }}
+              className="relative"
+              style={{ width: 680, height: 680, flexShrink: 0, transformOrigin: 'center center', transform: `scale(${scale})` }}
             >
               {RING_RADII.map((r) => (
                 <div
@@ -508,7 +518,10 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
             </div>
           </div>
 
-          <div className="mt-3.5 flex flex-wrap items-center justify-center gap-[18px] text-[12.5px]" style={{ color: '#cfc7ff' }}>
+          <div
+            className="mt-3.5 flex flex-wrap items-center justify-center gap-[18px] text-[12.5px]"
+            style={{ color: '#cfc7ff', flexShrink: 0 }}
+          >
             <span className="flex items-center gap-1.5">
               <span className="h-3.5 w-3.5 rounded-full" style={{ background: '#fff', border: '2px solid #ffd166', boxSizing: 'border-box' }} />
               سیارهٔ باز
@@ -526,10 +539,10 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
         </section>
 
         <aside
-          className="rounded-[34px]"
-          style={{ padding: 22, background: '#fff8ec', color: '#241452', boxShadow: '0 24px 60px rgba(8,3,32,.45)' }}
+          className="flex min-h-0 flex-col rounded-[34px]"
+          style={{ padding: 20, background: '#fff8ec', color: '#241452', boxShadow: '0 24px 60px rgba(8,3,32,.45)' }}
         >
-          <div className="mb-3.5 flex items-center gap-3">
+          <div className="mb-3 flex items-center gap-3" style={{ flexShrink: 0 }}>
             <div className="flex h-14 w-14 items-center justify-center rounded-[20px] text-[28px]" style={{ background: activeSchool.tint }}>
               {activeSchool.emoji}
             </div>
@@ -541,11 +554,11 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
             </div>
           </div>
 
-          <p className="m-0 mb-4 text-[13.5px] leading-[2]" style={{ color: '#4b3b7a' }}>
+          <p className="m-0 mb-3 text-[13.5px] leading-[1.9]" style={{ color: '#4b3b7a', flexShrink: 0 }}>
             {activeSchool.desc}
           </p>
 
-          <div className="mb-[18px] flex items-center gap-2.5">
+          <div className="mb-3.5 flex items-center gap-2.5" style={{ flexShrink: 0 }}>
             <div className="h-3.5 flex-1 overflow-hidden rounded-full" style={{ background: '#ece3ff' }}>
               <div className="h-full rounded-full" style={{ width: `${activeSchool.pctValue}%`, background: activeSchool.color }} />
             </div>
@@ -554,7 +567,7 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
             </span>
           </div>
 
-          <div className="mb-4 flex flex-col gap-2 overflow-y-auto" style={{ maxHeight: 340 }}>
+          <div className="mb-3 flex flex-col gap-2 overflow-y-auto" style={{ flex: '1 1 auto', minHeight: 0 }}>
             {activeSchool.stations.map((st, i) => (
               <div key={i} className="flex items-center gap-2.5 rounded-[18px]" style={{ padding: '10px 12px', background: st.rowBg }}>
                 <span
@@ -584,7 +597,13 @@ export function GalacticSchoolsMap({ lang }: { lang: string }) {
           <Link
             href={`/${lang}/curriculum/${activeSchool.slug}`}
             className="flex items-center justify-center gap-2 rounded-[20px] text-[15px] font-black"
-            style={{ padding: 15, color: '#241452', background: activeSchool.color, boxShadow: `0 8px 0 ${activeSchool.shadow}` }}
+            style={{
+              padding: 15,
+              color: '#241452',
+              background: activeSchool.color,
+              boxShadow: `0 8px 0 ${activeSchool.shadow}`,
+              flexShrink: 0,
+            }}
           >
             {activeSchool.cta}
           </Link>

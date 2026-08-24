@@ -1,0 +1,106 @@
+{
+  "id": "coord-03-rotation",
+  "subjectId": "math",
+  "topicId": "coordinates",
+  "order": 3,
+  "level": 4,
+  "title": "درس ۳ — دوران حول مبدأ",
+  "description": "چرخاندن یک نقطه دور مبدأ — ۹۰، ۱۸۰ و ۲۷۰ درجه",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز یاد می‌گیریم چطور یک نقطه را دور مبدأ بچرخانیم — مثل عقربه‌های یک ساعت، ولی برعکس!",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "rotate-90",
+      "title": "دوران ۹۰ درجه",
+      "speak": "نقطهٔ A را نگاه کن. اگر آن را نود درجه دور مبدأ بچرخانیم، به نقطهٔ B می‌رسیم. انگار کل صفحه یک ربع دور مبدأ چرخیده است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "static",
+        "params": {
+          "title": "دوران ۹۰ درجه حول مبدأ",
+          "range": 5,
+          "rotate": { "point": { "x": 4, "y": 1 }, "angle": 90 }
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "rotate-180",
+      "title": "دوران ۱۸۰ درجه",
+      "speak": "دوران صد و هشتاد درجه یعنی نصف یک دور کامل — نقطه دقیقاً به سمت مقابل مبدأ می‌رود. علامت هر دو عدد عوض می‌شود!",
+      "animation": "Talking",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "static",
+        "params": {
+          "title": "دوران ۱۸۰ درجه حول مبدأ",
+          "range": 5,
+          "rotate": { "point": { "x": 3, "y": 2 }, "angle": 180 }
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-rotate-90",
+      "title": "تمرین ۱ — دوران ۹۰ درجه",
+      "speak": "نقطهٔ A روی (دو، سه) است. آن را نود درجه دور مبدأ بچرخان و نشانگر را آنجا بگذار.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "interactive",
+        "params": {
+          "title": "A بعد از ۹۰ درجه دوران کجاست؟",
+          "range": 5,
+          "rotate": { "point": { "x": 2, "y": 3 }, "angle": 90 }
+        }
+      },
+      "successMessage": "درسته! (۲, ۳) بعد از ۹۰ درجه می‌شود (−۳, ۲).",
+      "wrongMessage": "برای ۹۰ درجه: x و y جا عوض می‌کنند و x جدید منفی می‌شود."
+    },
+    {
+      "type": "practice",
+      "id": "practice-rotate-180",
+      "title": "تمرین ۲ — دوران ۱۸۰ درجه",
+      "speak": "نقطهٔ A روی (منفی چهار، یک) است. صد و هشتاد درجه دورش بچرخان.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "interactive",
+        "params": {
+          "title": "A بعد از ۱۸۰ درجه دوران کجاست؟",
+          "range": 5,
+          "rotate": { "point": { "x": -4, "y": 1 }, "angle": 180 }
+        }
+      },
+      "successMessage": "آفرین! هر دو علامت عوض شدند — دقیقاً درست.",
+      "wrongMessage": "برای ۱۸۰ درجه، علامت هر دو عدد را عوض کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-rotate-270",
+      "title": "تمرین ۳ — دوران ۲۷۰ درجه",
+      "speak": "چالش آخر: نقطهٔ A روی (یک، چهار) است. دویست‌وهفتاد درجه دورش بچرخان.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "coordinate-grid",
+        "mode": "interactive",
+        "params": {
+          "title": "A بعد از ۲۷۰ درجه دوران کجاست؟",
+          "range": 5,
+          "rotate": { "point": { "x": 1, "y": 4 }, "angle": 270 }
+        }
+      },
+      "successMessage": "عالی بود! دویست‌وهفتاد درجه یعنی سه‌چهارم دور.",
+      "wrongMessage": "برای ۲۷۰ درجه: x و y جا عوض می‌کنند و y جدید منفی می‌شود."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "ratio-01-percent-intro",
+  "subjectId": "math",
+  "topicId": "ratios",
+  "order": 1,
+  "level": 3,
+  "title": "درس ۱ — درصد یعنی چه؟",
+  "description": "درصد یعنی چند تا از هر صد تا — با یک نوار رنگی می‌بینیمش",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! امروز با «درصد» آشنا می‌شویم — کلمه‌ای که همه‌جا می‌بینیمش: تخفیف، نمره، هوا... یعنی چه؟",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "meaning",
+      "title": "درصد یعنی از صد تا",
+      "speak": "اگر یک نوار را به صد قسمت مساوی تقسیم کنیم، هر قسمت یک درصد است. این نوار پنجاه درصدش رنگی است — یعنی پنجاه قسمت از صد قسمت.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "percent-bar",
+        "mode": "static",
+        "params": {
+          "title": "۵۰٪ یعنی چه؟",
+          "percent": 50
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "real-example",
+      "title": "یک مثال واقعی",
+      "speak": "اگر از هر صد دانش‌آموز مدرسه، بیست‌وپنج نفر کیف آبی داشته باشند، می‌گوییم بیست‌وپنج درصد دانش‌آموزها کیف آبی دارند.",
+      "animation": "Talking",
+      "visual": {
+        "type": "percent-bar",
+        "mode": "static",
+        "params": {
+          "title": "۲۵٪ دانش‌آموزها",
+          "percent": 25,
+          "wholeLabel": "۱۰۰ دانش‌آموز"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-30",
+      "title": "تمرین ۱ — سی درصد",
+      "speak": "حالا خودت امتحان کن! دستگیره را بکش تا نوار سی درصد پر شود.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "percent-bar",
+        "mode": "interactive",
+        "params": {
+          "title": "۳۰٪ را پیدا کن",
+          "target": 30
+        }
+      },
+      "successMessage": "آفرین! درست سی درصد را پیدا کردی!",
+      "wrongMessage": "سی از صد یعنی کمی بیشتر از یک‌چهارم نوار — دوباره نگاه کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-75",
+      "title": "تمرین ۲ — هفتادوپنج درصد",
+      "speak": "این‌بار هفتادوپنج درصد را پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "percent-bar",
+        "mode": "interactive",
+        "params": {
+          "title": "۷۵٪ را پیدا کن",
+          "target": 75
+        }
+      },
+      "successMessage": "عالی! هفتادوپنج درصد یعنی سه‌چهارم نوار.",
+      "wrongMessage": "هفتادوپنج یعنی سه‌چهارم راه — کمی بیشتر بکش."
+    }
+  ]
+}

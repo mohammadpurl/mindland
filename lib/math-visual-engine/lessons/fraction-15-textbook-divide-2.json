@@ -1,0 +1,186 @@
+{
+  "id": "fraction-15-textbook-divide-2",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 16,
+  "level": 4,
+  "title": "درس ۱۶ — تقسیم کسرها، مسئله‌های واقعی (کتاب ششم ص ۳۲–۳۵)",
+  "description": "برای تقسیم دو کسر، کسر اول را در معکوس کسر دوم ضرب می‌کنیم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "برای تقسیم دو کسر، کافی است کسر اول را در معکوس کسر دوم ضرب کنیم. امروز با مسئله‌های واقعی کتاب ششم تمرین می‌کنیم.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "word-problem-pistachio",
+      "title": "مسئلهٔ پسته — بسته‌بندی",
+      "speak": "چهار‌ونیم کیلوگرم پسته را در بسته‌های نیم‌کیلوگرمی بسته‌بندی می‌کنیم. چهار‌ونیم می‌شود نه‌دوم؛ نه‌دوم تقسیم‌بر یک‌دوم، یعنی نه‌دوم ضرب‌در دو، می‌شود نه بسته. اگر بسته‌ها سه‌چهارم کیلوگرمی باشند، نه‌دوم ضرب‌در چهار‌سوم می‌شود شش بسته.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۴½ ÷ ۱/۲ = ۹ بسته  —  ۴½ ÷ ۳/۴ = ۶ بسته" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "divide-demo",
+      "title": "تقسیم = ضرب در معکوس",
+      "speak": "سه‌پنجم تقسیم‌بر نه‌دهم، یعنی سه‌پنجم ضرب‌در معکوس نه‌دهم که می‌شود ده‌نهم. سه ضرب‌در ده، سی می‌شود؛ پنج ضرب‌در نه، چهل‌وپنج می‌شود. سی‌چهل‌وپنجم ساده می‌شود دو‌سوم.",
+      "animation": "Talking",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۳/۵ ÷ ۹/۱۰ = ؟",
+          "compareFractions": [
+            { "numerator": 3, "denominator": 5, "label": "۳/۵" },
+            { "numerator": 9, "denominator": 10, "label": "۹/۱۰" }
+          ],
+          "operationSymbol": "÷",
+          "target": { "numerator": 2, "denominator": 3 }
+        }
+      },
+      "successMessage": "درسته! سه‌پنجم ÷ نه‌دهم = سه‌پنجم × ده‌نهم = سی‌چهل‌وپنجم = دو‌سوم.",
+      "wrongMessage": "کسر اول را در معکوس کسر دوم ضرب کن: ۳/۵ × ۱۰/۹."
+    },
+    {
+      "type": "practice",
+      "id": "practice-6-35-4-7",
+      "title": "تمرین ۱ — ۶/۳۵ ÷ ۴/۷",
+      "speak": "کسر اول را در معکوس کسر دوم ضرب کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۶/۳۵ ÷ ۴/۷ = ؟",
+          "compareFractions": [
+            { "numerator": 6, "denominator": 35, "label": "۶/۳۵" },
+            { "numerator": 4, "denominator": 7, "label": "۴/۷" }
+          ],
+          "operationSymbol": "÷",
+          "target": { "numerator": 3, "denominator": 10 }
+        }
+      },
+      "successMessage": "درسته! ۶/۳۵ × ۷/۴ = ۴۲/۱۴۰ = ۳/۱۰.",
+      "wrongMessage": "۶/۳۵ را در معکوس ۴/۷ یعنی ۷/۴ ضرب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-1-6-2-5",
+      "title": "تمرین ۲ — ۱/۶ ÷ ۲/۵",
+      "speak": "کسر اول را در معکوس کسر دوم ضرب کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "fraction-circle",
+        "mode": "interactive",
+        "params": {
+          "title": "۱/۶ ÷ ۲/۵ = ؟",
+          "compareFractions": [
+            { "numerator": 1, "denominator": 6, "label": "۱/۶" },
+            { "numerator": 2, "denominator": 5, "label": "۲/۵" }
+          ],
+          "operationSymbol": "÷",
+          "target": { "numerator": 5, "denominator": 12 }
+        }
+      },
+      "successMessage": "درسته! ۱/۶ × ۵/۲ = ۵/۱۲.",
+      "wrongMessage": "۱/۶ را در معکوس ۲/۵ یعنی ۵/۲ ضرب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-tea-bags",
+      "title": "تمرین ۳ — بسته‌های چای",
+      "speak": "چهار کیلوگرم چای را در بسته‌های دو‌پنجم کیلوگرمی بسته‌بندی کرده‌ایم. چند بسته می‌شود؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "۴ کیلوگرم چای در بسته‌های ۲/۵ کیلوگرمی — تعداد بسته‌ها چند تاست؟",
+          "choices": [
+            { "label": "۱۰ بسته", "correct": true },
+            { "label": "۸ بسته", "correct": false },
+            { "label": "۵ بسته", "correct": false },
+            { "label": "۲ بسته", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۴ ÷ ۲/۵ = ۴ × ۵/۲ = ۲۰/۲ = ۱۰ بسته.",
+      "wrongMessage": "۴ را به‌صورت ۴/۱ بنویس و در معکوس ۲/۵ یعنی ۵/۲ ضرب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-doogh-bottle",
+      "title": "تمرین ۴ — بطری دوغ",
+      "speak": "یک بطری نه‌دهم لیتر دوغ دارد. با آن چند لیوان به گنجایش پانزده‌صدم لیتر می‌توان پر کرد؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "بطری ۹/۱۰ لیتر دوغ دارد. با گنجایش ۱۵/۱۰۰ لیتر برای هر لیوان، چند لیوان پر می‌شود؟",
+          "choices": [
+            { "label": "۶ لیوان", "correct": true },
+            { "label": "۹ لیوان", "correct": false },
+            { "label": "۱۵ لیوان", "correct": false },
+            { "label": "۴ لیوان", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۹/۱۰ ÷ ۱۵/۱۰۰ = ۹/۱۰ × ۱۰۰/۱۵ = ۹۰۰/۱۵۰ = ۶ لیوان.",
+      "wrongMessage": "۹/۱۰ را در معکوس ۱۵/۱۰۰ یعنی ۱۰۰/۱۵ ضرب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-ribbon",
+      "title": "تمرین ۵ — روبان",
+      "speak": "روبانی به طول هشت‌نهم متر را به سه قسمت مساوی تقسیم کرده‌ایم. طول هر قسمت چقدر است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "روبان ۸/۹ متری به ۳ قسمت مساوی تقسیم شده. طول هر قسمت چقدر است؟",
+          "choices": [
+            { "label": "۸/۲۷ متر", "correct": true },
+            { "label": "۸/۳ متر", "correct": false },
+            { "label": "۲۴/۹ متر", "correct": false },
+            { "label": "۳/۸ متر", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۸/۹ ÷ ۳ = ۸/۹ × ۱/۳ = ۸/۲۷ متر.",
+      "wrongMessage": "۸/۹ را بر ۳ تقسیم کن یعنی در ۱/۳ ضرب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-milk-bottles",
+      "title": "تمرین ۶ — بطری‌های شیر",
+      "speak": "چهار لیتر شیر را در بطری‌های نیم‌لیتری ریخته‌ایم. چند بطری شده است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "۴ لیتر شیر در بطری‌های نیم‌لیتری — چند بطری می‌شود؟",
+          "choices": [
+            { "label": "۸ بطری", "correct": true },
+            { "label": "۲ بطری", "correct": false },
+            { "label": "۴ بطری", "correct": false },
+            { "label": "۱۶ بطری", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۴ ÷ ۱/۲ = ۴ × ۲ = ۸ بطری.",
+      "wrongMessage": "۴ را در معکوس ۱/۲ یعنی ۲ ضرب کن."
+    }
+  ]
+}

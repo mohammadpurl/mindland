@@ -6,8 +6,11 @@ export const GEO_COLORS = {
   parallelogramStroke: '#0369A1',
   square: '#10B981',
   squareStroke: '#047857',
+  circle: '#EC4899',
+  circleStroke: '#BE185D',
   base: '#DC2626',
   height: '#7C3AED',
+  radius: '#DC2626',
   split: '#94A3B8',
   face: '#1E293B',
   empty: '#FFF7ED',
@@ -16,12 +19,14 @@ export const GEO_COLORS = {
 export function shapeFill(kind: string): string {
   if (kind === 'triangle') return GEO_COLORS.triangle
   if (kind === 'square' || kind === 'rectangle') return GEO_COLORS.square
+  if (kind === 'circle') return GEO_COLORS.circle
   return GEO_COLORS.parallelogram
 }
 
 export function shapeStroke(kind: string): string {
   if (kind === 'triangle') return GEO_COLORS.triangleStroke
   if (kind === 'square' || kind === 'rectangle') return GEO_COLORS.squareStroke
+  if (kind === 'circle') return GEO_COLORS.circleStroke
   return GEO_COLORS.parallelogramStroke
 }
 

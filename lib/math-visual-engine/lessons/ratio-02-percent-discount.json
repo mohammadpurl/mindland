@@ -1,0 +1,89 @@
+{
+  "id": "ratio-02-percent-discount",
+  "subjectId": "math",
+  "topicId": "ratios",
+  "order": 2,
+  "level": 4,
+  "title": "درس ۲ — کاربرد درصد در تخفیف",
+  "description": "وقتی یک چیز تخفیف می‌خورد، چند درصد قیمتش را باید بدهیم؟",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام! نزدیک عید نوروز است و شهرزاد می‌خواهد کتاب بخرد. کمکش کنیم بفهمد با تخفیف چقدر باید بپردازد!",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "discount-shown",
+      "title": "پانزده درصد تخفیف",
+      "speak": "قیمت کتاب هفده‌هزار تومان است و پانزده درصد تخفیف دارد. این نوار، همان پانزده درصدی است که کم می‌شود.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "percent-bar",
+        "mode": "static",
+        "params": {
+          "title": "۱۵٪ تخفیف",
+          "percent": 15,
+          "wholeLabel": "قیمت کتاب: ۱۷٬۰۰۰ تومان",
+          "partLabel": "۱۵٪ تخفیف"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "remaining",
+      "title": "چند درصد را باید بدهیم؟",
+      "speak": "اگر پانزده درصد کم شود، باقی‌مانده صد منهای پانزده، یعنی هشتادوپنج درصد قیمت است — یعنی همین مقدار را باید بپردازیم.",
+      "animation": "Talking",
+      "visual": {
+        "type": "percent-bar",
+        "mode": "static",
+        "params": {
+          "title": "۸۵٪ باقی‌مانده = مبلغی که می‌پردازیم",
+          "percent": 85,
+          "wholeLabel": "قیمت کتاب: ۱۷٬۰۰۰ تومان"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-shoes-20",
+      "title": "تمرین ۱ — تخفیف کفش",
+      "speak": "یک کفش بیست درصد تخفیف دارد. چند درصد قیمتش را باید بپردازیم؟ نوار را بکش تا آن درصد را پیدا کنی.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "percent-bar",
+        "mode": "interactive",
+        "params": {
+          "title": "۲۰٪ تخفیف — چند درصد می‌پردازیم؟",
+          "wholeLabel": "کفش با ۲۰٪ تخفیف",
+          "target": 80
+        }
+      },
+      "successMessage": "درسته! صد منهای بیست، یعنی هشتاد درصد را می‌پردازیم.",
+      "wrongMessage": "صد درصد منهای بیست درصد تخفیف را حساب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-toy-30",
+      "title": "تمرین ۲ — تخفیف اسباب‌بازی",
+      "speak": "یک اسباب‌بازی سی درصد تخفیف دارد. این‌بار خودت حساب کن چند درصد را باید بپردازیم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "percent-bar",
+        "mode": "interactive",
+        "params": {
+          "title": "۳۰٪ تخفیف — چند درصد می‌پردازیم؟",
+          "wholeLabel": "اسباب‌بازی با ۳۰٪ تخفیف",
+          "target": 70
+        }
+      },
+      "successMessage": "آفرین! صد منهای سی، یعنی هفتاد درصد.",
+      "wrongMessage": "صد درصد منهای سی درصد تخفیف را حساب کن."
+    }
+  ]
+}

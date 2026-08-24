@@ -422,27 +422,41 @@ function DrawnShape({
   showSplit?: boolean
   breath: number
 }) {
+  const isCircle = spec.kind === 'circle'
   const base = (spec.base ?? 5) * 28
   const height = (spec.height ?? 4) * 26
+  const radiusPx = (spec.radius ?? 3) * 27
   const fill = shapeFill(spec.kind)
   const stroke = shapeStroke(spec.kind)
 
-  let points: number[]
+  let points: number[] = []
   if (spec.kind === 'triangle') {
     points = trianglePoints(0, 0, base, height)
   } else if (spec.kind === 'square') {
     const size = Math.min(base, height)
     points = squarePoints(0, 0, size)
-  } else {
+  } else if (spec.kind === 'parallelogram' || spec.kind === 'rectangle') {
     points = parallelogramPoints(0, 0, base, height)
   }
 
   const split =
     showSplit && spec.kind === 'parallelogram' ? parallelogramSplitTriangles(points) : null
 
+  const labelY = isCircle ? radiusPx + (showDimensions ? 30 : 16) : height / 2 + (showDimensions ? 44 : 28)
+
   return (
     <Group x={cx} y={cy} scaleX={breath} scaleY={breath}>
-      {split ? (
+      {isCircle ? (
+        <Circle
+          radius={radiusPx}
+          fill={fill}
+          stroke={stroke}
+          strokeWidth={3}
+          opacity={0.92}
+          shadowBlur={8}
+          shadowColor="rgba(0,0,0,0.12)"
+        />
+      ) : split ? (
         <>
           <Line
             points={split.stay}
@@ -479,11 +493,18 @@ function DrawnShape({
           shadowColor="rgba(0,0,0,0.12)"
         />
       )}
-      <ShapeFace mood={spec.mood ?? 'happy'} scale={spec.kind === 'triangle' ? 0.95 : 1} />
+      <ShapeFace mood={spec.mood ?? 'happy'} scale={spec.kind === 'triangle' ? 0.95 : isCircle ? 0.85 : 1} />
+      {isCircle && showDimensions ? (
+        <>
+          <Line points={[0, 0, radiusPx, 0]} stroke={GEO_COLORS.radius} strokeWidth={2.5} dash={[6, 4]} />
+          <Circle x={radiusPx} y={0} radius={3.5} fill={GEO_COLORS.radius} />
+          <Text x={radiusPx / 2 - 22} y={-20} width={44} text="شعاع" fontSize={11} fill={GEO_COLORS.radius} fontStyle="bold" align="center" />
+        </>
+      ) : null}
       {spec.label ? (
         <Text
           x={-70}
-          y={height / 2 + (showDimensions ? 44 : 28)}
+          y={labelY}
           width={140}
           text={spec.label}
           fontSize={14}
@@ -492,7 +513,7 @@ function DrawnShape({
           align="center"
         />
       ) : null}
-      {showDimensions ? (
+      {showDimensions && !isCircle ? (
         <DimensionGuides
           kind={spec.kind}
           cx={0}

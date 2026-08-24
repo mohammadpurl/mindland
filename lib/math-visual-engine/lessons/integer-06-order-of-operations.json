@@ -1,0 +1,154 @@
+{
+  "id": "integer-06-order-of-operations",
+  "subjectId": "math",
+  "topicId": "integers",
+  "order": 6,
+  "level": 4,
+  "title": "درس ۶ — تقدم عملیات",
+  "description": "اگر یک عبارت چند عملیات همزمان داشته باشد، اول کدام را انجام می‌دهیم؟",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "اگر به یک کامپیوتر بگوییم پنج به‌علاوه‌ی سه ضرب‌در دو، از کجا بداند اول کدام عملیات را انجام دهد؟ ببینیم دو راه مختلف چه جواب‌هایی می‌دهند.",
+      "animation": "StandingGreeting",
+      "emotion": "curious",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "the-ambiguity",
+      "title": "دو راه، دو جواب متفاوت!",
+      "speak": "اگر اول جمع کنیم: پنج به‌علاوه‌ی سه می‌شود هشت، بعد در دو ضرب می‌شود شانزده. ولی اگر اول ضرب کنیم: سه ضرب‌در دو می‌شود شش، بعد پنج به‌علاوه‌ی شش می‌شود یازده. ریاضی نمی‌تواند دو جواب درست داشته باشد — پس باید یک قانون ثابت داشته باشیم.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "۵ + ۳ × ۲ — کدام جواب درست است؟",
+          "min": -2,
+          "max": 18,
+          "points": [
+            { "value": 16, "label": "اگر اول جمع کنیم" },
+            { "value": 11, "label": "اگر اول ضرب کنیم ✓" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "the-rule",
+      "title": "قانون تقدم عملیات",
+      "speak": "قانون همیشگی ریاضی این است: اول پرانتز، بعد ضرب و تقسیم، و در آخر جمع و تفریق. پس در پنج به‌علاوه‌ی سه ضرب‌در دو، اول باید سه ضرب‌در دو را حساب کنیم — جواب درست، یازده است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "۱۰ − ۲ × ۳ = ؟",
+          "min": -2,
+          "max": 12,
+          "points": [{ "value": 4, "label": "۱۰ − ۲ × ۳ = ۴ (اول ۲×۳)" }]
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "tie-left-to-right",
+      "title": "وقتی ضرب و تقسیم با هم می‌آیند",
+      "speak": "نکتهٔ ظریف: وقتی چند ضرب و تقسیم پشت‌سرهم بیایند، هم‌رتبه‌اند — از چپ به راست حساب می‌کنیم، نه اینکه اول همهٔ ضرب‌ها را انجام دهیم. بیست تقسیم‌بر چهار، بعد ضرب‌در دو: اول بیست تقسیم‌بر چهار می‌شود پنج، بعد پنج ضرب‌در دو می‌شود ده.",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "static",
+        "params": {
+          "title": "۲۰ ÷ ۴ × ۲ = ؟",
+          "min": -2,
+          "max": 22,
+          "points": [{ "value": 10, "label": "۲۰ ÷ ۴ × ۲ = ۱۰ (چپ به راست)" }]
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-add-then-mult",
+      "title": "تمرین ۱ — چهار به‌علاوه‌ی دو ضرب‌در سه",
+      "speak": "اول کدام عملیات را انجام می‌دهی؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "۴ + ۲ × ۳ = ؟",
+          "min": -2,
+          "max": 14,
+          "startValue": 0,
+          "target": 10
+        }
+      },
+      "successMessage": "درسته! اول دو ضرب‌در سه می‌شود شش، بعد چهار به‌علاوه‌ی شش می‌شود ده.",
+      "wrongMessage": "اول ضرب را حساب کن، بعد جمع را."
+    },
+    {
+      "type": "practice",
+      "id": "practice-sub-then-mult",
+      "title": "تمرین ۲ — بیست منهای چهار ضرب‌در سه",
+      "speak": "اینجا هم اول ضرب را پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "۲۰ − ۴ × ۳ = ؟",
+          "min": -2,
+          "max": 22,
+          "startValue": 0,
+          "target": 8
+        }
+      },
+      "successMessage": "آفرین! چهار ضرب‌در سه می‌شود دوازده، و بیست منهای دوازده می‌شود هشت.",
+      "wrongMessage": "اول چهار ضرب‌در سه را حساب کن، بعد از بیست کم کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-mult-then-sub",
+      "title": "تمرین ۳ — دو ضرب‌در پنج منهای سه",
+      "speak": "این‌بار ضرب اول عبارت است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "۲ × ۵ − ۳ = ؟",
+          "min": -2,
+          "max": 12,
+          "startValue": 0,
+          "target": 7
+        }
+      },
+      "successMessage": "درست بود! دو ضرب‌در پنج می‌شود ده، و ده منهای سه می‌شود هفت.",
+      "wrongMessage": "اول دو ضرب‌در پنج را حساب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-two-mults",
+      "title": "تمرین ۴ — چالش: دو ضرب در یک عبارت",
+      "speak": "چالش پایانی: دو ضرب‌در سه به‌علاوه‌ی چهار ضرب‌در دو — دو تا ضرب داریم!",
+      "animation": "Thinking",
+      "visual": {
+        "type": "number-line",
+        "mode": "interactive",
+        "params": {
+          "title": "۲ × ۳ + ۴ × ۲ = ؟",
+          "min": -2,
+          "max": 18,
+          "startValue": 0,
+          "target": 14
+        }
+      },
+      "successMessage": "عالی! هر دو ضرب را جدا حساب کردی: شش و هشت، بعد جمع‌شان کردی: چهارده.",
+      "wrongMessage": "هر دو ضرب را اول جدا حساب کن، بعد جمع بزن: دو ضرب‌در سه، و چهار ضرب‌در دو."
+    }
+  ]
+}

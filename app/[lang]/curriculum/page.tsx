@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Navbar } from '@/components/nav/navbar'
-import { SiteFooter } from '@/components/sections/site-footer'
 import { GalacticSchoolsMap } from '@/app/components/ui/curriculum/GalacticSchoolsMap'
 
 type Props = { params: Promise<{ lang: string }> }
@@ -19,10 +18,9 @@ export default async function CurriculumPage({ params }: Props) {
   const { lang } = await params
 
   return (
-    <main className="min-h-screen">
+    <main className="h-screen overflow-hidden">
       <Navbar lang={lang} />
       <GalacticSchoolsMap lang={lang} />
-      <SiteFooter lang={lang} />
     </main>
   )
 }

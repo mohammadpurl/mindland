@@ -229,10 +229,12 @@ export function PythonKidsSyllabusView({ lang }: { lang: string }) {
     setTick(1)
   }, [])
 
+  const unlockAll = process.env.NEXT_PUBLIC_UNLOCK_ALL_LESSONS === 'true'
+
   const unlockOf = useMemo(() => {
     return (lessonId: string): LessonUnlockState => {
       if (tick === 0) {
-        return sequence[0] === lessonId || sequence[1] === lessonId
+        return sequence[0] === lessonId || sequence[1] === lessonId || unlockAll
           ? 'current'
           : sequence.includes(lessonId)
             ? 'locked'
@@ -240,7 +242,7 @@ export function PythonKidsSyllabusView({ lang }: { lang: string }) {
       }
       return getLessonUnlockState(lessonId, sequence)
     }
-  }, [sequence, tick])
+  }, [sequence, tick, unlockAll])
 
   const completedCount = useMemo(() => {
     if (tick === 0) return 0

@@ -59,6 +59,46 @@ export const NUMBER_LINE_COLORS = {
   targetStroke: '#047857',
 } as const
 
+/** رنگ‌های صفحهٔ مختصات */
+export const COORDINATE_COLORS = {
+  axis: '#334155',
+  grid: '#E2E8F0',
+  originDot: '#0F172A',
+  token: '#6366F1',
+  tokenStroke: '#4338CA',
+  fixedPoint: '#F97316',
+  fixedPointStroke: '#C2410C',
+  target: '#10B981',
+  targetStroke: '#047857',
+  mirrorLine: '#EC4899',
+  rotationArc: '#8B5CF6',
+} as const
+
+/** رنگ‌های ویژوال زاویه */
+export const ANGLE_COLORS = {
+  fixedRay: '#334155',
+  freeRay: '#6366F1',
+  freeRayStroke: '#4338CA',
+  arc: '#F97316',
+  arcFill: 'rgba(249,115,22,0.15)',
+  correctArc: '#10B981',
+  correctFill: 'rgba(16,185,129,0.18)',
+  vertical1: '#F97316',
+  vertical2: '#0EA5E9',
+} as const
+
+/** رنگ‌های نوار درصد */
+export const PERCENT_BAR_COLORS = {
+  track: '#F1F5F9',
+  trackStroke: '#CBD5E1',
+  fill: '#6366F1',
+  fillStroke: '#4338CA',
+  correctFill: '#10B981',
+  correctStroke: '#047857',
+  handle: '#FFFFFF',
+  tick: '#94A3B8',
+} as const
+
 export function gridLines(width: number, height: number, step = 28) {
   const lines: { points: number[]; key: string }[] = []
   for (let x = 0; x <= width; x += step) {

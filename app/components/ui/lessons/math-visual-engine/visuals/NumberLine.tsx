@@ -382,7 +382,9 @@ function NumberLineBoard({
             />
           ) : null}
 
-          {(mode === 'demo' || mode === 'static') && !params.jump
+          {/* نقاط ثابت زمینه‌ای — در demo/static به‌تنهایی، و در interactive هم به‌عنوان
+              زمینه‌ی کمکی کنار نشانگر قابل‌درگ (مثلاً برای نشان‌دادن یک الگوی عددی) */}
+          {!params.jump
             ? (params.points ?? []).map((p: NumberLinePoint, i) => (
                 <StaticToken
                   key={`${p.value}-${i}`}

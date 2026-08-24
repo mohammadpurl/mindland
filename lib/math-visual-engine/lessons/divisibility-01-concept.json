@@ -1,0 +1,96 @@
+{
+  "id": "divisibility-01-concept",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 1,
+  "level": 2,
+  "title": "درس ۱ — بخش‌پذیری یعنی چه؟",
+  "description": "چرا بعضی عددها راحت تقسیم می‌شوند و بعضی‌ها نه؟",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "سلام کارآگاه عددها! ۲۴ کارت داریم. می‌خواهیم بین چند گروه تقسیمشان کنیم. ببینیم چه اتفاقی می‌افتد.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "even-split",
+      "title": "۲۴ کارت بین ۲ گروه",
+      "speak": "وقتی بیست‌وچهار کارت را بین دو گروه تقسیم می‌کنیم، هر گروه دقیقاً دوازده‌تا می‌گیرد و هیچ کارتی اضافه نمی‌ماند — باقی‌مانده صفر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": { "title": "۲۴ کارت بین ۲ گروه", "number": 24, "divisor": 2, "highlight": "remainder" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "uneven-split",
+      "title": "همان ۲۴ کارت، بین ۵ گروه",
+      "speak": "ولی وقتی همان بیست‌وچهار کارت را بین پنج گروه تقسیم می‌کنیم، هر گروه فقط چهارتا می‌گیرد و چهار کارت اضافه می‌ماند — باقی‌مانده صفر نیست.",
+      "animation": "Talking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": { "title": "۲۴ کارت بین ۵ گروه", "number": 24, "divisor": 5, "highlight": "remainder" }
+      }
+    },
+    {
+      "type": "speak",
+      "id": "definition",
+      "message": "این، تعریف اصلی بخش‌پذیری است: اگر یک عدد را بر عدد دیگری تقسیم کنیم و باقی‌مانده صفر شود، می‌گوییم آن عدد بر عدد دیگر بخش‌پذیر است.",
+      "animation": "Thinking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "practice-definition",
+      "title": "تمرین ۱ — کدام جمله درست است؟",
+      "speak": "کدام جمله دربارهٔ بخش‌پذیری درست است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام جمله دربارهٔ بخش‌پذیری درست است؟",
+          "choices": [
+            { "label": "اگر باقی‌مانده صفر شود، عدد بخش‌پذیر است", "correct": true },
+            { "label": "اگر باقی‌مانده هر عددی باشد، بخش‌پذیر است", "correct": false },
+            { "label": "بخش‌پذیری فقط برای اعداد زوج معنا دارد", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! باقی‌مانده صفر یعنی بخش‌پذیر.",
+      "wrongMessage": "به یاد بیاور: تقسیم کامل یعنی چیزی اضافه نماند."
+    },
+    {
+      "type": "practice",
+      "id": "practice-divisible-by-6",
+      "title": "تمرین ۲ — کدام عددها بر ۶ بخش‌پذیرند؟",
+      "speak": "این عددها را تقسیم بر شش کن و ببین کدام‌ها باقی‌ماندهٔ صفر دارند.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها بر ۶ بخش‌پذیرند؟ (باقی‌مانده صفر)",
+          "candidates": [
+            { "value": 12, "correct": true },
+            { "value": 18, "correct": true },
+            { "value": 20, "correct": false },
+            { "value": 27, "correct": false },
+            { "value": 30, "correct": true }
+          ]
+        }
+      },
+      "successMessage": "آفرین! دوازده، هجده و سی، هر سه بر شش بخش‌پذیرند.",
+      "wrongMessage": "هر عدد را بر شش تقسیم کن — اگر باقی‌مانده صفر شد، انتخابش کن."
+    }
+  ]
+}
