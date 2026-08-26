@@ -1,0 +1,137 @@
+{
+  "id": "fraction-19-mixed-hour-axis",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 20,
+  "level": 5,
+  "title": "درس ۲۰ — عدد مخلوط، ساعت و محور (تیزهوشان)",
+  "description": "تبدیل عدد مخلوط به ساعت، و جمع و تفریق عددهای مخلوط روی محور",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "می‌دانستی که ساعت دیجیتال هم یک‌جور عدد مخلوط است؟ امروز یاد می‌گیریم ساعت را به عدد مخلوط تبدیل کنیم و عددهای مخلوط را روی محور جمع و تفریق کنیم.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "hour-to-mixed",
+      "title": "ساعت به عدد مخلوط",
+      "speak": "هر ساعت شصت دقیقه دارد. ساعت پنج‌وچهل‌وپنج‌دقیقه یعنی پنج ساعت کامل، به‌علاوه‌ی چهل‌وپنج شصتم ساعت. چهل‌وپنج‌شصتم ساده می‌شود سه‌چهارم. پس پنج‌وچهل‌وپنج‌دقیقه می‌شود پنج‌ویک‌چهارم... یعنی پنج و سه‌چهارم ساعت.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۵:۴۵  →  ۵ + ۴۵/۶۰ = ۵ + ۳/۴ = ۵¾ ساعت" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "mixed-on-axis",
+      "title": "عدد مخلوط روی محور",
+      "speak": "می‌توانیم جمع و تفریق عددهای مخلوط را با پرش روی محور نشان دهیم — هر پرش، یک جمع یا تفریق است. از سه‌وسه‌چهارم، یک‌ونیم واحد به چپ می‌پریم و به دو‌ویک‌چهارم می‌رسیم.",
+      "animation": "Talking",
+      "visual": {
+        "type": "number-line",
+        "mode": "demo",
+        "params": {
+          "title": "۳¾ − ۱½ = ۲¼",
+          "min": 0,
+          "max": 6,
+          "jump": { "from": 3.75, "to": 2.25, "label": "−۱½" }
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-545-to-mixed",
+      "title": "تمرین ۱ — ساعت ۵:۴۵",
+      "speak": "ساعت پنج‌وچهل‌وپنج‌دقیقه معادل کدام عدد مخلوط است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "ساعت ۵:۴۵ معادل کدام عدد مخلوط است؟",
+          "choices": [
+            { "label": "۵¾", "correct": true },
+            { "label": "۵½", "correct": false },
+            { "label": "۵(۲/۳)", "correct": false },
+            { "label": "۵(۴/۵)", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! چهل‌وپنج دقیقه از شصت دقیقه، یعنی سه‌چهارم ساعت.",
+      "wrongMessage": "چهل‌وپنج را بر شصت تقسیم کن و ساده کن: ۴۵/۶۰."
+    },
+    {
+      "type": "practice",
+      "id": "practice-320-to-mixed",
+      "title": "تمرین ۲ — ساعت ۳:۲۰",
+      "speak": "ساعت سه‌وبیست‌دقیقه معادل کدام عدد مخلوط ساده‌شده است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "ساعت ۳:۲۰ معادل کدام عدد مخلوط است؟",
+          "choices": [
+            { "label": "۳⅓", "correct": true },
+            { "label": "۳⅕", "correct": false },
+            { "label": "۳⅔", "correct": false },
+            { "label": "۳(۲/۵)", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! بیست‌شصتم ساده می‌شود یک‌سوم.",
+      "wrongMessage": "بیست را بر شصت تقسیم کن و ساده کن: ۲۰/۶۰."
+    },
+    {
+      "type": "practice",
+      "id": "practice-mixed-to-hour",
+      "title": "تمرین ۳ — از عدد مخلوط به ساعت",
+      "speak": "این‌بار برعکس عمل کن: چهار‌ویک‌چهارم ساعت یعنی چه زمانی روی ساعت دیجیتال؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "۴¼ ساعت روی ساعت دیجیتال کدام زمان را نشان می‌دهد؟",
+          "choices": [
+            { "label": "۴:۱۵", "correct": true },
+            { "label": "۴:۲۵", "correct": false },
+            { "label": "۴:۴۰", "correct": false },
+            { "label": "۴:۲۰", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! یک‌چهارم ساعت یعنی یک‌چهارم شصت دقیقه، یعنی پانزده دقیقه.",
+      "wrongMessage": "یک‌چهارم را در شصت دقیقه ضرب کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-axis-add",
+      "title": "تمرین ۴ — روی محور جمع بزن",
+      "speak": "یک‌ودوسوم به‌علاوه‌ی یک‌ویک‌ششم روی محور کجا می‌رسد؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "۱⅔ + ۱⅙ روی محور به کدام نقطه می‌رسد؟",
+          "choices": [
+            { "label": "۲⅚", "correct": true },
+            { "label": "۲½", "correct": false },
+            { "label": "۳", "correct": false },
+            { "label": "۲⅓", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! یک‌ودوسوم به‌علاوه‌ی یک‌ویک‌ششم می‌شود دو‌وپنج‌ششم.",
+      "wrongMessage": "قسمت صحیح‌ها را جمع بزن (۱+۱=۲)، بعد کسرها را: دوسوم به‌علاوه‌ی یک‌ششم."
+    }
+  ]
+}

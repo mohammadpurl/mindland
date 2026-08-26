@@ -170,6 +170,42 @@
               "level": 5,
               "teachSteps": 1,
               "practiceSteps": 6
+            },
+            {
+              "id": "fraction-17-advanced-compare",
+              "title": "درس ۱۸ — مقایسهٔ کسرها، سطح پیشرفته (تیزهوشان)",
+              "description": "چهار روش حرفه‌ای برای مقایسهٔ سریع دو یا چند کسر، بدون محاسبهٔ کامل",
+              "order": 18,
+              "level": 5,
+              "teachSteps": 3,
+              "practiceSteps": 5
+            },
+            {
+              "id": "fraction-18-advanced-between",
+              "title": "درس ۱۹ — کسرهای بین دو کسر، سطح پیشرفته (تیزهوشان)",
+              "description": "چند روش حرفه‌ای برای پیدا کردن کسرهایی بین دو کسر دلخواه",
+              "order": 19,
+              "level": 5,
+              "teachSteps": 3,
+              "practiceSteps": 5
+            },
+            {
+              "id": "fraction-19-mixed-hour-axis",
+              "title": "درس ۲۰ — عدد مخلوط، ساعت و محور (تیزهوشان)",
+              "description": "تبدیل عدد مخلوط به ساعت، و جمع و تفریق عددهای مخلوط روی محور",
+              "order": 20,
+              "level": 5,
+              "teachSteps": 2,
+              "practiceSteps": 4
+            },
+            {
+              "id": "fraction-20-gcd-euclidean",
+              "title": "درس ۲۱ — ب.م.م و ساده‌کردن کسرها (تیزهوشان)",
+              "description": "بزرگ‌ترین مقسوم‌علیه مشترک (ب.م.م) با روش تقسیمات متوالی، و کسر تحویل‌ناپذیر",
+              "order": 21,
+              "level": 5,
+              "teachSteps": 2,
+              "practiceSteps": 5
             }
           ]
         },

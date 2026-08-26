@@ -19,6 +19,10 @@ import fraction13 from '../lessons/fraction-13-equal-fractions.json'
 import fraction14 from '../lessons/fraction-14-textbook-multiply-2.json'
 import fraction15 from '../lessons/fraction-15-textbook-divide-2.json'
 import fraction16 from '../lessons/fraction-16-compare-order-advanced.json'
+import fraction17 from '../lessons/fraction-17-advanced-compare.json'
+import fraction18 from '../lessons/fraction-18-advanced-between.json'
+import fraction19 from '../lessons/fraction-19-mixed-hour-axis.json'
+import fraction20 from '../lessons/fraction-20-gcd-euclidean.json'
 import geometry01 from '../lessons/geometry-01-area-friends.json'
 import fractionCircleIntro from '../lessons/fraction-circle-intro.json'
 import integer01 from '../lessons/integer-01-number-line-intro.json'
@@ -61,6 +65,10 @@ const LESSON_RAW: Record<string, OrchestratorLessonInput> = {
   [fraction14.id]: fraction14 as OrchestratorLessonInput,
   [fraction15.id]: fraction15 as OrchestratorLessonInput,
   [fraction16.id]: fraction16 as OrchestratorLessonInput,
+  [fraction17.id]: fraction17 as OrchestratorLessonInput,
+  [fraction18.id]: fraction18 as OrchestratorLessonInput,
+  [fraction19.id]: fraction19 as OrchestratorLessonInput,
+  [fraction20.id]: fraction20 as OrchestratorLessonInput,
   [geometry01.id]: geometry01 as OrchestratorLessonInput,
   [fractionCircleIntro.id]: fractionCircleIntro as OrchestratorLessonInput,
   [integer01.id]: integer01 as OrchestratorLessonInput,

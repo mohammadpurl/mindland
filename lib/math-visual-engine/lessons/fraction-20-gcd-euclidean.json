@@ -1,0 +1,154 @@
+{
+  "id": "fraction-20-gcd-euclidean",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 21,
+  "level": 5,
+  "title": "درس ۲۱ — ب.م.م و ساده‌کردن کسرها (تیزهوشان)",
+  "description": "بزرگ‌ترین مقسوم‌علیه مشترک (ب.م.م) با روش تقسیمات متوالی، و کسر تحویل‌ناپذیر",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "برای ساده‌کردن یک کسر تا آخرین حد ممکن، باید بزرگ‌ترین مقسوم‌علیه مشترک صورت و مخرج را پیدا کنیم — به آن ب.م.م می‌گوییم.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "euclidean-algorithm",
+      "title": "روش تقسیمات متوالی (اقلیدسی)",
+      "speak": "برای پیدا کردن ب.م.م دویست‌وهشتاد‌وهشت و دویست‌وچهل، عدد بزرگ‌تر را بر کوچک‌تر تقسیم می‌کنیم: دویست‌وهشتاد‌وهشت بر دویست‌وچهل، باقی‌مانده چهل‌وهشت. حالا دویست‌وچهل را بر چهل‌وهشت تقسیم می‌کنیم: باقی‌مانده صفر می‌شود! پس ب.م.م همان چهل‌وهشت است — آخرین مقسوم‌علیهی که باقی‌مانده صفر داد.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۲۸۸÷۲۴۰ باقی‌مانده ۴۸  →  ۲۴۰÷۴۸ باقی‌مانده ۰  →  ب.م.م=۴۸  →  ۲۸۸/۲۴۰=۶/۵" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "irreducible-concept",
+      "title": "کسر تحویل‌ناپذیر (ساده‌نشدنی)",
+      "speak": "کسری که صورت و مخرجش دیگر بر هم ساده نشوند، یعنی ب.م.م صورت و مخرجش برابر یک باشد، «تحویل‌ناپذیر» است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۲۱۷/۱۶۱ هر دو بر ۷ ساده می‌شوند — پس تحویل‌ناپذیر نیست" }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-which-irreducible",
+      "title": "تمرین ۱ — کدام تحویل‌ناپذیر است؟",
+      "speak": "سه‌تای این کسرها ساده می‌شوند، فقط یکی ساده‌نشدنی است.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام‌یک از کسرهای زیر ساده‌شدنی نیست (تحویل‌ناپذیر است)؟",
+          "choices": [
+            { "label": "۲۱۷/۱۶۱", "correct": false, "note": "هر دو بر ۷ ساده می‌شوند." },
+            { "label": "۹۱/۱۰۰۱", "correct": false, "note": "هر دو بر ۱۳ ساده می‌شوند." },
+            { "label": "۸۷۳/۷۰۲", "correct": false, "note": "هر دو بر ۳ ساده می‌شوند." },
+            { "label": "۶۶۷/۱۲۷۱", "correct": true, "note": "ب.م.م این دو عدد برابر ۱ است." }
+          ]
+        }
+      },
+      "successMessage": "درسته! ب.م.م ۶۶۷ و ۱۲۷۱ برابر ۱ است، پس این کسر دیگر ساده نمی‌شود.",
+      "wrongMessage": "هر گزینه را با روش تقسیمات متوالی بررسی کن — کدام‌یک به باقی‌ماندهٔ ۱ می‌رسد، نه صفر؟"
+    },
+    {
+      "type": "practice",
+      "id": "practice-simplify-big",
+      "title": "تمرین ۲ — ساده‌کردن یک کسر بزرگ",
+      "speak": "این کسر بزرگ به نظر می‌رسد، ولی ساده‌شده‌اش خیلی کوچک است!",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "ساده‌شدهٔ ۱۹۹۹۹۹۸/۲۹۹۹۹۹۷ کدام است؟",
+          "choices": [
+            { "label": "۲/۳", "correct": true },
+            { "label": "۱/۲", "correct": false },
+            { "label": "۳/۷", "correct": false },
+            { "label": "۲/۷", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۲۹۹۹۹۹۷÷۳=۹۹۹۹۹۹ و ۹۹۹۹۹۹×۲=۱۹۹۹۹۹۸ — پس این کسر دقیقاً برابر ۲/۳ است.",
+      "wrongMessage": "ببین مخرج بر چه عددی بخش‌پذیر است که وقتی در ۲ ضرب شود، صورت به‌دست بیاید."
+    },
+    {
+      "type": "practice",
+      "id": "practice-simplify-euclidean",
+      "title": "تمرین ۳ — با تقسیمات متوالی ساده کن",
+      "speak": "این‌بار خودت ب.م.م را با تقسیمات متوالی پیدا کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "ساده‌شدهٔ کسر ۱۷۲/۲۰۸ کدام است؟",
+          "choices": [
+            { "label": "۴۳/۵۲", "correct": true },
+            { "label": "۸۶/۱۰۴", "correct": false, "note": "این هنوز کاملاً ساده نشده." },
+            { "label": "۱۷/۲۰", "correct": false },
+            { "label": "۲۱/۲۶", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ب.م.م ۱۷۲ و ۲۰۸ برابر ۴ است؛ ۱۷۲÷۴=۴۳ و ۲۰۸÷۴=۵۲.",
+      "wrongMessage": "۲۰۸ را بر ۱۷۲ تقسیم کن، بعد باقی‌مانده‌ها را پشت‌سرهم تقسیم کن تا باقی‌مانده صفر شود."
+    },
+    {
+      "type": "practice",
+      "id": "practice-reciprocal-difference",
+      "title": "تمرین ۴ — چالش: اختلاف با معکوس",
+      "speak": "چالش پیشرفته: اختلاف پنج‌ویک‌پنجم با معکوس خودش را حساب کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "اختلاف ۵⅕ با معکوسش کدام است؟",
+          "choices": [
+            { "label": "۶۵۱/۱۳۰", "correct": true },
+            { "label": "صفر", "correct": false },
+            { "label": "۱/۱۰", "correct": false },
+            { "label": "۱", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۵⅕=۲۶/۵، معکوسش ۵/۲۶ است؛ اختلافشان (۶۷۶−۲۵)/۱۳۰=۶۵۱/۱۳۰.",
+      "wrongMessage": "اول ۵⅕ را به کسر تبدیل کن (۲۶/۵)، بعد معکوسش را پیدا کن (۵/۲۶)، بعد تفریق کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-regroup-trick",
+      "title": "تمرین ۵ — ترفند گروه‌بندی در اعداد مخلوط",
+      "speak": "گاهی قسمت‌های کسری چند عدد مخلوط، با هم صفر می‌شوند! اول قسمت صحیح‌ها را با هم جمع بزن، بعد قسمت‌های کسری را.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "حاصل ۱۰۰½ + ۹۹⅓ − ۹۸⅚ کدام است؟",
+          "choices": [
+            { "label": "۱۰۱", "correct": true, "note": "قسمت‌های کسری: ۱/۲+۱/۳−۵/۶ = ۳/۶+۲/۶−۵/۶ = ۰" },
+            { "label": "۱۰۰⅚", "correct": false },
+            { "label": "۱۰۱⅓", "correct": false },
+            { "label": "۱۰۲", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! قسمت صحیح‌ها: ۱۰۰+۹۹−۹۸=۱۰۱. قسمت‌های کسری با هم دقیقاً صفر می‌شوند!",
+      "wrongMessage": "اول قسمت صحیح سه عدد را جمع و تفریق کن، بعد جدا سراغ قسمت‌های کسری برو."
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "id": "fraction-18-advanced-between",
+  "subjectId": "math",
+  "topicId": "fractions",
+  "order": 19,
+  "level": 5,
+  "title": "درس ۱۹ — کسرهای بین دو کسر، سطح پیشرفته (تیزهوشان)",
+  "description": "چند روش حرفه‌ای برای پیدا کردن کسرهایی بین دو کسر دلخواه",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "بین هر دو کسر نامساوی، بی‌شمار کسر دیگر وجود دارد! امروز چند روش حرفه‌ای برای پیدا کردن آنها یاد می‌گیریم.",
+      "animation": "StandingGreeting",
+      "emotion": "curious",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "method-common-denom",
+      "title": "روش ۱ — مخرج مشترک بزرگ",
+      "speak": "سه‌چهارم و پنج‌ششم را با مخرج بیست‌وچهار می‌نویسیم: می‌شود هجده‌بیست‌وچهارم و بیست‌بیست‌وچهارم. تنها کسری با مخرج بیست‌وچهار که بین آنهاست، نوزده‌بیست‌وچهارم است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۳/۴=۱۸/۲۴ و ۵/۶=۲۰/۲۴  →  فقط ۱۹/۲۴ بین آنهاست" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "method-mediant",
+      "title": "روش ۲ — ترکیب صورت‌ها و مخرج‌ها",
+      "speak": "یک ترفند جالب: صورت دو کسر را با هم و مخرج آنها را هم با هم جمع بزن — کسر جدید همیشه بین آن دو کسر قرار می‌گیرد! یک‌هفتم و یک‌پنجم را نگاه کن: صورت‌ها یک‌به‌علاوه‌ی‌یک می‌شود دو، مخرج‌ها هفت‌به‌علاوه‌ی‌پنج می‌شود دوازده. پس دو‌دوازدهم بین یک‌هفتم و یک‌پنجم است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "۱/۷ و ۱/۵  →  (۱+۱)/(۷+۵) = ۲/۱۲  →  بین آنهاست" }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "method-average",
+      "title": "روش ۳ — میانگین دو کسر",
+      "speak": "میانگین دو کسر همیشه دقیقاً بین آن دو قرار دارد. میانگین یک‌سوم و دو‌سوم می‌شود یک‌دوم — و همین روش را می‌توان بی‌نهایت بار تکرار کرد تا کسرهای بی‌شماری بین دو کسر پیدا کرد.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "static",
+        "params": { "title": "میانگین ۱/۳ و ۲/۳ = ۱/۲ — همیشه بین آن دو قرار دارد" }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-count-denom-24",
+      "title": "تمرین ۱ — چند کسر با مخرج ۲۴؟",
+      "speak": "بین سه‌چهارم و پنج‌ششم، چند کسر با مخرج طبیعی بیست‌وچهار وجود دارد؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "بین ۳/۴ و ۵/۶ ، چند کسر با صورت طبیعی و مخرج ۲۴ وجود دارد؟",
+          "choices": [
+            { "label": "۱", "correct": true },
+            { "label": "۲", "correct": false },
+            { "label": "۳", "correct": false },
+            { "label": "۴", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۳/۴=۱۸/۲۴ و ۵/۶=۲۰/۲۴ — فقط ۱۹/۲۴ بینشان است.",
+      "wrongMessage": "هر دو کسر را با مخرج ۲۴ بنویس و ببین چند عدد صحیح بین صورت‌هایشان است."
+    },
+    {
+      "type": "practice",
+      "id": "practice-mediant-apply",
+      "title": "تمرین ۲ — کدام بین این دو کسر است؟",
+      "speak": "با ترفند جمع صورت‌ها و مخرج‌ها، کسری بین یک‌هفتم و یک‌پنجم پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام‌یک بین کسر ۱/۷ و ۱/۵ قرار دارد؟",
+          "choices": [
+            { "label": "۲/۱۲", "correct": true },
+            { "label": "۳/۱۷", "correct": false },
+            { "label": "۲/۱۷", "correct": false },
+            { "label": "۱/۱۹", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! (۱+۱)/(۷+۵) = ۲/۱۲ که دقیقاً بین یک‌هفتم و یک‌پنجم قرار دارد.",
+      "wrongMessage": "صورت‌های دو کسر را با هم و مخرج‌هایشان را با هم جمع بزن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-count-denom-100",
+      "title": "تمرین ۳ — چند کسر با مخرج ۱۰۰؟",
+      "speak": "این‌بار مخرج بزرگ‌تری داریم — با دقت مرحله‌به‌مرحله محاسبه کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "بین ۳/۵ و ۶/۷ ، چند کسر با صورت طبیعی و مخرج ۱۰۰ وجود دارد؟",
+          "choices": [
+            { "label": "۲۳", "correct": false },
+            { "label": "۲۴", "correct": false },
+            { "label": "۲۵", "correct": true },
+            { "label": "۲۶", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! ۳/۵=۶۰/۱۰۰ و ۶/۷≈۸۵٫۷/۱۰۰ — عددهای صحیح از ۶۱ تا ۸۵، یعنی ۲۵ کسر.",
+      "wrongMessage": "۳/۵ را و ۶/۷ را با مخرج ۱۰۰ تخمین بزن، بعد صورت‌های صحیح بین آنها را بشمار."
+    },
+    {
+      "type": "practice",
+      "id": "practice-average-apply",
+      "title": "تمرین ۴ — با میانگین پیدا کن",
+      "speak": "میانگین یک‌چهارم و یک‌دوم را حساب کن تا کسری بینشان پیدا کنی.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام کسر بین ۱/۴ و ۱/۲ قرار دارد؟",
+          "choices": [
+            { "label": "۳/۸", "correct": true },
+            { "label": "۱/۳", "correct": false },
+            { "label": "۵/۸", "correct": false },
+            { "label": "۱/۶", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! میانگین یک‌چهارم و یک‌دوم برابر است با (۱/۴+۱/۲)÷۲ = سه‌هشتم.",
+      "wrongMessage": "دو کسر را جمع بزن و حاصل را بر ۲ تقسیم کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-how-many-integers",
+      "title": "تمرین ۵ — چند عدد طبیعی جای خالی؟",
+      "speak": "به‌جای مربع، چه عددهای طبیعی‌ای می‌توانند بیایند تا رابطه درست باشد؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "چند عدد طبیعی از ۱ تا ۹ را می‌توان به‌جای □ در رابطهٔ ۱/۳ < □/۹ < ۲/۳ قرار داد؟",
+          "choices": [
+            { "label": "۲", "correct": true, "note": "□/۹ بین ۳/۹ و ۶/۹ باشد یعنی □ فقط ۴ یا ۵ می‌تواند باشد." },
+            { "label": "۳", "correct": false },
+            { "label": "۴", "correct": false },
+            { "label": "۶", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! یک‌سوم می‌شود سه‌نهم و دو‌سوم می‌شود شش‌نهم — فقط ۴ و ۵ بین سه و شش هستند.",
+      "wrongMessage": "یک‌سوم و دو‌سوم را با مخرج ۹ بنویس، بعد عددهای صحیح بین صورت‌هایشان را بشمار."
+    }
+  ]
+}
