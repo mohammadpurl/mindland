@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مایندلند — مقایسه اعداد اعشاری (V2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1530; --ink-2:#151B3B; --panel:#1B2247; --panel-2:#232B58;
+    --line: rgba(245,243,234,0.10); --line-strong: rgba(245,243,234,0.20);
+    --teal:#4FD1AE; --teal-dim: rgba(79,209,174,0.14);
+    --coral:#FF7A6E; --coral-dim: rgba(255,122,110,0.14);
+    --purple:#6C4CF1; --purple-dim: rgba(108,76,241,0.16);
+    --blue:#2F80ED; --blue-dim: rgba(47,128,237,0.16);
+    --yellow:#FFC83D; --yellow-dim: rgba(255,200,61,0.18);
+    --text:#F4F2EA; --muted:#98A0C4; --muted-2:#6B7299;
+    --radius-lg:24px; --radius-md:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(47,128,237,0.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(108,76,241,0.10), transparent 60%),
+      var(--ink);
+    color:var(--text); font-family:'Vazirmatn', Tahoma, sans-serif; min-height:100vh; line-height:1.65;
+  }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  .shell{ max-width:920px; margin:0 auto; padding:22px 22px 70px; position:relative; }
+
+  .topbar{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:16px; }
+  .brand-mark{ width:28px;height:28px;border-radius:8px; background:linear-gradient(135deg, var(--purple), var(--blue)); display:flex;align-items:center;justify-content:center; font-size:14px; }
+  .crumb{ font-size:13px; color:var(--muted); }
+
+  .progress-wrap{ margin-bottom:14px; }
+  .progress-label{ display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .progress-bar{ height:6px; border-radius:6px; background:var(--panel-2); overflow:hidden; }
+  .progress-fill{ height:100%; background:linear-gradient(90deg, var(--purple), var(--blue)); border-radius:6px; transition:width .4s ease; }
+
+  .phase-row{ display:flex; justify-content:center; margin-bottom:14px; }
+  .phase-badge{ display:inline-flex; align-items:center; gap:6px; background:var(--purple-dim); border:1px solid rgba(108,76,241,0.4); color:#D9CFFF; font-size:12px; font-weight:700; padding:5px 14px; border-radius:999px; }
+
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-lg); padding:32px 28px; min-height:400px; display:flex; flex-direction:column; }
+  .eyebrow{ color:var(--purple); font-size:13px; font-weight:700; margin-bottom:10px; text-align:center; }
+  h1.q{ font-size:22px; font-weight:700; margin:0 0 22px; line-height:1.6; text-align:center; }
+  p.sub{ color:var(--muted); font-size:14px; margin:0 0 18px; text-align:center; }
+  .center{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; }
+
+  .purpose-tag{ display:flex; align-items:center; gap:8px; background:var(--ink-2); border:1px dashed var(--line-strong); border-radius:10px; padding:8px 14px; font-size:12.5px; color:var(--muted); margin-bottom:16px; }
+  .purpose-tag b{ color:var(--blue); font-weight:700; }
+
+  .teacher-note{ display:flex; gap:12px; align-items:flex-start; background:var(--blue-dim); border:1.5px solid rgba(47,128,237,0.35); border-radius:var(--radius-md); padding:14px 18px; width:100%; max-width:560px; }
+  .teacher-icon{ font-size:20px; flex-shrink:0; }
+  .teacher-note .txt b{ display:block; font-size:11.5px; color:var(--blue); margin-bottom:3px; font-weight:700; }
+  .teacher-note .txt p{ margin:0; font-size:14px; }
+  .teacher-note.reacting{ border-color:var(--teal); background:var(--teal-dim); }
+  .teacher-note.reacting .txt b{ color:var(--teal); }
+
+  .why-block{ width:100%; max-width:520px; background:var(--yellow-dim); border:1.5px solid rgba(255,200,61,0.4); border-radius:var(--radius-md); padding:16px; }
+  .why-block .why-eyebrow{ font-size:12.5px; font-weight:800; color:var(--yellow); margin-bottom:10px; }
+
+  /* ---------- compare cards ---------- */
+  .cards-row{ display:flex; gap:20px; align-items:center; justify-content:center; flex-wrap:wrap; }
+  .num-card{
+    background:var(--ink-2); border:2px solid var(--line-strong); border-radius:20px;
+    padding:26px 36px; font-family:'JetBrains Mono', monospace; font-size:38px; font-weight:700;
+    cursor:pointer; transition:all .18s ease; min-width:150px; text-align:center; direction:ltr;
+  }
+  .num-card:hover{ border-color:var(--muted-2); transform:translateY(-2px); }
+  .num-card.correct{ border-color:var(--teal); background:var(--teal-dim); color:var(--teal); }
+  .num-card.wrong{ border-color:var(--coral); background:var(--coral-dim); color:var(--coral); }
+  .num-card.disabled{ pointer-events:none; }
+  .vs-mark{ font-size:22px; color:var(--muted-2); font-weight:700; }
+
+  /* ---------- place value ---------- */
+  .pv-block{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .pv-number{ font-family:'JetBrains Mono', monospace; font-size:32px; font-weight:700; direction:ltr; }
+  .pv-cols{ display:flex; gap:8px; direction:ltr; }
+  .pv-col{
+    width:64px; display:flex; flex-direction:column; align-items:center; gap:6px;
+    padding:10px 6px; border-radius:12px; border:1.5px solid var(--line-strong); background:var(--ink-2);
+    cursor:pointer; transition:all .18s ease;
+  }
+  .pv-col:hover{ border-color:var(--muted-2); }
+  .pv-col.active{ border-color:var(--yellow); background:var(--yellow-dim); transform:scale(1.08); }
+  .pv-col .digit{ font-family:'JetBrains Mono', monospace; font-size:24px; font-weight:700; }
+  .pv-col .digit.ghost{ color:var(--muted-2); }
+  .pv-col .label{ font-size:10.5px; color:var(--muted); }
+  .pv-tooltip{ font-size:13px; color:var(--yellow); font-weight:700; min-height:18px; }
+
+  .rows-wrap{ display:flex; flex-direction:column; gap:22px; align-items:center; }
+
+  /* ---------- number line ---------- */
+  .numberline-wrap{ width:100%; padding:20px 10px 30px; }
+  .nl-point{ cursor:pointer; }
+  .nl-point circle{ transition:r .15s ease; }
+  .nl-point:hover circle{ r:9; }
+
+  /* ---------- shop ---------- */
+  .shop-row{ display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+  .shop-card{
+    background:var(--ink-2); border:2px solid var(--line-strong); border-radius:18px; padding:20px 26px;
+    text-align:center; cursor:pointer; transition:all .18s ease; min-width:150px;
+  }
+  .shop-card:hover{ border-color:var(--muted-2); }
+  .shop-card .pencil{ font-size:34px; margin-bottom:8px; }
+  .shop-card .price{ font-family:'JetBrains Mono', monospace; font-size:22px; font-weight:700; direction:ltr; }
+  .shop-card.correct{ border-color:var(--teal); background:var(--teal-dim); }
+  .shop-card.wrong{ border-color:var(--coral); background:var(--coral-dim); }
+  .shop-card.disabled{ pointer-events:none; }
+
+  .diff-input-row{ display:flex; gap:10px; align-items:center; justify-content:center; margin-top:14px; }
+  .diff-input{
+    font-family:'JetBrains Mono', monospace; font-size:20px; font-weight:700; text-align:center;
+    background:var(--ink-2); border:1.5px solid var(--teal); border-radius:12px; color:var(--text);
+    padding:10px 14px; width:120px; direction:ltr; outline:none;
+  }
+  .num-input{ font-family:'JetBrains Mono', monospace; font-size:22px; font-weight:700; text-align:center; background:var(--ink-2); border:1.5px solid var(--teal); border-radius:12px; color:var(--text); padding:10px 16px; width:150px; direction:ltr; outline:none; }
+  .textarea-box{ width:100%; max-width:520px; background:var(--ink-2); border:1.5px solid var(--line); border-radius:var(--radius-md); color:var(--text); font-family:inherit; font-size:14px; padding:12px 14px; resize:vertical; min-height:70px; outline:none; }
+
+  /* ---------- options / mcq ---------- */
+  .options-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%; max-width:420px; }
+  .opt{ padding:14px; background:var(--ink-2); border:1.5px solid var(--line); border-radius:var(--radius-md); cursor:pointer; text-align:center; font-size:14.5px; font-weight:600; transition:all .15s ease; }
+  .opt:hover{ border-color:var(--muted-2); }
+  .opt.correct{ border-color:var(--teal); background:var(--teal-dim); color:var(--teal); }
+  .opt.wrong{ border-color:var(--coral); background:var(--coral-dim); color:var(--coral); }
+  .opt.disabled{ pointer-events:none; }
+
+  .rule-box{
+    margin-top:18px; background:var(--purple-dim); border:1.5px solid rgba(108,76,241,0.4);
+    border-radius:var(--radius-md); padding:16px 20px; font-size:14px; text-align:center; line-height:2;
+    display:none;
+  }
+  .rule-box.show{ display:block; }
+
+  .feedback{ margin-top:16px; padding:12px 18px; border-radius:var(--radius-md); font-size:14px; text-align:center; display:none; border:1.5px solid transparent; max-width:520px; }
+  .feedback.show{ display:block; }
+  .feedback.ok{ background:var(--teal-dim); border-color:var(--teal); color:var(--teal); }
+  .feedback.err{ background:var(--coral-dim); border-color:var(--coral); color:#FFC9C2; }
+  .feedback.info{ background:var(--purple-dim); border-color:var(--purple); color:#D9CFFF; }
+  .feedback.remedial{ background:var(--yellow-dim); border-color:var(--yellow); color:var(--yellow); }
+
+  /* ---------- chips (final mission) ---------- */
+  .mission-chip{
+    font-family:'JetBrains Mono', monospace; font-size:28px; font-weight:700;
+    background:var(--ink-2); border:2px solid var(--line-strong); border-radius:16px;
+    padding:16px 26px; cursor:pointer; transition:all .18s ease; direction:ltr;
+  }
+  .mission-chip:hover{ border-color:var(--muted-2); }
+  .mission-chip.selected{ border-color:var(--yellow); background:var(--yellow-dim); }
+  .mission-chip.correct{ border-color:var(--teal); background:var(--teal-dim); color:var(--teal); }
+  .mission-chip.wrong{ border-color:var(--coral); background:var(--coral-dim); color:var(--coral); }
+
+  /* ---------- summary / report ---------- */
+  .status-grid{ display:flex; flex-direction:column; gap:8px; width:100%; max-width:460px; }
+  .status-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:14px; background:var(--ink-2); border-radius:10px; padding:9px 14px; }
+  .status-row .level{ font-size:12px; font-weight:700; padding:3px 10px; border-radius:999px; }
+  .status-row .level.strong{ background:var(--teal-dim); color:var(--teal); }
+  .status-row .level.practice{ background:var(--yellow-dim); color:var(--yellow); }
+  .next-step-box{ width:100%; max-width:520px; background:var(--blue-dim); border:1.5px solid rgba(47,128,237,0.4); border-radius:var(--radius-md); padding:14px 18px; font-size:14px; }
+  .next-step-box b{ display:block; color:var(--blue); font-size:12px; margin-bottom:4px; }
+
+  .checklist{ display:flex; flex-direction:column; gap:10px; margin-top:10px; width:100%; max-width:400px; }
+  .check-item{ display:flex; align-items:center; gap:10px; font-size:14px; }
+  .check-item .tick{ width:20px;height:20px;border-radius:50%; background:var(--teal); color:#062A22; display:flex;align-items:center;justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
+
+  /* ---------- adaptive state strip ---------- */
+  .state-strip{ display:flex; gap:6px; justify-content:center; flex-wrap:wrap; margin-bottom:16px; }
+  .state-dot{ font-size:11px; font-weight:700; padding:5px 10px; border-radius:999px; background:var(--ink-2); border:1px solid var(--line-strong); color:var(--muted-2); }
+  .state-dot.reached{ color:var(--teal); border-color:var(--teal); }
+  .state-dot.active{ color:#052620; background:var(--teal); border-color:var(--teal); }
+
+  /* ---------- nav ---------- */
+  .actions{ display:flex; justify-content:space-between; margin-top:26px; gap:10px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:12px; border:none; font-family:inherit; font-size:14.5px; font-weight:700; cursor:pointer; transition:transform .12s ease, filter .15s ease; }
+  .btn:active{ transform:scale(.97); }
+  .btn-primary{ background:var(--blue); color:#fff; }
+  .btn-primary:hover{ filter:brightness(1.1); }
+  .btn-primary:disabled{ background:var(--panel-2); color:var(--muted-2); cursor:not-allowed; }
+  .btn-ghost{ background:transparent; color:var(--text); border:1.5px solid var(--line-strong); }
+  .btn-ghost:disabled{ opacity:.35; cursor:not-allowed; }
+  .btn-soft{ background:var(--purple-dim); color:#D9CFFF; border:1.5px solid rgba(108,76,241,0.4); }
+
+  /* ---------- Nava corner ---------- */
+  .nava-corner{ position:fixed; bottom:22px; left:22px; display:flex; align-items:flex-end; gap:10px; z-index:50; }
+  .nava-bubble{
+    background:var(--panel-2); border:1px solid var(--line-strong); border-radius:14px; border-bottom-left-radius:4px;
+    padding:9px 15px; font-size:13.5px; font-weight:600; max-width:230px;
+    opacity:0; transform:translateY(6px) scale(.95); transition:all .3s ease; margin-bottom:6px;
+  }
+  .nava-bubble.show{ opacity:1; transform:translateY(0) scale(1); }
+  .nava{ width:56px; height:60px; position:relative; flex-shrink:0; }
+  .nava .antenna{ position:absolute; top:-10px; left:50%; transform:translateX(-50%); width:3px; height:10px; background:var(--muted-2); }
+  .nava .antenna::before{ content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%); width:7px; height:7px; border-radius:50%; background:var(--purple); box-shadow:0 0 8px var(--purple); }
+  .nava .head{ position:absolute; top:0; left:5px; width:46px; height:34px; border-radius:12px; background:linear-gradient(160deg,#3A4482,#232B55); border:2px solid var(--line-strong); }
+  .nava .eye{ position:absolute; top:13px; width:7px; height:7px; border-radius:50%; background:var(--teal); transition:all .2s ease; }
+  .nava .eye.l{ left:13px; } .nava .eye.r{ right:13px; }
+  .nava .body{ position:absolute; bottom:0; left:9px; width:38px; height:26px; border-radius:10px; background:var(--panel-2); border:2px solid var(--line-strong); }
+  .nava.happy .eye{ background:var(--teal); box-shadow:0 0 6px var(--teal); }
+  .nava.happy{ animation:navaBounce .5s ease; }
+  @keyframes navaBounce{ 0%,100%{transform:translateY(0);} 40%{transform:translateY(-6px);} }
+  .nava.confused .eye.l{ top:11px; } .nava.confused .eye.r{ top:15px; }
+  .nava.confused .eye{ background:var(--yellow); }
+  .nava.confused{ animation:navaTilt .4s ease; }
+  @keyframes navaTilt{ 0%,100%{transform:rotate(0);} 50%{transform:rotate(-6deg);} }
+
+  /* ---------- modals ---------- */
+  .modal-overlay{ position:fixed; inset:0; background:rgba(6,9,22,0.75); display:none; align-items:center; justify-content:center; z-index:300; padding:20px; }
+  .modal-overlay.show{ display:flex; }
+  .modal-box{ background:var(--panel); border:1px solid var(--line-strong); border-radius:20px; max-width:580px; width:100%; max-height:85vh; overflow-y:auto; padding:26px; }
+  .modal-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+  .modal-header h2{ margin:0; font-size:17px; }
+  .modal-close{ background:var(--ink-2); border:1px solid var(--line-strong); color:var(--text); width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:14px; }
+  .modal-box h3{ font-size:13.5px; color:var(--blue); margin:18px 0 8px; }
+  .modal-box p, .modal-box li{ font-size:13.5px; color:var(--text); line-height:1.9; }
+  .modal-box ul{ margin:0; padding-inline-start:20px; }
+  .parent-line{ display:flex; justify-content:space-between; gap:10px; background:var(--ink-2); border-radius:10px; padding:9px 14px; margin-bottom:8px; font-size:13.5px; }
+
+  .dev-link{ text-align:center; font-size:12px; color:var(--muted-2); margin-top:26px; cursor:pointer; text-decoration:underline dotted; }
+  .bonus-toggle{ text-align:center; font-size:12.5px; color:var(--blue); margin-top:16px; cursor:pointer; text-decoration:underline; }
+
+  @media (max-width:560px){
+    .num-card{ font-size:28px; padding:18px 22px; min-width:110px; }
+    .nava-corner{ left:10px; bottom:10px; }
+    .nava-bubble{ max-width:170px; font-size:12.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="topbar">
+    <div class="brand"><div class="brand-mark">🔢</div>مایندلند</div>
+    <div class="crumb">ریاضی ششم / مقایسه اعداد اعشاری · V2</div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-label"><span id="pageLabel">مأموریت مقایسه اعشار</span><span id="pagePct">۰٪</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+  <div class="phase-row"><div class="phase-badge" id="phaseBadge"></div></div>
+
+  <div class="card" id="stage"></div>
+  <div class="dev-link" id="devNotesLink">🛠 یادداشت طراح و توسعه‌دهنده</div>
+</div>
+
+<div class="nava-corner">
+  <div class="nava-bubble" id="navaBubble"></div>
+  <div class="nava" id="navaEl">
+    <div class="antenna"></div>
+    <div class="head"><div class="eye l"></div><div class="eye r"></div></div>
+    <div class="body"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<script>
+function toFa(n){ return String(n).replace(/\./g,'٫').replace(/[0-9]/g, d=>'۰۱۲۳۴۵۶۷۸۹'[d]); }
+function faToEn(s){ const fa='۰۱۲۳۴۵۶۷۸۹'; return String(s).replace(/[۰-۹]/g, d=>fa.indexOf(d)).replace(/٫/g,'.'); }
+function el(tag, cls, html){ const e=document.createElement(tag); e.className=cls; if(html!==undefined) e.innerHTML=html; return e; }
+function cmp(a,b){ const A=Math.round(a*100), B=Math.round(b*100); return A>B?1:(A<B?-1:0); }
+
+const navaEl = document.getElementById('navaEl');
+const navaBubble = document.getElementById('navaBubble');
+let navaTimer = null;
+function navaSay(text, mood){
+  navaBubble.textContent = text;
+  navaBubble.classList.add('show');
+  navaEl.className = 'nava' + (mood?(' '+mood):'');
+  clearTimeout(navaTimer);
+  navaTimer = setTimeout(()=> navaBubble.classList.remove('show'), 4200);
+}
+function teacherNote(label, text, reacting){
+  return el('div','teacher-note'+(reacting?' reacting':''), `<div class="teacher-icon">🧑‍🏫</div><div class="txt"><b>${label}</b><p>${text}</p></div>`);
+}
+function purposeTag(text){
+  return el('div','purpose-tag', `<span>🎯</span><span><b>هدف این تعامل:</b> ${text}</span>`);
+}
+
+const PHASE_LABELS = {
+  goal:'🎯 هدف یادگیری', predict:'🔮 پیش‌بینی کن', discover:'🔍 کشف کن', explain:'📘 یاد بگیر',
+  interact:'🖐 تعامل کن', practice:'✍️ تمرین کن', diagnose:'🧭 بررسی مسیر', remediate:'🩹 مرور ساده‌تر',
+  apply:'🧰 به‌کار ببند', create:'✨ بساز', explainback:'🗣 توضیح بده', assess:'📝 ارزیابی', report:'📊 گزارش'
+};
+function setPhase(key){ document.getElementById('phaseBadge').textContent = PHASE_LABELS[key] || ''; }
+
+/* ---------------- Global learning state ---------------- */
+const state = {
+  concepts: {
+    wholePart:  { label:'مقایسه‌ی بخش صحیح', attempts:0, wrong:0, hints:0 },
+    zeroPad:    { label:'صفر انتهایی و ارزش عدد', attempts:0, wrong:0, hints:0 },
+    digitByDigit: { label:'مقایسه رقم‌به‌رقم (دهم، صدم)', attempts:0, wrong:0, hints:0, remedialTriggered:false, remedialRecovered:false },
+    application: { label:'کاربرد در مسئله واقعی', attempts:0, wrong:0, hints:0 }
+  },
+  navaMistakeCaught: null,
+  explainBackDone: false,
+  finalAnswers: [],
+  hintsUsedTotal: 0
+};
+function attemptConcept(k){ if(state.concepts[k]) state.concepts[k].attempts++; }
+function logWrong(k){ if(state.concepts[k]){ state.concepts[k].wrong++; state.concepts[k].hints++; state.hintsUsedTotal++; } }
+function resetState(){
+  Object.values(state.concepts).forEach(c=>{ c.attempts=0; c.wrong=0; c.hints=0; if('remedialTriggered' in c){c.remedialTriggered=false; c.remedialRecovered=false;} });
+  state.navaMistakeCaught=null; state.explainBackDone=false; state.finalAnswers=[]; state.hintsUsedTotal=0;
+}
+
+let currentPage = 0;
+const TOTAL = 13;
+const stage = document.getElementById('stage');
+const pageLabel = document.getElementById('pageLabel');
+const pagePct = document.getElementById('pagePct');
+const progressFill = document.getElementById('progressFill');
+
+function goTo(i){
+  currentPage = Math.max(0, Math.min(TOTAL-1, i));
+  const pct = Math.round((currentPage/(TOTAL-1))*100);
+  progressFill.style.width = pct+'%';
+  pagePct.textContent = toFa(pct)+'٪';
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function navButtons(canNext, nextLabel, onNext){
+  const wrap = el('div','actions');
+  const prev = el('button','btn btn-ghost','قبلی');
+  prev.disabled = currentPage===0;
+  prev.onclick = ()=> goTo(currentPage-1);
+  const next = el('button','btn btn-primary', nextLabel||'ادامه →');
+  next.id='nextBtn'; next.disabled = !canNext;
+  next.onclick = ()=>{ if(onNext) onNext(); goTo(currentPage+1); };
+  wrap.appendChild(prev); wrap.appendChild(next);
+  return wrap;
+}
+
+function buildMCQ(container, {options, correctIndex, correctMsg, wrongHints, concept, onDone}){
+  if(concept) attemptConcept(concept);
+  const optWrap = el('div','options-grid');
+  let hintStage = 0;
+  options.forEach((text,i)=>{
+    const opt = el('div','opt', text);
+    opt.onclick = ()=>{
+      if(i===correctIndex){
+        Array.from(optWrap.children).forEach(x=>x.classList.add('disabled'));
+        opt.classList.add('correct');
+        fb.className='feedback show ok'; fb.textContent = correctMsg;
+        navaSay('درسته!','happy');
+        if(onDone) onDone(true, hintStage);
+      } else {
+        if(concept) logWrong(concept);
+        opt.classList.add('wrong');
+        setTimeout(()=> opt.classList.remove('wrong'), 700);
+        fb.className='feedback show info';
+        fb.textContent = wrongHints[Math.min(hintStage, wrongHints.length-1)];
+        navaSay('یه بار دیگه فکر کن','confused');
+        hintStage = Math.min(hintStage+1, wrongHints.length-1);
+        if(onDone) onDone(false, hintStage);
+      }
+    };
+    optWrap.appendChild(opt);
+  });
+  const fb = el('div','feedback');
+  container.appendChild(optWrap);
+  container.appendChild(fb);
+  return {optWrap, fb};
+}
+function whyBlock(container, {question, options, correctIndex, msg, concept}){
+  const box = el('div','why-block');
+  box.appendChild(el('div','why-eyebrow','🤔 چرا؟'));
+  const qEl = el('div','', question); qEl.style.cssText='font-size:14.5px;font-weight:700;margin-bottom:10px;';
+  box.appendChild(qEl);
+  container.appendChild(box);
+  buildMCQ(box, { options, correctIndex, correctMsg: msg, wrongHints:['دوباره به دلیل زیرینش فکر کن، نه فقط جواب.'], concept });
+}
+
+/* Adaptive path states, shared visual vocabulary with lesson 1 */
+const ADAPTIVE_STATES = [
+  {k:'A', label:'پاسخ درست'},
+  {k:'B', label:'اشتباه اول'},
+  {k:'C', label:'اشتباه دوم'},
+  {k:'D', label:'مسیر ساده‌تر'},
+  {k:'E', label:'بازگشت موفق'}
+];
+function renderStateStrip(container, activeKey, reached){
+  const strip = el('div','state-strip');
+  ADAPTIVE_STATES.forEach(s=>{
+    const cls = 'state-dot'+(s.k===activeKey?' active':(reached.has(s.k)?' reached':''));
+    strip.appendChild(el('div', cls, s.label));
+  });
+  container.appendChild(strip);
+}
+
+/* ================= PAGE 00 : Learning Goal ================= */
+function p00(){
+  setPhase('goal');
+  pageLabel.textContent = 'هدف یادگیری';
+  stage.appendChild(el('div','eyebrow','🧑‍🏫 معلم مایندلند'));
+  stage.appendChild(el('h1','q','مقایسه اعداد اعشاری'));
+  const c = el('div','center');
+  c.appendChild(teacherNote('هدف امروز','می‌خوایم یاد بگیریم چطور دو عدد اعشاری رو با هم مقایسه کنیم — و مهم‌تر، بفهمیم چرا یکی از اون‌ها بزرگ‌تره، نه فقط اینکه کدومه.'));
+  const svg = el('div','','');
+  svg.innerHTML = `<svg width="260" height="70" viewBox="0 0 260 70">
+    <line x1="20" y1="35" x2="240" y2="35" stroke="#3A4482" stroke-width="3"/>
+    <circle cx="90" cy="35" r="7" fill="#6C4CF1"/>
+    <circle cx="150" cy="35" r="7" fill="#4FD1AE"/>
+    <circle cx="210" cy="35" r="7" fill="#FFC83D"/>
+    <text x="90" y="58" fill="#98A0C4" font-size="12" text-anchor="middle" font-family="JetBrains Mono">3.6</text>
+    <text x="150" y="58" fill="#98A0C4" font-size="12" text-anchor="middle" font-family="JetBrains Mono">3.68</text>
+    <text x="210" y="58" fill="#98A0C4" font-size="12" text-anchor="middle" font-family="JetBrains Mono">3.7</text>
+  </svg>`;
+  c.appendChild(svg);
+  stage.appendChild(c);
+  stage.appendChild(navButtons(true, 'شروع مأموریت'));
+  navaSay('ببینیم کدوم عدد واقعاً بزرگ‌تره!','happy');
+}
+
+/* ================= PAGE 01 : Predict ================= */
+function p01(){
+  setPhase('predict');
+  pageLabel.textContent = 'حدس اول';
+  stage.appendChild(purposeTag('حدس‌زدن قبل از دیدن راه‌حل، تفکر خودت رو فعال می‌کنه.'));
+  stage.appendChild(el('h1','q','کدام عدد بزرگ‌تر است؟'));
+  const c = el('div','center');
+  const row = el('div','cards-row');
+  const cardA = el('div','num-card','3.7');
+  const vs = el('div','vs-mark','؟');
+  const cardB = el('div','num-card','3.68');
+  row.appendChild(cardA); row.appendChild(vs); row.appendChild(cardB);
+  c.appendChild(row);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false, 'بررسی کنیم');
+  stage.appendChild(nav);
+
+  attemptConcept('wholePart');
+  function pick(chosenIsA){
+    cardA.classList.add('disabled'); cardB.classList.add('disabled');
+    if(chosenIsA){
+      cardA.classList.add('correct');
+      fb.className='feedback show ok'; fb.textContent='درست انتخاب کردی! اما می‌دونی چرا؟';
+      navaSay('آفرین!','happy');
+    } else {
+      logWrong('wholePart');
+      cardB.classList.add('wrong'); cardA.classList.add('correct');
+      fb.className='feedback show info'; fb.textContent='مطمئنی؟ بیا عددها رو دقیق‌تر ببینیم.';
+      navaSay('هوم... بیا چک کنیم','confused');
+    }
+    nav.querySelector('#nextBtn').disabled = false;
+  }
+  cardA.onclick = ()=> pick(true);
+  cardB.onclick = ()=> pick(false);
+}
+
+/* ================= PAGE 02 : Discover — Teacher asks before revealing zero-padding ================= */
+function p02(){
+  setPhase('discover');
+  pageLabel.textContent = 'باز کردن عددها';
+  stage.appendChild(purposeTag('کشف اینکه صفر انتهایی، مقدار عدد اعشاری رو تغییر نمی‌ده.'));
+  const c = el('div','center');
+  c.appendChild(teacherNote('معلم می‌پرسه','قبل از اینکه ادامه بدیم، خودت حدس بزن: به نظرت ۳٫۷ با ۳٫۷۰ فرق داره؟'));
+  stage.appendChild(el('h1','q','۳٫۷ با ۳٫۷۰ چه فرقی دارن؟'));
+  stage.appendChild(c);
+
+  buildMCQ(c, {
+    options:['با هم فرق دارن، ۳٫۷۰ بزرگ‌تره','هیچ فرقی ندارن، مقدارشون یکیه'],
+    correctIndex:1,
+    correctMsg:'دقیقاً درست حدس زدی!',
+    wrongHints:['۷ دهم و ۷۰ صدم رو با هم مقایسه کن — هر دو چقدر از یک واحد پر می‌کنن؟'],
+    concept:'zeroPad',
+    onDone:(ok)=>{
+      if(!ok) return;
+      setTimeout(()=>{
+        const reaction = teacherNote('معلم واکنش نشون می‌ده','درسته! می‌تونیم برای مقایسه‌ی راحت‌تر، صفر انتهای عدد اعشاری کوتاه‌تر رو اضافه کنیم، بدون اینکه مقدارش عوض بشه.', true);
+        c.appendChild(reaction);
+        buildPvReveal(c);
+        stage.querySelector('#nextBtn').disabled=false;
+      }, 250);
+    }
+  });
+  stage.appendChild(navButtons(false));
+}
+function buildPvReveal(c){
+  const rows = el('div','rows-wrap'); rows.style.marginTop='16px';
+  function pvBlock(numLabel, digits, cols){
+    const wrap = el('div','pv-block');
+    wrap.appendChild(el('div','pv-number', numLabel));
+    const colsWrap = el('div','pv-cols');
+    digits.forEach((d,i)=>{
+      const col = el('div','pv-col', `<div class="digit ${d.ghost?'ghost':''}">${d.v}</div><div class="label">${cols[i]}</div>`);
+      colsWrap.appendChild(col);
+    });
+    wrap.appendChild(colsWrap);
+    return wrap;
+  }
+  const b1 = pvBlock('3.70', [{v:'3'},{v:'7'},{v:'0'}], ['یکان','دهم','صدم']);
+  const b2 = pvBlock('3.68', [{v:'3'},{v:'6'},{v:'8'}], ['یکان','دهم','صدم']);
+  rows.appendChild(b1); rows.appendChild(b2);
+  c.appendChild(rows);
+  const q = el('h1','q','حالا کدوم بزرگ‌تره؟'); q.style.marginTop='20px';
+  c.appendChild(q);
+  const row = el('div','cards-row');
+  const cardA = el('div','num-card','3.70');
+  const cardB = el('div','num-card','3.68');
+  row.appendChild(cardA); row.appendChild(cardB);
+  c.appendChild(row);
+  attemptConcept('zeroPad');
+  function pick(correct, target){
+    cardA.classList.add('disabled'); cardB.classList.add('disabled');
+    if(correct){ target.classList.add('correct'); navaSay('دقیقاً!','happy'); }
+    else { logWrong('zeroPad'); target.classList.add('wrong'); cardA.classList.add('correct'); navaSay('نزدیک بود، ۳٫۷۰ بزرگ‌تره','confused'); }
+  }
+  cardA.onclick=()=>pick(true,cardA);
+  cardB.onclick=()=>pick(false,cardB);
+}
+
+/* ================= PAGE 03 : Interact — step-by-step compare table ================= */
+function p03(){
+  setPhase('interact');
+  pageLabel.textContent = 'مقایسه گام‌به‌گام';
+  stage.appendChild(purposeTag('کلیک روی هر ستون = تشخیص اینکه مقایسه باید از کدوم جایگاه شروع بشه.'));
+  stage.appendChild(el('h1','q','از کدوم رقم شروع کنیم؟'));
+  const c = el('div','center');
+  const rows = el('div','rows-wrap');
+  const cols = ['یکان','دهم','صدم'];
+  const dataA = ['3','7','0'], dataB = ['3','6','8'];
+
+  function buildRow(numLabel, digits){
+    const wrap = el('div','pv-block');
+    wrap.appendChild(el('div','pv-number', numLabel));
+    const colsWrap = el('div','pv-cols');
+    digits.forEach((d,i)=>{
+      const col = el('div','pv-col', `<div class="digit">${d}</div><div class="label">${cols[i]}</div>`);
+      col.dataset.idx = i;
+      colsWrap.appendChild(col);
+    });
+    wrap.appendChild(colsWrap);
+    return {wrap, colsWrap};
+  }
+  const rowA = buildRow('3.70', dataA);
+  const rowB = buildRow('3.68', dataB);
+  rows.appendChild(rowA.wrap); rows.appendChild(rowB.wrap);
+  c.appendChild(rows);
+
+  const tooltip = el('div','pv-tooltip','');
+  c.appendChild(tooltip);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+
+  const colNames = {0:'یکان', 1:'دهم', 2:'صدم'};
+  const nav = navButtons(false);
+
+  attemptConcept('digitByDigit');
+  function highlightCol(idx){
+    [rowA, rowB].forEach(r=>{
+      Array.from(r.colsWrap.children).forEach((col,i)=>{
+        col.classList.toggle('active', i===idx);
+      });
+    });
+  }
+  function attachClicks(){
+    [rowA, rowB].forEach((r,ri)=>{
+      Array.from(r.colsWrap.children).forEach((col,i)=>{
+        col.onclick = ()=>{
+          const val = (ri===0?dataA:dataB)[i];
+          tooltip.textContent = val + ' ' + colNames[i];
+          handleColumnChoice(i);
+        };
+      });
+    });
+  }
+  function handleColumnChoice(idx){
+    highlightCol(idx);
+    if(idx===0){
+      fb.className='feedback show info';
+      fb.textContent = 'خوبه! اول یکان رو بررسی می‌کنیم. اینجا هر دو ۳ هستن. پس هنوز برنده نداریم! بریم سراغ دهم.';
+      navaSay('یکان که برابره...','confused');
+    } else if(idx===1){
+      fb.className='feedback show ok';
+      fb.textContent = 'در دهم: ۷ > ۶ → پس ۳٫۷۰ بزرگ‌تره! چون وقتی یکان‌ها برابرن، اولین رقم متفاوت تعیین‌کننده‌ست.';
+      navaSay('پیدا شد!','happy');
+      nav.querySelector('#nextBtn').disabled=false;
+    } else {
+      logWrong('digitByDigit');
+      fb.className='feedback show info';
+      fb.textContent = 'صدم رو هم می‌شه دید، ولی قبلش باید دهم رو چک کنیم چون همون تعیین‌کننده‌ست.';
+    }
+  }
+  attachClicks();
+  stage.appendChild(c);
+  stage.appendChild(nav);
+}
+
+/* ================= PAGE 04 : Interact — number line ================= */
+function p04(){
+  setPhase('interact');
+  pageLabel.textContent = 'خط عدد';
+  stage.appendChild(purposeTag('درک اینکه «بزرگ‌تر بودن» یعنی جلوتر بودن روی خط عدد — نه فقط یه قانون حفظی.'));
+  stage.appendChild(el('h1','q','هر عددی که روی خط جلوتر باشه، بزرگ‌تره'));
+  const c = el('div','center');
+  const wrap = el('div','numberline-wrap');
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS,'svg');
+  svg.setAttribute('viewBox','0 0 700 120'); svg.setAttribute('width','100%');
+  svg.innerHTML = `
+    <line x1="40" y1="60" x2="660" y2="60" stroke="#3A4482" stroke-width="3"/>
+    <text x="40" y="90" fill="#98A0C4" font-size="13" text-anchor="middle" font-family="JetBrains Mono">3.60</text>
+    <text x="660" y="90" fill="#98A0C4" font-size="13" text-anchor="middle" font-family="JetBrains Mono">3.70</text>
+  `;
+  function xFor(v){ return 40 + (v-3.60)/(3.70-3.60) * (660-40); }
+  const points = [ {v:3.68, color:'#6C4CF1', label:'3.68'}, {v:3.70, color:'#FFC83D', label:'3.70'} ];
+  points.forEach(p=>{
+    const g = document.createElementNS(svgNS,'g');
+    g.setAttribute('class','nl-point');
+    const cx = xFor(p.v);
+    g.innerHTML = `<circle cx="${cx}" cy="60" r="7" fill="${p.color}"/>`;
+    svg.appendChild(g);
+    g.onclick = ()=>{
+      tooltipEl.innerHTML = `<span style="color:${p.color}">${p.label}</span> اینجاست`;
+      navaSay(p.v===3.7 ? 'این یکی جلوتره!' : 'این عقب‌تره', p.v===3.7?'happy':'confused');
+    };
+  });
+  wrap.appendChild(svg);
+  c.appendChild(wrap);
+  const tooltipEl = el('div','feedback show info','روی نقطه‌ها کلیک کن تا موقعیتشون رو ببینی.');
+  c.appendChild(tooltipEl);
+  stage.appendChild(c);
+  stage.appendChild(navButtons(true));
+}
+
+/* ================= PAGE 05 : Practice/Diagnose/Remediate — digit winner rounds ================= */
+function p05(){
+  setPhase('practice');
+  pageLabel.textContent = 'بازی رقم برنده';
+  const rounds = [
+    { a:'2.45', b:'2.71', q:'کدوم رقم اول به ما کمک می‌کنه؟', opts:['یکان','دهم','صدم'], correct:'دهم',
+      msg:'دقیقاً! چون یکان‌ها برابرن (۲ و ۲)، باید دهم رو ببینیم.' },
+    { a:'5.32', b:'5.38', q:'اینجا دهم‌ها هم برابرن (۳ و ۳). حالا کدوم رقم؟', opts:['یکان','دهم','صدم'], correct:'صدم',
+      msg:'درسته! وقتی دهم‌ها هم برابر باشن، می‌ریم سراغ صدم.' },
+    { a:'6.5', b:'6.50', q:'کدوم عدد بزرگ‌تره؟', opts:['۶٫۵','۶٫۵۰','با هم برابرن'], correct:'با هم برابرن',
+      msg:'این دو تا مقدارشون یکیه! ۶٫۵ = ۶٫۵۰' },
+  ];
+  const easyRound = { a:'2.1', b:'2.9', q:'یه دور ساده‌تر: کدوم عدد بزرگ‌تره؟', opts:['۲٫۱','۲٫۹'], correct:'۲٫۹',
+      msg:'درسته — وقتی یکی از رقم‌های دهم خیلی بزرگ‌تره، سریع می‌شه تشخیص داد.' };
+  let r = 0;
+  let wrongInRow = 0;
+  let insertedEasy = false;
+  const reached = new Set();
+  const nav = navButtons(false);
+  const stripHolder = el('div','');
+
+  function drawStrip(k){ stripHolder.innerHTML=''; renderStateStrip(stripHolder, k, reached); }
+
+  function renderRound(info, isEasy){
+    const old = stage.querySelector('#roundArea');
+    if(old) old.remove();
+    const area = el('div','','');
+    area.id='roundArea';
+    const label = isEasy ? 'مسیر ساده‌تر (Guided Practice)' : `دور ${toFa(r+1)} از ${toFa(rounds.length)}`;
+    area.innerHTML = `<div style="text-align:center; font-size:12.5px; color:var(--muted); margin-bottom:10px;">${label}</div>`;
+    const c = el('div','center');
+    const row = el('div','cards-row');
+    row.appendChild(el('div','num-card', info.a));
+    row.appendChild(el('div','vs-mark','یا'));
+    row.appendChild(el('div','num-card', info.b));
+    c.appendChild(row);
+    c.appendChild(el('h1','q', info.q));
+    attemptConcept('digitByDigit');
+    const optWrap = el('div','options-grid');
+    info.opts.forEach(o=>{
+      const opt = el('div','opt', o);
+      opt.onclick = ()=>{
+        Array.from(optWrap.children).forEach(x=>x.classList.add('disabled'));
+        if(o===info.correct){
+          opt.classList.add('correct');
+          navaSay('آفرین!','happy');
+          wrongInRow = 0;
+          reached.add(isEasy?'E':'A');
+          drawStrip(isEasy?'E':'A');
+        } else {
+          logWrong('digitByDigit');
+          opt.classList.add('wrong');
+          Array.from(optWrap.children).find(x=>x.textContent===info.correct).classList.add('correct');
+          navaSay('یه لحظه فکر کن...','confused');
+          if(!isEasy){
+            wrongInRow++;
+            reached.add(wrongInRow===1?'B':'C');
+            drawStrip(wrongInRow===1?'B':'C');
+          }
+        }
+        const fb = el('div','feedback show ok', info.msg);
+        c.appendChild(fb);
+        const needEasy = !isEasy && wrongInRow>=2 && !insertedEasy;
+        if(needEasy){
+          insertedEasy = true;
+          reached.add('D');
+          state.concepts.digitByDigit.remedialTriggered = true;
+          const remedyBtn = el('button','btn btn-primary','یه مثال ساده‌تر ببینیم →');
+          remedyBtn.style.marginTop='16px';
+          remedyBtn.onclick = ()=>{ setPhase('remediate'); drawStrip('D'); renderRound(easyRound, true); };
+          c.appendChild(remedyBtn);
+        } else if(isEasy){
+          if(o===info.correct) state.concepts.digitByDigit.remedialRecovered = true;
+          const backBtn = el('button','btn btn-primary','برگردیم به دور اصلی →');
+          backBtn.style.marginTop='16px';
+          backBtn.onclick = ()=>{ setPhase('practice'); renderRound(rounds[r], false); };
+          c.appendChild(backBtn);
+        } else if(r < rounds.length-1){
+          const nextRoundBtn = el('button','btn btn-primary','دور بعدی →');
+          nextRoundBtn.style.marginTop='16px';
+          nextRoundBtn.onclick = ()=>{ r++; renderRound(rounds[r], false); };
+          c.appendChild(nextRoundBtn);
+        } else {
+          nav.querySelector('#nextBtn').disabled = true;
+          setTimeout(()=> nav.querySelector('#nextBtn').disabled = false, 10);
+          nav.querySelector('#nextBtn').disabled = false;
+        }
+      };
+      optWrap.appendChild(opt);
+    });
+    c.appendChild(optWrap);
+    area.appendChild(c);
+    stage.insertBefore(area, nav);
+  }
+  stage.appendChild(purposeTag('تشخیص سریع اینکه کدوم رقم واقعاً «تعیین‌کننده» است — این مسیر با خطاهای متوالی، ساده‌تر می‌شه.'));
+  stage.appendChild(el('h1','q','سه دور سریع — آماده‌ای؟'));
+  stage.appendChild(stripHolder);
+  drawStrip('A');
+  stage.appendChild(nav);
+  renderRound(rounds[0], false);
+}
+
+/* ================= PAGE 06 : Apply — shop challenge ================= */
+function p06(){
+  setPhase('apply');
+  pageLabel.textContent = 'فروشگاه مایندلند';
+  stage.appendChild(el('div','eyebrow','فروشگاه MindLand 🛒'));
+  stage.appendChild(purposeTag('استفاده از مقایسه‌ی اعشار در یه موقعیت واقعی خرید.'));
+  stage.appendChild(el('h1','q','کدوم مداد گرون‌تره؟'));
+  const c = el('div','center');
+  const row = el('div','shop-row');
+  const a = el('div','shop-card', `<div class="pencil">✏️</div><div>مداد A</div><div class="price">12.50</div>`);
+  const b = el('div','shop-card', `<div class="pencil">✏️</div><div>مداد B</div><div class="price">12.05</div>`);
+  row.appendChild(a); row.appendChild(b);
+  c.appendChild(row);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  attemptConcept('application');
+  function afterPick(){
+    fb.className='feedback show ok'; fb.textContent='درسته، مداد A گرون‌تره. حالا بگو چقدر گرون‌تره؟';
+    navaSay('حالا حساب کنیم!','happy');
+    const diffWrap = el('div','','');
+    diffWrap.style.marginTop='16px';
+    diffWrap.innerHTML = `<div style="text-align:center; font-size:13.5px; color:var(--muted); margin-bottom:8px;">چقدر گرون‌تره؟ (تومان اختلاف رو بنویس)</div>`;
+    const row2 = el('div','diff-input-row');
+    const input = document.createElement('input');
+    input.className='diff-input mono'; input.placeholder='0.45';
+    const checkBtn = el('button','btn btn-primary','چک کن');
+    row2.appendChild(input); row2.appendChild(checkBtn);
+    diffWrap.appendChild(row2);
+    c.appendChild(diffWrap);
+
+    checkBtn.onclick = ()=>{
+      const val = parseFloat(faToEn(input.value.replace(',', '.')));
+      const target = 0.45;
+      if(Math.abs(val-target) < 0.01){
+        fb.className='feedback show ok'; fb.textContent='دقیقاً! ۱۲٫۵۰ منهای ۱۲٫۰۵ می‌شه ۰٫۴۵ تومان.';
+        navaSay('حساب درست بود!','happy');
+        const why = el('div',''); why.style.marginTop='12px'; c.appendChild(why);
+        whyBlock(why, {
+          question:'چرا فرق دو مداد فقط ۰٫۴۵ تومانه، نه بیشتر؟',
+          options:['چون فقط تو جایگاه دهم و صدم فرق دارن','چون یکی از مدادها ارزون‌تر ساخته شده','چون قیمت‌ها گرد شدن'],
+          correctIndex:0,
+          msg:'دقیقاً — یکان‌ها برابرن (۱۲ و ۱۲)، فقط دهم و صدم فرق دارن، برای همین اختلاف کوچیکه.',
+          concept:'application'
+        });
+        nav.querySelector('#nextBtn').disabled=false;
+      } else {
+        logWrong('application');
+        fb.className='feedback show err'; fb.textContent='نزدیک بود؛ یه بار دیگه یکان و دهم و صدم رو تک‌تک کم کن.';
+        navaSay('یه بار دیگه امتحان کن','confused');
+      }
+    };
+  }
+  a.onclick = ()=>{ a.classList.add('correct'); b.classList.add('wrong'); a.classList.add('disabled'); b.classList.add('disabled'); afterPick(); };
+  b.onclick = ()=>{ logWrong('application'); b.classList.add('wrong'); a.classList.add('correct'); a.classList.add('disabled'); b.classList.add('disabled'); fb.className='feedback show info'; fb.textContent='مطمئنی؟ ۱۲٫۵۰ از ۱۲٫۰۵ بزرگ‌تره.'; navaSay('یه بار دیگه ببین','confused'); afterPick(); };
+}
+
+/* ================= PAGE 07 : Diagnose — smart misconception check ================= */
+function p07(){
+  setPhase('diagnose');
+  pageLabel.textContent = 'اشتباه هوشمندانه';
+  stage.appendChild(purposeTag('تشخیص یه اشتباه رایج: فکر کردن به تعداد رقم‌ها به‌جای ارزش مکانی.'));
+  stage.appendChild(el('h1','q','کدام عدد بزرگ‌تر است؟'));
+  const c = el('div','center');
+  const row = el('div','cards-row');
+  const cardA = el('div','num-card','4.8');
+  const cardB = el('div','num-card','4.08');
+  row.appendChild(cardA); row.appendChild(cardB);
+  c.appendChild(row);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  attemptConcept('digitByDigit');
+  function reveal(){
+    const expand = el('div','rows-wrap');
+    expand.style.marginTop='18px';
+    function pvBlock(numLabel, digits){
+      const wrap = el('div','pv-block');
+      wrap.appendChild(el('div','pv-number', numLabel));
+      const colsWrap = el('div','pv-cols');
+      digits.forEach((d,i)=>{ colsWrap.appendChild(el('div','pv-col', `<div class="digit">${d}</div><div class="label">${['یکان','دهم','صدم'][i]}</div>`)); });
+      wrap.appendChild(colsWrap);
+      return wrap;
+    }
+    expand.appendChild(pvBlock('4.80', ['4','8','0']));
+    expand.appendChild(pvBlock('4.08', ['4','0','8']));
+    c.appendChild(expand);
+    const finalMsg = el('div','feedback show ok','۴٫۸۰ > ۴٫۰۸ — چون در جایگاه دهم، ۸ بزرگ‌تر از ۰ ست. تعداد رقم‌های بعد از ممیز مهم نیست، ارزش مکانیه که مهمه.');
+    c.appendChild(finalMsg);
+    nav.querySelector('#nextBtn').disabled = false;
+  }
+  cardA.onclick = ()=>{
+    cardA.classList.add('correct'); cardB.classList.add('disabled'); cardA.classList.add('disabled');
+    fb.className='feedback show ok'; fb.textContent='درسته! بیا ببینیم چرا.';
+    navaSay('آفرین!','happy');
+    reveal();
+  };
+  cardB.onclick = ()=>{
+    logWrong('digitByDigit');
+    cardB.classList.add('wrong'); cardA.classList.add('disabled'); cardB.classList.add('disabled');
+    fb.className='feedback show info'; fb.textContent='صبر کن! صفر بین ۴ و ۸ چه چیزی بهمون می‌گه؟';
+    navaSay('یه لحظه صبر کن...','confused');
+    reveal();
+    cardA.classList.add('correct');
+  };
+}
+
+/* ================= PAGE 08 : Explain — Teacher-Student-Teacher rule discovery ================= */
+function p08(){
+  setPhase('explain');
+  pageLabel.textContent = 'قانون رو خودت پیدا کن';
+  stage.appendChild(purposeTag('کشف قانون مقایسه به‌جای شنیدنش مستقیم از معلم.'));
+  const c = el('div','center');
+  c.appendChild(teacherNote('معلم می‌پرسه','وقتی بخش صحیح دو عدد با هم برابر باشه، از کدوم جایگاه باید ادامه بدیم؟'));
+  stage.appendChild(el('h1','q','وقتی بخش صحیح دو عدد برابر باشد، از کجا شروع می‌کنیم؟'));
+  stage.appendChild(c);
+  const optWrap = el('div','options-grid');
+  const opts = ['یکان','دهم','صدم','آخرین رقم'];
+  const nav = navButtons(false);
+  const ruleBox = el('div','rule-box','اول بخش صحیح را مقایسه می‌کنیم.<br>اگر برابر بود، از دهم شروع می‌کنیم.<br>اگر دهم‌ها هم برابر بودند، سراغ صدم می‌رویم.');
+  attemptConcept('digitByDigit');
+  opts.forEach(o=>{
+    const opt = el('div','opt', o);
+    opt.onclick = ()=>{
+      Array.from(optWrap.children).forEach(x=>x.classList.add('disabled'));
+      if(o==='دهم'){ opt.classList.add('correct'); navaSay('دقیقاً!','happy'); }
+      else {
+        logWrong('digitByDigit');
+        opt.classList.add('wrong'); Array.from(optWrap.children).find(x=>x.textContent==='دهم').classList.add('correct'); navaSay('نزدیک بود','confused');
+      }
+      const reaction = teacherNote('معلم واکنش نشون می‌ده', 'درسته — بعد از یکان، اولین رقمی که ممکنه فرق داشته باشه دهمه.', true);
+      c.appendChild(reaction);
+      ruleBox.classList.add('show');
+      nav.querySelector('#nextBtn').disabled=false;
+    };
+    optWrap.appendChild(opt);
+  });
+  c.appendChild(optWrap);
+  const eyebrow = el('div','eyebrow','قانون مایندلند'); eyebrow.style.marginTop='18px';
+  c.appendChild(eyebrow);
+  c.appendChild(ruleBox);
+  stage.appendChild(nav);
+}
+
+/* ================= PAGE 09 : Apply/Create — final mission (+ construct your own number) ================= */
+function p09(){
+  setPhase('apply');
+  pageLabel.textContent = 'مأموریت نهایی';
+  stage.appendChild(el('div','eyebrow','مأموریت نهایی 🎯'));
+  stage.appendChild(purposeTag('کاربرد قانون مقایسه در چند موقعیت مختلف، و در آخر ساختن یک عدد جدید.'));
+  const tasks = [
+    { text:'۱. بزرگ‌ترین عدد را انتخاب کن.', check:(v)=> v===3.5 },
+    { text:'۲. کوچک‌ترین عدد را انتخاب کن.', check:(v)=> v===3.05 },
+    { text:'۳. یکی از دو عدد مساوی را انتخاب کن.', check:(v)=> v===3.5 || v===3.50 },
+  ];
+  let t = 0;
+  const nums = [3.5, 3.05, 3.50];
+  const labels = ['3.5','3.05','3.50'];
+  const nav = navButtons(false);
+  const h1 = el('h1','q', tasks[0].text);
+  stage.appendChild(h1);
+  const c = el('div','center');
+  const row = el('div','cards-row');
+  const chips = labels.map((l,i)=>{
+    const chip = el('div','mission-chip', l);
+    chip.dataset.val = nums[i];
+    row.appendChild(chip);
+    return chip;
+  });
+  c.appendChild(row);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  stage.appendChild(nav);
+  attemptConcept('application');
+
+  function renderCreateTask(){
+    h1.textContent = '۴. حالا خودت یک عدد بساز که بین ۳٫۵ و ۳٫۶ باشد و از ۳٫۵۵ بزرگ‌تر باشد.';
+    row.remove(); fb.classList.remove('show');
+    const input = document.createElement('input');
+    input.className='num-input mono'; input.placeholder='مثلاً 3.58';
+    c.insertBefore(input, fb);
+    const checkBtn = el('button','btn btn-primary','چک کن');
+    c.insertBefore(checkBtn, fb);
+    checkBtn.onclick = ()=>{
+      const v = parseFloat(faToEn(input.value));
+      if(!isNaN(v) && v>3.55 && v<3.6){
+        fb.className='feedback show ok'; fb.textContent = toFa(v)+' هم بزرگ‌تر از ۳٫۵۵ هست و هم بین ۳٫۵ و ۳٫۶ — درست ساختیش!';
+        navaSay('خودت ساختی، عالیه!','happy');
+        nav.querySelector('#nextBtn').disabled=false;
+      } else {
+        logWrong('application');
+        fb.className='feedback show info'; fb.textContent='یادت باشه: باید هم از ۳٫۵۵ بزرگ‌تر باشه، هم از ۳٫۶ کوچیک‌تر.';
+      }
+    };
+  }
+
+  chips.forEach(chip=>{
+    chip.onclick = ()=>{
+      const v = parseFloat(chip.dataset.val);
+      const ok = tasks[t].check(v);
+      chip.classList.add(ok?'correct':'wrong');
+      if(ok){
+        navaSay('درسته!','happy');
+        setTimeout(()=>{
+          chips.forEach(c2=>c2.classList.remove('correct','wrong'));
+          t++;
+          if(t < tasks.length){
+            h1.textContent = tasks[t].text;
+            fb.classList.remove('show');
+          } else {
+            setPhase('create');
+            renderCreateTask();
+          }
+        }, 700);
+      } else {
+        logWrong('application');
+        navaSay('یه بار دیگه فکر کن','confused');
+        setTimeout(()=> chip.classList.remove('wrong'), 600);
+      }
+    };
+  });
+}
+
+/* ================= PAGE 10 : Explain Back ================= */
+function p10(){
+  setPhase('explainback');
+  pageLabel.textContent = 'توضیح بده';
+  stage.appendChild(purposeTag('توضیح‌دادن روش مقایسه به زبان خودت — شاهد واقعی درک مفهوم.'));
+  stage.appendChild(el('h1','q','اگه بخوای برای یه دوست توضیح بدی چطور دو عدد اعشاری رو مقایسه کنی، کدوم جمله رو انتخاب می‌کنی؟'));
+  const c = el('div','center');
+  stage.appendChild(c);
+  buildMCQ(c, {
+    options:[
+      'اول یکان رو مقایسه می‌کنم؛ اگه برابر بود می‌رم سراغ دهم، بعد صدم.',
+      'هر عددی رقم بیشتری داشته باشه بزرگ‌تره.',
+      'همیشه عددی که اول نوشته شده بزرگ‌تره.'
+    ],
+    correctIndex:0,
+    correctMsg:'دقیقاً همینه! این دقیقاً همون قانونیه که خودت کشفش کردی.',
+    wrongHints:['به یاد بیار: تعداد رقم‌ها مهم نیست، ارزش مکانی مهمه.'],
+    concept:'digitByDigit',
+    onDone:(ok)=>{
+      if(ok){
+        state.explainBackDone = true;
+        const box = el('div','','');
+        box.style.marginTop='18px'; box.style.width='100%';
+        box.appendChild(el('p','sub','دوست داری با جمله‌های خودت هم بنویسی؟ (اختیاری — به عنوان شاهد یادگیری ثبت می‌شه)'));
+        const ta = document.createElement('textarea');
+        ta.className='textarea-box'; ta.placeholder='هر چیزی که دوست داری بنویس...';
+        box.appendChild(ta);
+        c.appendChild(box);
+        stage.querySelector('#nextBtn').disabled=false;
+      }
+    }
+  });
+  stage.appendChild(navButtons(false));
+}
+
+/* ================= PAGE 11 : Assess ================= */
+function p11(){
+  setPhase('assess');
+  pageLabel.textContent = 'ارزیابی پایانی';
+  stage.appendChild(purposeTag('سنجش نهایی بدون راهنمایی.'));
+  stage.appendChild(el('h1','q','فقط سه سؤال'));
+  const holder = el('div','center'); holder.id='finalHolder';
+  stage.appendChild(holder);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  const qs = [
+    { q:'کدام عدد بزرگ‌تر است؟', opts:['۲٫۹','۲٫۸۹'], correct:0, concept:'digitByDigit' },
+    { q:'آیا ۵٫۲ و ۵٫۲۰ با هم برابرند؟', opts:['بله','خیر'], correct:0, concept:'zeroPad' },
+    { q:'برای مقایسه‌ی ۱۲٫۴۵ و ۹٫۹۹ اول باید کدام قسمت را دید؟', opts:['یکان (بخش صحیح)','صدم','تعداد رقم‌ها'], correct:0, concept:'wholePart' },
+  ];
+  let qi=0;
+  function renderQ(){
+    holder.innerHTML='';
+    if(qi>=qs.length){
+      holder.appendChild(el('div','feedback show ok','ارزیابی تموم شد!'));
+      nav.querySelector('#nextBtn').disabled=false;
+      return;
+    }
+    const info = qs[qi];
+    holder.appendChild(el('p','sub','سؤال '+toFa(qi+1)+' از ۳'));
+    holder.appendChild(el('h1','q', info.q));
+    let answeredOk = null;
+    buildMCQ(holder, {
+      options: info.opts, correctIndex: info.correct,
+      correctMsg:'درست بود.',
+      wrongHints:['یه بار دیگه فکر کن — بخش صحیح یا دهم و صدم؟'],
+      concept: info.concept,
+      onDone:(ok)=>{
+        if(answeredOk===null){ answeredOk = ok; state.finalAnswers.push({ok, concept:info.concept}); }
+        if(ok){ setTimeout(()=>{ qi++; renderQ(); }, 800); }
+      }
+    });
+  }
+  renderQ();
+}
+
+/* ================= PAGE 12 : Report ================= */
+function skillLevel(key){
+  const c = state.concepts[key];
+  if(!c || c.attempts===0) return 'strong';
+  const wrongRatio = c.wrong / Math.max(1,c.attempts);
+  if(c.remedialTriggered && !c.remedialRecovered) return 'practice';
+  if(wrongRatio > 0.5) return 'practice';
+  return 'strong';
+}
+function weakestConceptKey(){
+  const order = ['digitByDigit','zeroPad','wholePart','application'];
+  for(const k of order){ if(skillLevel(k)==='practice') return k; }
+  return null;
+}
+function p12(){
+  setPhase('report');
+  pageLabel.textContent = 'جمع‌بندی';
+  const c = el('div','center');
+  stage.appendChild(el('h1','q','📊 خلاصه یادگیری امروز'));
+  const grid = el('div','status-grid');
+  Object.entries(state.concepts).forEach(([key,cData])=>{
+    const lvl = skillLevel(key);
+    const row = el('div','status-row');
+    row.appendChild(el('span','', cData.label));
+    row.appendChild(el('span','level '+(lvl==='strong'?'strong':'practice'), lvl==='strong'?'قوی':'نیاز به تمرین'));
+    grid.appendChild(row);
+  });
+  c.appendChild(grid);
+
+  const weak = weakestConceptKey();
+  const nextStepText = weak
+    ? `قبل از رفتن به مبحث بعدی، یک تمرین کوتاه درباره‌ی «${state.concepts[weak].label}» پیشنهاد می‌شود.`
+    : 'آماده‌ای برای مبحث بعدی — مقایسه با تعداد رقم‌های اعشاری متفاوت!';
+  const nsBox = el('div','next-step-box', `<b>قدم بعدی</b>${nextStepText}`);
+  c.appendChild(nsBox);
+
+  const list = el('div','checklist');
+  ['کشف','تمرین','چالش','مأموریت نهایی','توضیح با زبان خودم'].forEach(t=>{
+    list.appendChild(el('div','check-item', `<div class="tick">✓</div>${t}`));
+  });
+  c.appendChild(list);
+
+  const btnRow = el('div','cards-row'); btnRow.style.marginTop='6px';
+  const parentBtn = el('button','btn btn-soft','📋 گزارش برای والدین');
+  parentBtn.onclick = openParentReport;
+  btnRow.appendChild(parentBtn);
+  c.appendChild(btnRow);
+
+  const bonusToggle = el('div','bonus-toggle','👀 پیش‌نمایش مبحث بعدی رو ببینم؟');
+  c.appendChild(bonusToggle);
+  const bonusBox = el('div',''); bonusBox.style.cssText='display:none;margin-top:10px;width:100%;';
+  bonusToggle.onclick = ()=>{
+    bonusBox.style.display = bonusBox.style.display==='none' ? 'block' : 'none';
+  };
+  const row = el('div','cards-row');
+  row.appendChild(el('div','num-card','0.85'));
+  row.appendChild(el('div','vs-mark','یا'));
+  row.appendChild(el('div','num-card','0.850'));
+  bonusBox.appendChild(row);
+  bonusBox.appendChild(el('div','feedback show info','این دوتا واقعاً با هم برابرن؟ 🤔 — این سؤال رو تو مبحث بعدی بررسی می‌کنیم.'));
+  c.appendChild(bonusBox);
+
+  navaSay(weak ? 'یه قدم دیگه مونده!' : 'آفرین، تموم شد!', weak?'confused':'happy');
+  stage.appendChild(c);
+
+  const nav = el('div','actions');
+  const restart = el('button','btn btn-ghost','دوباره از اول 🔁');
+  restart.onclick = ()=>{ resetState(); goTo(0); };
+  nav.appendChild(restart);
+  stage.appendChild(nav);
+}
+
+/* ---------------- Parent report modal ---------------- */
+const overlay = document.getElementById('modalOverlay');
+const modalBox = document.getElementById('modalBox');
+function closeModal(){ overlay.classList.remove('show'); }
+overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeModal(); });
+
+function openParentReport(){
+  const weak = weakestConceptKey();
+  const strengths = Object.entries(state.concepts).filter(([k])=>skillLevel(k)==='strong').map(([,c])=>c.label);
+  const difficulties = Object.entries(state.concepts).filter(([k])=>skillLevel(k)==='practice').map(([,c])=>c.label);
+  const usedHints = state.hintsUsedTotal>0;
+  const dd = state.concepts.digitByDigit;
+  modalBox.innerHTML = `
+    <div class="modal-header"><h2>📋 گزارش برای والدین</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="parent-line"><span>مفهوم درس</span><b>مقایسه‌ی اعداد اعشاری (ارزش مکانی، صفر انتهایی)</b></div>
+    <div class="parent-line"><span>نقاط قوت</span><b>${strengths.length? strengths.join('، ') : 'در حال شکل‌گیری'}</b></div>
+    <div class="parent-line"><span>نیاز به تمرین بیشتر</span><b>${difficulties.length? difficulties.join('، ') : 'موردی ثبت نشده'}</b></div>
+    <div class="parent-line"><span>استفاده از راهنمایی (Hint)</span><b>${usedHints ? 'بله، '+toFa(state.hintsUsedTotal)+' بار' : 'خیر'}</b></div>
+    <div class="parent-line"><span>بازیابی بعد از مسیر ساده‌تر</span><b>${dd.remedialTriggered ? (dd.remedialRecovered ? 'بله، بعد از تمرین ساده‌تر موفق شد' : 'هنوز تکمیل نشده') : 'نیازی به مسیر ساده‌تر نبود'}</b></div>
+    <div class="parent-line"><span>توضیح با زبان خودش</span><b>${state.explainBackDone ? 'انجام شد' : 'انجام نشد'}</b></div>
+    <div class="parent-line"><span>قدم بعدی پیشنهادی</span><b>${weak ? state.concepts[weak].label+' را کمی بیشتر تمرین کنیم' : 'آماده‌ی مبحث بعدی (مقایسه با تعداد رقم اعشار متفاوت)'}</b></div>
+  `;
+  overlay.classList.add('show');
+}
+
+/* ---------------- Developer / Designer notes modal ---------------- */
+function openDevNotes(){
+  modalBox.innerHTML = `
+    <div class="modal-header"><h2>🛠 یادداشت طراح و توسعه‌دهنده</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <h3>هدف یادگیری هر تعامل</h3>
+    <ul>
+      <li>حدس اول (کارت ۳٫۷ / ۳٫۶۸) → فعال‌سازی تفکر قبل از دیدن راه‌حل (Predict).</li>
+      <li>باز کردن عددها با صفر انتهایی → کشف اینکه صفر انتهایی مقدار رو تغییر نمی‌ده.</li>
+      <li>جدول مقایسه‌ی گام‌به‌گام → تشخیص اینکه مقایسه باید از کدوم جایگاه شروع بشه.</li>
+      <li>خط عدد → درک «بزرگ‌تر بودن» به‌عنوان «جلوتر بودن»، نه یه قانون حفظی.</li>
+      <li>بازی رقم برنده → تمرین سریع تشخیص رقم تعیین‌کننده، با مسیر ساده‌تر در صورت خطای متوالی.</li>
+      <li>فروشگاه → کاربرد مقایسه‌ی اعشار در یک موقعیت واقعی خرید.</li>
+      <li>اشتباه هوشمندانه (۴٫۸ / ۴٫۰۸) → تشخیص برداشت غلط رایج «تعداد رقم بیشتر = عدد بزرگ‌تر».</li>
+      <li>مأموریت نهایی + ساخت عدد → کاربرد قانون در چند موقعیت و تولید یک پاسخ جدید، نه فقط انتخاب.</li>
+      <li>توضیح‌دادن به زبان خود (Explain Back) → شاهد واقعی یادگیری.</li>
+    </ul>
+    <h3>Stateهای موجود (Mock)</h3>
+    <p>در بخش «بازی رقم برنده»، پنج وضعیت قابل مشاهده تعریف شده: A) پاسخ درست، B) اشتباه اول، C) اشتباه دوم، D) نمایش دور ساده‌تر (Guided Practice)، E) بازگشت موفق به دور اصلی. این وضعیت‌ها با یک نوار رنگی بالای صفحه نمایش داده می‌شن.</p>
+    <h3>مسیر تطبیقی (Adaptive Path)</h3>
+    <p>Hard Problem → Hint → Second Error → Simpler Example → Guided Practice → Similar Problem → Return to Original Difficulty. اگر دانش‌آموز در یک دور، دو بار پشت سر هم اشتباه کنه، یک دور ساده‌تر (مثلاً ۲٫۱ در برابر ۲٫۹) نشون داده می‌شه؛ بعد از پاسخ درست به اون، به همون دور اصلی برمی‌گرده. در نسخه‌ی واقعی این منطق باید با داده‌های واقعی عملکرد و یک موتور تطبیقی واقعی جایگزین بشه.</p>
+    <h3>نقش معلم</h3>
+    <p>معلم قبل از توضیح دادنِ مستقیمِ قانون مقایسه یا صفر انتهایی، از دانش‌آموز می‌خواد حدس بزنه، و بعد از پاسخ او، با یک توضیح متناسب واکنش نشون می‌ده (Teacher → Student → Teacher) — مثلاً در کشف قانون «از کجا شروع کنیم؟».</p>
+    <h3>نقش ناوا</h3>
+    <p>ناوا همراه یادگیریه، نه معلم اصلی. او در لحظات کلیدی سؤال می‌پرسه، وقتی خطای متوالی می‌بینه مسیر رو ساده‌تر می‌کنه، و در طول درس واکنش‌های احساسی (happy/confused) نشون می‌ده که به دانش‌آموز بازخورد بدون قضاوت می‌ده. ناوا در همه‌ی صفحات حضور پررنگ نداره و در بخش‌های آموزشی اصلی (مثل کشف قانون) جای خودش رو به معلم می‌ده.</p>
+  `;
+  overlay.classList.add('show');
+}
+document.getElementById('devNotesLink').onclick = openDevNotes;
+
+const PAGES = [p00,p01,p02,p03,p04,p05,p06,p07,p08,p09,p10,p11,p12];
+function render(){
+  stage.innerHTML = '';
+  PAGES[currentPage]();
+}
+goTo(0);
+</script>
+</body>
+</html>

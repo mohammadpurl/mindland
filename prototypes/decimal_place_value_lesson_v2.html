@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مایندلند — نمایش اعداد اعشاری (V2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1530; --ink-2:#151B3B; --panel:#1B2247; --panel-2:#232B58;
+    --line: rgba(245,243,234,0.10); --line-strong: rgba(245,243,234,0.20);
+    --teal:#4FD1AE; --teal-dim: rgba(79,209,174,0.14);
+    --coral:#FF7A6E; --coral-dim: rgba(255,122,110,0.14);
+    /* MindLand brand accents */
+    --purple:#6C4CF1; --purple-dim: rgba(108,76,241,0.16);
+    --blue:#2F80ED; --blue-dim: rgba(47,128,237,0.16);
+    --yellow:#FFC83D; --yellow-dim: rgba(255,200,61,0.18);
+    --text:#F4F2EA; --muted:#98A0C4; --muted-2:#6B7299;
+    --radius-lg:24px; --radius-md:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(47,128,237,0.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(108,76,241,0.10), transparent 60%),
+      var(--ink);
+    color:var(--text); font-family:'Vazirmatn', Tahoma, sans-serif; min-height:100vh; line-height:1.65;
+  }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  .shell{ max-width:920px; margin:0 auto; padding:22px 22px 70px; }
+
+  .topbar{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:16px; }
+  .brand-mark{ width:28px;height:28px;border-radius:8px; background:linear-gradient(135deg, var(--purple), var(--blue)); display:flex;align-items:center;justify-content:center; font-size:14px; }
+  .crumb{ font-size:13px; color:var(--muted); }
+
+  .progress-wrap{ margin-bottom:14px; }
+  .progress-label{ display:flex; justify-content:space-between; font-size:12px; color:var(--muted); margin-bottom:6px; }
+  .progress-bar{ height:6px; border-radius:6px; background:var(--panel-2); overflow:hidden; }
+  .progress-fill{ height:100%; background:linear-gradient(90deg, var(--purple), var(--blue)); border-radius:6px; transition:width .4s ease; }
+
+  /* learning-flow phase badge — makes the pedagogical stage visible */
+  .phase-row{ display:flex; justify-content:center; margin-bottom:14px; }
+  .phase-badge{ display:inline-flex; align-items:center; gap:6px; background:var(--purple-dim); border:1px solid rgba(108,76,241,0.4); color:#D9CFFF; font-size:12px; font-weight:700; padding:5px 14px; border-radius:999px; }
+  .phase-badge .goal-icon{ font-size:13px; }
+
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-lg); padding:30px 26px; min-height:400px; display:flex; flex-direction:column; }
+  .eyebrow{ color:var(--purple); font-size:13px; font-weight:700; margin-bottom:10px; text-align:center; }
+  h1.q{ font-size:21px; font-weight:700; margin:0 0 18px; line-height:1.6; text-align:center; }
+  p.sub{ color:var(--muted); font-size:14px; margin:0 0 18px; text-align:center; }
+  .center{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; }
+
+  /* purpose tag — states WHY this interaction exists */
+  .purpose-tag{ display:flex; align-items:center; gap:8px; background:var(--ink-2); border:1px dashed var(--line-strong); border-radius:10px; padding:8px 14px; font-size:12.5px; color:var(--muted); margin-bottom:16px; }
+  .purpose-tag b{ color:var(--blue); font-weight:700; }
+
+  /* Teacher note / teacher-asks */
+  .teacher-note{ display:flex; gap:12px; align-items:flex-start; background:var(--blue-dim); border:1.5px solid rgba(47,128,237,0.35); border-radius:var(--radius-md); padding:14px 18px; width:100%; max-width:560px; }
+  .teacher-icon{ font-size:20px; flex-shrink:0; }
+  .teacher-note .txt b{ display:block; font-size:11.5px; color:var(--blue); margin-bottom:3px; font-weight:700; }
+  .teacher-note .txt p{ margin:0; font-size:14px; }
+  .teacher-note.reacting{ border-color:var(--teal); background:var(--teal-dim); }
+  .teacher-note.reacting .txt b{ color:var(--teal); }
+
+  /* why-block */
+  .why-block{ width:100%; max-width:520px; background:var(--yellow-dim); border:1.5px solid rgba(255,200,61,0.4); border-radius:var(--radius-md); padding:16px; }
+  .why-block .why-eyebrow{ font-size:12.5px; font-weight:800; color:var(--yellow); margin-bottom:10px; }
+
+  /* number cards / options */
+  .cards-row{ display:flex; gap:16px; align-items:center; justify-content:center; flex-wrap:wrap; }
+  .num-card{ background:var(--ink-2); border:2px solid var(--line-strong); border-radius:18px; padding:18px 26px; font-family:'JetBrains Mono', monospace; font-size:22px; font-weight:700; cursor:pointer; transition:all .18s ease; text-align:center; direction:ltr; }
+  .num-card:hover{ border-color:var(--muted-2); transform:translateY(-2px); }
+  .num-card.correct{ border-color:var(--teal); background:var(--teal-dim); color:var(--teal); }
+  .num-card.wrong{ border-color:var(--coral); background:var(--coral-dim); color:var(--coral); }
+  .num-card.disabled{ pointer-events:none; }
+
+  .options-grid{ display:grid; gap:10px; width:100%; max-width:460px; }
+  .opt{ padding:14px 16px; background:var(--ink-2); border:1.5px solid var(--line); border-radius:var(--radius-md); cursor:pointer; text-align:center; font-size:14.5px; font-weight:600; transition:all .15s ease; }
+  .opt:hover{ border-color:var(--muted-2); }
+  .opt.correct{ border-color:var(--teal); background:var(--teal-dim); color:var(--teal); }
+  .opt.wrong{ border-color:var(--coral); background:var(--coral-dim); color:var(--coral); }
+  .opt.disabled{ pointer-events:none; opacity:.7;}
+  .opt.disabled.correct,.opt.disabled.wrong{ opacity:1; }
+
+  .feedback{ margin-top:6px; padding:12px 18px; border-radius:var(--radius-md); font-size:14px; text-align:center; display:none; border:1.5px solid transparent; max-width:520px; }
+  .feedback.show{ display:block; }
+  .feedback.ok{ background:var(--teal-dim); border-color:var(--teal); color:var(--teal); }
+  .feedback.err{ background:var(--coral-dim); border-color:var(--coral); color:#FFC9C2; }
+  .feedback.info{ background:var(--purple-dim); border-color:var(--purple); color:#D9CFFF; }
+  .feedback.remedial{ background:var(--yellow-dim); border-color:var(--yellow); color:var(--yellow); }
+
+  /* bottle */
+  .bottle-wrap{ display:flex; align-items:center; gap:18px; }
+
+  /* fraction grid (10 parts) */
+  .fgrid-10{ display:flex; gap:4px; direction:ltr; }
+  .fgrid-10 .cell{ width:34px; height:70px; border-radius:6px; background:var(--ink-2); border:1.5px solid var(--line-strong); cursor:pointer; transition:all .15s ease; }
+  .fgrid-10 .cell.on{ background:var(--teal-dim); border-color:var(--teal); }
+  .fgrid-10 .cell.disabled{ pointer-events:none; }
+  .fraction-readout{ font-family:'JetBrains Mono', monospace; font-size:22px; font-weight:700; }
+
+  /* place value table */
+  .pv-table{ display:grid; grid-template-columns:repeat(4, 70px); gap:6px; direction:ltr; }
+  .pv-cell{ background:var(--ink-2); border:1.5px solid var(--line-strong); border-radius:10px; padding:10px 4px; text-align:center; font-family:'JetBrains Mono', monospace; font-weight:700; font-size:16px; cursor:pointer; transition:all .15s ease; }
+  .pv-cell.head{ background:transparent; border:none; color:var(--muted); font-family:'Vazirmatn'; font-size:11.5px; font-weight:600; cursor:default; }
+  .pv-cell.active{ border-color:var(--yellow); background:var(--yellow-dim); }
+  .pv-cell.correct{ border-color:var(--teal); background:var(--teal-dim); }
+  .pv-cell.slot{ min-height:40px; display:flex; align-items:center; justify-content:center; border-style:dashed; }
+  .pv-cell.filled{ border-style:solid; border-color:var(--teal); background:var(--teal-dim); }
+
+  .digit-pool{ display:flex; gap:8px; direction:ltr; margin-top:14px; }
+  .digit-chip{ width:44px; height:44px; border-radius:10px; background:var(--panel-2); border:1.5px solid var(--line-strong); display:flex; align-items:center; justify-content:center; font-family:'JetBrains Mono', monospace; font-weight:700; font-size:17px; cursor:pointer; transition:all .15s ease; }
+  .digit-chip:hover{ border-color:var(--yellow); }
+  .digit-chip.used{ opacity:.25; pointer-events:none; }
+
+  /* 100 grid */
+  .hundred-grid{ display:grid; grid-template-columns:repeat(10,16px); grid-template-rows:repeat(10,16px); gap:2px; direction:ltr; }
+  .hundred-grid .hc{ background:var(--ink-2); border:1px solid var(--line-strong); border-radius:2px; cursor:pointer; }
+  .hundred-grid .hc.on{ background:var(--teal); border-color:var(--teal); }
+  .hundred-grid.readonly .hc{ background:var(--teal-dim); border-color:var(--teal); pointer-events:none; }
+  .grid-units-row{ display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap; justify-content:center; }
+  .grid-unit-label{ text-align:center; font-size:11.5px; color:var(--muted); margin-top:6px; }
+
+  /* number line */
+  .nl-wrap{ width:100%; padding:10px; }
+  .nl-tick{ cursor:pointer; }
+  .nl-tick circle{ transition:r .15s ease; }
+  .nl-tick:hover circle{ r:8; }
+  .nl-tick.selected circle{ fill:var(--yellow) !important; r:9; }
+  .nl-tick.correct circle{ fill:var(--teal) !important; r:9; }
+  .nl-tick.wrong circle{ fill:var(--coral) !important; }
+
+  .num-input{ font-family:'JetBrains Mono', monospace; font-size:22px; font-weight:700; text-align:center; background:var(--ink-2); border:1.5px solid var(--teal); border-radius:12px; color:var(--text); padding:10px 16px; width:140px; direction:ltr; outline:none; }
+  .textarea-box{ width:100%; max-width:520px; background:var(--ink-2); border:1.5px solid var(--line); border-radius:var(--radius-md); color:var(--text); font-family:inherit; font-size:14px; padding:12px 14px; resize:vertical; min-height:70px; outline:none; }
+
+  .checklist{ display:flex; flex-direction:column; gap:10px; margin-top:10px; width:100%; max-width:400px; }
+  .check-row{ display:flex; align-items:center; gap:10px; font-size:14.5px; background:var(--ink-2); border-radius:12px; padding:10px 14px; }
+
+  .actions{ display:flex; justify-content:space-between; margin-top:24px; gap:10px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:12px; border:none; font-family:inherit; font-size:14.5px; font-weight:700; cursor:pointer; transition:transform .12s ease, filter .15s ease; }
+  .btn:active{ transform:scale(.97); }
+  .btn-primary{ background:var(--blue); color:#fff; }
+  .btn-primary:hover{ filter:brightness(1.1); }
+  .btn-primary:disabled{ background:var(--panel-2); color:var(--muted-2); cursor:not-allowed; }
+  .btn-ghost{ background:transparent; color:var(--text); border:1.5px solid var(--line-strong); }
+  .btn-ghost:disabled{ opacity:.35; cursor:not-allowed; }
+  .btn-soft{ background:var(--purple-dim); color:#D9CFFF; border:1.5px solid rgba(108,76,241,0.4); }
+
+  .nava-corner{ position:fixed; bottom:22px; left:22px; display:flex; align-items:flex-end; gap:10px; z-index:50; }
+  .nava-bubble{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:14px; border-bottom-left-radius:4px; padding:9px 15px; font-size:13.5px; font-weight:600; max-width:240px; opacity:0; transform:translateY(6px) scale(.95); transition:all .3s ease; margin-bottom:6px; }
+  .nava-bubble.show{ opacity:1; transform:translateY(0) scale(1); }
+  .nava{ width:56px; height:60px; position:relative; flex-shrink:0; }
+  .nava .antenna{ position:absolute; top:-10px; left:50%; transform:translateX(-50%); width:3px; height:10px; background:var(--muted-2); }
+  .nava .antenna::before{ content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%); width:7px; height:7px; border-radius:50%; background:var(--purple); box-shadow:0 0 8px var(--purple); }
+  .nava .head{ position:absolute; top:0; left:5px; width:46px; height:34px; border-radius:12px; background:linear-gradient(160deg,#3A4482,#232B55); border:2px solid var(--line-strong); }
+  .nava .eye{ position:absolute; top:13px; width:7px; height:7px; border-radius:50%; background:var(--teal); transition:all .2s ease; }
+  .nava .eye.l{ left:13px; } .nava .eye.r{ right:13px; }
+  .nava .body{ position:absolute; bottom:0; left:9px; width:38px; height:26px; border-radius:10px; background:var(--panel-2); border:2px solid var(--line-strong); }
+  .nava.happy .eye{ background:var(--teal); box-shadow:0 0 6px var(--teal); }
+  .nava.happy{ animation:navaBounce .5s ease; }
+  @keyframes navaBounce{ 0%,100%{transform:translateY(0);} 40%{transform:translateY(-6px);} }
+  .nava.confused .eye.l{ top:11px; } .nava.confused .eye.r{ top:15px; }
+  .nava.confused .eye{ background:var(--yellow); }
+  .nava.confused{ animation:navaTilt .4s ease; }
+  @keyframes navaTilt{ 0%,100%{transform:rotate(0);} 50%{transform:rotate(-6deg);} }
+
+  .status-grid{ display:flex; flex-direction:column; gap:8px; width:100%; max-width:420px; }
+  .status-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; font-size:14px; background:var(--ink-2); border-radius:10px; padding:9px 14px; }
+  .status-row .level{ font-size:12px; font-weight:700; padding:3px 10px; border-radius:999px; }
+  .status-row .level.strong{ background:var(--teal-dim); color:var(--teal); }
+  .status-row .level.practice{ background:var(--yellow-dim); color:var(--yellow); }
+
+  .next-step-box{ width:100%; max-width:520px; background:var(--blue-dim); border:1.5px solid rgba(47,128,237,0.4); border-radius:var(--radius-md); padding:14px 18px; font-size:14px; }
+  .next-step-box b{ display:block; color:var(--blue); font-size:12px; margin-bottom:4px; }
+
+  /* adaptive path state strip — makes the mock adaptive engine observable & testable */
+  .state-strip{ display:flex; gap:6px; justify-content:center; flex-wrap:wrap; margin-bottom:16px; }
+  .state-dot{ font-size:11px; font-weight:700; padding:5px 10px; border-radius:999px; background:var(--ink-2); border:1px solid var(--line-strong); color:var(--muted-2); }
+  .state-dot.reached{ color:var(--teal); border-color:var(--teal); }
+  .state-dot.active{ color:#052620; background:var(--teal); border-color:var(--teal); }
+
+  /* modals */
+  .modal-overlay{ position:fixed; inset:0; background:rgba(6,9,22,0.75); display:none; align-items:center; justify-content:center; z-index:300; padding:20px; }
+  .modal-overlay.show{ display:flex; }
+  .modal-box{ background:var(--panel); border:1px solid var(--line-strong); border-radius:20px; max-width:580px; width:100%; max-height:85vh; overflow-y:auto; padding:26px; }
+  .modal-header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+  .modal-header h2{ margin:0; font-size:17px; }
+  .modal-close{ background:var(--ink-2); border:1px solid var(--line-strong); color:var(--text); width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:14px; }
+  .modal-box h3{ font-size:13.5px; color:var(--blue); margin:18px 0 8px; }
+  .modal-box p, .modal-box li{ font-size:13.5px; color:var(--text); line-height:1.9; }
+  .modal-box ul{ margin:0; padding-inline-start:20px; }
+  .parent-line{ display:flex; justify-content:space-between; gap:10px; background:var(--ink-2); border-radius:10px; padding:9px 14px; margin-bottom:8px; font-size:13.5px; }
+
+  .dev-link{ text-align:center; font-size:12px; color:var(--muted-2); margin-top:26px; cursor:pointer; text-decoration:underline dotted; }
+
+  @media (max-width:560px){
+    .pv-table{ grid-template-columns:repeat(4, 22vw); }
+    .nava-corner{ left:10px; bottom:10px; }
+    .nava-bubble{ max-width:170px; font-size:12.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="topbar">
+    <div class="brand"><div class="brand-mark">🔢</div>مایندلند</div>
+    <div class="crumb">ریاضی / نمایش اعداد اعشاری · V2</div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-label"><span id="pageLabel">شروع</span><span id="pagePct">۰٪</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+  <div class="phase-row"><div class="phase-badge" id="phaseBadge"></div></div>
+  <div class="card" id="stage"></div>
+  <div class="dev-link" id="devNotesLink">🛠 یادداشت طراح و توسعه‌دهنده</div>
+</div>
+
+<div class="nava-corner">
+  <div class="nava-bubble" id="navaBubble"></div>
+  <div class="nava" id="navaEl">
+    <div class="antenna"></div>
+    <div class="head"><div class="eye l"></div><div class="eye r"></div></div>
+    <div class="body"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<script>
+function toFa(n){ return String(n).replace(/\./g,'٫').replace(/[0-9]/g, d=>'۰۱۲۳۴۵۶۷۸۹'[d]); }
+function faToEn(s){ const fa='۰۱۲۳۴۵۶۷۸۹'; return String(s).replace(/[۰-۹]/g, d=>fa.indexOf(d)).replace(/٫/g,'.'); }
+function el(tag, cls, html){ const e=document.createElement(tag); e.className=cls; if(html!==undefined) e.innerHTML=html; return e; }
+
+/* ---------------- Nava: Learning Companion (not the main teacher) ---------------- */
+const navaEl = document.getElementById('navaEl');
+const navaBubble = document.getElementById('navaBubble');
+let navaTimer=null;
+function navaSay(text, mood){
+  navaBubble.textContent = text;
+  navaBubble.classList.add('show');
+  navaEl.className = 'nava'+(mood?(' '+mood):'');
+  clearTimeout(navaTimer);
+  navaTimer = setTimeout(()=> navaBubble.classList.remove('show'), 4500);
+}
+
+/* ---------------- Teacher: real instructional role (asks -> student answers -> teacher reacts) ---------------- */
+function teacherNote(label, text, reacting){
+  return el('div','teacher-note'+(reacting?' reacting':''), `<div class="teacher-icon">🧑‍🏫</div><div class="txt"><b>${label}</b><p>${text}</p></div>`);
+}
+function purposeTag(text){
+  return el('div','purpose-tag', `<span>🎯</span><span><b>هدف این تعامل:</b> ${text}</span>`);
+}
+
+/* ---------------- Learning-flow phase badge ---------------- */
+const PHASE_LABELS = {
+  goal:'🎯 هدف یادگیری', predict:'🔮 پیش‌بینی کن', discover:'🔍 کشف کن', explain:'📘 یاد بگیر',
+  interact:'🖐 تعامل کن', practice:'✍️ تمرین کن', diagnose:'🧭 بررسی مسیر', remediate:'🩹 مرور ساده‌تر',
+  apply:'🧰 به‌کار ببند', create:'✨ بساز', explainback:'🗣 توضیح بده', assess:'📝 ارزیابی', report:'📊 گزارش'
+};
+function setPhase(key){ document.getElementById('phaseBadge').textContent = PHASE_LABELS[key] || ''; }
+
+/* ---------------- Global learning state (mock adaptive engine + evidence for reports) ---------------- */
+const state = {
+  concepts: {
+    meaning:     { label:'فهم مفهوم عدد اعشاری', attempts:0, wrong:0, hints:0 },
+    placeValue:  { label:'ارزش مکانی',            attempts:0, wrong:0, hints:0 },
+    numberLine:  { label:'نمایش روی خط عدد',      attempts:0, wrong:0, hints:0, remedialTriggered:false, remedialRecovered:false },
+    application: { label:'کاربرد در مسئله واقعی', attempts:0, wrong:0, hints:0 }
+  },
+  navaMistakeCaught: null,
+  explainBackDone: false,
+  finalAnswers: [], // {ok, concept}
+  hintsUsedTotal: 0,
+  adaptiveLog: []
+};
+function attemptConcept(k){ if(state.concepts[k]) state.concepts[k].attempts++; }
+function logWrong(k){ if(state.concepts[k]){ state.concepts[k].wrong++; state.concepts[k].hints++; state.hintsUsedTotal++; } }
+function resetState(){
+  Object.values(state.concepts).forEach(c=>{ c.attempts=0; c.wrong=0; c.hints=0; if('remedialTriggered' in c){c.remedialTriggered=false; c.remedialRecovered=false;} });
+  state.navaMistakeCaught=null; state.explainBackDone=false; state.finalAnswers=[]; state.hintsUsedTotal=0; state.adaptiveLog=[];
+}
+
+let currentPage = 0;
+const TOTAL = 15;
+const stage = document.getElementById('stage');
+const pageLabel = document.getElementById('pageLabel');
+const pagePct = document.getElementById('pagePct');
+const progressFill = document.getElementById('progressFill');
+
+function goTo(i){
+  currentPage = Math.max(0, Math.min(TOTAL-1, i));
+  const pct = Math.round((currentPage/(TOTAL-1))*100);
+  progressFill.style.width = pct+'%';
+  pagePct.textContent = toFa(pct)+'٪';
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function navButtons(canNext, nextLabel, onNext){
+  const wrap = el('div','actions');
+  const prev = el('button','btn btn-ghost','قبلی');
+  prev.disabled = currentPage===0;
+  prev.onclick = ()=> goTo(currentPage-1);
+  const next = el('button','btn btn-primary', nextLabel||'ادامه →');
+  next.id='nextBtn'; next.disabled = !canNext;
+  next.onclick = ()=>{ if(onNext) onNext(); goTo(currentPage+1); };
+  wrap.appendChild(prev); wrap.appendChild(next);
+  return wrap;
+}
+
+/* generic progressive-hint MCQ builder — feedback is always reasoned, never just "Correct" */
+function buildMCQ(container, {options, correctIndex, correctMsg, wrongHints, concept, onDone}){
+  if(concept) attemptConcept(concept);
+  const optWrap = el('div','options-grid');
+  let hintStage = 0;
+  options.forEach((text,i)=>{
+    const opt = el('div','opt', text);
+    opt.onclick = ()=>{
+      if(i===correctIndex){
+        Array.from(optWrap.children).forEach(x=>x.classList.add('disabled'));
+        opt.classList.add('correct');
+        fb.className='feedback show ok'; fb.textContent = correctMsg;
+        navaSay('درسته!','happy');
+        if(onDone) onDone(true, hintStage);
+      } else {
+        if(concept) logWrong(concept);
+        opt.classList.add('wrong');
+        setTimeout(()=> opt.classList.remove('wrong'), 700);
+        fb.className='feedback show info';
+        fb.textContent = wrongHints[Math.min(hintStage, wrongHints.length-1)];
+        navaSay('یه بار دیگه فکر کن','confused');
+        hintStage = Math.min(hintStage+1, wrongHints.length-1);
+        if(onDone) onDone(false, hintStage);
+      }
+    };
+    optWrap.appendChild(opt);
+  });
+  const fb = el('div','feedback');
+  container.appendChild(optWrap);
+  container.appendChild(fb);
+  return {optWrap, fb};
+}
+
+/* a "why" checkpoint: the student doesn't just answer, they justify the answer */
+function whyBlock(container, {question, options, correctIndex, msg, concept}){
+  const box = el('div','why-block');
+  box.appendChild(el('div','why-eyebrow','🤔 چرا؟'));
+  box.appendChild(el('div','q', question)).style.cssText='font-size:14.5px;font-weight:700;margin-bottom:10px;';
+  container.appendChild(box);
+  buildMCQ(box, { options, correctIndex, correctMsg: msg, wrongHints:['دوباره به دلیل زیرینش فکر کن، نه فقط جواب.'], concept });
+}
+
+/* ---------------- Adaptive path engine (mock, but visibly stateful) ----------------
+   Hard Problem -> Hint -> Second Error -> Simpler Example -> Guided Practice -> Similar Problem -> Return to Original
+   States surfaced to the UI as A..E so behaviour is observable while testing with a student. */
+const ADAPTIVE_STATES = [
+  {k:'A', label:'پاسخ درست'},
+  {k:'B', label:'اشتباه اول'},
+  {k:'C', label:'اشتباه دوم'},
+  {k:'D', label:'مسیر ساده‌تر'},
+  {k:'E', label:'بازگشت موفق'}
+];
+function renderStateStrip(container, activeKey, reached){
+  const strip = el('div','state-strip');
+  ADAPTIVE_STATES.forEach(s=>{
+    const cls = 'state-dot'+(s.k===activeKey?' active':(reached.has(s.k)?' reached':''));
+    strip.appendChild(el('div', cls, s.label));
+  });
+  container.appendChild(strip);
+}
+
+/* ================= SCREEN 00 : Learning Goal ================= */
+function s00(){
+  setPhase('goal');
+  pageLabel.textContent = 'هدف یادگیری';
+  stage.appendChild(el('div','eyebrow','🧑‍🏫 معلم مایندلند'));
+  stage.appendChild(el('h1','q','نمایش اعداد اعشاری'));
+  const c = el('div','center');
+  c.appendChild(teacherNote('هدف امروز', 'می‌خوایم بفهمیم وقتی یه عدد اعشاری مثل ۰٫۳ می‌نویسیم، واقعاً چه مقداری رو نشون می‌ده — نه فقط چطور خونده می‌شه.'));
+  c.appendChild(el('p','sub','امروز قرار نیست فقط عددهای اعشاری را بخوانیم.<br>می‌خواهیم بفهمیم این عددها واقعاً چه چیزی را نشان می‌دهند.'));
+  stage.appendChild(c);
+  stage.appendChild(navButtons(true, 'شروع کنیم'));
+  navaSay('یه سؤال دارم که شاید ساده به نظر بیاد...','idle');
+}
+
+/* ================= SCREEN 01 : Predict (bottle) ================= */
+function s01(){
+  setPhase('predict');
+  pageLabel.textContent = 'پیش‌بینی کن';
+  const c = el('div','center');
+  const bottleWrap = el('div','bottle-wrap');
+  bottleWrap.innerHTML = `
+    <svg width="70" height="160" viewBox="0 0 70 160">
+      <rect x="26" y="6" width="18" height="14" rx="3" fill="#3A4482"/>
+      <path d="M18 24 Q18 20 26 20 L44 20 Q52 20 52 24 L58 46 Q60 50 60 56 L60 150 Q60 156 54 156 L16 156 Q10 156 10 150 L10 56 Q10 50 12 46 Z" fill="#232B58" stroke="#3A4482" stroke-width="2"/>
+      <clipPath id="bclip"><path d="M18 24 Q18 20 26 20 L44 20 Q52 20 52 24 L58 46 Q60 50 60 56 L60 150 Q60 156 54 156 L16 156 Q10 156 10 150 L10 56 Q10 50 12 46 Z"/></clipPath>
+      <rect x="10" y="112" width="50" height="44" fill="#4FD1AE" clip-path="url(#bclip)"/>
+      <text x="35" y="100" fill="#98A0C4" font-size="11" text-anchor="middle" font-family="Vazirmatn">۱ لیتر</text>
+    </svg>`;
+  c.appendChild(bottleWrap);
+  stage.appendChild(el('h1','q','حدس می‌زنی چقدر آب داخلشه؟'));
+  stage.insertBefore(c, stage.firstChild.nextSibling);
+
+  const row = el('div','cards-row');
+  const opts = [{t:'0.3 لیتر', v:0.3},{t:'3 لیتر', v:3},{t:'0.03 لیتر', v:0.03}];
+  const fb = el('div','feedback');
+  const nav = navButtons(false, 'بفهمیم چرا');
+  opts.forEach(o=>{
+    const card = el('div','num-card', o.t.replace('لیتر','<span style="font-size:12px;color:var(--muted)"> لیتر</span>'));
+    card.onclick = ()=>{
+      if(o.v===0.3){
+        Array.from(row.children).forEach(x=>x.classList.add('disabled'));
+        card.classList.add('correct');
+        fb.className='feedback show ok'; fb.textContent='درست انتخاب کردی. ولی سؤال جالب‌تر اینه: چرا ۰٫۳؟';
+        navaSay('آفرین، ولی چرا؟','happy');
+        nav.querySelector('#nextBtn').disabled=false;
+      } else {
+        card.classList.add('wrong');
+        setTimeout(()=>card.classList.remove('wrong'),700);
+        fb.className='feedback show info';
+        fb.textContent = o.v===3
+          ? 'اگه خود بطری فقط یک لیتر جا داشته باشه، ۳ لیتر می‌تونه داخلش باشه؟'
+          : 'نگاه کن، بطری که خیلی بیشتر از این پره... یه‌بار دیگه فکر کن.';
+        navaSay('دوباره فکر کن','confused');
+      }
+    };
+    row.appendChild(card);
+  });
+  c.appendChild(row);
+  c.appendChild(fb);
+  stage.appendChild(nav);
+}
+
+/* ================= SCREEN 02 : Discover (10 parts) ================= */
+function s02(){
+  setPhase('discover');
+  pageLabel.textContent = 'کشف';
+  stage.appendChild(purposeTag('درک کن که «یک دهم» یعنی یکی از ده تکه‌ی مساوی یک واحد.'));
+  stage.appendChild(el('h1','q','این شکل را یک واحد کامل در نظر بگیر'));
+  const c = el('div','center');
+  const grid = el('div','fgrid-10');
+  const cells = [];
+  for(let i=0;i<10;i++){ const cell=el('div','cell'); grid.appendChild(cell); cells.push(cell); }
+  c.appendChild(grid);
+  const readout = el('div','fraction-readout','۰/۱۰');
+  c.appendChild(readout);
+  const instr = el('p','sub','اگر یک قسمت را برداریم، چه کسری از کل شکل داریم؟');
+  c.insertBefore(instr, grid);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  let phase = 1;
+  cells.forEach((cell)=>{
+    cell.onclick = ()=>{
+      if(phase===1){
+        cells.forEach(x=>x.classList.remove('on'));
+        cell.classList.add('on');
+        readout.textContent = '۱/۱۰';
+        fb.className='feedback show ok'; fb.textContent='دقیقاً — یک قسمت از ده قسمت، چون هر قسمت یک دهم واحده.';
+        setTimeout(()=>{
+          instr.textContent = 'حالا ۳ قسمت را انتخاب کن.';
+          cells.forEach(x=>x.classList.remove('on'));
+          readout.textContent = '۰/۱۰';
+          fb.classList.remove('show');
+          phase = 2;
+        }, 1100);
+      } else if(phase===2){
+        cell.classList.toggle('on');
+        const count = cells.filter(x=>x.classList.contains('on')).length;
+        readout.textContent = toFa(count)+'/۱۰';
+        if(count===3){
+          fb.className='feedback show ok'; fb.textContent='پس سه تا از ده قسمت رو داریم — یعنی سه دهم.';
+          navaSay('همینه!','happy');
+          nav.querySelector('#nextBtn').disabled=false;
+        } else {
+          fb.classList.remove('show');
+          nav.querySelector('#nextBtn').disabled=true;
+        }
+      }
+    };
+  });
+}
+
+/* ================= SCREEN 03 : Explain — Teacher asks BEFORE explaining (Teacher -> Student -> Teacher) ================= */
+function s03(){
+  setPhase('explain');
+  pageLabel.textContent = 'کسر به اعشار';
+  const c = el('div','center');
+  c.appendChild(teacherNote('معلم می‌پرسه', 'قبل از اینکه بهت بگم، خودت حدس بزن: وقتی ۳/۱۰ رو به شکل اعشاری بنویسیم، رقم ۳ کجا قرار می‌گیره؟'));
+  stage.appendChild(el('h1','q','۳/۱۰ یعنی چه عددی؟'));
+  stage.appendChild(c);
+
+  const {fb} = buildMCQ(c, {
+    options:['0.3','3.0','0.03'],
+    correctIndex:0,
+    correctMsg:'درست حدس زدی!',
+    wrongHints:['۳/۱۰ یعنی سه‌تا از ده قسمت مساوی — این باید کوچیک‌تر از ۱ باشه.','رقم بعد از ممیز، ارزش «دهم» داره.'],
+    concept:'meaning',
+    onDone:(ok)=>{
+      if(ok){
+        setTimeout(()=>{
+          const reaction = teacherNote('معلم واکنش نشون می‌ده', 'دقیقاً. وقتی یک واحد را به ۱۰ قسمت مساوی تقسیم می‌کنیم، هر قسمت یک دهم است. پس سه قسمت می‌شود سه دهم: ۳/۱۰ = ۰٫۳', true);
+          c.appendChild(reaction);
+          const row = el('div','cards-row'); row.style.marginTop='14px';
+          row.appendChild(el('div','num-card','3/10'));
+          row.appendChild(el('div','','<div style="font-size:22px;color:var(--muted-2)">→</div>'));
+          row.appendChild(el('div','num-card','0.3'));
+          c.appendChild(row);
+          stage.querySelector('#nextBtn').disabled=false;
+        }, 300);
+      }
+    }
+  });
+  stage.appendChild(navButtons(false));
+}
+
+/* ================= SCREEN 04 : Interact — place value ================= */
+function s04(){
+  setPhase('interact');
+  pageLabel.textContent = 'ارزش مکانی';
+  stage.appendChild(purposeTag('تشخیص اینکه هر رقم فقط با توجه به جایگاهش معنی داره (کلیک کردن = تشخیص ارزش مکانی).'));
+  stage.appendChild(el('h1','q','رقم ۳ در کدام جایگاه است؟'));
+  const c = el('div','center');
+  c.appendChild(teacherNote('نکته‌ی معلم','هر رقم فقط به خاطر خودش معنی نداره. جای اون رقم هم مهمه.'));
+  const table = el('div','pv-table');
+  ['یکان','ممیز','دهم','صدم'].forEach(h=> table.appendChild(el('div','pv-cell head', h)));
+  const vals = ['0','.','3','0'];
+  const cells = vals.map((v)=>{ const cell = el('div','pv-cell', v); table.appendChild(cell); return cell; });
+  c.appendChild(el('div','pv-number mono','0.30'));
+  c.appendChild(table);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  attemptConcept('placeValue');
+  let hintStage=0;
+  const hints=['رقم ۳ بعد از ممیز قرار گرفته. حالا از ممیز چندمین رقم است؟','اولین رقم بعد از ممیز، جایگاه دهم رو نشون می‌ده.'];
+  cells.forEach((cell,i)=>{
+    if(i===1) return;
+    cell.onclick = ()=>{
+      cells.forEach(x=>x.classList.remove('active','correct'));
+      if(i===2){
+        cell.classList.add('correct');
+        fb.className='feedback show ok'; fb.textContent='درسته! ۳ در جایگاه دهم قرار گرفته، چون بلافاصله بعد از ممیز اومده.';
+        navaSay('پیدا کردی!','happy');
+        nav.querySelector('#nextBtn').disabled=false;
+      } else {
+        logWrong('placeValue');
+        cell.classList.add('active');
+        fb.className='feedback show info'; fb.textContent=hints[Math.min(hintStage,hints.length-1)];
+        hintStage=Math.min(hintStage+1,hints.length-1);
+        navaSay('نزدیک نیست، یه بار دیگه','confused');
+      }
+    };
+  });
+}
+
+/* ================= SCREEN 05 : Interact — build number with digit chips ================= */
+function s05(){
+  setPhase('interact');
+  pageLabel.textContent = 'یکان، دهم، صدم';
+  stage.appendChild(purposeTag('ساختن یک عدد از رقم‌های جدا — تمرین Drag & Drop برای ساختن مفهوم عدد.'));
+  stage.appendChild(el('h1','q','۲٫۴۷ را در جدول جای بده'));
+  const c = el('div','center');
+  const table = el('div','pv-table');
+  ['یکان','ممیز','دهم','صدم'].forEach(h=> table.appendChild(el('div','pv-cell head', h)));
+  const slotUnit = el('div','pv-cell slot','');
+  const dot = el('div','pv-cell head','.');
+  const slotTenth = el('div','pv-cell slot','');
+  const slotHund = el('div','pv-cell slot','');
+  table.appendChild(slotUnit); table.appendChild(dot); table.appendChild(slotTenth); table.appendChild(slotHund);
+  c.appendChild(table);
+
+  const pool = el('div','digit-pool');
+  const chips = ['2','4','7'].map(d=>{ const chip = el('div','digit-chip', d); pool.appendChild(chip); return chip; });
+  c.appendChild(pool);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  attemptConcept('placeValue');
+  let selectedChip = null;
+  chips.forEach(chip=>{
+    chip.onclick = ()=>{
+      if(chip.classList.contains('used')) return;
+      selectedChip = chip;
+      chips.forEach(x=>x.style.outline='none');
+      chip.style.outline = '2px solid var(--yellow)';
+    };
+  });
+  function trySlot(slot, expected){
+    slot.onclick = ()=>{
+      if(!selectedChip) { fb.className='feedback show info'; fb.textContent='اول یه رقم رو از پایین انتخاب کن، بعد اینجا کلیک کن.'; return; }
+      if(selectedChip.textContent===expected){
+        slot.textContent = expected; slot.classList.add('filled');
+        selectedChip.classList.add('used'); selectedChip=null;
+        checkDone();
+      } else {
+        logWrong('placeValue');
+        fb.className='feedback show info'; fb.textContent='این رقم برای این جایگاه نیست — به ارزش مکانیش فکر کن.';
+        navaSay('اینجا جاش نیست','confused');
+      }
+    };
+  }
+  trySlot(slotUnit,'2'); trySlot(slotTenth,'4'); trySlot(slotHund,'7');
+  function checkDone(){
+    if(slotUnit.classList.contains('filled') && slotTenth.classList.contains('filled') && slotHund.classList.contains('filled')){
+      fb.className='feedback show ok'; fb.textContent='۲٫۴۷ = ۲ واحد + ۴ دهم + ۷ صدم';
+      navaSay('کامل شد!','happy');
+      nav.querySelector('#nextBtn').disabled=false;
+    }
+  }
+}
+
+/* ================= SCREEN 06 : Interact — visual 100-grid ================= */
+function s06(){
+  setPhase('interact');
+  pageLabel.textContent = 'نمایش تصویری';
+  stage.appendChild(purposeTag('درک بصری مقدار عدد — تبدیل یک نماد انتزاعی به یک تصویر ملموس.'));
+  stage.appendChild(el('h1','q','می‌تونی ۲٫۴۷ رو روی شکل بسازی؟'));
+  const c = el('div','center');
+  const row = el('div','grid-units-row');
+
+  function fullUnitGrid(){
+    const g = el('div','hundred-grid readonly');
+    for(let i=0;i<100;i++) g.appendChild(el('div','hc on'));
+    const wrap = el('div','');
+    wrap.appendChild(g); wrap.appendChild(el('div','grid-unit-label','۱ واحد کامل'));
+    return wrap;
+  }
+  row.appendChild(fullUnitGrid());
+  row.appendChild(fullUnitGrid());
+
+  const activeGrid = el('div','hundred-grid');
+  const hcells = [];
+  for(let i=0;i<100;i++){ const hc=el('div','hc'); activeGrid.appendChild(hc); hcells.push(hc); }
+  const activeWrap = el('div','');
+  activeWrap.appendChild(activeGrid);
+  activeWrap.appendChild(el('div','grid-unit-label','واحد سوم — بزن تا پر بشه'));
+  row.appendChild(activeWrap);
+  c.appendChild(row);
+
+  const readout = el('div','fraction-readout','۰/۱۰۰ پر شده');
+  c.appendChild(readout);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  attemptConcept('meaning');
+  hcells.forEach((hc)=>{
+    hc.onclick = ()=>{
+      hc.classList.toggle('on', !hc.classList.contains('on'));
+      const count = hcells.filter(x=>x.classList.contains('on')).length;
+      readout.textContent = toFa(count)+'/۱۰۰ پر شده';
+    };
+  });
+  const checkBtn = el('button','btn btn-ghost','بررسی کن');
+  checkBtn.style.marginTop='10px';
+  checkBtn.onclick = ()=>{
+    const count = hcells.filter(x=>x.classList.contains('on')).length;
+    if(count===47){
+      fb.className='feedback show ok'; fb.textContent='ساختیش! ۴۷ خونه از ۱۰۰ خونه یعنی ۴۷ صدم. حالا عدد دیگه فقط یه علامت روی صفحه نیست.';
+      navaSay('عالی بود!','happy');
+      nav.querySelector('#nextBtn').disabled=false;
+    } else if(count<47){
+      logWrong('meaning');
+      fb.className='feedback show info'; fb.textContent='هنوز کمه — ۲٫۴۷ یعنی ۴۷ خونه از این ۱۰۰ تا.';
+    } else {
+      logWrong('meaning');
+      fb.className='feedback show info'; fb.textContent='یکم زیاد شد — دقیقاً ۴۷ خونه لازمه.';
+    }
+  };
+  c.appendChild(checkBtn);
+}
+
+/* ================= SCREEN 07 : Practice -> Diagnose -> Remediate -> Apply (number line, adaptive) ================= */
+const reachedStates = new Set();
+function s07(){
+  setPhase('practice');
+  reachedStates.clear();
+  renderNL(2.4, true);
+}
+function renderNL(target, allowRemedial, doneCb, titleOverride, activeState){
+  stage.innerHTML='';
+  pageLabel.textContent = 'خط عدد';
+  stage.appendChild(purposeTag('تشخیص مقدار عدد نسبت به دو عدد صحیح مجاور — درک عدد به‌عنوان یک «مکان»، نه فقط یک نماد.'));
+  renderStateStrip(stage, activeState||'A', reachedStates);
+  stage.appendChild(el('h1','q', titleOverride || ('عدد '+toFa(target)+' را روی خط عدد قرار بده')));
+  const c = el('div','center');
+  const wrap = el('div','nl-wrap');
+  const base = Math.floor(target);
+  const svgNS='http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS,'svg');
+  svg.setAttribute('viewBox','0 0 700 100'); svg.setAttribute('width','100%');
+  svg.innerHTML = `<line x1="30" y1="50" x2="670" y2="50" stroke="#3A4482" stroke-width="3"/>
+    <text x="30" y="78" fill="#98A0C4" font-size="13" text-anchor="middle" font-family="JetBrains Mono">${base}</text>
+    <text x="670" y="78" fill="#98A0C4" font-size="13" text-anchor="middle" font-family="JetBrains Mono">${base+1}</text>`;
+  const ticks=[];
+  for(let i=0;i<=10;i++){
+    const x = 30 + i*(640/10);
+    const g = document.createElementNS(svgNS,'g'); g.setAttribute('class','nl-tick');
+    g.innerHTML = `<circle cx="${x}" cy="50" r="6" fill="#5A65A8"/>`;
+    svg.appendChild(g); ticks.push(g);
+  }
+  wrap.appendChild(svg); c.appendChild(wrap);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  attemptConcept('numberLine');
+  const correctIdx = Math.round((target-base)*10);
+  let hintStage=0;
+  const hints = ['بین '+base+' و '+(base+1)+' چند قسمت داریم؟','هر قسمت یک دهمه. حالا '+correctIdx+' قسمت از '+base+' جلو برو.'];
+  ticks.forEach((tick,i)=>{
+    tick.onclick = ()=>{
+      ticks.forEach(t=>t.classList.remove('selected','correct','wrong'));
+      if(i===correctIdx){
+        tick.classList.add('correct');
+        fb.className='feedback show ok';
+        fb.textContent = toFa(target)+' یعنی '+toFa(correctIdx)+' دهم بعد از '+base+'.';
+        navaSay('دقیقاً همون‌جا!','happy');
+        nav.querySelector('#nextBtn').disabled=false;
+        reachedStates.add(activeState==='D'?'E':'A');
+        if(doneCb) doneCb(true);
+      } else {
+        logWrong('numberLine');
+        tick.classList.add('wrong');
+        hintStage++;
+        reachedStates.add(hintStage===1?'B':'C');
+        if(allowRemedial && hintStage>=2){
+          state.concepts.numberLine.remedialTriggered = true;
+          showRemedialNL(target);
+          return;
+        }
+        fb.className='feedback show info';
+        fb.textContent = hints[Math.min(hintStage-1, hints.length-1)];
+        navaSay('یه بار دیگه','confused');
+        if(doneCb) doneCb(false);
+      }
+    };
+  });
+}
+function showRemedialNL(originalTarget){
+  reachedStates.add('D');
+  stage.innerHTML='';
+  pageLabel.textContent = 'یه مثال ساده‌تر';
+  setPhase('remediate');
+  renderStateStrip(stage, 'D', reachedStates);
+  stage.appendChild(el('h1','q','بیا اول یه مثال ساده‌تر ببینیم'));
+  const c = el('div','center');
+  c.appendChild(teacherNote('نکته‌ی معلم','بین ۱ و ۲، ده قسمت مساوی داریم. ۱٫۵ دقیقاً وسط این دو تاست — یعنی ۵ قسمت جلوتر از ۱.'));
+  const svgNS='http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(svgNS,'svg');
+  svg.setAttribute('viewBox','0 0 700 100'); svg.setAttribute('width','100%');
+  svg.innerHTML = `<line x1="30" y1="50" x2="670" y2="50" stroke="#3A4482" stroke-width="3"/>
+    <text x="30" y="78" fill="#98A0C4" font-size="13" text-anchor="middle" font-family="JetBrains Mono">1</text>
+    <text x="670" y="78" fill="#98A0C4" font-size="13" text-anchor="middle" font-family="JetBrains Mono">2</text>
+    <circle cx="350" cy="50" r="8" fill="#4FD1AE"/>`;
+  const wrap = el('div','nl-wrap'); wrap.appendChild(svg);
+  c.appendChild(wrap);
+  c.appendChild(el('div','feedback show ok','۱٫۵ اینجاست — دقیقاً وسط خط.'));
+  stage.appendChild(c);
+  const nextBtn = el('button','btn btn-primary','حالا یه شبیه‌اش رو امتحان کن →');
+  nextBtn.style.margin='20px auto 0'; nextBtn.style.display='block';
+  nextBtn.onclick = ()=>{
+    setPhase('apply');
+    renderNL(3.7, false, (ok)=>{
+      if(ok){
+        setTimeout(()=>{
+          state.concepts.numberLine.remedialRecovered = true;
+          setPhase('apply');
+          renderNL(2.4, false, null, 'حالا برگردیم سراغ اون سؤال اول: عدد ۲٫۴ را روی خط عدد قرار بده', 'E');
+        }, 1400);
+      }
+    }, 'خودت امتحان کن: عدد ۳٫۷ را پیدا کن', 'D');
+  };
+  stage.appendChild(nextBtn);
+}
+
+/* ================= SCREEN 08 : Nava's intentional mistake (diagnose a misconception) ================= */
+function s08(){
+  setPhase('diagnose');
+  pageLabel.textContent = 'اشتباه ناوا';
+  stage.appendChild(purposeTag('تشخیص یک برداشت غلط رایج و اصلاح اون با استدلال، نه فقط با علامت‌گذاری درست/غلط.'));
+  const c = el('div','center');
+  c.appendChild(el('div','feedback show info', '🤖 ناوا: «به نظرم ۰٫۵ یعنی پنج واحده!»'));
+  stage.appendChild(el('h1','q','ناوا یه ادعا داره — درسته؟'));
+  stage.appendChild(c);
+  buildMCQ(c, {
+    options:['ناوا درست می‌گه.','نه، ۰٫۵ یعنی پنج دهم.','۰٫۵ یعنی پنج صدمه.'],
+    correctIndex:1,
+    correctMsg:'درست پیداش کردی! چون اولین رقم بعد از ممیز همیشه جایگاه دهمه، نه واحد.',
+    wrongHints:['به اولین رقم بعد از ممیز نگاه کن. اسم این جایگاه چیه؟'],
+    concept:'placeValue',
+    onDone:(ok)=>{
+      if(ok){
+        state.navaMistakeCaught = true;
+        navaSay('وای، راست می‌گی! ممنون که تصحیحم کردی 😅','confused');
+        stage.querySelector('#nextBtn').disabled=false;
+      }
+    }
+  });
+  stage.appendChild(navButtons(false));
+}
+
+/* ================= SCREEN 09 : Independent practice (full adaptive chain, visible states) ================= */
+function s09(){
+  setPhase('practice');
+  pageLabel.textContent = 'تمرین مستقل';
+  stage.appendChild(purposeTag('تولید پاسخ مستقل با کمک کمتر — اینجا سیستم مسیر یادگیری رو با خطاهای تو تنظیم می‌کنه.'));
+  stage.appendChild(el('h1','q','حالا نوبت توئه — کمتر کمکت می‌کنیم'));
+  const stripHolder = el('div',''); stage.appendChild(stripHolder);
+  const holder = el('div','center'); holder.id='practiceHolder';
+  stage.appendChild(holder);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  const questions = [
+    { q:'این شکل نشون‌دهنده‌ی کدوم عدده؟ (۶ قسمت از ۱۰ قسمت رنگ شده)', opts:['0.6','0.06','6'], correct:0 },
+    { q:'در عدد ۳٫۲۵ چند دهم داریم؟', opts:['۲','۵','۳'], correct:0 },
+    { q:'عدد ۱٫۷ بین کدوم دو عدده؟', opts:['۰ و ۱','۱ و ۲','۲ و ۳'], correct:1 },
+    { q:'کدوم درسته؟', opts:['۴/۱۰ = ۰٫۴','۴/۱۰ = ۴'], correct:0 },
+  ];
+  let qi=0, wrongInRow=0;
+  const localReached = new Set();
+
+  function drawStrip(activeK){
+    stripHolder.innerHTML='';
+    renderStateStrip(stripHolder, activeK, localReached);
+  }
+
+  function renderQ(){
+    holder.innerHTML='';
+    drawStrip('A');
+    if(qi>=questions.length){
+      holder.appendChild(el('div','feedback show ok','هر چهار سؤال رو جواب دادی — عالی بود!'));
+      navaSay('کارت خوب بود!','happy');
+      nav.querySelector('#nextBtn').disabled=false;
+      return;
+    }
+    const info = questions[qi];
+    holder.appendChild(el('p','sub','سؤال '+toFa(qi+1)+' از '+toFa(questions.length)));
+    holder.appendChild(el('h1','q', info.q));
+    buildMCQ(holder, {
+      options: info.opts, correctIndex: info.correct,
+      correctMsg:'درست بود.',
+      wrongHints:['یه بار دیگه بررسی کن.'],
+      concept:'meaning',
+      onDone:(ok)=>{
+        if(ok){
+          wrongInRow=0;
+          localReached.add('A');
+          setTimeout(()=>{ qi++; renderQ(); }, 900);
+        } else {
+          wrongInRow++;
+          localReached.add(wrongInRow===1?'B':'C');
+          drawStrip(wrongInRow===1?'B':'C');
+          if(wrongInRow>=2){
+            setTimeout(showRemedialPractice, 800);
+          }
+        }
+      }
+    });
+  }
+  function showRemedialPractice(){
+    localReached.add('D');
+    holder.innerHTML='';
+    drawStrip('D');
+    setPhase('remediate');
+    holder.appendChild(el('div','feedback show remedial','بریم یه مسیر مرور کوتاه — یه مثال ساده‌تر از همین مفهوم (Guided Practice).'));
+    holder.appendChild(el('h1','q','۰٫۲ یعنی چند دهم؟'));
+    buildMCQ(holder, {
+      options:['۲ دهم','۲ صدم','۲۰ دهم'],
+      correctIndex:0,
+      correctMsg:'دقیقاً — رقم بعد از ممیز همیشه دهمه.',
+      wrongHints:['رقم بلافاصله بعد از ممیز، جایگاه دهمه.'],
+      onDone:(ok)=>{
+        if(ok){
+          setTimeout(()=>{
+            wrongInRow=0;
+            localReached.add('E');
+            drawStrip('E');
+            setPhase('apply');
+            holder.innerHTML='';
+            holder.appendChild(el('div','feedback show ok','خوبه، حالا برگردیم سراغ همون سؤال اصلی — با همون سختی قبلی.'));
+            setTimeout(renderQ, 1000);
+          }, 1000);
+        }
+      }
+    });
+  }
+  renderQ();
+}
+
+/* ================= SCREEN 10 : Apply — mission (table) ================= */
+function s10(){
+  setPhase('apply');
+  pageLabel.textContent = 'مأموریت: اندازه‌گیری میز';
+  stage.appendChild(el('div','eyebrow','🪑 مأموریت واقعی'));
+  stage.appendChild(purposeTag('استفاده از مفهوم عدد اعشاری در یه موقعیت واقعی، نه فقط سؤال تمرینی.'));
+  const c = el('div','center');
+  c.appendChild(el('div','feedback show info','می‌خوایم برای دور این میز نوار اندازه‌گیری آماده کنیم. طول میز: ۱٫۸ متر'));
+  const steps = [
+    { q:'۱٫۸ چند واحد کامل دارد؟', opts:['۰','۱','۲'], correct:1 },
+    { q:'۱٫۸ چند دهم دارد؟', opts:['۸','۱','۱۸'], correct:0 },
+  ];
+  let si=0;
+  const holder = el('div','','');
+  c.appendChild(holder);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  function renderStep(){
+    holder.innerHTML='';
+    if(si>=steps.length){
+      holder.appendChild(el('h1','q','حالا روی خط عدد نشونش بده'));
+      const wrap = el('div','');
+      holder.appendChild(wrap);
+      const svgNS='http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(svgNS,'svg');
+      svg.setAttribute('viewBox','0 0 700 100'); svg.setAttribute('width','100%');
+      svg.innerHTML = `<line x1="30" y1="50" x2="670" y2="50" stroke="#3A4482" stroke-width="3"/>
+        <text x="30" y="78" fill="#98A0C4" font-size="13" text-anchor="middle" font-family="JetBrains Mono">1</text>
+        <text x="670" y="78" fill="#98A0C4" font-size="13" text-anchor="middle" font-family="JetBrains Mono">2</text>`;
+      const ticks=[];
+      for(let i=0;i<=10;i++){
+        const x=30+i*(640/10);
+        const g=document.createElementNS(svgNS,'g'); g.setAttribute('class','nl-tick');
+        g.innerHTML=`<circle cx="${x}" cy="50" r="6" fill="#5A65A8"/>`;
+        svg.appendChild(g); ticks.push(g);
+      }
+      wrap.appendChild(svg);
+      attemptConcept('application');
+      ticks.forEach((t,i)=>{
+        t.onclick=()=>{
+          ticks.forEach(x=>x.classList.remove('correct','wrong'));
+          if(i===8){
+            t.classList.add('correct'); navaSay('دقیقاً ۱٫۸!','happy'); nav.querySelector('#nextBtn').disabled=false;
+            holder.appendChild(el('div','feedback show ok','آفرین — ۱٫۸ متر یعنی ۱ واحد و ۸ دهم.'));
+            const why = el('div',''); why.style.marginTop='14px'; holder.appendChild(why);
+            whyBlock(why, {
+              question:'چرا ۱٫۸ بین ۱ و ۲ قرار می‌گیره؟',
+              options:['چون ۸ دهم کمتر از یک واحد کامله','چون ۸ از ۲ بزرگ‌تره','چون عدد اعشاریه'],
+              correctIndex:0,
+              msg:'دقیقاً. ۸ دهم هنوز به یک واحد کامل نرسیده، برای همین بین ۱ و ۲ می‌مونه.',
+              concept:'application'
+            });
+          }
+          else { logWrong('application'); t.classList.add('wrong'); navaSay('یه بار دیگه','confused'); }
+        };
+      });
+      return;
+    }
+    const info = steps[si];
+    holder.appendChild(el('h1','q', info.q));
+    buildMCQ(holder, {
+      options: info.opts, correctIndex: info.correct,
+      correctMsg:'درسته.',
+      wrongHints:['۱٫۸ رو به یکان و دهم بشکن.'],
+      concept:'application',
+      onDone:(ok)=>{ if(ok) setTimeout(()=>{ si++; renderStep(); }, 700); }
+    });
+  }
+  renderStep();
+}
+
+/* ================= SCREEN 11 : Create — challenge (between two numbers) ================= */
+function s11(){
+  setPhase('create');
+  pageLabel.textContent = 'چالش امروز';
+  stage.appendChild(el('div','eyebrow','چالش امروز'));
+  stage.appendChild(purposeTag('تولید آزاد یک پاسخ درست، به‌جای انتخاب از بین گزینه‌های آماده.'));
+  stage.appendChild(el('h1','q','یک عدد اعشاری پیدا کن که بین ۲٫۳ و ۲٫۴ باشد'));
+  const c = el('div','center');
+  const input = document.createElement('input');
+  input.className='num-input mono'; input.placeholder='مثلاً 2.35';
+  c.appendChild(input);
+  const checkBtn = el('button','btn btn-primary','چک کن');
+  c.appendChild(checkBtn);
+  const fb = el('div','feedback');
+  c.appendChild(fb);
+  stage.appendChild(c);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  attemptConcept('meaning');
+  let foundCount = 0;
+  const usedVals = [];
+  checkBtn.onclick = ()=>{
+    const v = parseFloat(faToEn(input.value));
+    if(isNaN(v)){ fb.className='feedback show info'; fb.textContent='یه عدد بنویس، مثلاً ۲٫۳۵'; return; }
+    if(v>2.3 && v<2.4 && !usedVals.includes(v)){
+      usedVals.push(v); foundCount++;
+      fb.className='feedback show ok';
+      fb.textContent = toFa(v)+' واقعاً بین ۲٫۳ و ۲٫۴ قرار داره. خوب پیداش کردی.';
+      navaSay(foundCount<2 ? 'می‌تونی یکی دیگه هم پیدا کنی؟' : 'عالی، فهمیدی قانون رو!','happy');
+      input.value='';
+      if(foundCount>=2){
+        const why = el('div',''); why.style.marginTop='10px'; c.appendChild(why);
+        whyBlock(why, {
+          question:'چرا اعداد زیادی بین ۲٫۳ و ۲٫۴ وجود دارن؟',
+          options:['چون می‌شه رقم صدم و کوچیک‌تر هم اضافه کرد','چون فقط یه عدد درسته','چون ۲٫۳ و ۲٫۴ اشتباهن'],
+          correctIndex:0,
+          msg:'دقیقاً — بین هر دو عدد اعشاری، همیشه می‌شه با اضافه کردن رقم‌های بیشتر (صدم، هزارم...) عددهای بی‌نهایتی پیدا کرد.',
+          concept:'meaning'
+        });
+        nav.querySelector('#nextBtn').disabled=false;
+      }
+    } else {
+      logWrong('meaning');
+      fb.className='feedback show info'; fb.textContent='این عدد بین ۲٫۳ و ۲٫۴ نیست (یا قبلاً گفتیش) — یه بار دیگه امتحان کن.';
+    }
+  };
+}
+
+/* ================= SCREEN 12 : Explain Back (evidence of learning) ================= */
+function s12(){
+  setPhase('explainback');
+  pageLabel.textContent = 'نوبت توئه';
+  stage.appendChild(purposeTag('توضیح مفهوم با زبان خودت — بهترین نشونه‌ی اینه که واقعاً فهمیدی، نه فقط جواب رو حفظ کردی.'));
+  stage.appendChild(el('h1','q','حالا نوبت توئه'));
+  const c = el('div','center');
+  c.appendChild(el('p','sub','اگه بخوای برای یه دوست توضیح بدی که ۲٫۳ یعنی چه، کدوم جمله رو انتخاب می‌کنی؟'));
+  stage.appendChild(c);
+  buildMCQ(c, {
+    options:['۲ واحد و ۳ دهم','۲ واحد و ۳ صدم','۲۳ واحد'],
+    correctIndex:0,
+    correctMsg:'دقیقاً همینه!',
+    wrongHints:['به رقم بعد از ممیز نگاه کن — چه جایگاهیه؟'],
+    concept:'meaning',
+    onDone:(ok)=>{
+      if(ok){
+        state.explainBackDone = true;
+        const box = el('div','','');
+        box.style.marginTop='18px'; box.style.width='100%';
+        box.appendChild(el('p','sub','امروز مهم‌ترین چیزی که فهمیدی چی بود؟ (اختیاری — به عنوان شاهد یادگیری ثبت می‌شه)'));
+        const ta = document.createElement('textarea');
+        ta.className='textarea-box'; ta.placeholder='هر چیزی که دوست داری بنویس...';
+        box.appendChild(ta);
+        c.appendChild(box);
+        stage.querySelector('#nextBtn').disabled=false;
+      }
+    }
+  });
+  stage.appendChild(navButtons(false));
+}
+
+/* ================= SCREEN 13 : Assess ================= */
+function s13(){
+  setPhase('assess');
+  pageLabel.textContent = 'ارزیابی پایانی';
+  stage.appendChild(purposeTag('سنجش نهایی بدون راهنمایی — نشون می‌ده مفهوم واقعاً جا افتاده یا نه.'));
+  stage.appendChild(el('h1','q','فقط سه سؤال'));
+  const holder = el('div','center'); holder.id='finalHolder';
+  stage.appendChild(holder);
+  const nav = navButtons(false);
+  stage.appendChild(nav);
+
+  const qs = [
+    { q:'۰٫۷ یعنی:', opts:['سه دهم','هفت دهم','هفت صدم'], correct:1, concept:'meaning' },
+    { q:'در عدد ۴٫۳۶ رقم ۶ چه ارزشی دارد؟', opts:['۶ واحد','۶ دهم','۶ صدم'], correct:2, concept:'placeValue' },
+    { q:'کدام عدد بین ۱٫۴ و ۱٫۵ قرار دارد؟', opts:['۱٫۳','۱٫۴۵','۱٫۶'], correct:1, concept:'numberLine' },
+  ];
+  let qi=0;
+  function renderQ(){
+    holder.innerHTML='';
+    if(qi>=qs.length){
+      holder.appendChild(el('div','feedback show ok','ارزیابی تموم شد!'));
+      nav.querySelector('#nextBtn').disabled=false;
+      return;
+    }
+    const info = qs[qi];
+    holder.appendChild(el('p','sub','سؤال '+toFa(qi+1)+' از ۳'));
+    holder.appendChild(el('h1','q', info.q));
+    let answeredOk = null;
+    buildMCQ(holder, {
+      options: info.opts, correctIndex: info.correct,
+      correctMsg:'درست بود.',
+      wrongHints:['یه بار دیگه به جایگاه رقم‌ها نگاه کن.'],
+      concept: info.concept,
+      onDone:(ok)=>{
+        if(answeredOk===null){ answeredOk = ok; state.finalAnswers.push({ok, concept:info.concept}); }
+        if(ok){ setTimeout(()=>{ qi++; renderQ(); }, 800); }
+      }
+    });
+  }
+  renderQ();
+}
+
+/* ================= SCREEN 14 : Report — learning summary + next step + parent report ================= */
+function skillLevel(key){
+  const c = state.concepts[key];
+  if(!c || c.attempts===0) return 'strong';
+  const wrongRatio = c.wrong / Math.max(1,c.attempts);
+  if(c.remedialTriggered && !c.remedialRecovered) return 'practice';
+  if(wrongRatio > 0.5) return 'practice';
+  return 'strong';
+}
+function weakestConceptKey(){
+  const order = ['numberLine','placeValue','meaning','application'];
+  for(const k of order){ if(skillLevel(k)==='practice') return k; }
+  return null;
+}
+function s14(){
+  setPhase('report');
+  pageLabel.textContent = 'نتیجه';
+  const c = el('div','center');
+  stage.appendChild(el('h1','q','📊 خلاصه یادگیری امروز'));
+  const grid = el('div','status-grid');
+  Object.entries(state.concepts).forEach(([key,cData])=>{
+    const lvl = skillLevel(key);
+    const row = el('div','status-row');
+    row.appendChild(el('span','', cData.label));
+    row.appendChild(el('span','level '+(lvl==='strong'?'strong':'practice'), lvl==='strong'?'قوی':'نیاز به تمرین'));
+    grid.appendChild(row);
+  });
+  c.appendChild(grid);
+
+  const weak = weakestConceptKey();
+  const nextStepText = weak
+    ? `قبل از رفتن سراغ مقایسه‌ی اعداد اعشاری، یک تمرین کوتاه درباره‌ی «${state.concepts[weak].label}» پیشنهاد می‌شود.`
+    : 'آماده‌ای که سراغ مقایسه‌ی اعداد اعشاری بری!';
+  const nsBox = el('div','next-step-box', `<b>قدم بعدی</b>${nextStepText}`);
+  c.appendChild(nsBox);
+
+  const btnRow = el('div','cards-row'); btnRow.style.marginTop='6px';
+  const parentBtn = el('button','btn btn-soft','📋 گزارش برای والدین');
+  parentBtn.onclick = openParentReport;
+  btnRow.appendChild(parentBtn);
+  c.appendChild(btnRow);
+
+  navaSay(weak ? 'یه قدم دیگه مونده!' : 'بهت افتخار می‌کنم!', weak?'confused':'happy');
+  stage.appendChild(c);
+
+  const nav = el('div','actions');
+  const restart = el('button','btn btn-ghost','دوباره از اول 🔁');
+  restart.onclick = ()=>{ resetState(); goTo(0); };
+  nav.appendChild(restart);
+  stage.appendChild(nav);
+}
+
+/* ---------------- Parent report modal ---------------- */
+const overlay = document.getElementById('modalOverlay');
+const modalBox = document.getElementById('modalBox');
+function closeModal(){ overlay.classList.remove('show'); }
+overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeModal(); });
+
+function openParentReport(){
+  const weak = weakestConceptKey();
+  const strengths = Object.values(state.concepts).filter(c=>skillLevel(Object.keys(state.concepts).find(k=>state.concepts[k]===c))==='strong').map(c=>c.label);
+  const difficulties = Object.entries(state.concepts).filter(([k])=>skillLevel(k)==='practice').map(([,c])=>c.label);
+  const usedHints = state.hintsUsedTotal>0;
+  const nl = state.concepts.numberLine;
+  modalBox.innerHTML = `
+    <div class="modal-header"><h2>📋 گزارش برای والدین</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="parent-line"><span>مفهوم درس</span><b>نمایش اعداد اعشاری (ارزش مکانی، خط عدد)</b></div>
+    <div class="parent-line"><span>نقاط قوت</span><b>${strengths.length? strengths.join('، ') : 'در حال شکل‌گیری'}</b></div>
+    <div class="parent-line"><span>نیاز به تمرین بیشتر</span><b>${difficulties.length? difficulties.join('، ') : 'موردی ثبت نشده'}</b></div>
+    <div class="parent-line"><span>استفاده از راهنمایی (Hint)</span><b>${usedHints ? 'بله، '+toFa(state.hintsUsedTotal)+' بار' : 'خیر'}</b></div>
+    <div class="parent-line"><span>بازیابی بعد از مسیر ساده‌تر</span><b>${nl.remedialTriggered ? (nl.remedialRecovered ? 'بله، بعد از تمرین ساده‌تر موفق شد' : 'هنوز تکمیل نشده') : 'نیازی به مسیر ساده‌تر نبود'}</b></div>
+    <div class="parent-line"><span>توضیح با زبان خودش</span><b>${state.explainBackDone ? 'انجام شد' : 'انجام نشد'}</b></div>
+    <div class="parent-line"><span>قدم بعدی پیشنهادی</span><b>${weak ? state.concepts[weak].label+' را کمی بیشتر تمرین کنیم' : 'آماده‌ی درس بعدی (مقایسه‌ی اعداد اعشاری)'}</b></div>
+  `;
+  overlay.classList.add('show');
+}
+
+/* ---------------- Developer / Designer notes modal ---------------- */
+function openDevNotes(){
+  modalBox.innerHTML = `
+    <div class="modal-header"><h2>🛠 یادداشت طراح و توسعه‌دهنده</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <h3>هدف یادگیری هر تعامل</h3>
+    <ul>
+      <li>کلیک روی شکل ۱۰ قسمتی → کشف مفهوم «دهم» به‌عنوان یک قسمت مساوی.</li>
+      <li>جدول ارزش مکانی → تشخیص جایگاه هر رقم (کلیک = تشخیص، نه فقط دیدن).</li>
+      <li>ساخت عدد با رقم‌های قابل جابه‌جایی → ساختن یک عدد از اجزای آن.</li>
+      <li>شبکه‌ی ۱۰۰ خانه‌ای → درک مقدار عدد از طریق یک نمایش بصری ملموس.</li>
+      <li>خط عدد → درک عدد به‌عنوان «مکان» بین دو عدد صحیح.</li>
+      <li>ورودی آزاد (چالش بین دو عدد) → تولید مستقل پاسخ، نه انتخاب از گزینه.</li>
+      <li>توضیح‌دادن به زبان خود (Explain Back) → شاهد واقعی یادگیری، فراتر از پاسخ درست.</li>
+    </ul>
+    <h3>Stateهای موجود (Mock)</h3>
+    <p>در بخش خط عدد و تمرین مستقل، پنج وضعیت قابل مشاهده تعریف شده: A) پاسخ درست، B) اشتباه اول، C) اشتباه دوم، D) نمایش مثال ساده‌تر، E) بازگشت موفق به مسئله‌ی اصلی. این وضعیت‌ها به‌صورت یک نوار رنگی بالای صفحه نمایش داده می‌شن تا در تست با دانش‌آموز قابل مشاهده باشن.</p>
+    <h3>مسیر تطبیقی (Adaptive Path)</h3>
+    <p>Hard Problem → Hint → Second Error → Simpler Example → Guided Practice → Similar Problem → Return to Original Difficulty. این مسیر با یک شمارنده‌ی خطای متوالی (wrongInRow) پیاده‌سازی شده؛ بعد از دومین خطای متوالی، یک مثال ساده‌تر نشون داده می‌شه و بعد کاربر به همون سؤال یا سختی اصلی برمی‌گرده. در نسخه‌ی واقعی این منطق باید با داده‌های واقعی عملکرد دانش‌آموز و یک موتور تطبیقی جایگزین بشه.</p>
+    <h3>نقش معلم</h3>
+    <p>معلم نقش آموزشی واقعی داره: در نقاط کلیدی (مثل «۳/۱۰ چطور می‌شه ۰٫۳») قبل از توضیح دادن، از دانش‌آموز می‌خواد حدس بزنه، و بعد متناسب با پاسخ او واکنش نشون می‌ده (Teacher → Student → Teacher).</p>
+    <h3>نقش ناوا</h3>
+    <p>ناوا یک «همراه یادگیری» است، نه معلم اصلی و نه فقط یک ربات بازخورد. او سؤال می‌پرسه، توجه دانش‌آموز رو به سرنخ‌ها جلب می‌کنه، هنگام خطاهای متوالی مسیر رو ساده‌تر می‌کنه، و یک‌بار عمداً اشتباه می‌کنه (۰٫۵ = پنج واحد) تا دانش‌آموز او را تصحیح کند. ناوا در همه‌ی صفحات حضور پررنگ ندارد.</p>
+  `;
+  overlay.classList.add('show');
+}
+document.getElementById('devNotesLink').onclick = openDevNotes;
+
+const SCREENS = [s00,s01,s02,s03,s04,s05,s06,s07,s08,s09,s10,s11,s12,s13,s14];
+function render(){
+  stage.innerHTML='';
+  SCREENS[currentPage]();
+}
+goTo(0);
+</script>
+</body>
+</html>
