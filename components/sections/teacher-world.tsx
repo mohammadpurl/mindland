@@ -1,4 +1,4 @@
-import { Building2, ChartNoAxesCombined, GraduationCap, MessagesSquare, SmilePlus, Star } from "lucide-react";
+import { Building2, ChartNoAxesCombined, MessagesSquare, SmilePlus } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/reveal";
 
@@ -6,7 +6,7 @@ const resultCards = [
   {
     Icon: ChartNoAxesCombined,
     title: "۳۴٪ افزایش میانگین تکمیل دوره",
-    body: "دانش‌آموزان ماینلند تکالیف و پروژه‌ها را منظم‌تر و با کیفیت بالاتر انجام می‌دهند.",
+    body: "دانش‌آموزان مایلند تکالیف و پروژه‌ها را منظم‌تر و با کیفیت بالاتر انجام می‌دهند.",
   },
   {
     Icon: SmilePlus,
@@ -24,7 +24,7 @@ const schoolLogos = ["دبستان نوآوران", "مدرسه مهر دانش"
 
 export function TeacherWorld() {
   return (
-    <section id="teacher-world" className="py-24" style={{ background: "#F8FAFC" }}>
+    <section id="teacher-world" className="py-24" style={{ background: "#FFFFFF" }}>
       <Container>
         <Reveal className="text-center mb-16">
           <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#6C5CE7", letterSpacing: "0.14em" }}>
@@ -39,7 +39,7 @@ export function TeacherWorld() {
             <span style={{ backgroundImage: "linear-gradient(135deg, #6C5CE7, #3B82F6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               به خاطر نتیجه واقعی
             </span>
-            {" "}ماینلند را انتخاب می‌کنند.
+            {" "}مایلند را انتخاب می‌کنند.
           </h2>
           <p className="mx-auto text-base" style={{ maxWidth: "700px", color: "#64748B", lineHeight: "1.9" }}>
             تمرکز ما فقط روی ظاهر جذاب نیست؛ معیار اصلی، پیشرفت قابل سنجش دانش‌آموز و صرفه‌جویی زمانی برای معلم است.
@@ -49,7 +49,7 @@ export function TeacherWorld() {
         <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
           {resultCards.map((item) => (
             <StaggerItem key={item.title}>
-              <div className="h-full rounded-2xl p-6" style={{ background: "#FFFFFF", border: "1px solid rgba(15,23,42,0.08)" }}>
+              <div className="h-full rounded-2xl p-6" style={{ background: "#FFFFFF", border: "1px solid rgba(15,23,42,0.08)", boxShadow: "0 8px 24px rgba(15,23,42,0.06)" }}>
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: "linear-gradient(135deg, #6C5CE7, #3B82F6)" }}>
                   <item.Icon className="w-5 h-5 text-white" />
                 </div>
@@ -60,8 +60,8 @@ export function TeacherWorld() {
           ))}
         </Stagger>
 
-        <Reveal className="mb-8">
-          <div className="rounded-2xl p-6 md:p-8" style={{ background: "#FFFFFF", border: "1px solid rgba(15,23,42,0.08)" }}>
+        <Reveal>
+          <div className="rounded-2xl p-6 md:p-8" style={{ background: "#FFFFFF", border: "1px solid rgba(15,23,42,0.08)", boxShadow: "0 8px 24px rgba(15,23,42,0.06)" }}>
             <div className="flex items-center gap-2 mb-5">
               <Building2 className="w-5 h-5" style={{ color: "#6C5CE7" }} />
               <p className="font-bold" style={{ color: "#0F172A" }}>برخی مدارس و مراکز همکار</p>
@@ -74,33 +74,6 @@ export function TeacherWorld() {
               ))}
             </div>
           </div>
-        </Reveal>
-
-        <Reveal className="grid md:grid-cols-2 gap-5">
-          <article className="rounded-2xl p-6" style={{ background: "#FFFFFF", border: "1px solid rgba(15,23,42,0.08)" }}>
-            <div className="inline-flex gap-1 mb-3" style={{ color: "#F59E0B" }}>
-              <Star className="w-4 h-4 fill-current" />
-              <Star className="w-4 h-4 fill-current" />
-              <Star className="w-4 h-4 fill-current" />
-              <Star className="w-4 h-4 fill-current" />
-              <Star className="w-4 h-4 fill-current" />
-            </div>
-            <p className="text-sm mb-4" style={{ color: "#334155", lineHeight: "1.9" }}>
-              «قبل از ماینلند نگران بودم پسرم فقط مصرف‌کننده موبایل باشد. الان هر هفته پروژه جدید نشان می‌دهد و اعتمادبه‌نفسش کاملا تغییر کرده.»
-            </p>
-            <p className="text-sm font-bold" style={{ color: "#0F172A" }}>مریم نادری - مادر دانش‌آموز ۱۱ ساله</p>
-          </article>
-
-          <article className="rounded-2xl p-6" style={{ background: "#FFFFFF", border: "1px solid rgba(15,23,42,0.08)" }}>
-            <div className="inline-flex items-center gap-2 mb-3">
-              <GraduationCap className="w-4 h-4" style={{ color: "#6C5CE7" }} />
-              <span className="text-sm font-bold" style={{ color: "#4338CA" }}>نظر معلم</span>
-            </div>
-            <p className="text-sm mb-4" style={{ color: "#334155", lineHeight: "1.9" }}>
-              «با ابزار تولید محتوا و آزمون‌ساز ماینلند، زمان آماده‌سازی کلاس من خیلی کمتر شده و تمرکزم روی آموزش بهتر دانش‌آموزهاست.»
-            </p>
-            <p className="text-sm font-bold" style={{ color: "#0F172A" }}>خانم احمدی - معلم علوم کامپیوتر</p>
-          </article>
         </Reveal>
       </Container>
     </section>

@@ -17,21 +17,34 @@ function digitSum(n: number): number {
     .reduce((sum, d) => sum + Number(d), 0)
 }
 
-/** نمایش یک عدد به‌صورت رقم‌های جدا — برای هایلایت رقم آخر یا مجموع رقم‌ها */
-function DigitRow({ value, highlightLast }: { value: number; highlightLast?: boolean }) {
+/** تفاضل متناوب رقم‌ها از چپ (رقم اول +، دومی −، ...) — نشانهٔ بخش‌پذیری بر ۱۱ */
+function alternatingSum(n: number): number {
+  return String(Math.abs(n))
+    .split('')
+    .reduce((sum, d, i) => sum + (i % 2 === 0 ? Number(d) : -Number(d)), 0)
+}
+
+type DigitHighlight = 'last' | 'lastTwo' | 'lastThree' | 'alternating'
+
+/** نمایش یک عدد به‌صورت رقم‌های جدا — برای هایلایت رقم آخر، دو/سه رقم آخر یا تفاضل متناوب */
+function DigitRow({ value, highlight }: { value: number; highlight?: DigitHighlight }) {
   const digits = String(Math.abs(value)).split('')
+  const tailCount = highlight === 'lastThree' ? 3 : highlight === 'lastTwo' ? 2 : highlight === 'last' ? 1 : 0
   return (
     <div className="flex items-center justify-center gap-1.5" dir="ltr">
       {digits.map((d, i) => {
-        const isLast = i === digits.length - 1
+        const inTail = tailCount > 0 && i >= digits.length - tailCount
+        const isPlus = i % 2 === 0
+        let cls = 'bg-slate-100 text-slate-700'
+        if (inTail) cls = 'bg-amber-400 text-amber-950 ring-4 ring-amber-200'
+        else if (highlight === 'alternating')
+          cls = isPlus ? 'bg-emerald-200 text-emerald-900' : 'bg-rose-200 text-rose-900'
         return (
           <span
             key={i}
             className={[
               'flex h-12 w-10 items-center justify-center rounded-xl text-2xl font-black transition-colors',
-              highlightLast && isLast
-                ? 'bg-amber-400 text-amber-950 ring-4 ring-amber-200'
-                : 'bg-slate-100 text-slate-700',
+              cls,
             ].join(' ')}
           >
             {toFa(d)}
@@ -42,10 +55,15 @@ function DigitRow({ value, highlightLast }: { value: number; highlightLast?: boo
   )
 }
 
+function tailNumber(n: number, count: number): number {
+  return Math.abs(n) % 10 ** count
+}
+
 function NumberFactCard({ number, divisor, highlight }: { number: number; divisor: number; highlight: DivisibilityParams['highlight'] }) {
   const remainder = ((number % divisor) + divisor) % divisor
   const divisible = remainder === 0
   const sum = digitSum(number)
+  const digits = String(Math.abs(number)).split('')
 
   return (
     <div className="flex flex-col items-center gap-4 py-4">
@@ -53,15 +71,37 @@ function NumberFactCard({ number, divisor, highlight }: { number: number; diviso
         <>
           <DigitRow value={number} />
           <p className="text-lg font-bold text-slate-600">
-            مجموع رقم‌ها: {String(number).split('').map(toFa).join(' + ')} = {toFa(sum)}
+            مجموع رقم‌ها: {digits.map(toFa).join(' + ')} = {toFa(sum)}
           </p>
           <p className="text-sm text-slate-500">
             آیا {toFa(sum)} بر {toFa(divisor)} بخش‌پذیر است؟
           </p>
         </>
+      ) : highlight === 'alternatingSum' ? (
+        <>
+          <DigitRow value={number} highlight="alternating" />
+          <p className="text-lg font-bold text-slate-600" dir="ltr">
+            {digits.map((d, i) => `${i === 0 ? '' : i % 2 === 0 ? ' + ' : ' − '}${toFa(d)}`).join('')} ={' '}
+            {toFa(alternatingSum(number))}
+          </p>
+          <p className="text-sm text-slate-500">
+            اگر تفاضل متناوب رقم‌ها بر ۱۱ بخش‌پذیر باشد (یا صفر شود)، خود عدد هم بر ۱۱ بخش‌پذیر است.
+          </p>
+        </>
+      ) : highlight === 'lastTwo' || highlight === 'lastThree' ? (
+        <>
+          <DigitRow value={number} highlight={highlight === 'lastTwo' ? 'lastTwo' : 'lastThree'} />
+          <p className="text-lg font-bold text-slate-600">
+            {highlight === 'lastTwo' ? 'دو رقم آخر' : 'سه رقم آخر'}:{' '}
+            {toFa(tailNumber(number, highlight === 'lastTwo' ? 2 : 3))}
+          </p>
+          <p className="text-sm text-slate-500">
+            کافی است همین بخش را بر {toFa(divisor)} بررسی کنیم.
+          </p>
+        </>
       ) : highlight === 'lastDigit' ? (
         <>
-          <DigitRow value={number} highlightLast />
+          <DigitRow value={number} highlight="last" />
           <p className="text-sm text-slate-500">رقم یکان را نگاه کن.</p>
         </>
       ) : (

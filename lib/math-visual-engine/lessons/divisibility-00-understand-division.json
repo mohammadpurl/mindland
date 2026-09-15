@@ -1,0 +1,372 @@
+{
+  "id": "divisibility-00-understand-division",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 0,
+  "level": 1,
+  "title": "درس آماده‌سازی — تقسیم را واقعاً بفهمیم",
+  "description": "پیش‌نیاز بخش‌پذیری: مقسوم، مقسوم‌علیه، خارج‌قسمت و باقی‌مانده را با تجربه کشف کن و ببین باقی‌ماندهٔ صفر یعنی چه.",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "s1-problem",
+      "message": "یک عدد داریم: بیست‌وهفت. یک سؤال ساده دارم؛ اگر بخواهیم این ۲۷ تا را کاملاً عادلانه بین ۴ گروه تقسیم کنیم، چه اتفاقی می‌افتد؟",
+      "animation": "StandingGreeting",
+      "emotion": "curious",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "s1-grouping",
+      "title": "صحنه ۱ — خودت تقسیم کن",
+      "speak": "اشیا را یکی‌یکی بین چهار گروه پخش کن تا همه‌ی گروه‌ها برابر شوند و دیگر نتوانی گروه کامل دیگری بسازی.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": { "variant": "grouping", "total": 27, "groups": 4 }
+      },
+      "successMessage": "چهار گروهِ کامل ساختیم، اما ۳ تا هنوز باقی مانده. حالا ببینیم هر عدد چه نقشی داشت.",
+      "wrongMessage": "همه‌ی گروه‌ها باید برابر باشند و باقی‌مانده باید کمتر از ۴ باشد. کمی دیگر پخش کن."
+    },
+    {
+      "type": "practice",
+      "id": "s2-roles-27",
+      "title": "صحنه ۲ — چهار نقش مهم تقسیم",
+      "speak": "این عبارت را داریم: بیست‌وهفت تقسیم بر چهار می‌شود شش، باقیمانده سه. یکی‌یکی می‌پرسم؛ روی عدد درست کلیک کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "roles",
+          "title": "۲۷ ÷ ۴ = ۶ باقیمانده ۳",
+          "dividend": 27,
+          "divisor": 4,
+          "quotient": 6,
+          "remainder": 3,
+          "asks": ["dividend", "divisor", "quotient", "remainder"]
+        }
+      },
+      "successMessage": "عالی! مقسوم، مقسوم‌علیه، خارج‌قسمت و باقی‌مانده را شناختی.",
+      "wrongMessage": "به سؤال دقت کن؛ کدام عدد این نقش را دارد؟"
+    },
+    {
+      "type": "practice",
+      "id": "s3-roles-38",
+      "title": "صحنه ۳ — چهار عدد را به خاطر بسپار، نه چهار تعریف را",
+      "speak": "حالا یک مثال تازه: سی‌وهشت تقسیم بر پنج می‌شود هفت، باقیمانده سه. باز هم نقش هر عدد را پیدا کن.",
+      "animation": "Talking",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "roles",
+          "title": "۳۸ ÷ ۵ = ۷ باقیمانده ۳",
+          "dividend": 38,
+          "divisor": 5,
+          "quotient": 7,
+          "remainder": 3,
+          "asks": ["quotient", "remainder", "dividend", "divisor"]
+        }
+      },
+      "successMessage": "آفرین! جای عددها عوض شد ولی تو نقش‌ها را بلدی، نه فقط جای اعداد را.",
+      "wrongMessage": "نقش‌ها همان‌اند؛ فقط عددها تغییر کرده‌اند."
+    },
+    {
+      "type": "teach",
+      "id": "s4-relation-teach",
+      "title": "صحنه ۴ — راز بزرگ تقسیم",
+      "speak": "حالا رازی داریم که اگر بفهمی‌اش، می‌توانی خیلی از تقسیم‌ها را بدون انجام دادنشان بررسی کنی. عددهای ۲۷ ÷ ۴ = ۶ باقیمانده ۳ را این‌طور بازسازی می‌کنیم: چهار ضربدر شش به‌علاوهٔ سه می‌شود بیست‌وهفت.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "division",
+        "mode": "static",
+        "params": {
+          "variant": "relation",
+          "title": "۴ × ۶ + ۳ = ۲۷",
+          "dividend": 27,
+          "divisor": 4,
+          "quotient": 6,
+          "remainder": 3
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "s4-relation-practice",
+      "title": "صحنه ۴ — چهارمی را پیدا کن",
+      "speak": "اگر فقط سه عدد را به تو بدهم، می‌توانی چهارمی را پیدا کنی؟ مقسوم چهل‌وهفت، مقسوم‌علیه شش، خارج‌قسمت هفت. باقی‌مانده چند است؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "relation",
+          "title": "۴۷ = ۶ × ۷ + ؟",
+          "dividend": 47,
+          "divisor": 6,
+          "quotient": 7,
+          "missing": "remainder"
+        }
+      },
+      "successMessage": "درست است! ۶ × ۷ می‌شود ۴۲ و تا ۴۷ فاصله‌اش ۵ است؛ پس باقی‌مانده ۵ است.",
+      "wrongMessage": "اول ۶ × ۷ را حساب کن، بعد ببین تا ۴۷ چقدر مانده."
+    },
+    {
+      "type": "practice",
+      "id": "s5-remainder-check",
+      "title": "صحنه ۵ — قانون مخفی باقی‌مانده",
+      "speak": "یک دانش‌آموز برای بیست‌ونه تقسیم بر شش گفته «چهار باقیمانده هفت». به نظرت این جواب ممکن است؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "remainder-check",
+          "title": "آیا ۲۹ ÷ ۶ = ۴ باقیمانده ۷ درست است؟",
+          "dividend": 29,
+          "divisor": 6,
+          "claimQuotient": 4,
+          "claimRemainder": 7
+        }
+      },
+      "successMessage": "درست تشخیص دادی! باقی‌مانده ۷ از مقسوم‌علیه ۶ کوچک‌تر نیست، پس می‌شد یک گروه کامل دیگر ساخت.",
+      "wrongMessage": "باقی‌مانده را با مقسوم‌علیه مقایسه کن."
+    },
+    {
+      "type": "practice",
+      "id": "s5-rule-why",
+      "title": "صحنه ۵ — از کجا فهمیدی؟",
+      "speak": "از کجا فهمیدی آن جواب ممکن نیست؟ دلیل درست را انتخاب کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "چرا «۴ باقیمانده ۷» برای ۲۹ ÷ ۶ ممکن نیست؟",
+          "choices": [
+            { "label": "چون باقی‌مانده همیشه باید از مقسوم‌علیه کوچک‌تر باشد", "correct": true, "note": "اگر باقی‌مانده به‌اندازهٔ مقسوم‌علیه یا بیشتر باشد، هنوز یک گروه کامل دیگر جا می‌شود." },
+            { "label": "چون خارج‌قسمت باید عدد زوج باشد", "correct": false },
+            { "label": "چون مقسوم باید بر مقسوم‌علیه بخش‌پذیر باشد", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "دقیقاً! باقی‌مانده < مقسوم‌علیه.",
+      "wrongMessage": "به گروه‌بندی فکر کن: اگر باقی‌مانده بزرگ باشد، باز هم گروه ساخته می‌شود."
+    },
+    {
+      "type": "teach",
+      "id": "s5-rule-examples",
+      "title": "صحنه ۵ — یک درست، یک غلط",
+      "speak": "ببین: بیست‌ونه تقسیم بر شش می‌شود چهار باقیمانده پنج و این درست است، چون پنج از شش کوچک‌تر است. اما چهار باقیمانده یازده غلط است، چون یازده از شش بزرگ‌تر است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "division",
+        "mode": "static",
+        "params": {
+          "variant": "remainder-check",
+          "title": "۲۹ ÷ ۶ = ۳ باقیمانده ۱۱ ❌",
+          "dividend": 29,
+          "divisor": 6,
+          "claimQuotient": 3,
+          "claimRemainder": 11
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "s6-sort",
+      "title": "صحنه ۶ — تقسیم کامل یا ناقص؟",
+      "speak": "این چهار تقسیم را در دو دسته بگذار: «تقسیم کامل» یعنی باقی‌مانده صفر، و «دارای باقی‌مانده» یعنی باقی‌مانده بزرگ‌تر از صفر.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "sort",
+          "prompt": "کدام‌ها تقسیم کامل‌اند و کدام‌ها باقی‌مانده دارند؟",
+          "items": [
+            { "dividend": 24, "divisor": 6 },
+            { "dividend": 25, "divisor": 6 },
+            { "dividend": 35, "divisor": 5 },
+            { "dividend": 38, "divisor": 5 }
+          ]
+        }
+      },
+      "successMessage": "آفرین! ۲۴ ÷ ۶ و ۳۵ ÷ ۵ کامل‌اند؛ آن دوتای دیگر باقی‌مانده دارند.",
+      "wrongMessage": "به باقی‌ماندهٔ هر تقسیم نگاه کن: صفر یعنی کامل."
+    },
+    {
+      "type": "speak",
+      "id": "s7-question",
+      "message": "حالا یک سؤال مهم‌تر؛ وقتی باقی‌مانده صفر است، یعنی چه اتفاقی افتاده؟ درست است: چیزی باقی نمانده و همه‌چیز دقیقاً در گروه‌های کامل جا شده.",
+      "animation": "Thinking",
+      "emotion": "curious",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "s7-divisibility-born",
+      "title": "صحنه ۷ — اینجا «بخش‌پذیری» متولد می‌شود",
+      "speak": "وقتی می‌گوییم بیست‌وچهار بر شش بخش‌پذیر است، یعنی چه؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "«۲۴ بر ۶ بخش‌پذیر است» یعنی چه؟",
+          "choices": [
+            { "label": "یعنی ۲۴ ÷ ۶ انجام می‌شود و باقی‌مانده صفر می‌شود", "correct": true, "note": "اگر باقی‌مانده صفر شود، می‌گوییم عدد اول بر عدد دوم بخش‌پذیر است." },
+            { "label": "یعنی ۲۴ از ۶ بزرگ‌تر است", "correct": false },
+            { "label": "یعنی ۲۴ و ۶ هر دو زوج‌اند", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "دقیقاً همین! باقی‌ماندهٔ صفر یعنی بخش‌پذیر.",
+      "wrongMessage": "کلید ماجرا باقی‌مانده است، نه بزرگی یا زوج بودن."
+    },
+    {
+      "type": "speak",
+      "id": "s7-definition",
+      "message": "پس تعریف این است: اگر عددی را بر عدد دیگری تقسیم کنیم و باقی‌مانده صفر شود، می‌گوییم آن عدد بر عدد دوم بخش‌پذیر است. تو خودت این مفهوم را کشف کردی، نه اینکه از اول حفظش کنی.",
+      "animation": "ThumbsUp",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "s8-level1",
+      "title": "صحنه ۸ — تمرین سطح ۱: شناخت",
+      "speak": "سطح اول: در عبارت چهل‌وپنج تقسیم بر هفت می‌شود شش باقیمانده سه، نقش هر عدد را پیدا کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "roles",
+          "title": "۴۵ ÷ ۷ = ۶ باقیمانده ۳",
+          "dividend": 45,
+          "divisor": 7,
+          "quotient": 6,
+          "remainder": 3,
+          "asks": ["divisor", "quotient", "remainder", "dividend"]
+        }
+      },
+      "successMessage": "هر چهار نقش درست!",
+      "wrongMessage": "نقش‌ها را به یاد بیاور."
+    },
+    {
+      "type": "practice",
+      "id": "s8-level2",
+      "title": "صحنه ۸ — تمرین سطح ۲: بازسازی",
+      "speak": "سطح دوم: مقسوم پنجاه‌وهشت، مقسوم‌علیه هفت، خارج‌قسمت هشت. باقی‌مانده را پیدا کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "relation",
+          "title": "۵۸ = ۷ × ۸ + ؟",
+          "dividend": 58,
+          "divisor": 7,
+          "quotient": 8,
+          "missing": "remainder"
+        }
+      },
+      "successMessage": "درست است! ۷ × ۸ می‌شود ۵۶ و باقی‌مانده ۲ است.",
+      "wrongMessage": "۷ × ۸ را حساب کن و ببین تا ۵۸ چقدر مانده."
+    },
+    {
+      "type": "practice",
+      "id": "s8-level3",
+      "title": "صحنه ۸ — تمرین سطح ۳: استدلال",
+      "speak": "سطح سوم: یک دانش‌آموز گفته در تقسیم چهل‌وهفت بر شش، باقی‌مانده می‌تواند شش باشد. درست است یا غلط؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "quiz",
+        "mode": "interactive",
+        "params": {
+          "prompt": "«در ۴۷ ÷ ۶ باقی‌مانده می‌تواند ۶ باشد.» — درست یا غلط؟",
+          "choices": [
+            { "label": "غلط است، چون باقی‌مانده باید از مقسوم‌علیه کوچک‌تر باشد", "correct": true, "note": "باقی‌مانده ۶ برابر مقسوم‌علیه است؛ پس یک گروه کامل دیگر جا می‌شود و خارج‌قسمت یکی زیاد می‌شود." },
+            { "label": "درست است، چون ۶ عددی کوچک است", "correct": false },
+            { "label": "درست است، چون ۴۷ فرد است", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "آفرین! باقی‌مانده هیچ‌وقت برابر یا بزرگ‌تر از مقسوم‌علیه نمی‌شود.",
+      "wrongMessage": "باقی‌مانده ۶ را با مقسوم‌علیه ۶ مقایسه کن."
+    },
+    {
+      "type": "practice",
+      "id": "s9-golden-ok",
+      "title": "صحنه ۹ — چالش طلایی (۱)",
+      "speak": "حالا دیگر فقط جواب نمی‌دهی؛ می‌خواهم اشتباه یک نفر دیگر را پیدا کنی. این جواب را بررسی کن: شصت‌وسه تقسیم بر هشت می‌شود هفت باقیمانده هفت.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "remainder-check",
+          "title": "آیا ۶۳ ÷ ۸ = ۷ باقیمانده ۷ درست است؟",
+          "dividend": 63,
+          "divisor": 8,
+          "claimQuotient": 7,
+          "claimRemainder": 7
+        }
+      },
+      "successMessage": "درست است! ۷ × ۸ + ۷ می‌شود ۶۳ و باقی‌مانده ۷ از ۸ کوچک‌تر است.",
+      "wrongMessage": "هم رابطه را چک کن، هم باقی‌مانده را با مقسوم‌علیه مقایسه کن."
+    },
+    {
+      "type": "practice",
+      "id": "s9-golden-wrong",
+      "title": "صحنه ۹ — چالش طلایی (۲)",
+      "speak": "و این یکی: شصت‌وسه تقسیم بر هشت می‌شود شش باقیمانده پانزده. درست است یا غلط؟ چرا؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "division",
+        "mode": "interactive",
+        "params": {
+          "variant": "remainder-check",
+          "title": "آیا ۶۳ ÷ ۸ = ۶ باقیمانده ۱۵ درست است؟",
+          "dividend": 63,
+          "divisor": 8,
+          "claimQuotient": 6,
+          "claimRemainder": 15
+        }
+      },
+      "successMessage": "درست تشخیص دادی! باقی‌مانده ۱۵ از مقسوم‌علیه ۸ بزرگ‌تر است، پس هنوز جا برای گروه کامل دیگری هست.",
+      "wrongMessage": "پانزده از هشت بزرگ‌تر است؛ این یعنی چه؟"
+    },
+    {
+      "type": "teach",
+      "id": "s10-transition",
+      "title": "صحنه ۱۰ — انتقال به بخش‌پذیری",
+      "speak": "دو تقسیم ساده: سی‌وشش تقسیم بر شش می‌شود شش با باقیمانده صفر، و سی‌وهفت تقسیم بر شش می‌شود شش با باقیمانده یک. یکی کامل است و یکی نه.",
+      "animation": "Talking",
+      "visual": {
+        "type": "division",
+        "mode": "static",
+        "params": {
+          "variant": "sort",
+          "title": "یکی کامل، یکی دارای باقی‌مانده",
+          "items": [
+            { "dividend": 36, "divisor": 6 },
+            { "dividend": 37, "divisor": 6 }
+          ]
+        }
+      }
+    },
+    {
+      "type": "speak",
+      "id": "s10-mission",
+      "message": "حالا آماده‌ایم یک راز بزرگ‌تر را کشف کنیم: چطور بدون انجام دادنِ تقسیم بفهمیم یک عدد باقی‌مانده دارد یا نه؟ با دکمهٔ درس بعدی وارد مأموریت بخش‌پذیری می‌شوی. 🚀",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    }
+  ]
+}

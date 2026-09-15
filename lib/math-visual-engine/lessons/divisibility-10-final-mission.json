@@ -1,0 +1,171 @@
+{
+  "id": "divisibility-10-final-mission",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 10,
+  "level": 5,
+  "title": "درس ۱۰ — مأموریت نهایی مایلند",
+  "description": "برای هر عدد، هم بخش‌پذیری را تشخیص بده و هم روشی که با آن به جواب رسیدی",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "آخرین مأموریت را فقط با کسانی انجام می‌دهم که رازهای بخش‌پذیری را واقعاً یاد گرفته‌اند. این‌بار برای هر جواب، باید روش تشخیص را هم انتخاب کنی.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "meet-7920",
+      "title": "عدد مأموریت: ۷٬۹۲۰",
+      "speak": "عدد امروز هفت هزار و نهصدوبیست است. این عدد راز زیادی در خودش دارد. بیا یکی‌یکی نشانه‌هایش را باز کنیم.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۷٬۹۲۰ — مجموع رقم‌ها = ۱۸",
+          "number": 7920,
+          "divisor": 9,
+          "highlight": "digitSum"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "method-9",
+      "title": "روش تشخیص — بخش‌پذیری بر ۹",
+      "speak": "برای بررسی بخش‌پذیری ۷٬۹۲۰ بر ۹ از چه روشی استفاده می‌کنی؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "برای بخش‌پذیری بر ۹، کدام روش؟",
+          "choices": [
+            { "label": "جمع رقم‌ها (۷+۹+۲+۰=۱۸)", "correct": true },
+            { "label": "رقم یکان", "correct": false },
+            { "label": "سه رقم آخر", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! مجموع رقم‌ها ۱۸ است و ۱۸ بر ۹ بخش‌پذیر است — پس ۷٬۹۲۰ بر ۹ بخش‌پذیر است.",
+      "wrongMessage": "برای ۳ و ۹ همیشه سراغ جمع رقم‌ها برو."
+    },
+    {
+      "type": "practice",
+      "id": "method-8",
+      "title": "روش تشخیص — بخش‌پذیری بر ۸",
+      "speak": "برای بخش‌پذیری بر ۸ چطور؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "برای بخش‌پذیری ۷٬۹۲۰ بر ۸، کدام روش؟",
+          "choices": [
+            { "label": "سه رقم آخر (۹۲۰ ÷ ۸ = ۱۱۵)", "correct": true },
+            { "label": "جمع رقم‌ها", "correct": false },
+            { "label": "رقم یکان", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "آفرین! سه رقم آخر می‌شود ۹۲۰ و ۹۲۰ بر ۸ بخش‌پذیر است — پس ۷٬۹۲۰ هم بر ۸ بخش‌پذیر است.",
+      "wrongMessage": "برای ۸ فقط سه رقم آخر مهم است."
+    },
+    {
+      "type": "practice",
+      "id": "method-11",
+      "title": "روش تشخیص — بخش‌پذیری بر ۱۱",
+      "speak": "و برای ۱۱؟",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "برای بخش‌پذیری ۷٬۹۲۰ بر ۱۱، کدام روش؟",
+          "choices": [
+            { "label": "تفاضل متناوب رقم‌ها (۷−۹+۲−۰=۰)", "correct": true },
+            { "label": "جمع رقم‌ها", "correct": false },
+            { "label": "دو رقم آخر", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "عالی! تفاضل متناوب رقم‌ها صفر می‌شود، پس ۷٬۹۲۰ بر ۱۱ هم بخش‌پذیر است. این عدد واقعاً پر از راز بود!",
+      "wrongMessage": "نشانهٔ ۱۱ تفاضل متناوب رقم‌هاست: یکی‌درمیان جمع و کم."
+    },
+    {
+      "type": "practice",
+      "id": "fill-blank-9",
+      "title": "تمرین جای خالی ۱",
+      "speak": "کدام رقم را جای مربع بگذاریم؟",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "در عدد ۴۷□۲، کدام رقم جای □ بگذاریم تا عدد بر ۹ بخش‌پذیر شود؟",
+          "choices": [
+            { "label": "۵", "correct": true },
+            { "label": "۳", "correct": false },
+            { "label": "۷", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! چهار به‌علاوه‌ی هفت به‌علاوه‌ی پنج به‌علاوه‌ی دو می‌شود هجده، و هجده بر ۹ بخش‌پذیر است.",
+      "wrongMessage": "مجموع رقم‌های معلوم ۴+۷+۲=۱۳ است. دنبال رقمی بگرد که ۱۳ به‌علاوه‌ی آن بر ۹ بخش‌پذیر شود."
+    },
+    {
+      "type": "practice",
+      "id": "fill-blank-3-5",
+      "title": "تمرین جای خالی ۲",
+      "speak": "این‌بار دو شرط با هم.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "در عدد ۵۳□۵، کدام رقم جای □ بگذاریم تا هم بر ۳ و هم بر ۵ بخش‌پذیر شود؟",
+          "choices": [
+            { "label": "۲", "correct": true },
+            { "label": "۰", "correct": false },
+            { "label": "۴", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "آفرین! رقم آخر پنج است پس شرط ۵ برقرار است. پنج به‌علاوه‌ی سه به‌علاوه‌ی دو به‌علاوه‌ی پنج می‌شود پانزده — بر ۳ بخش‌پذیر.",
+      "wrongMessage": "رقم آخر که ۵ است، پس فقط باید مجموع رقم‌ها بر ۳ بخش‌پذیر شود. ۵+۳+۵=۱۳؛ چه رقمی اضافه کنیم؟"
+    },
+    {
+      "type": "speak",
+      "id": "closing",
+      "message": "تو امروز یاد نگرفتی چند قانون را حفظ کنی. یاد گرفتی از خودِ عدد سرنخ پیدا کنی. حالا یک چالش اختیاری تیزهوشانه هم داری.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "genius-challenge",
+      "title": "چالش تیزهوشانه (اختیاری)",
+      "speak": "کوچک‌ترین عدد پنج‌رقمی را پیدا کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کوچک‌ترین عدد پنج‌رقمی که هم بر ۲، هم بر ۳، هم بر ۵ و هم بر ۱۱ بخش‌پذیر باشد کدام است؟",
+          "choices": [
+            { "label": "۱۰٬۲۳۰", "correct": true },
+            { "label": "۱۰٬۰۰۰", "correct": false },
+            { "label": "۱۱٬۰۰۰", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "تبریک، کارآگاه عددها! عددی که هم‌زمان بر ۲، ۳، ۵ و ۱۱ بخش‌پذیر باشد باید بر ۳۳۰ بخش‌پذیر باشد؛ کوچک‌ترین پنج‌رقمی‌اش ۱۰٬۲۳۰ است.",
+      "wrongMessage": "عددی می‌خواهیم که بر ۲ و ۳ و ۵ و ۱۱ بخش‌پذیر باشد — یعنی بر ۲×۳×۵×۱۱=۳۳۰. اولین پنج‌رقمی از مضرب‌های ۳۳۰ کدام است؟"
+    }
+  ]
+}

@@ -34,10 +34,10 @@ export function ClassFormats() {
           <div className="order-2 lg:order-1">
             <div className="rounded-3xl overflow-hidden border border-slate-100 shadow-[0_14px_38px_rgba(15,23,42,0.12)]">
               <Image
-                src="/Images/Hero2.png"
-                alt="فضای آموزشی تصویری و جذاب ماینلند برای کودکان"
-                width={1024}
-                height={576}
+                src="/Images/teacherScroll3.png"
+                alt="فضای آموزشی تصویری و جذاب مایلند برای کودکان"
+                width={1456}
+                height={816}
                 className="w-full h-auto object-cover min-h-[300px] lg:min-h-[520px]"
               />
             </div>
@@ -46,10 +46,10 @@ export function ClassFormats() {
           <div dir="rtl" className="order-1 lg:order-2 lg:col-span-2">
             <header className="mb-5 md:mb-7">
               <h2 className="text-2xl md:text-3xl font-extrabold text-slate-800 mb-3">
-                نحوه برگزاری کلاس‌ها و آموزش‌های ماینلند
+                نحوه برگزاری کلاس‌ها و آموزش‌های مایلند
               </h2>
               <p className="text-sm md:text-base leading-8 text-slate-600 max-w-none mb-3">
-                در ماینلند، آموزش‌ها با رویکردی پروژه‌محور در حوزه هوش مصنوعی و برنامه‌نویسی برگزار می‌شوند تا هر دانشجو
+                در مایلند، آموزش‌ها با رویکردی پروژه‌محور در حوزه هوش مصنوعی و برنامه‌نویسی برگزار می‌شوند تا هر دانشجو
                 بتواند متناسب با هدف، شرایط و سبک یادگیری خودش مسیر مناسبی را انتخاب کند.
               </p>
               <p className="text-sm md:text-base leading-8 text-slate-600 max-w-none">

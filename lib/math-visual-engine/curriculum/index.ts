@@ -39,10 +39,17 @@ import geometry02 from '../lessons/geometry-02-angles.json'
 import geometry03 from '../lessons/geometry-03-circle-area.json'
 import ratio01 from '../lessons/ratio-01-percent-intro.json'
 import ratio02 from '../lessons/ratio-02-percent-discount.json'
+import divisibility00 from '../lessons/divisibility-00-understand-division.json'
 import divisibility01 from '../lessons/divisibility-01-concept.json'
 import divisibility02 from '../lessons/divisibility-02-rule-2-5-10.json'
 import divisibility03 from '../lessons/divisibility-03-rule-3-9.json'
 import divisibility04 from '../lessons/divisibility-04-detective-challenge.json'
+import divisibility05 from '../lessons/divisibility-05-big-numbers.json'
+import divisibility06 from '../lessons/divisibility-06-rule-4-8.json'
+import divisibility07 from '../lessons/divisibility-07-rule-11.json'
+import divisibility08 from '../lessons/divisibility-08-combine-12-15.json'
+import divisibility09 from '../lessons/divisibility-09-error-hunt.json'
+import divisibility10 from '../lessons/divisibility-10-final-mission.json'
 
 const CURRICULUM = curriculumData as Curriculum
 
@@ -85,10 +92,17 @@ const LESSON_RAW: Record<string, OrchestratorLessonInput> = {
   [geometry03.id]: geometry03 as OrchestratorLessonInput,
   [ratio01.id]: ratio01 as OrchestratorLessonInput,
   [ratio02.id]: ratio02 as OrchestratorLessonInput,
+  [divisibility00.id]: divisibility00 as OrchestratorLessonInput,
   [divisibility01.id]: divisibility01 as OrchestratorLessonInput,
   [divisibility02.id]: divisibility02 as OrchestratorLessonInput,
   [divisibility03.id]: divisibility03 as OrchestratorLessonInput,
   [divisibility04.id]: divisibility04 as OrchestratorLessonInput,
+  [divisibility05.id]: divisibility05 as OrchestratorLessonInput,
+  [divisibility06.id]: divisibility06 as OrchestratorLessonInput,
+  [divisibility07.id]: divisibility07 as OrchestratorLessonInput,
+  [divisibility08.id]: divisibility08 as OrchestratorLessonInput,
+  [divisibility09.id]: divisibility09 as OrchestratorLessonInput,
+  [divisibility10.id]: divisibility10 as OrchestratorLessonInput,
 }
 
 function resolveLesson(raw: OrchestratorLessonInput): OrchestratorLesson {

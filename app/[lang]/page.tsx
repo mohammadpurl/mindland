@@ -1,14 +1,21 @@
 /**
- * Landing Page — ماینلند (Mindland Persian)
+ * Landing Page — مایلند (Mindland Persian)
  *
- * Section rhythm (DS §3 dark/light alternation):
- *   Hero          → #0B0F19  Dark   — cinematic dual-path entry
- *   Student World → #0B0F19  Dark   — energetic, gamified, AI
- *   Teacher World → #FFFFFF  Light  — professional, powerful tools
- *   How It Works  → #F7F8FA  Soft   — tab-based journey
- *   Testimonials  → #0B0F19  Dark   — trust / social proof
- *   Pricing       → #FFFFFF  Light  — simple, transparent
- *   Footer        → #0B0F19  Dark   — clean close
+ * Section rhythm (DS §3 — no two adjacent sections share a background,
+ * with one dark anchor mid-page and the dark footer to close):
+ *   Hero            → #0B0F19  Dark    — cinematic entry
+ *   ProgramSchools  → #FFFFFF  Light   — subject picker
+ *   ClassFormats    → slate-50 Soft    — how classes run
+ *   FreeCourse      → #FFFFFF  Light   — free trial CTA
+ *   StudentWorld    → #F8FAFC  Soft    — value proposition (bento)
+ *   TeacherWorld    → #FFFFFF  Light   — results + partner logos
+ *   HowItWorks      → #F8FAFC  Soft    — 3-step numbered path
+ *   Testimonials    → #0B0F19  Dark    — social proof (mid-page anchor)
+ *   Pricing         → #FFFFFF  Light   — plans + comparison
+ *   Footer          → #0B0F19  Dark    — clean close
+ *
+ * NOTE: the StudentWorld / TeacherWorld component names are historical —
+ * they now render the value-proposition and results/trust blocks.
  */
 
 import { Navbar }       from "@/components/nav/navbar";
@@ -90,12 +97,12 @@ export default async function LandingPage({ params }: Props) {
 
       <ProgramSchools lang={locale} />
       <ClassFormats />
-      <FreeCourse />
+      <FreeCourse lang={locale} />
       <StudentWorld />
       <TeacherWorld />
       <HowItWorks />
       <Testimonials />
-      <Pricing />
+      <Pricing lang={locale} />
       <SiteFooter lang={locale} />
     </main>
   );

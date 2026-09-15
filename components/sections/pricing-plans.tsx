@@ -8,10 +8,10 @@ const plans = [
     name: "رایگان",
     price: "۰ تومان",
     unit: "/ همیشه رایگان",
-    description: "برای آشنایی اولیه با محیط و سبک آموزشی ماینلند",
+    description: "برای آشنایی اولیه با محیط و سبک آموزشی مایلند",
     features: ["۱ دانش‌آموز", "دسترسی محدود به دوره‌ها", "گزارش پایه پیشرفت", "پشتیبانی عمومی"],
-    cta: "ساخت حساب رایگان",
-    href: "/fa/signup",
+    cta: "شروع رایگان",
+    href: "/signup",
     featured: false,
   },
   {
@@ -22,7 +22,7 @@ const plans = [
     description: "پلن استاندارد خانواده برای یادگیری مستمر و پروژه‌محور",
     features: ["تا ۲ دانش‌آموز", "دسترسی کامل به دوره‌ها", "مسیر AI شخصی‌سازی‌شده", "گزارش هفتگی والدین", "پشتیبانی اولویت‌دار"],
     cta: "شروع ۷ روز آزمایشی",
-    href: "/fa/signup",
+    href: "/signup",
     featured: true,
   },
   {
@@ -33,12 +33,16 @@ const plans = [
     description: "به‌صرفه‌ترین انتخاب برای خانواده‌های جدی با تخفیف ویژه",
     features: ["تمام امکانات پلن ماهانه", "۱۵٪ تخفیف نسبت به ماهانه", "مشاوره آموزشی فصلی", "اولویت در کلاس‌های جدید"],
     cta: "رزرو پلن سالانه",
-    href: "/fa/signup",
+    href: "/signup",
     featured: false,
   },
 ] as const;
 
-export function PricingPlans() {
+interface PricingPlansProps {
+  lang?: string;
+}
+
+export function PricingPlans({ lang = "fa" }: PricingPlansProps) {
   return (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {plans.map((plan, i) => (
@@ -80,7 +84,7 @@ export function PricingPlans() {
                 <span className="font-extrabold" style={{ fontSize: "1.7rem", color: "#0B0F19", lineHeight: "1" }}>
                   {plan.price}
                 </span>
-                <span className="text-xs mb-1" style={{ color: "#9CA3AF" }}>{plan.unit}</span>
+                <span className="text-xs mb-1" style={{ color: "#6B7280" }}>{plan.unit}</span>
               </div>
 
               <p className="text-sm mb-8" style={{ color: "#6B7280", lineHeight: "1.75", maxWidth: "none" }}>
@@ -97,7 +101,7 @@ export function PricingPlans() {
               </ul>
 
               <Link
-                href={plan.href}
+                href={`/${lang}${plan.href}`}
                 className="inline-flex items-center justify-center h-12 px-8 rounded-xl font-bold text-sm mt-auto"
                 style={
                   plan.featured

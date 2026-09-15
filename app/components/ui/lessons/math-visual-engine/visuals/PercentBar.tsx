@@ -23,6 +23,16 @@ function toFa(n: number): string {
   return String(n).replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[Number(d)]!)
 }
 
+/** بازخورد تشخیصی هنگام خطا — نه فقط «دوباره امتحان کن» */
+function wrongHint(current: number, target: number | undefined, diagnostic: boolean): string {
+  if (target === undefined) return 'دوباره نگاه کن — نوار را با هدف مقایسه کن.'
+  if (!diagnostic) return 'دوباره نگاه کن — عدد روی نوار را با هدف مقایسه کن.'
+  if (Math.abs(current - (100 - target)) <= 6) {
+    return 'این مقدارِ تخفیف است، نه مبلغی که می‌پردازی. ۱۰۰٪ منهای تخفیف را حساب کن.'
+  }
+  return current > target ? 'کمی زیاد کشیدی — کمترش کن.' : 'کمی کم است — بیشترش کن.'
+}
+
 function PercentBarBoard({
   mode,
   params: rawParams,
@@ -74,11 +84,14 @@ function PercentBarBoard({
     [locked, xToPercent]
   )
 
+  const hideTarget = params.hideTargetValue === true
+  const tolerance = hideTarget ? 4 : SUCCESS_TOLERANCE
+
   const handleDragEnd = useCallback(
     (x: number) => {
       if (locked || params.target === undefined) return
       const p = xToPercent(x)
-      if (Math.abs(p - params.target) <= SUCCESS_TOLERANCE) {
+      if (Math.abs(p - params.target) <= tolerance) {
         setPercent(params.target)
         setMood('happy')
         setLocked(true)
@@ -93,11 +106,11 @@ function PercentBarBoard({
       } else {
         setPercent(p)
         onWrong?.()
-        onSpeak?.('دوباره نگاه کن — عدد روی نوار را با هدف مقایسه کن.')
+        onSpeak?.(wrongHint(p, params.target, hideTarget))
         setAnimation?.('Thinking')
       }
     },
-    [locked, xToPercent, params.target, onSuccess, onWrong, onSpeak, setAnimation]
+    [locked, xToPercent, params.target, tolerance, hideTarget, onSuccess, onWrong, onSpeak, setAnimation]
   )
 
   const fillX = percentToX(percent)
@@ -175,7 +188,9 @@ function PercentBarBoard({
 
       {isInteractive ? (
         <p className="text-center text-sm text-slate-500">
-          دستگیره را بکش تا نوار دقیقاً {toFa(params.target ?? 0)}٪ پر شود (فعلاً {toFa(percent)}٪)
+          {hideTarget
+            ? `دستگیره را بکش تا نوار به مقدار درست برسد (فعلاً ${toFa(percent)}٪)`
+            : `دستگیره را بکش تا نوار دقیقاً ${toFa(params.target ?? 0)}٪ پر شود (فعلاً ${toFa(percent)}٪)`}
         </p>
       ) : null}
     </div>

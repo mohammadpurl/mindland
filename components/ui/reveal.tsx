@@ -8,17 +8,22 @@
  * HoverCard  : whileHover scale 1.02, y -4 (spring)
  * MotionCard : configurable hover — for server-component card shells
  *
- * Reveal/Stagger also force-show their content a couple seconds after
- * mount even if the viewport IntersectionObserver never fires (e.g. a
- * backgrounded tab, a headless screenshot/crawler that never scrolls,
- * or any other edge case) — so sections never end up permanently blank.
+ * Content visibility never depends on the scroll trigger firing:
+ *   - Users with `prefers-reduced-motion` get the final state immediately,
+ *     with no motion wrapper animating opacity/transform at all.
+ *   - Otherwise a short fallback timer force-shows the content shortly
+ *     after mount even if the viewport IntersectionObserver never fires
+ *     (backgrounded tab, headless crawler, in-view on first paint, etc.).
+ *     When forced, the element snaps to the visible state and the
+ *     `whileInView` trigger is dropped so framer-motion cannot hold it
+ *     back at the initial (hidden) state.
  */
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
 
 /** Safety net: guarantee visibility this long after mount even without a scroll trigger. */
-const REVEAL_FALLBACK_MS = 2000;
+const REVEAL_FALLBACK_MS = 1200;
 
 function useRevealFallback() {
   const [forced, setForced] = useState(false);
@@ -47,14 +52,24 @@ interface RevealProps {
 }
 
 export function Reveal({ children, delay = 0, className, style }: RevealProps) {
+  const reduceMotion = useReducedMotion();
   const { forced, markFired } = useRevealFallback();
+
+  if (reduceMotion) {
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
+  }
+
+  const visible = { opacity: 1, y: 0 };
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      animate={forced ? { opacity: 1, y: 0 } : undefined}
-      onViewportEnter={markFired}
-      viewport={{ once: true, margin: "-80px" }}
+      {...(forced
+        ? { animate: visible }
+        : { whileInView: visible, onViewportEnter: markFired, viewport: { once: true, margin: "-80px" } })}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
       style={style}
@@ -78,14 +93,19 @@ export function Stagger({
   delay   = 0,
   stagger = 0.12,
 }: StaggerProps) {
+  const reduceMotion = useReducedMotion();
   const { forced, markFired } = useRevealFallback();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial="hidden"
-      whileInView="visible"
-      animate={forced ? "visible" : undefined}
-      onViewportEnter={markFired}
-      viewport={{ once: true, margin: "-80px" }}
+      {...(forced
+        ? { animate: "visible" }
+        : { whileInView: "visible", onViewportEnter: markFired, viewport: { once: true, margin: "-80px" } })}
       variants={{
         visible: {
           transition: { staggerChildren: stagger, delayChildren: delay },
@@ -106,6 +126,12 @@ export function StaggerItem({
   children:   ReactNode;
   className?: string;
 }) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       variants={{

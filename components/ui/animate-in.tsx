@@ -6,13 +6,16 @@
  * Use instead of motion.div with `animate` when the parent is a Server Component.
  * The children are server-rendered HTML; only the motion wrapper ships as JS.
  *
+ * Users with `prefers-reduced-motion` get the content immediately with no
+ * motion wrapper, so nothing depends on the animation running.
+ *
  * @example
  *   <AnimateIn delay={0.1}>
  *     <h1>دو دنیا. یک پلتفرم.</h1>   ← server-rendered, zero JS cost
  *   </AnimateIn>
  */
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
 
 interface AnimateInProps {
@@ -32,6 +35,16 @@ export function AnimateIn({
   y         = 24,
   x         = 0,
 }: AnimateInProps) {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y, x }}

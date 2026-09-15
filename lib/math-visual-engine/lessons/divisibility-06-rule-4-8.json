@@ -1,0 +1,127 @@
+{
+  "id": "divisibility-06-rule-4-8",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 6,
+  "level": 4,
+  "title": "درس ۶ — بخش‌پذیری بر ۴ و ۸",
+  "description": "برای ۴ فقط دو رقم آخر، برای ۸ فقط سه رقم آخر مهم است",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "برای بعضی عددها لازم نیست کل عدد را بررسی کنیم. برای ۴ و ۸ فقط چند رقم آخر کافی است. بیا ببینیم چرا.",
+      "animation": "StandingGreeting",
+      "emotion": "curious",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-4",
+      "title": "قانون ۴ — دو رقم آخر",
+      "speak": "هزار و سیصدوبیست‌وچهار را نگاه کن. فقط دو رقم آخرش را بردار: بیست‌وچهار. چون بیست‌وچهار بر چهار بخش‌پذیر است، کل عدد هم بر چهار بخش‌پذیر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۱٬۳۲۴ بر ۴ بخش‌پذیر است؟",
+          "number": 1324,
+          "divisor": 4,
+          "highlight": "lastTwo"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-8",
+      "title": "قانون ۸ — سه رقم آخر",
+      "speak": "پنج هزار و دویست‌وشانزده را نگاه کن. این‌بار سه رقم آخر را بردار: دویست‌وشانزده. چون دویست‌وشانزده بر هشت بخش‌پذیر است، کل عدد هم بر هشت بخش‌پذیر است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۵٬۲۱۶ بر ۸ بخش‌پذیر است؟",
+          "number": 5216,
+          "divisor": 8,
+          "highlight": "lastThree"
+        }
+      }
+    },
+    {
+      "type": "speak",
+      "id": "why-it-works",
+      "message": "چرا؟ چون صد همیشه بر چهار بخش‌پذیر است و هزار همیشه بر هشت. پس بخش جلوی عدد هیچ باقی‌مانده‌ای نمی‌سازد و فقط رقم‌های آخر تعیین‌کننده‌اند.",
+      "animation": "Thinking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-4",
+      "title": "تمرین ۱ — کدام عددها بر ۴ بخش‌پذیرند؟",
+      "speak": "فقط به دو رقم آخر هر عدد نگاه کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها بر ۴ بخش‌پذیرند؟ (دو رقم آخر را بررسی کن)",
+          "candidates": [
+            { "value": 116, "correct": true },
+            { "value": 230, "correct": false },
+            { "value": 512, "correct": true },
+            { "value": 334, "correct": false },
+            { "value": 728, "correct": true }
+          ]
+        }
+      },
+      "successMessage": "آفرین! ۱۶، ۱۲ و ۲۸ هر سه بر چهار بخش‌پذیرند، پس ۱۱۶ و ۵۱۲ و ۷۲۸ هم بر چهار بخش‌پذیرند.",
+      "wrongMessage": "دو رقم آخر هر عدد را جدا کن و بر چهار تقسیم کن — اگر باقی‌مانده صفر شد، انتخابش کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-8",
+      "title": "تمرین ۲ — کدام عدد بر ۸ بخش‌پذیر است؟",
+      "speak": "سه رقم آخر هر گزینه را بر هشت بررسی کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عدد بر ۸ بخش‌پذیر است؟",
+          "choices": [
+            { "label": "۳٬۱۲۰", "correct": true },
+            { "label": "۴٬۱۰۰", "correct": false },
+            { "label": "۲٬۰۱۲", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! سه رقم آخر ۳٬۱۲۰ می‌شود ۱۲۰، و ۱۲۰ بر هشت بخش‌پذیر است.",
+      "wrongMessage": "سه رقم آخر هر عدد را بردار و بر هشت تقسیم کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-big-4",
+      "title": "تمرین ۳ — عدد بزرگ، فقط دو رقم آخر",
+      "speak": "عدد بزرگ است، ولی روش همان است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "عدد ۹۲٬۷۱۶ بر ۴ بخش‌پذیر است؟",
+          "choices": [
+            { "label": "بله — دو رقم آخر ۱۶ است و بر ۴ بخش‌پذیر است", "correct": true },
+            { "label": "نه — عدد خیلی بزرگ است", "correct": false },
+            { "label": "نه — رقم یکانش ۶ است", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "عالی! دو رقم آخر ۹۲٬۷۱۶ می‌شود ۱۶، و ۱۶ بر چهار بخش‌پذیر است — پس کل عدد هم بخش‌پذیر است.",
+      "wrongMessage": "بزرگی عدد مهم نیست. فقط دو رقم آخر — یعنی ۱۶ — را بر چهار بررسی کن."
+    }
+  ]
+}

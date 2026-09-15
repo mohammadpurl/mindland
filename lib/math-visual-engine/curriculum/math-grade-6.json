@@ -236,11 +236,11 @@
             {
               "id": "ratio-02-percent-discount",
               "title": "درس ۲ — کاربرد درصد در تخفیف",
-              "description": "وقتی یک چیز تخفیف می‌خورد، چند درصد قیمتش را باید بدهیم؟",
+              "description": "وقتی یک چیز تخفیف می‌خورد، چند درصد قیمتش را باید بدهیم؟ اول حدس بزن، بعد تخمین بزن، بعد حساب کن.",
               "order": 2,
               "level": 4,
-              "teachSteps": 2,
-              "practiceSteps": 2
+              "teachSteps": 3,
+              "practiceSteps": 6
             }
           ]
         },
@@ -324,6 +324,15 @@
           "icon": "🔍",
           "lessons": [
             {
+              "id": "divisibility-00-understand-division",
+              "title": "درس آماده‌سازی — تقسیم را واقعاً بفهمیم",
+              "description": "پیش‌نیاز بخش‌پذیری: مقسوم، مقسوم‌علیه، خارج‌قسمت و باقی‌مانده را با تجربه کشف کن و ببین باقی‌ماندهٔ صفر یعنی چه.",
+              "order": 0,
+              "level": 1,
+              "teachSteps": 3,
+              "practiceSteps": 13
+            },
+            {
               "id": "divisibility-01-concept",
               "title": "درس ۱ — بخش‌پذیری یعنی چه؟",
               "description": "چرا بعضی عددها راحت تقسیم می‌شوند و بعضی‌ها نه؟",
@@ -358,6 +367,60 @@
               "level": 4,
               "teachSteps": 1,
               "practiceSteps": 3
+            },
+            {
+              "id": "divisibility-05-big-numbers",
+              "title": "درس ۵ — رازها روی عددهای بزرگ",
+              "description": "همان نشانه‌ها را روی عددهای خیلی بزرگ اجرا کن — بدون تقسیم طولانی",
+              "order": 5,
+              "level": 4,
+              "teachSteps": 2,
+              "practiceSteps": 3
+            },
+            {
+              "id": "divisibility-06-rule-4-8",
+              "title": "درس ۶ — بخش‌پذیری بر ۴ و ۸",
+              "description": "برای ۴ فقط دو رقم آخر، برای ۸ فقط سه رقم آخر مهم است",
+              "order": 6,
+              "level": 4,
+              "teachSteps": 2,
+              "practiceSteps": 3
+            },
+            {
+              "id": "divisibility-07-rule-11",
+              "title": "درس ۷ — راز ۱۱: تفاضل متناوب رقم‌ها",
+              "description": "این‌بار رقم‌ها را یکی‌درمیان با هم جمع و کم می‌کنیم",
+              "order": 7,
+              "level": 5,
+              "teachSteps": 2,
+              "practiceSteps": 3
+            },
+            {
+              "id": "divisibility-08-combine-12-15",
+              "title": "درس ۸ — ۱۲ و ۱۵ با ترکیب قانون‌ها",
+              "description": "لازم نیست برای هر عدد یک قانون تازه حفظ کنیم — چند راز را با هم ترکیب می‌کنیم",
+              "order": 8,
+              "level": 5,
+              "teachSteps": 3,
+              "practiceSteps": 3
+            },
+            {
+              "id": "divisibility-09-error-hunt",
+              "title": "درس ۹ — شکار اشتباه",
+              "description": "این‌بار فقط جواب درست را انتخاب نمی‌کنی — استدلال غلط را پیدا می‌کنی",
+              "order": 9,
+              "level": 4,
+              "teachSteps": 0,
+              "practiceSteps": 4
+            },
+            {
+              "id": "divisibility-10-final-mission",
+              "title": "درس ۱۰ — مأموریت نهایی مایلند",
+              "description": "برای هر عدد، هم بخش‌پذیری را تشخیص بده و هم روشی که با آن به جواب رسیدی",
+              "order": 10,
+              "level": 5,
+              "teachSteps": 1,
+              "practiceSteps": 6
             }
           ]
         },

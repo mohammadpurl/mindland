@@ -1,0 +1,127 @@
+{
+  "id": "divisibility-07-rule-11",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 7,
+  "level": 5,
+  "title": "درس ۷ — راز ۱۱: تفاضل متناوب رقم‌ها",
+  "description": "این‌بار رقم‌ها را یکی‌درمیان با هم جمع و کم می‌کنیم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "یک قانون عجیب پیدا کردم! این‌بار به‌جای جمع کردن همهٔ رقم‌ها، آن‌ها را یکی‌درمیان با هم جمع و کم می‌کنیم.",
+      "animation": "StandingGreeting",
+      "emotion": "curious",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-11-simple",
+      "title": "قانون ۱۱ — تفاضل متناوب",
+      "speak": "سیصدوپنجاه‌ودو را نگاه کن. از رقم اول شروع کن: سه منهای پنج به‌علاوه‌ی دو می‌شود صفر. چون نتیجه صفر است، سیصدوپنجاه‌ودو بر یازده بخش‌پذیر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۳۵۲ بر ۱۱ بخش‌پذیر است؟",
+          "number": 352,
+          "divisor": 11,
+          "highlight": "alternatingSum"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "rule-of-11-hard",
+      "title": "یک مثال سخت‌تر",
+      "speak": "دوازده هزار و چهارصدوشصت‌وسه را امتحان کن: یک منهای دو به‌علاوه‌ی چهار منهای شش به‌علاوه‌ی سه می‌شود صفر. پس این عدد هم بر یازده بخش‌پذیر است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۱۲٬۴۶۳ بر ۱۱ بخش‌پذیر است؟",
+          "number": 12463,
+          "divisor": 11,
+          "highlight": "alternatingSum"
+        }
+      }
+    },
+    {
+      "type": "speak",
+      "id": "zero-or-multiple",
+      "message": "نتیجه‌ی تفاضل متناوب لازم نیست حتماً صفر باشد. اگر خودش هم بر یازده بخش‌پذیر باشد، کافی است.",
+      "animation": "Thinking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-11",
+      "title": "تمرین ۱ — کدام عددها بر ۱۱ بخش‌پذیرند؟",
+      "speak": "برای هر عدد، تفاضل متناوب رقم‌ها را از چپ حساب کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها بر ۱۱ بخش‌پذیرند؟",
+          "candidates": [
+            { "value": 121, "correct": true },
+            { "value": 253, "correct": true },
+            { "value": 341, "correct": true },
+            { "value": 400, "correct": false },
+            { "value": 562, "correct": false }
+          ]
+        }
+      },
+      "successMessage": "آفرین! برای ۱۲۱، ۲۵۳ و ۳۴۱ تفاضل متناوب رقم‌ها صفر می‌شود — هر سه بر یازده بخش‌پذیرند.",
+      "wrongMessage": "رقم اول منهای رقم دوم به‌علاوه‌ی رقم سوم... اگر نتیجه صفر شد، انتخابش کن."
+    },
+    {
+      "type": "practice",
+      "id": "practice-build-11",
+      "title": "تمرین ۲ — کدام عدد پنج‌رقمی بر ۱۱ بخش‌پذیر است؟",
+      "speak": "تفاضل متناوب رقم‌های هر گزینه را حساب کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عدد پنج‌رقمی بر ۱۱ بخش‌پذیر است؟",
+          "choices": [
+            { "label": "۱۳٬۵۷۴", "correct": true },
+            { "label": "۱۳٬۵۷۵", "correct": false },
+            { "label": "۱۲٬۳۴۵", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! برای ۱۳٬۵۷۴: یک منهای سه به‌علاوه‌ی پنج منهای هفت به‌علاوه‌ی چهار می‌شود صفر.",
+      "wrongMessage": "برای هر گزینه، رقم‌ها را یکی‌درمیان جمع و کم کن و ببین نتیجه صفر می‌شود یا نه."
+    },
+    {
+      "type": "practice",
+      "id": "practice-why-11",
+      "title": "تمرین ۳ — وقتی نتیجه صفر نمی‌شود",
+      "speak": "همیشه نتیجه صفر نمی‌شود. این‌بار دقت کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "برای عدد ۸۰۳، تفاضل متناوب رقم‌ها می‌شود ۸ − ۰ + ۳ = ۱۱. آیا ۸۰۳ بر ۱۱ بخش‌پذیر است؟",
+          "choices": [
+            { "label": "بله — چون نتیجه (۱۱) خودش بر ۱۱ بخش‌پذیر است", "correct": true },
+            { "label": "نه — چون نتیجه صفر نشد", "correct": false },
+            { "label": "نه — چون ۸۰۳ عدد فردی است", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! لازم نیست نتیجه دقیقاً صفر باشد؛ کافی است خودش بر ۱۱ بخش‌پذیر باشد. ۸۰۳ برابر است با ۱۱ ضرب‌در ۷۳.",
+      "wrongMessage": "به یاد بیاور: اگر نتیجهٔ تفاضل متناوب صفر یا مضربی از ۱۱ باشد، عدد بر ۱۱ بخش‌پذیر است."
+    }
+  ]
+}

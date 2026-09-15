@@ -1,0 +1,154 @@
+{
+  "id": "divisibility-08-combine-12-15",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 8,
+  "level": 5,
+  "title": "درس ۸ — ۱۲ و ۱۵ با ترکیب قانون‌ها",
+  "description": "لازم نیست برای هر عدد یک قانون تازه حفظ کنیم — چند راز را با هم ترکیب می‌کنیم",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "لازم نیست برای هر عدد یک قانون جداگانه حفظ کنیم. گاهی می‌توانیم چند راز را که بلدیم با هم ترکیب کنیم.",
+      "animation": "StandingGreeting",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "speak",
+      "id": "rule-12-idea",
+      "message": "برای اینکه عددی بر دوازده بخش‌پذیر باشد، باید هم بر سه و هم بر چهار بخش‌پذیر باشد.",
+      "animation": "Talking",
+      "emotion": "explaining",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "teach-12-part-3",
+      "title": "۳۴۸ بر ۱۲ — گام اول: بر ۳",
+      "speak": "سیصدوچهل‌وهشت: سه به‌علاوه‌ی چهار به‌علاوه‌ی هشت می‌شود پانزده. پانزده بر سه بخش‌پذیر است، پس این عدد بر سه بخش‌پذیر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۳۴۸ بر ۳ بخش‌پذیر است؟",
+          "number": 348,
+          "divisor": 3,
+          "highlight": "digitSum"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "teach-12-part-4",
+      "title": "۳۴۸ بر ۱۲ — گام دوم: بر ۴",
+      "speak": "حالا دو رقم آخر: چهل‌وهشت. چهل‌وهشت بر چهار بخش‌پذیر است. پس سیصدوچهل‌وهشت هم بر سه و هم بر چهار بخش‌پذیر است — یعنی بر دوازده بخش‌پذیر است.",
+      "animation": "Talking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۳۴۸ بر ۴ بخش‌پذیر است؟",
+          "number": 348,
+          "divisor": 4,
+          "highlight": "lastTwo"
+        }
+      }
+    },
+    {
+      "type": "speak",
+      "id": "rule-15-idea",
+      "message": "برای پانزده هم همین‌طور: عدد باید هم بر سه و هم بر پنج بخش‌پذیر باشد.",
+      "animation": "Talking",
+      "emotion": "explaining",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "teach-15",
+      "title": "۴۳۵ بر ۱۵",
+      "speak": "چهارصدوسی‌وپنج: چهار به‌علاوه‌ی سه به‌علاوه‌ی پنج می‌شود دوازده — بر سه بخش‌پذیر. رقم آخرش هم پنج است — بر پنج بخش‌پذیر. پس بر پانزده بخش‌پذیر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۴۳۵ بر ۳ بخش‌پذیر است؟",
+          "number": 435,
+          "divisor": 3,
+          "highlight": "digitSum"
+        }
+      }
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-12",
+      "title": "تمرین ۱ — کدام عددها بر ۱۲ بخش‌پذیرند؟",
+      "speak": "هر عدد را هم بر سه (مجموع رقم‌ها) و هم بر چهار (دو رقم آخر) بررسی کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها بر ۱۲ بخش‌پذیرند؟ (هم بر ۳ و هم بر ۴)",
+          "candidates": [
+            { "value": 132, "correct": true },
+            { "value": 156, "correct": true },
+            { "value": 210, "correct": false },
+            { "value": 288, "correct": true },
+            { "value": 350, "correct": false }
+          ]
+        }
+      },
+      "successMessage": "عالی! ۱۳۲، ۱۵۶ و ۲۸۸ هم مجموع رقم‌هایشان بر سه بخش‌پذیر است و هم دو رقم آخرشان بر چهار — پس هر سه بر دوازده بخش‌پذیرند.",
+      "wrongMessage": "۲۱۰ بر سه بخش‌پذیر است ولی دو رقم آخرش (۱۰) بر چهار نیست. هر دو شرط باید برقرار باشد."
+    },
+    {
+      "type": "practice",
+      "id": "practice-rule-15",
+      "title": "تمرین ۲ — کدام عددها بر ۱۵ بخش‌پذیرند؟",
+      "speak": "هر عدد را هم بر سه و هم بر پنج بررسی کن.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "کدام عددها بر ۱۵ بخش‌پذیرند؟ (هم بر ۳ و هم بر ۵)",
+          "candidates": [
+            { "value": 225, "correct": true },
+            { "value": 300, "correct": true },
+            { "value": 145, "correct": false },
+            { "value": 630, "correct": true },
+            { "value": 410, "correct": false }
+          ]
+        }
+      },
+      "successMessage": "آفرین! ۲۲۵، ۳۰۰ و ۶۳۰ هم رقم آخرشان ۰ یا ۵ است و هم مجموع رقم‌هایشان بر سه بخش‌پذیر — پس بر پانزده بخش‌پذیرند.",
+      "wrongMessage": "۱۴۵ رقم آخرش پنج است ولی مجموع رقم‌ها (۱۰) بر سه بخش‌پذیر نیست."
+    },
+    {
+      "type": "practice",
+      "id": "practice-reason-15",
+      "title": "تمرین ۳ — کدام استدلال کامل است؟",
+      "speak": "دلیل درست و کامل را انتخاب کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "چرا عدد ۴۳۵ بر ۱۵ بخش‌پذیر است؟",
+          "choices": [
+            { "label": "چون هم بر ۳ و هم بر ۵ بخش‌پذیر است", "correct": true },
+            { "label": "چون رقم آخرش ۵ است", "correct": false },
+            { "label": "چون مجموع رقم‌هایش بر ۳ بخش‌پذیر است", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! برای ۱۵ هر دو شرط لازم است — فقط بر ۵ یا فقط بر ۳ بودن کافی نیست.",
+      "wrongMessage": "هر کدام از این دلیل‌ها به‌تنهایی ناقص است. برای ۱۵ باید هم بر ۳ و هم بر ۵ بخش‌پذیر باشد."
+    }
+  ]
+}

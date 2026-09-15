@@ -26,7 +26,11 @@ const features = [
   },
 ] as const;
 
-export function FreeCourse() {
+interface FreeCourseProps {
+  lang?: string;
+}
+
+export function FreeCourse({ lang = "fa" }: FreeCourseProps) {
   return (
     <section id="free-course" className="bg-white py-14 md:py-16 border-t border-slate-100">
       <Container>
@@ -39,10 +43,10 @@ export function FreeCourse() {
             و علاقه و توانایی فرزندتان را در این مسیر بسنجید.
           </p>
           <Link
-            href="/fa/signup"
+            href={`/${lang}/signup`}
             className="inline-flex mt-4 h-11 px-6 items-center justify-center rounded-xl font-bold text-sm text-white bg-hero-gradient shadow-glow-sm"
           >
-            ثبت نام دوره رایگان
+            شروع رایگان
           </Link>
         </div>
 

@@ -3,6 +3,7 @@ import type { MathVisualComponentProps, MathVisualType } from '@/lib/math-visual
 import { AngleVisual } from './visuals/AngleVisual'
 import { CoordinateGrid } from './visuals/CoordinateGrid'
 import { DivisibilityLab } from './visuals/DivisibilityLab'
+import { DivisionModel } from './visuals/DivisionModel'
 import { FractionCircle } from './visuals/FractionCircle'
 import { NumberLine } from './visuals/NumberLine'
 import { PercentBar } from './visuals/PercentBar'
@@ -21,6 +22,7 @@ export const MATH_VISUAL_REGISTRY: Record<MathVisualType, ComponentType<MathVisu
   angle: AngleVisual,
   'percent-bar': PercentBar,
   divisibility: DivisibilityLab,
+  division: DivisionModel,
   quiz: QuizVisual,
 }
 

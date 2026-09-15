@@ -1,0 +1,130 @@
+{
+  "id": "divisibility-05-big-numbers",
+  "subjectId": "math",
+  "topicId": "divisibility",
+  "order": 5,
+  "level": 4,
+  "title": "درس ۵ — رازها روی عددهای بزرگ",
+  "description": "همان نشانه‌ها را روی عددهای خیلی بزرگ اجرا کن — بدون تقسیم طولانی",
+  "subject": "math",
+  "steps": [
+    {
+      "type": "speak",
+      "id": "welcome",
+      "message": "تا اینجا عددها کوچک بودند. حالا می‌خواهم ببینم می‌توانی همان رازها را روی عددهای خیلی بزرگ هم اجرا کنی؟",
+      "animation": "StandingGreeting",
+      "emotion": "curious",
+      "autoAdvance": true
+    },
+    {
+      "type": "teach",
+      "id": "big-last-digit",
+      "title": "رقم یکان، حتی در عدد بزرگ",
+      "speak": "چهار میلیون و هفتصدوبیست‌وهشت هزار و سیصدوشصت را نگاه کن. رقم یکانش صفر است — پس بی‌درنگ می‌دانیم هم بر دو، هم بر پنج و هم بر ده بخش‌پذیر است.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۴٬۷۲۸٬۳۶۰ بر ۱۰ بخش‌پذیر است؟",
+          "number": 4728360,
+          "divisor": 10,
+          "highlight": "lastDigit"
+        }
+      }
+    },
+    {
+      "type": "teach",
+      "id": "big-digit-sum",
+      "title": "مجموع رقم‌ها، حتی در عدد بزرگ",
+      "speak": "حالا رقم‌هایش را جمع بزن: چهار به‌علاوه‌ی هفت به‌علاوه‌ی دو به‌علاوه‌ی هشت به‌علاوه‌ی سه به‌علاوه‌ی شش می‌شود سی. سی بر سه بخش‌پذیر است، ولی بر نه نه — پس این عدد بر سه بخش‌پذیر است، اما بر نه نیست.",
+      "animation": "Talking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "static",
+        "params": {
+          "title": "۴٬۷۲۸٬۳۶۰ بر ۳ بخش‌پذیر است؟",
+          "number": 4728360,
+          "divisor": 3,
+          "highlight": "digitSum"
+        }
+      }
+    },
+    {
+      "type": "speak",
+      "id": "no-long-division",
+      "message": "دیدی؟ حتی برای عددی هفت‌رقمی هم لازم نشد تقسیم طولانی انجام بدهیم. فقط از نشانه‌ها استفاده کردیم.",
+      "animation": "Thinking",
+      "emotion": "happy",
+      "autoAdvance": true
+    },
+    {
+      "type": "practice",
+      "id": "practice-big-multi-rule",
+      "title": "تمرین ۱ — عدد بزرگ، چند قانون با هم",
+      "speak": "عدد ۴٬۷۲۸٬۳۶۰ بر کدام‌یک از این‌ها بخش‌پذیر است؟ چند گزینه می‌تواند درست باشد.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "۴٬۷۲۸٬۳۶۰ بر کدام‌ها بخش‌پذیر است؟ (رقم یکان = صفر، مجموع رقم‌ها = ۳۰)",
+          "candidates": [
+            { "value": 2, "correct": true },
+            { "value": 3, "correct": true },
+            { "value": 5, "correct": true },
+            { "value": 6, "correct": true },
+            { "value": 9, "correct": false },
+            { "value": 10, "correct": true }
+          ]
+        }
+      },
+      "successMessage": "عالی! رقم یکان صفر است پس بر ۲، ۵ و ۱۰؛ مجموع رقم‌ها ۳۰ است پس بر ۳ و در نتیجه بر ۶. فقط بر ۹ بخش‌پذیر نیست چون ۳۰ بر ۹ بخش‌پذیر نیست.",
+      "wrongMessage": "رقم یکان و مجموع رقم‌ها را جدا بررسی کن. یادت باشد ۶ یعنی هم ۲ و هم ۳."
+    },
+    {
+      "type": "practice",
+      "id": "practice-big-digit-sum",
+      "title": "تمرین ۲ — عدد بزرگ فرد",
+      "speak": "این عدد به پنج ختم می‌شود. مجموع رقم‌هایش را حساب کن.",
+      "animation": "Thinking",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "عدد ۱٬۵۳۰٬۲۲۵ بر کدام‌ها بخش‌پذیر است؟ (مجموع رقم‌ها = ۱۸)",
+          "candidates": [
+            { "value": 2, "correct": false },
+            { "value": 3, "correct": true },
+            { "value": 5, "correct": true },
+            { "value": 9, "correct": true },
+            { "value": 10, "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! رقم یکان پنج است پس بر ۵ (نه بر ۲ و نه بر ۱۰). مجموع رقم‌ها ۱۸ است، پس هم بر ۳ و هم بر ۹.",
+      "wrongMessage": "رقم یکان پنج است — یعنی فرد. مجموع رقم‌ها هجده است — بر ۳ و ۹ بخش‌پذیر."
+    },
+    {
+      "type": "practice",
+      "id": "practice-big-choice",
+      "title": "تمرین ۳ — کدام جمله درست است؟",
+      "speak": "بدون تقسیم طولانی تصمیم بگیر.",
+      "animation": "Pointing",
+      "visual": {
+        "type": "divisibility",
+        "mode": "interactive",
+        "params": {
+          "prompt": "دربارهٔ عدد ۸٬۱۱۱٬۱۱۴ کدام جمله درست است؟",
+          "choices": [
+            { "label": "بر ۲ بخش‌پذیر است، چون رقم یکانش چهار است", "correct": true },
+            { "label": "بر ۵ بخش‌پذیر است، چون عدد بزرگی است", "correct": false },
+            { "label": "بر ۱۰ بخش‌پذیر است، چون بر ۲ بخش‌پذیر است", "correct": false }
+          ]
+        }
+      },
+      "successMessage": "درسته! رقم یکان چهار است — زوج — پس بر ۲ بخش‌پذیر است. بزرگی عدد هیچ نشانه‌ای نیست.",
+      "wrongMessage": "فقط به رقم یکان نگاه کن: چهار. این یعنی بر ۲ بخش‌پذیر، ولی نه بر ۵ و نه بر ۱۰."
+    }
+  ]
+}

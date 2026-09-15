@@ -63,7 +63,7 @@ export function Navbar({ lang }: NavbarProps) {
       >
         <nav
           dir="ltr"
-          className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"
+          className="max-w-[1200px] xl:max-w-[1360px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-5 lg:px-6 flex items-center justify-between h-16"
         >
           <Link
             href={`/${lang}/signup`}

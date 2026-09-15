@@ -31,7 +31,7 @@ export function SiteFooter({ lang = "fa" }: SiteFooterProps) {
     {
       heading: "پشتیبانی",
       links: [
-        { label: "تماس با ما", href: "/contact" },
+        { label: "تماس با ما", href: "#" },
         { label: "سوالات متداول", href: "#" },
         { label: "حریم خصوصی", href: "#" },
       ],
@@ -40,7 +40,7 @@ export function SiteFooter({ lang = "fa" }: SiteFooterProps) {
 
   return (
     <footer className="py-16" style={{ background: "#0B0F19" }}>
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] xl:max-w-[1360px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-5 lg:px-6">
         <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-16 mb-16">
           <div>
             <Link href={`/${lang}`} className="flex items-center gap-2 mb-6">
@@ -52,7 +52,7 @@ export function SiteFooter({ lang = "fa" }: SiteFooterProps) {
               </div>
               <span className="font-extrabold text-xl text-white tracking-tight">مایلند</span>
             </Link>
-            <p className="text-sm" style={{ color: "#6B7280", lineHeight: "1.75", maxWidth: "180px" }}>
+            <p className="text-sm" style={{ color: "#94A3B8", lineHeight: "1.75", maxWidth: "180px" }}>
               یادگیری هوشمند برای ذهن‌های کنجکاو.
             </p>
           </div>
@@ -62,7 +62,7 @@ export function SiteFooter({ lang = "fa" }: SiteFooterProps) {
               <div key={col.heading}>
                 <p
                   className="text-xs font-bold uppercase tracking-widest mb-4"
-                  style={{ color: "#4B5563", letterSpacing: "0.1em" }}
+                  style={{ color: "#94A3B8", letterSpacing: "0.1em" }}
                 >
                   {col.heading}
                 </p>
@@ -72,7 +72,7 @@ export function SiteFooter({ lang = "fa" }: SiteFooterProps) {
                       <Link
                         href={href}
                         className="text-sm transition-colors duration-150 hover:text-white"
-                        style={{ color: "#6B7280" }}
+                        style={{ color: "#94A3B8" }}
                       >
                         {label}
                       </Link>
@@ -87,10 +87,10 @@ export function SiteFooter({ lang = "fa" }: SiteFooterProps) {
         <div className="mb-8" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }} />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs" style={{ color: "#4B5563" }}>
+          <p className="text-xs" style={{ color: "#94A3B8" }}>
             © {new Date().getFullYear()} مایلند. تمامی حقوق محفوظ است.
           </p>
-          <p className="text-xs" style={{ color: "#4B5563" }}>
+          <p className="text-xs" style={{ color: "#94A3B8" }}>
             ساخته‌شده با{" "}
             <span style={{ color: "#6C5CE7" }}>هوش مصنوعی</span>
             {" "}برای نسل بعدی یادگیرندگان.

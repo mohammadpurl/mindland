@@ -10,14 +10,14 @@ interface HeroProps {
 
 export function Hero({ lang = "fa" }: HeroProps) {
   return (
-    <section className="hero-section-bg relative min-h-screen flex flex-col overflow-hidden">
+    <section className="hero-section-bg relative min-h-[600px] lg:min-h-[680px] flex flex-col overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="hero-overlay-radial absolute inset-0" />
         <div className="hero-overlay-linear absolute inset-0" />
         <div className="hero-overlay-cyan-glow absolute top-14 left-10 w-80 h-80 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 flex-1 flex items-center py-24 md:py-32">
+      <div className="relative z-10 flex-1 flex items-center py-16 md:py-20">
         <Container className="px-1 sm:px-4 lg:px-5">
           <div dir="ltr" className="grid grid-cols-1 lg:grid-cols-[1.22fr_0.92fr] gap-10 lg:gap-14 items-center">
             <AnimateIn delay={0.36} className="order-2 lg:order-1">

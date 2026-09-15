@@ -10,6 +10,7 @@ export type MathVisualType =
   | 'angle'
   | 'percent-bar'
   | 'divisibility'
+  | 'division'
   | 'quiz'
 
 export type MathVisualMode = 'demo' | 'static' | 'interactive'
@@ -197,6 +198,12 @@ export interface PercentBarParams {
   target?: number
   /** درصد شروع قبل از کشیدن */
   startPercent?: number
+  /**
+   * عددِ هدف را در زیرنویس ننویس تا دانش‌آموز خودش آن را حساب کند
+   * (مثلاً «۱۰۰٪ منهای تخفیف»). بازخورد خطا هم تشخیصی می‌شود:
+   * اگر نزدیک متمم هدف رها کند، تذکر می‌دهد که «مقدار تخفیف» را کشیده نه «مبلغ پرداختی».
+   */
+  hideTargetValue?: boolean
 }
 
 /** یک گزینهٔ عددی در تمرین چندانتخابی بخش‌پذیری */
@@ -223,12 +230,58 @@ export interface DivisibilityParams {
   /** مقسوم‌علیه — مثلاً ۲، ۳، ۵، ۹ یا ۱۰ */
   divisor?: number
   /** چه چیزی از عدد برجسته شود */
-  highlight?: 'remainder' | 'lastDigit' | 'digitSum'
+  highlight?:
+    | 'remainder'
+    | 'lastDigit'
+    | 'digitSum'
+    | 'lastTwo'
+    | 'lastThree'
+    | 'alternatingSum'
   /** تمرین: چند عدد که باید بر اساس divisor انتخاب شوند (چندانتخابی) */
   candidates?: DivisibilityCandidate[]
   /** تمرین: یک سؤال با گزینه‌های متنی (تک‌انتخابی) */
   choices?: DivisibilityChoice[]
   /** متن سؤال بالای گزینه‌ها (برای candidates یا choices) */
+  prompt?: string
+}
+
+/**
+ * پارامترهای ویژوال «مدل تقسیم» (DivisionModel) — پیش‌نیاز بخش‌پذیری.
+ * پنج حالت مختلف با کلید `variant` انتخاب می‌شود.
+ */
+export interface DivisionParams {
+  title?: string
+  /**
+   * - grouping: تقسیم اشیا بین گروه‌ها و کشف خارج‌قسمت/باقی‌مانده
+   * - roles: شناخت چهار نقشِ مقسوم، مقسوم‌علیه، خارج‌قسمت، باقی‌مانده
+   * - relation: بازسازی رابطهٔ «مقسوم = مقسوم‌علیه × خارج‌قسمت + باقی‌مانده»
+   * - remainder-check: بررسی درستیِ یک جواب (قانون کوچک‌تر بودن باقی‌مانده)
+   * - sort: دسته‌بندی تقسیم‌ها به «کامل» و «دارای باقی‌مانده»
+   */
+  variant?: 'grouping' | 'roles' | 'relation' | 'remainder-check' | 'sort'
+  /** grouping — تعداد کل اشیا و تعداد گروه‌ها */
+  total?: number
+  groups?: number
+  /** roles / relation / remainder-check — عددهای یک تقسیم */
+  dividend?: number
+  divisor?: number
+  quotient?: number
+  remainder?: number
+  /** roles — کدام نقش‌ها و به چه ترتیبی پرسیده شوند (پیش‌فرض: هر چهار نقش) */
+  asks?: Array<'dividend' | 'divisor' | 'quotient' | 'remainder'>
+  /** relation — کدام عدد ناشناخته است و باید پیدا شود */
+  missing?: 'dividend' | 'divisor' | 'quotient' | 'remainder'
+  /** remainder-check — خارج‌قسمت و باقی‌ماندهٔ ادعاشده برای بررسی */
+  claimQuotient?: number
+  claimRemainder?: number
+  /** sort — فهرست تقسیم‌ها (خارج‌قسمت/باقی‌مانده در صورت نبود، محاسبه می‌شود) */
+  items?: Array<{
+    dividend: number
+    divisor: number
+    quotient?: number
+    remainder?: number
+  }>
+  /** متن سؤال بالای تمرین */
   prompt?: string
 }
 
@@ -261,6 +314,7 @@ export type MathVisualParams =
   | AngleParams
   | PercentBarParams
   | DivisibilityParams
+  | DivisionParams
   | QuizParams
   | Record<string, unknown>
 
